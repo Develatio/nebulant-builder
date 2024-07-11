@@ -106,5 +106,6 @@ If you find an issue, please report it to the
 📑 License
 --------------------------------------------------------------------------------
 
-This project is licensed under the
-[GPLv3 License](https://opensource.org/license/gpl-3-0).
+Copyright (c) Develatio Technologies S.L. All rights reserved.
+
+Licensed under the [GPLv3 License](https://github.com/develatio/nebulant-builder/blob/master/LICENSE).
