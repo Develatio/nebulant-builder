@@ -179,7 +179,6 @@ export class BaseEngine extends dia.Paper {
 
   drawOn(selector) {
     document.querySelector(selector).appendChild(this.scroller.render().el);
-    this.centerScroller();
   }
 
   drawMinimapOn(selector) {
@@ -287,7 +286,8 @@ export class BaseEngine extends dia.Paper {
     if(x && y) {
       this.scroller.center(x, y);
     } else {
-      [x, y] = this.getCenter();
+      const startNode = this.model.getStartNode();
+      ({ x, y } = startNode.getBBox().center());
       this.scroller.center(x, y);
     }
 
