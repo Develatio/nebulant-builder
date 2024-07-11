@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<rect x="6.28577" y="6.28564" width="11.4286" height="11.4286" stroke="#D86613" stroke-width="1.01587" stroke-linejoin="bevel" class="cstroke" />
+<path d="M4 15.4285H6.28571" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M4 13.1428H6.28571" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M4 10.8572H6.28571" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M4 8.57153H6.28571" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M17.7142 15.4285H19.9999" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M17.7142 13.1428H19.9999" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M17.7142 10.8572H19.9999" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M17.7142 8.57153H19.9999" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M15.4286 6.28564L15.4286 3.99993" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M13.1428 6.28564L13.1428 3.99993" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M10.8572 6.28564L10.8572 3.99993" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M8.57141 6.28564L8.57141 3.99993" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M15.4286 20L15.4286 17.7143" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M13.1428 20L13.1428 17.7143" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M10.8572 20L10.8572 17.7143" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+<path d="M8.57141 20L8.57141 17.7143" stroke="#D86613" stroke-width="0.761906" stroke-linecap="round" class="cstroke" />
+</svg>

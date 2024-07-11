@@ -1,0 +1,26 @@
+.application-right-side {
+  width: $sidebar-right-width;
+  max-width: $sidebar-right-width;
+  transition: 0.4s;
+  padding: 24px 24px 0 24px;
+  gap: 24px;
+
+  &.visible {
+    transform: translateX(0px);
+  }
+
+  &.hidden {
+    transform: translateX($sidebar-right-width);
+  }
+
+  .variable_badge {
+    color: white;
+  }
+
+  .capability_badge {
+    &.border {
+      border: 1px solid $success !important;
+    }
+  }
+
+}

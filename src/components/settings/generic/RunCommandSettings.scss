@@ -1,0 +1,21 @@
+.pass_to_entrypoint_as_single_param {
+  &.scriptName {
+    .input-group {
+      input {
+        border-right: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &.scriptParameters {
+    .input-group {
+      input {
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}

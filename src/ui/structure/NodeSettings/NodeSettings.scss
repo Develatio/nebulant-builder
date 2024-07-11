@@ -1,0 +1,49 @@
+.node-settings {
+  height: 100%;
+
+  .question {
+    svg {
+      overflow: visible;
+      max-width: 16px;
+      max-height: 16px;
+
+      fill: #808080;
+      stroke: #808080;
+      stroke-width: 10px;
+      cursor: pointer;
+
+      &:hover {
+        fill: #000 !important;
+        stroke: #000 !important;
+      }
+    }
+  }
+
+  .grid-split-1fr-1fr {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-split-1fr-1fr-1fr {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .grid-split-1fr-1fr-1fr-1fr {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .grid-split-1fr-auto-1fr {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .grid-split-1fr-auto-2fr {
+    display: grid;
+    grid-template-columns: 1fr auto 2fr;
+  }
+}

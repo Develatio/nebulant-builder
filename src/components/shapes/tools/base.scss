@@ -1,0 +1,15 @@
+.joint-tools-layer {
+  .joint-tools {
+    [data-tool-name="button"] {
+      [joint-selector="background"] {
+        fill: rgba($--dark-40, 0.9);
+      }
+
+      &:hover {
+        [joint-selector="background"] {
+          fill: rgba($--dark-50, 0.9);
+        }
+      }
+    }
+  }
+}

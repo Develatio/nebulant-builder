@@ -1,0 +1,31 @@
+// cells
+.joint-highlight-stroke {
+  stroke-width: 2;
+  stroke-dasharray: 10, 2;
+}
+
+// elementTools
+.joint-tools {
+  .joint-tool {
+    cursor: pointer;
+
+    [joint-selector="button"] {
+      opacity: 0.4;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// selection lasso
+.joint-selection.lasso {
+  border: 2px solid #000 !important;
+}
+
+// paper
+.joint-paper-scroller {
+  overflow: hidden !important;
+  z-index: 0;
+}

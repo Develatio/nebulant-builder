@@ -1,0 +1,22 @@
+FROM mcr.microsoft.com/playwright:v1.44.0-focal
+
+WORKDIR /code
+
+USER root
+RUN chown chrome:chrome /code
+USER chrome
+
+COPY --chown=chrome docker/entrypoint.sh /entrypoint.sh
+COPY --chown=chrome docker/codegen.sh /codegen.sh
+COPY --chown=chrome esbuild/ /code/esbuild
+COPY --chown=chrome src/ /code/src
+COPY --chown=chrome packages/ /code/packages
+COPY --chown=chrome public/ /code/public
+COPY --chown=chrome .env .env.production .env.staging \
+    package.json yarn.lock playwright.config.js /code/
+
+RUN yarn install
+RUN npx playwright install
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["sleep 100"]

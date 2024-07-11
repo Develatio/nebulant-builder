@@ -1,0 +1,109 @@
+.superselect {
+  .mainInputWrapper {
+    display: block;
+    width: 100%;
+    border: $input-border-width solid $input-border-color;
+    background-color: $input-bg;
+
+    @include transition($input-transition);
+
+    @include border-radius($input-border-radius, 0);
+    // If there are any selected values, we want to override the border-botom-*
+    // radius because we'll show the selection preview below the input
+    @at-root .superselect.hasSelections:not(.singleSelect) .mainInputWrapper {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    // Same if the options view is open
+    @at-root .superselect.open .mainInputWrapper {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    @at-root .superselect.open .mainInputWrapper,
+    &:focus,
+    &:focus-within {
+      border-color: $input-focus-border-color;
+
+      .dropdownTrigger {
+        border-left-color: $input-focus-border-color;
+      }
+    }
+
+    @at-root .superselect.disabled .mainInputWrapper {
+      background-color: $input-disabled-bg;
+      pointer-events: none;
+
+      input {
+        background-color: $input-disabled-bg;
+      }
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      padding: $input-padding-y $input-padding-x;
+      font-family: $input-font-family;
+      @include font-size($input-font-size);
+      font-weight: $input-font-weight;
+      line-height: $input-line-height;
+      color: $input-color;
+      background-color: $input-bg;
+      background-clip: padding-box;
+      border: none;
+      border-radius: $border-radius;
+
+      &:focus {
+        color: $input-focus-color;
+        background-color: $input-focus-bg;
+        outline: 0;
+      }
+
+      &:not(.editable) {
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+
+    /*
+    @at-root .superselect.open .mainInputWrapper .valueLabel {
+      display: none;
+    }
+
+    @at-root .superselect:not(.open) .mainInputWrapper .valueLabel {
+      position: absolute;
+      top: calc(0% - 6px);
+      background-color: white;
+      margin-left: 6px;
+    }
+    */
+
+    .btnDeleteWrapper {
+      min-width: 20px;
+      margin-right: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .btnDelete {
+        @extend .btn-close;
+        margin-top: 2px; // pixel-perfect center adjusting
+        width: .25em;
+        height: .25em;
+        cursor: pointer;
+      }
+    }
+
+    .dropdownTrigger {
+      min-width: 40px;
+      width: 40px;
+      cursor: pointer;
+      border-left: $border-width solid var(--bs-border-color);
+      --#{$prefix}form-select-bg-img: #{escape-svg($form-select-indicator)};
+      background-image: #{escape-svg($form-select-indicator-dark)};
+      background-repeat: no-repeat;
+      background-position: $form-select-bg-position;
+      background-size: $form-select-bg-size;
+    }
+  }
+}

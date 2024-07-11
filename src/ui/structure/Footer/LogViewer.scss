@@ -1,0 +1,66 @@
+.application-footer {
+  .logviewer {
+    height: 0px;
+    position: relative;
+    background-color: $--dark-10;
+
+    &.visible {
+      //border-top: 1px solid #ccc;
+    }
+
+    &.hidden {
+      //
+    }
+  }
+
+  .messages {
+    .logline {
+      font-size: 0.9rem;
+      line-height: 16px;
+      font-family: PragmataPro, "Lucida Console", Monaco, monospace;
+
+      &.hl {
+        background-color: lightgray;
+      }
+
+      .time {
+        color: $gray_text;
+      }
+
+      .line {
+        padding-left: 0.5rem;
+        white-space: pre;
+
+        .clickable {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+
+        &.debug {
+          color: $gray_text;
+        }
+
+        &.info {
+          color: $blue_text
+        }
+
+        &.success {
+          color: $green_text;
+        }
+
+        &.warning {
+          color: $orange_text;
+        }
+
+        &.error {
+          color: $red_text;
+        }
+
+        &.critical {
+          color: $red_text;
+          background-color: black;
+        }
+      }
+    }
+  }
+}

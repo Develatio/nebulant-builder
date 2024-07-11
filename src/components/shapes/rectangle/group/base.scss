@@ -1,0 +1,29 @@
+.blueprint-container {
+  .joint-type-nebulant-rectangle-group {
+    [magnet="true"]:hover {
+      cursor: crosshair;
+    }
+
+    [joint-selector="backdropblur"] {
+      div {
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(3px);
+      }
+    }
+
+    [joint-selector="pathBodyStack1"] {
+      transform: rotate(10deg);
+      transform-origin: 50px 60px;
+    }
+
+    [joint-selector="pathBodyStack2"] {
+      transform: rotate(20deg);
+      transform-origin: 50px 60px;
+    }
+
+    [joint-selector="pathBody"] {
+      filter: none;
+    }
+  }
+}

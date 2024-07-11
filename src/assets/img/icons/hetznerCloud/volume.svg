@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg fill="none" height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<path class="cstroke" d="M6.66663 10.6666L16 5.33325L25.3333 10.6666L16 15.9999L6.66663 10.6666Z" stroke="#E84560" stroke-linejoin="bevel" stroke-width="1.33333"/>
+<path class="cstroke" d="M16 26.4001L25.3333 21.0667V10.6667L16 16.0001V26.4001Z" stroke="#E84560" stroke-linejoin="bevel" stroke-width="1.33333"/>
+<path class="cstroke" d="M16 26.4001L6.66663 21.0667V10.6667L16 16.0001V26.4001Z" stroke="#E84560" stroke-linejoin="bevel" stroke-width="1.33333"/>
+</svg>

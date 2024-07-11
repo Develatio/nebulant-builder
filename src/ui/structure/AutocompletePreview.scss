@@ -1,0 +1,11 @@
+.autocompletePreviewModal {
+  .blueprint-container {
+    background-color: transparent;
+    border: 1px solid #ccc;
+  }
+
+  #autocompletePreview {
+    height: 70vh;
+    max-height: 70vh;
+  }
+}

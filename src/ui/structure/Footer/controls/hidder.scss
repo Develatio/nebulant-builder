@@ -1,0 +1,55 @@
+.application-footer {
+  .hidder {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 1px;
+    transform: translateX(-50%) translateY(-19px);
+    //border: 1px solid #ccc;
+    background-color: $--dark-30;
+    line-height: 18px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    &:hover {
+      background-color: $--dark-40;
+    }
+
+    &.expanded {
+      top: -3px;
+    }
+
+    svg.double-arrow-down,
+    svg.double-arrow-up {
+      width: 11px;
+      height: 17px;
+
+      path {
+        stroke: none !important;
+        fill: $--white-primary !important;
+      }
+    }
+
+    @keyframes blink-warning {
+      0% { background-color: white; }
+      30% { background-color: $warning; }
+      70% { background-color: $warning; }
+      100% { background-color: white; }
+    }
+
+    &.blink-warning {
+      animation: blink-warning 0.5s ease-in-out infinite;
+    }
+
+    @keyframes blink-error {
+      0% { background-color: white; }
+      30% { background-color: $error; }
+      70% { background-color: $error; }
+      100% { background-color: white; }
+    }
+
+    &.blink-error {
+      animation: blink-error 0.5s ease-in-out infinite;
+    }
+  }
+}

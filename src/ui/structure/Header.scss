@@ -1,0 +1,48 @@
+.application-header {
+  position: relative;
+
+  .logo-wrapper {
+    .logo {
+      height: 20px;
+    }
+  }
+
+  .menu {
+    user-select: none;
+    background-color: $--dark-10;
+
+    .navbar-nav {
+      gap: 36px;
+    }
+
+    .nav-link {
+      padding: 0;
+      font-size: 0.9rem;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .settings {
+    width: 20px;
+  }
+
+  .application-engine-layer-notificator {
+    position: absolute;
+    z-index: 100;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    user-select: none;
+    max-width: calc(300px);
+
+    .Icon {
+      min-height: 12px;
+      height: 12px;
+      min-width: 12px;
+      width: 12px;
+    }
+  }
+}

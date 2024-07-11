@@ -1,0 +1,18 @@
+.private-text {
+  .input-group {
+    textarea[type="password"] {
+      &.muted {
+        color: transparent;
+        text-shadow: 0 0 8px rgba(0,0,0,0.5);
+      }
+    }
+
+    input {
+      border-top-right-radius: $border-radius;
+    }
+
+    button {
+      border: none;
+    }
+  }
+}

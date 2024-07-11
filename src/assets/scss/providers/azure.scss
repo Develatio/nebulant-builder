@@ -1,0 +1,126 @@
+// cells
+.joint-type-nebulant-threepstar-vertical-azure,
+.joint-type-nebulant-rectangle-vertical-azure {
+  [joint-selector="pathBody"] {
+    stroke: $cell_bg_color;
+    fill: $cell_bg_color;
+  }
+
+  [joint-selector="titlebg"] {
+    fill: $azure_node_title_bg_color;
+  }
+
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke: rgba($azure_main_color, 0.4);
+    }
+  }
+
+  &.highlighted-persistent {
+    .joint-highlight-stroke {
+      stroke: $azure_main_color;
+    }
+  }
+}
+
+// elementTools
+.joint-tools {
+  .azure {
+    [joint-selector="button"] {
+      stroke: $azure_main_color;
+    }
+  }
+}
+
+.application-left-side {
+  .ddWidgets-wrapper {
+    .providers {
+      .provider {
+        &[data-name="azure"] {
+          background-image: url(@src/assets/img/icons/providers/azure.png);
+        }
+      }
+    }
+
+    .actions {
+      @at-root #react-tiny-popover-container .action,
+      .action {
+        &.azure {
+          border-left-color: $azure_ddWidget_left_border_color;
+        }
+      }
+
+      .action,
+      .actionsGroup {
+        &.azure {
+          svg.image {
+            .cstroke {
+              stroke: $azure_ddWidget_color;
+            }
+
+            .cfill {
+              fill: $azure_ddWidget_color;
+            }
+          }
+
+          &:hover {
+            svg.image {
+              .cstroke {
+                stroke: $azure_ddWidget_color_hover;
+              }
+
+              .cfill {
+                fill: $azure_ddWidget_color_hover;
+              }
+            }
+          }
+
+          &.open {
+            svg.image {
+              .cstroke {
+                stroke: $azure_ddWidget_color_open;
+              }
+
+              .cfill {
+                fill: $azure_ddWidget_color_open;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.application-right-side {
+  .variables {
+    .wrapper {
+      &.active {
+        &.azure {
+          svg.border rect {
+            stroke: $azure_variable_border_color;
+          }
+        }
+      }
+
+      .variable_badge {
+        &.azure {
+          border: 1px solid $azure_variable_badge_border_color !important;
+        }
+
+        &.fill {
+          &.azure {
+            background-color: $azure_variable_badge_bg_color !important;
+          }
+        }
+
+        &.border {
+          &.azure {
+            color: black;
+            background-color: white !important;
+          }
+        }
+      }
+    }
+  }
+}

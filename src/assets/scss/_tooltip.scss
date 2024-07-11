@@ -1,0 +1,55 @@
+.tooltip {
+  &.show {
+    opacity: 1;
+  }
+
+  &.bs-tooltip-top {
+    .tooltip-arrow::before {
+      border-top-color: $--dark-80;
+    }
+  }
+
+  &.bs-tooltip-bottom {
+    .tooltip-arrow::before {
+      border-bottom-color: $--dark-80;
+    }
+  }
+
+  &.bs-tooltip-start {
+    .tooltip-arrow::before {
+      border-left-color: $--dark-80;
+    }
+  }
+
+  &.bs-tooltip-end {
+    .tooltip-arrow::before {
+      border-right-color: $--dark-80;
+    }
+  }
+
+  .tooltip-inner {
+    color: black;
+    background-color: $--dark-80;
+    //border: 1px solid #ccc;
+    max-width: fit-content;
+    box-shadow: none !important;
+    color: $--white-primary;
+  }
+}
+
+
+.tooltip[role=tooltip] {
+  z-index: 99999;
+
+  // We use this to remove the extra styles that get added by the intellisense
+  // documentation.
+  .tooltip-inner {
+    @extend .tiny-shadow;
+
+    > div {
+      > p {
+        margin: 0;
+      }
+    }
+  }
+}

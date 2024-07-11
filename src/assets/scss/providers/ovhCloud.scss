@@ -1,0 +1,126 @@
+// cells
+.joint-type-nebulant-threepstar-vertical-ovhcloud,
+.joint-type-nebulant-rectangle-vertical-ovhcloud {
+  [joint-selector="pathBody"] {
+    stroke: $cell_bg_color;
+    fill: $cell_bg_color;
+  }
+
+  [joint-selector="titlebg"] {
+    fill: $ovhCloud_node_title_bg_color;
+  }
+
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke: rgba($ovhCloud_main_color, 0.4);
+    }
+  }
+
+  &.highlighted-persistent {
+    .joint-highlight-stroke {
+      stroke: $ovhCloud_main_color;
+    }
+  }
+}
+
+// elementTools
+.joint-tools {
+  .ovhCloud {
+    [joint-selector="button"] {
+      stroke: $ovhCloud_main_color;
+    }
+  }
+}
+
+.application-left-side {
+  .ddWidgets-wrapper {
+    .providers {
+      .provider {
+        &[data-name="ovhCloud"] {
+          background-image: url(@src/assets/img/icons/providers/ovh_cloud.png);
+        }
+      }
+    }
+
+    .actions {
+      @at-root #react-tiny-popover-container .action,
+      .action {
+        &.ovhCloud {
+          border-left-color: $ovhCloud_ddWidget_left_border_color;
+        }
+      }
+
+      .action,
+      .actionsGroup {
+        &.ovhCloud {
+          svg.image {
+            .cstroke {
+              stroke: $ovhCloud_ddWidget_color;
+            }
+
+            .cfill {
+              fill: $ovhCloud_ddWidget_color;
+            }
+          }
+
+          &:hover {
+            svg.image {
+              .cstroke {
+                stroke: $ovhCloud_ddWidget_color_hover;
+              }
+
+              .cfill {
+                fill: $ovhCloud_ddWidget_color_hover;
+              }
+            }
+          }
+
+          &.open {
+            svg.image {
+              .cstroke {
+                stroke: $ovhCloud_ddWidget_color_open;
+              }
+
+              .cfill {
+                fill: $ovhCloud_ddWidget_color_open;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.application-right-side {
+  .variables {
+    .wrapper {
+      &.active {
+        &.ovhCloud {
+          svg.border rect {
+            stroke: $ovhCloud_variable_border_color;
+          }
+        }
+      }
+
+      .variable_badge {
+        &.ovhCloud {
+          border: 1px solid $ovhCloud_variable_badge_border_color !important;
+        }
+
+        &.fill {
+          &.ovhCloud {
+            background-color: $ovhCloud_variable_badge_bg_color !important;
+          }
+        }
+
+        &.border {
+          &.ovhCloud {
+            color: black;
+            background-color: white !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+.application-left-side {
+  .actions.up {
+    position: absolute;
+    left: calc(100% + 15px);
+    top: 10px;
+
+    > div:not(.spinner) {
+      cursor: pointer;
+      background-color: $--dark-30;
+      height: 30px;
+      width: 30px;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 20px;
+
+      &:hover {
+        background-color: $--dark-40;
+      }
+    }
+
+    > div.spinner {
+      height: 30px;
+      border-radius: 15px;
+      text-align: center;
+      line-height: 20px;
+      cursor: pointer;
+
+      color: $white;
+      font-size: 0.9rem;
+
+      &:hover {
+        background-color: shade-color($info, 10%) !important;
+      }
+
+      .indicator {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+
+        &:after {
+          content: " ";
+          display: block;
+          width: 22px;
+          height: 22px;
+          margin: 0px;
+          border-radius: 50%;
+          border: 4px solid #fff;
+          border-color: #fff transparent #fff transparent;
+          animation: rotate360 1.2s linear infinite;
+        }
+      }
+
+      @keyframes rotate360 {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    .connected {
+      padding: 2px;
+    }
+
+    .run {
+      &.enabled {
+        background-color: $success !important;
+
+        &:hover {
+          background-color: shade-color($success, 10%) !important;
+        }
+      }
+
+      &.disabled {
+        background-color: $gray-300 !important;
+
+        &:hover {
+          background-color: shade-color($gray-300, 10%) !important;
+        }
+      }
+
+      svg {
+        path {
+          fill: white !important;
+          stroke: white !important;
+        }
+      }
+    }
+
+    .pause {
+      &:hover {
+        background-color: shade-color($warning, 10%) !important;
+      }
+
+      svg {
+        path {
+          fill: white !important;
+          stroke: white !important;
+        }
+      }
+    }
+
+    .stop {
+      &:hover {
+        background-color: shade-color($danger, 10%) !important;
+      }
+
+      svg {
+        path {
+          fill: white !important;
+          stroke: white !important;
+        }
+      }
+    }
+
+    .resume {
+      &:hover {
+        background-color: shade-color($success, 10%) !important;
+      }
+
+      svg {
+        path {
+          fill: white !important;
+          stroke: white !important;
+        }
+      }
+    }
+  }
+}

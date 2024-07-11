@@ -1,0 +1,111 @@
+.application-right-side {
+  .minimap-wrapper {
+    position: absolute;
+
+    &.enabled {
+      right: calc(100% + 15px);
+      top: 10px;
+    }
+
+    &.disabled {
+      scale: 0.5;
+      right: 260px;
+      top: 10px;
+    }
+
+    .minimap-container {
+      display: block;
+      z-index: 100;
+      position: relative;
+      border-radius: 6px;
+      background-color: $--dark-40;
+
+      .minimap-placeholder {
+        width: 100px;
+        height: 100px;
+      }
+
+      .joint-navigator {
+        border: none;
+        background: none;
+
+        .joint-paper {
+          box-shadow: none;
+        }
+
+        // The current view area
+        .current-view {
+          border: 1px solid $--dark-80;
+
+          .current-view-control {
+            border: 1px solid $--dark-80;
+          }
+        }
+      }
+    }
+
+    $div-count: 30;
+
+    .stack {
+      position: absolute;
+      display: block;
+      perspective: 1500px;
+      perspective-origin: -200% center;
+      transform: translateX(-5px) translateY(-100%);
+      transition: all 0.5s;
+      width: 100%;
+      height: 100%;
+
+      .minimap-card {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 1px solid;
+        z-index: 1;
+        background-color: white;
+        transition: all 0.5s;
+        will-change: transform;
+
+        @for $i from 1 through $div-count {
+          &:nth-child(#{$i}) {
+            top: 0;
+            z-index: $div-count - $i;
+          }
+        }
+
+        &:nth-child(1) {
+          transform: rotateZ(10deg);
+        }
+
+        @for $i from 2 through $div-count {
+          &:nth-child(#{$i}) {
+            transform: rotateZ(20deg);
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .stack {
+        perspective-origin: -400% center;
+        transform: translateX(-10px) translateY(-65px) rotateZ(0deg);
+
+        .minimap-card {
+          width: 95%;
+          height: 95%;
+          transform: rotateX(50deg) rotateY(0deg) rotateZ(0deg);
+
+          @for $i from 1 through $div-count {
+            &:nth-child(#{$i}) {
+              top: $i * 12px;
+            }
+          }
+
+          &:hover {
+            transform: rotateX(50deg) rotateY(0deg) rotateZ(0deg) translateX(-10px);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.superselect {
+  .groupsWrapper {
+    border-right: $border-width solid $border-color;
+    @include enhanced-scrollbar;
+    overflow-x: hidden !important;
+    max-width: calc(100% / 3);
+    flex-shrink: 0;
+
+    .group {
+      @extend .py-1;
+      @extend .ps-2;
+      @extend .pe-2;
+
+      display: flex;
+      align-items: center;
+      cursor: default;
+      font-weight: $font-weight-normal;
+      color: $dropdown-color;
+      text-align: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+      background-color: transparent;
+      border: 0;
+
+      &:hover,
+      &:focus {
+        color: $dropdown-link-hover-color;
+        @include gradient-bg($dropdown-link-hover-bg);
+      }
+
+      .rcaret {
+        @extend .me-2;
+        width: 0;
+        height: 0;
+        display: inline-block;
+        vertical-align: middle;
+        border-style: solid;
+        border-width: 4px 0 4px 4px;
+        border-color: transparent transparent transparent transparent;
+      }
+
+      &.active {
+        .rcaret {
+          border-color: transparent transparent transparent map-get($colors, "white");
+        }
+      }
+    }
+  }
+}

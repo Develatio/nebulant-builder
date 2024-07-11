@@ -1,0 +1,16 @@
+.joint-type-nebulant-link {
+  [joint-selector="line"].highlighted,
+  [joint-selector="line"].highlighted-persistent {
+    stroke-dasharray: 10, 2;
+  }
+  [joint-selector="line"].highlighted-animated {
+    animation: animated-stroke-dash 1s linear infinite;
+  }
+
+  [joint-selector="lineglow"] {
+    stroke-width: 14;
+    stroke-opacity: 0.2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+}

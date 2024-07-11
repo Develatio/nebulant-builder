@@ -1,0 +1,126 @@
+// cells
+.joint-type-nebulant-threepstar-vertical-executioncontrol,
+.joint-type-nebulant-rectangle-vertical-executioncontrol {
+  [joint-selector="pathBody"] {
+    stroke: $cell_bg_color;
+    fill: $cell_bg_color;
+  }
+
+  [joint-selector="titlebg"] {
+    fill: $executionControl_node_title_bg_color;
+  }
+
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke: $executionControl_highlighter_hover;
+    }
+  }
+
+  &.highlighted-persistent {
+    .joint-highlight-stroke {
+      stroke: $executionControl_highlighter_persistent;
+    }
+  }
+}
+
+// elementTools
+.joint-tools {
+  .executionControl {
+    [joint-selector="button"] {
+      stroke: $executionControl_main_color;
+    }
+  }
+}
+
+.application-left-side {
+  .ddWidgets-wrapper {
+    .providers {
+      .provider {
+        &[data-name="executionControl"] {
+          background-image: url(@src/assets/img/icons/providers/executionControl.png);
+        }
+      }
+    }
+
+    .actions {
+      @at-root #react-tiny-popover-container .action,
+      .action {
+        &.executionControl {
+          border-left-color: $executionControl_ddWidget_left_border_color;
+        }
+      }
+
+      .action,
+      .actionsGroup {
+        &.executionControl {
+          svg.image {
+            .cstroke {
+              stroke: $executionControl_ddWidget_color;
+            }
+
+            .cfill {
+              fill: $executionControl_ddWidget_color;
+            }
+          }
+
+          &:hover {
+            svg.image {
+              .cstroke {
+                stroke: $executionControl_ddWidget_color_hover;
+              }
+
+              .cfill {
+                fill: $executionControl_ddWidget_color_hover;
+              }
+            }
+          }
+
+          &.open {
+            svg.image {
+              .cstroke {
+                stroke: $executionControl_ddWidget_color_open;
+              }
+
+              .cfill {
+                fill: $executionControl_ddWidget_color_open;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.application-right-side {
+  .variables {
+    .wrapper {
+      &.active {
+        &.executionControl {
+          svg.border rect {
+            stroke: $executionControl_variable_border_color;
+          }
+        }
+      }
+
+      .variable_badge {
+        &.executionControl {
+          border: 1px solid $executionControl_variable_badge_border_color !important;
+        }
+
+        &.fill {
+          &.executionControl {
+            background-color: $executionControl_variable_badge_bg_color !important;
+          }
+        }
+
+        &.border {
+          &.executionControl {
+            color: black;
+            background-color: white !important;
+          }
+        }
+      }
+    }
+  }
+}

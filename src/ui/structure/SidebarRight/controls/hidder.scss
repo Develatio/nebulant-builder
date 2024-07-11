@@ -1,0 +1,28 @@
+.application-right-side {
+  .hidder {
+    cursor: pointer;
+    position: absolute;
+    left: -19px;
+    top: 50%;
+    transform: translateY(-50%);
+    //border: 1px solid #ccc;
+    background-color: $--dark-30;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    &:hover {
+      background-color: $--dark-40;
+    }
+
+    svg.double-arrow-left,
+    svg.double-arrow-right {
+      width: 11px;
+      height: 21px;
+
+      path {
+        stroke: none !important;
+        fill: $--white-primary !important;
+      }
+    }
+  }
+}

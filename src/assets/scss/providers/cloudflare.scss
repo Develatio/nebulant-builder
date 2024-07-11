@@ -1,0 +1,126 @@
+// cells
+.joint-type-nebulant-threepstar-vertical-cloudflare,
+.joint-type-nebulant-rectangle-vertical-cloudflare {
+  [joint-selector="pathBody"] {
+    stroke: $cell_bg_color;
+    fill: $cell_bg_color;
+  }
+
+  [joint-selector="titlebg"] {
+    fill: $cloudflare_node_title_bg_color;
+  }
+
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke: rgba($cloudflare_main_color, 0.4);
+    }
+  }
+
+  &.highlighted-persistent {
+    .joint-highlight-stroke {
+      stroke: $cloudflare_main_color;
+    }
+  }
+}
+
+// elementTools
+.joint-tools {
+  .cloudflare {
+    [joint-selector="button"] {
+      stroke: $cloudflare_main_color;
+    }
+  }
+}
+
+.application-left-side {
+  .ddWidgets-wrapper {
+    .providers {
+      .provider {
+        &[data-name="cloudflare"] {
+          background-image: url(@src/assets/img/icons/providers/cloudflare.png);
+        }
+      }
+    }
+
+    .actions {
+      @at-root #react-tiny-popover-container .action,
+      .action {
+        &.cloudflare {
+          border-left-color: $cloudflare_ddWidget_left_border_color;
+        }
+      }
+
+      .action,
+      .actionsGroup {
+        &.cloudflare {
+          svg.image {
+            .cstroke {
+              stroke: $cloudflare_ddWidget_color;
+            }
+
+            .cfill {
+              fill: $cloudflare_ddWidget_color;
+            }
+          }
+
+          &:hover {
+            svg.image {
+              .cstroke {
+                stroke: $cloudflare_ddWidget_color_hover;
+              }
+
+              .cfill {
+                fill: $cloudflare_ddWidget_color_hover;
+              }
+            }
+          }
+
+          &.open {
+            svg.image {
+              .cstroke {
+                stroke: $cloudflare_ddWidget_color_open;
+              }
+
+              .cfill {
+                fill: $cloudflare_ddWidget_color_open;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.application-right-side {
+  .variables {
+    .wrapper {
+      &.active {
+        &.cloudflare {
+          svg.border rect {
+            stroke: $cloudflare_variable_border_color;
+          }
+        }
+      }
+
+      .variable_badge {
+        &.cloudflare {
+          border: 1px solid $cloudflare_variable_badge_border_color !important;
+        }
+
+        &.fill {
+          &.cloudflare {
+            background-color: $cloudflare_variable_badge_bg_color !important;
+          }
+        }
+
+        &.border {
+          &.cloudflare {
+            color: black;
+            background-color: white !important;
+          }
+        }
+      }
+    }
+  }
+}

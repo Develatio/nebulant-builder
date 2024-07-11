@@ -1,0 +1,72 @@
+.superselect {
+  .tagWrapper {
+    @extend .ps-1;
+    @extend .pe-1;
+    display: inline-block;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    height: fit-content;
+
+    max-width: 45%; // 45% of the width of the selection preview
+
+    @at-root .superselect.disabled .tagWrapper {
+      background-color: $input-disabled-bg;
+
+      .txtWrapper {
+        input {
+          background-color: $input-disabled-bg;
+          pointer-events: none;
+        }
+      }
+
+      .btnDeleteWrapper {
+        pointer-events: none;
+      }
+    }
+
+    .txtWrapper {
+      @extend .pe-1;
+      border-right: $border-width solid $border-color;
+      position: relative;
+      min-width: 0;
+
+      span {
+        display: block;
+        min-height: $input-line-height * 1em;
+      }
+
+      input {
+        border: none;
+        color: $input-color;
+        position: absolute;
+        left: 0;
+        top: 0;
+        outline: 0;
+        height: 100%;
+        font-family: inherit;
+        width: 100%;
+        padding: inherit;
+      }
+    }
+
+    &.editable {
+      cursor: text;
+    }
+
+    &:not(.editable) {
+      cursor: default;
+    }
+
+    .btnDeleteWrapper {
+      @extend .ms-1;
+      cursor: pointer;
+
+      .btnDelete {
+        @extend .btn-close;
+        margin-top: 2px; // pixel-perfect center adjusting
+        width: .25em;
+        height: .25em;
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.stylish-tabs {
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid $border-color-dark;
+  }
+
+  &:not(:empty) {
+    &::before {
+      margin-right: .5em;
+    }
+
+    &::after {
+      margin-left: .5em;
+    }
+  }
+
+  .tabsWrapper {
+    a {
+      line-height: 1;
+      height: fit-content;
+      border-top: 1px solid $--white-border;
+      border-bottom: 1px solid $--white-border;
+    }
+
+    a:first-of-type {
+      border-left: 1px solid $--white-border;
+      border-top-left-radius: 0.25rem !important;
+      border-bottom-left-radius: 0.25rem !important;
+    }
+
+    a:last-of-type {
+      border-right: 1px solid $--white-border;
+      border-top-right-radius: 0.25rem !important;
+      border-bottom-right-radius: 0.25rem !important;
+    }
+
+    a {
+      margin: -1px -1px;
+      background-color: $--dark-40;
+      border-left: 1px solid $--white-border;
+      border-right: 1px solid $--white-border;
+      transition: z-index 0.15s ease-in-out, border 0.15s ease-in-out;
+    }
+
+    a.active {
+      border: 1px solid $--dark-60;
+      background-color: $primary;
+      z-index: 1;
+
+      &:hover {
+        border: 1px solid shade-color($--white-border, $btn-hover-bg-shade-amount);
+        background-color: shade-color($primary, $btn-hover-bg-shade-amount);
+      }
+    }
+
+    a:not(.active) {
+      color: $--white-o-60;
+      border-radius: 0;
+
+      &:hover {
+        border-color: $--white-border;
+      }
+    }
+
+    a.active + a:not(.active) {
+      &:hover {
+        border-color: $--white-border;
+        transition: z-index 0.15s ease-in-out, border 0.15s ease-in-out;
+      }
+    }
+
+    a:not(.active) + a.active{
+      &:hover {
+        border-color: transparent;
+        transition: z-index 0.15s ease-in-out, border 0.15s ease-in-out;
+      }
+    }
+
+    //
+    a:not(.active):hover + a:not(.active) {
+      border-left-color: transparent;
+    }
+  }
+}

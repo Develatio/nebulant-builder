@@ -1,0 +1,126 @@
+// cells
+.joint-type-nebulant-threepstar-vertical-googlecloud,
+.joint-type-nebulant-rectangle-vertical-googlecloud {
+  [joint-selector="pathBody"] {
+    stroke: $cell_bg_color;
+    fill: $cell_bg_color;
+  }
+
+  [joint-selector="titlebg"] {
+    fill: $googleCloud_node_title_bg_color;
+  }
+
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke: rgba($googleCloud_main_color, 0.4);
+    }
+  }
+
+  &.highlighted-persistent {
+    .joint-highlight-stroke {
+      stroke: $googleCloud_main_color;
+    }
+  }
+}
+
+// elementTools
+.joint-tools {
+  .googleCloud {
+    [joint-selector="button"] {
+      stroke: $googleCloud_main_color;
+    }
+  }
+}
+
+.application-left-side {
+  .ddWidgets-wrapper {
+    .providers {
+      .provider {
+        &[data-name="googleCloud"] {
+          background-image: url(@src/assets/img/icons/providers/google_cloud.png);
+        }
+      }
+    }
+
+    .actions {
+      @at-root #react-tiny-popover-container .action,
+      .action {
+        &.googleCloud {
+          border-left-color: $googleCloud_ddWidget_left_border_color;
+        }
+      }
+
+      .action,
+      .actionsGroup {
+        &.googleCloud {
+          svg.image {
+            .cstroke {
+              stroke: $googleCloud_ddWidget_color;
+            }
+
+            .cfill {
+              fill: $googleCloud_ddWidget_color;
+            }
+          }
+
+          &:hover {
+            svg.image {
+              .cstroke {
+                stroke: $googleCloud_ddWidget_color_hover;
+              }
+
+              .cfill {
+                fill: $googleCloud_ddWidget_color_hover;
+              }
+            }
+          }
+
+          &.open {
+            svg.image {
+              .cstroke {
+                stroke: $googleCloud_ddWidget_color_open;
+              }
+
+              .cfill {
+                fill: $googleCloud_ddWidget_color_open;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.application-right-side {
+  .variables {
+    .wrapper {
+      &.active {
+        &.googleCloud {
+          svg.border rect {
+            stroke: $googleCloud_variable_border_color;
+          }
+        }
+      }
+
+      .variable_badge {
+        &.googleCloud {
+          border: 1px solid $googleCloud_variable_badge_border_color !important;
+        }
+
+        &.fill {
+          &.googleCloud {
+            background-color: $googleCloud_variable_badge_bg_color !important;
+          }
+        }
+
+        &.border {
+          &.googleCloud {
+            color: black;
+            background-color: white !important;
+          }
+        }
+      }
+    }
+  }
+}

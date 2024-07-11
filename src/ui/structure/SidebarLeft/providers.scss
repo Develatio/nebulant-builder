@@ -1,0 +1,33 @@
+.application-left-side {
+  .providers {
+    flex-shrink: 0;
+    z-index: 10;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .provider {
+      width: 52px;
+      height: 40px;
+      flex-shrink: 0;
+
+      padding: 0px 12px;
+
+      border: 2px solid rgba($color: $--white-primary, $alpha: 0.12);;
+      border-radius: 8px;
+
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position-x: left;
+      background-position-y: center;
+      background-origin: content-box;
+
+      &:hover,
+      &.selected {
+        background-color: rgba($color: #574A81, $alpha: 0.80);
+        border: 2px solid $--purple-10;
+      }
+    }
+  }
+}

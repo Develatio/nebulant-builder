@@ -1,0 +1,23 @@
+name: nebulant
+
+services:
+  teste2e:
+    container_name: nebulant_teste2e
+    build:
+      context: .
+      dockerfile: Dockerfile_teste2e
+    image: develatio/nebulant_teste2e
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - ./src:/code/src/
+      - ./playwright.conf.js:/code/playwright.conf.js
+      - ./package.json:/code/package.json
+    environment:
+      - DISPLAY=host.docker.internal:0
+    networks:
+      - nebulant-external
+
+networks:
+  nebulant-external:
+    external: true

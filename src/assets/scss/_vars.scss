@@ -1,0 +1,177 @@
+$--dark-10: #1E1A28;
+$--dark-20: #242133;
+$--dark-30: #282438;
+$--dark-40: #2D2A41;
+$--dark-50: #332F4B;
+$--dark-50-o-60: #332F4B99;
+$--dark-50-o-70: #332F4BB2;
+$--dark-60: #3F3B5E;
+$--dark-70: #49446F;
+$--dark-80: #534E7B;
+
+$--purple-10: #6139EC;
+$--purple-10-o-40: #6139EC66;
+$--purple-20: #7953FF;
+$--purple-30: #8B6AFF;
+$--purple-40: #9D81FF;
+$--purple-50: #A990FF;
+$--purple-60: #BBA7FF;
+$--purple-70: #CBBCFF;
+$--purple-80: #E7E0FF;
+
+$--green-10: #2A9254;
+$--green-10-o-40: #2A925466;
+$--green-20: #31A05D;
+$--green-30: #37AF67;
+$--green-30-o-20: #37AF6733;
+$--green-40: #38C973;
+
+$--red-10: #931F1D;
+$--red-20: #B43429;
+$--red-30: #DB4C40;
+$--red-30-o-20: #DB4C4033;
+$--red-30-o-40: #DB4C4066;
+$--red-40: #F86054;
+$--red-50: #FE7267;
+
+$--white-primary: #FFFFFF;
+$--white-o-60: #FFFFFF99;
+$--white-o-40: #FFFFFF66;
+$--white-secondary: #FFFFFF66; // opacity 40%
+$--white-disabled: #FFFFFF4D; // opacity 30%
+$--white-border: #FFFFFF19; // opacity 10%
+
+$--font-roboto: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$--font-code: "Fira Code", PragmataPro;
+
+$--fs-10: 0.625rem;
+$--fs-12: 0.75rem;
+$--fs-13: 0.813rem;
+$--fs-14: 0.875rem;
+$--fs-16: 1rem;
+$--fs-18: 1.125rem;
+$--fs-34: 2.125rem;
+
+$--fw-300: 300;
+$--fw-400: 400;
+$--fw-500: 500;
+$--fw-700: 700;
+
+// Builder
+$nebulant_gradient_start: #8F1FE5;
+$nebulant_gradient_stop: #3C2FE5;
+
+$sidebar-left-width: 350px;
+$sidebar-right-width: 300px;
+
+$font-size-xs: 1rem * 0.65;
+$font-size-xsm: 1rem * 0.75;
+
+$menu: rgba(0, 0, 0, 0.5);
+
+$thin_border_primary: 1px solid $--white-primary;
+$thin_border_gray: 1px solid #6c757d;
+
+$white_text: white;
+$gray_text: gray;
+$black_text: black;
+$green_text: $--green-40;
+$blue_text: #6894D9;
+$orange_text: #fd7e14;
+$red_text: #F97171;
+
+$warning: #F6C33F;
+$error: #D25959;
+
+// Base
+$cell_bg_color: $--dark-60;
+
+// Execution control
+$executionControl_main_color: #437875;
+$executionControl_ddWidget_color: #437875;
+$executionControl_ddWidget_color_hover: tint-color(#437875, 20%);
+$executionControl_ddWidget_color_open: tint-color(#437875, 20%);
+$executionControl_ddWidget_left_border_color: #437875;
+$executionControl_variable_border_color: #437875;
+$executionControl_variable_badge_border_color: #437875;
+$executionControl_variable_badge_bg_color: #437875;
+$executionControl_node_title_bg_color: #437875;
+$executionControl_highlighter_hover: #437875;
+$executionControl_highlighter_persistent: #437875;
+
+// Generic
+$generic_main_color: #5B4CA4;
+$generic_ddWidget_color: #5B4CA4;
+$generic_ddWidget_color_hover: tint-color(#5B4CA4, 20%);
+$generic_ddWidget_color_open: tint-color(#5B4CA4, 20%);
+$generic_ddWidget_left_border_color: #5B4CA4;
+$generic_variable_border_color: #5B4CA4;
+$generic_variable_badge_border_color: #5B4CA4;
+$generic_variable_badge_bg_color: #5B4CA4;
+$generic_node_title_bg_color: #5B4CA4;
+
+// AWS
+$aws_main_color: #FF9900;
+$aws_ddWidget_color: #FF9900;
+$aws_ddWidget_color_hover: tint-color(#FF9900, 20%);
+$aws_ddWidget_color_open: tint-color(#FF9900, 20%);
+$aws_ddWidget_left_border_color: #FF9900;
+$aws_variable_border_color: #FF9900;
+$aws_variable_badge_border_color: #FF9900;
+$aws_variable_badge_bg_color: #FF9900;
+$aws_node_title_bg_color: #FF9900;
+
+// Azure
+$azure_main_color: #0389d6;
+$azure_ddWidget_color: #0389d6;
+$azure_ddWidget_color_hover: tint-color(#0389d6, 20%);
+$azure_ddWidget_color_open: tint-color(#0389d6, 20%);
+$azure_ddWidget_left_border_color: #0389d6;
+$azure_variable_border_color: #0389d6;
+$azure_variable_badge_border_color: #0389d6;
+$azure_variable_badge_bg_color: #0389d6;
+$azure_node_title_bg_color: #0389d6;
+
+// Google cloud
+$googleCloud_main_color: #34a853;
+$googleCloud_ddWidget_color: #34a853;
+$googleCloud_ddWidget_color_hover: tint-color(#34a853, 20%);
+$googleCloud_ddWidget_color_open: tint-color(#34a853, 20%);
+$googleCloud_ddWidget_left_border_color: #34a853;
+$googleCloud_variable_border_color: #34a853;
+$googleCloud_variable_badge_border_color: #34a853;
+$googleCloud_variable_badge_bg_color: #34a853;
+$googleCloud_node_title_bg_color: #34a853;
+
+// OVH
+$ovhCloud_main_color: #13426b;
+$ovhCloud_ddWidget_color: #13426b;
+$ovhCloud_ddWidget_color_hover: tint-color(#13426b, 20%);
+$ovhCloud_ddWidget_color_open: tint-color(#13426b, 20%);
+$ovhCloud_ddWidget_left_border_color: #13426b;
+$ovhCloud_variable_border_color: #13426b;
+$ovhCloud_variable_badge_border_color: #13426b;
+$ovhCloud_variable_badge_bg_color: #13426b;
+$ovhCloud_node_title_bg_color: #13426b;
+
+// Hetzner
+$hetznerCloud_main_color: #E84560;
+$hetznerCloud_ddWidget_color: #E84560;
+$hetznerCloud_ddWidget_color_hover: tint-color(#E84560, 20%);
+$hetznerCloud_ddWidget_color_open: tint-color(#E84560, 20%);
+$hetznerCloud_ddWidget_left_border_color: #E84560;
+$hetznerCloud_variable_border_color: #E84560;
+$hetznerCloud_variable_badge_border_color: #E84560;
+$hetznerCloud_variable_badge_bg_color: #E84560;
+$hetznerCloud_node_title_bg_color: #E84560;
+
+// Cloudflare
+$cloudflare_main_color: #f68220;
+$cloudflare_ddWidget_color: #f68220;
+$cloudflare_ddWidget_color_hover: tint-color(#f68220, 20%);
+$cloudflare_ddWidget_color_open: tint-color(#f68220, 20%);
+$cloudflare_ddWidget_left_border_color: #f68220;
+$cloudflare_variable_border_color: #f68220;
+$cloudflare_variable_badge_border_color: #f68220;
+$cloudflare_variable_badge_bg_color: #f68220;
+$cloudflare_node_title_bg_color: #f68220;

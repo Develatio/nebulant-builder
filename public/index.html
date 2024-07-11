@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Nebulant builder</title>
+    <meta name="description" content="Create and automate infrastructure tasks effortlessly with our drag-and-drop builder. Design blueprints and accelerate your automation workflow.">
+    <style>
+      #application {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #application > .loading {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        background-color: #2D2A41;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #application > .loading .help_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+
+      #application > .loading .help {
+        font-size: 14px;
+        color: #FFFFFF66;
+      }
+
+      #application > .loading .btn {
+        font-size: 12px;
+        color: #FFFFFF66;
+        padding: 4px 8px;
+        border-radius: 8px;
+        border: 1px solid #FFFFFF19;
+        background-color: #332F4B;
+      }
+
+      #application > .loading .btn:hover {
+        background-color: #3F3B5E;
+      }
+    </style>
+    <script type="text/javascript">
+      async function unregister() {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(registrations.map(r => r.unregister()));
+        window.location.reload();
+      }
+    </script>
+
+<% it.outputs.forEach(function(url) {
+  if (url.endsWith('.css')) { %>
+    <link rel="stylesheet" href="<%= url %>">
+  <% }
+}) %>
+  </head>
+  <body>
+    <div id="application">
+      <div class="loading">
+        <span>Loading Nebulant Builder, please wait...</span>
+        <div class="help_wrapper">
+          <div class="help">Is it taking too long? Try unregistering the Service Worker</div>
+          <div class="btn" onclick="unregister()">Unregister service worker</div>
+        </div>
+      </div>
+    </div>
+    <% it.outputs.forEach(function(url) {
+      if (url.endsWith('.js')) { %>
+        <script type="module" defer="defer" src="<%= url %>"></script>
+      <% }
+    }) %>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+  </body>
+</html>

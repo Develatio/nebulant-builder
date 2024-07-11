@@ -1,0 +1,18 @@
+{
+  "name": "reactcss",
+  "version": "1.2.2",
+  "description": "Bringing Classes to Inline Styles",
+  "author": "case <case@casesandberg.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/casesandberg/reactcss"
+  },
+  "keywords": [
+    "react",
+    "reactcss"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  }
+}

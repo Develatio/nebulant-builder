@@ -1,0 +1,39 @@
+.superselect {
+  .notificationsWrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    border: $border-width solid $input-focus-border-color;
+    border-top: $border-width solid $border-color;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    overflow: clip;
+    overflow-clip-margin: 1px;
+    background-color: var(--#{$prefix}body-bg);
+    z-index: 100;
+
+    > *:not(:last-child) {
+      border-bottom: $border-width solid $border-color;
+    }
+
+    span {
+      @extend small;
+    }
+
+    @at-root .superselect:not(.open) .notificationsWrapper {
+      display: none;
+    }
+
+    @at-root .superselect:not(.hasNotifications) .notificationsWrapper {
+      display: none;
+    }
+
+    .cliconnectivity {
+      margin-left: -2px;
+      margin-bottom: -1px;
+      margin-top: -1px;
+    }
+  }
+}

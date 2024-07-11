@@ -1,0 +1,191 @@
+@import "@src/assets/fonts/Roboto/roboto";
+@import "@src/assets/fonts/Fira_Code_v6.2/fira_code";
+@import "@src/assets/fonts/PragmataPro/PragmataPro";
+
+@import "@src/assets/scss/bootstrap";
+
+@import "@src/assets/scss/tabs";
+@import "@src/assets/scss/callout";
+@import "@src/assets/scss/tooltip";
+@import "@src/assets/scss/stylish-tabs";
+@import "@src/assets/scss/enhanced-scrollbar";
+
+@import "packages/joint/plus/src/packages/joint-free-transform/css/layout.css";
+@import "packages/joint/plus/src/packages/joint-free-transform/css/themes/default.css";
+@import "packages/joint/plus/src/packages/joint-navigator/css/layout.css";
+@import "packages/joint/plus/src/packages/joint-paper-scroller/css/layout.css";
+@import "packages/joint/plus/src/packages/joint-selection/css/layout.css";
+@import "packages/joint/plus/src/packages/joint-selection/css/themes/default.css";
+
+@import "highlight.js/styles/atom-one-light.min.css";
+
+@import "cropperjs/dist/cropper.css";
+
+@import "react-toastify/dist/ReactToastify.css";
+
+@import "@src/assets/scss/providers/aws";
+@import "@src/assets/scss/providers/azure";
+@import "@src/assets/scss/providers/cloudflare";
+@import "@src/assets/scss/providers/executionControl";
+@import "@src/assets/scss/providers/generic";
+@import "@src/assets/scss/providers/googleCloud";
+@import "@src/assets/scss/providers/hetznerCloud";
+@import "@src/assets/scss/providers/ovhCloud";
+
+@import "@src/components/settings/GroupSettings";
+@import "@src/components/settings/executionControl/ConditionSettings";
+@import "@src/components/settings/generic/HttpRequestSettings";
+@import "@src/components/settings/generic/RunCommandSettings";
+
+@import "@src/components/link/base";
+@import "@src/components/shapes/tools/base";
+@import "@src/components/shapes/rectangle/group/base";
+@import "@src/components/shapes/rectangle/vertical/base/base";
+@import "@src/components/shapes/threepstar/vertical/base/base";
+
+@import "@src/intellisense/base/Intellisense";
+
+@import "@src/ui/functionality/Icon";
+@import "@src/ui/functionality/ColorPicker";
+@import "@src/ui/functionality/ImagePickerComponent/index";
+
+@import "@src/ui/structure/Main";
+@import "@src/ui/structure/Header";
+@import "@src/ui/structure/FileDnD";
+@import "@src/ui/structure/About/About";
+
+@import "@src/ui/structure/Footer";
+@import "@src/ui/structure/Footer/controls/hidder";
+@import "@src/ui/structure/Footer/LogViewer";
+@import "@src/ui/structure/Footer/StatusBar";
+
+@import "@src/ui/structure/SidebarLeft";
+@import "@src/ui/structure/SidebarLeft/controls/hidder";
+@import "@src/ui/structure/SidebarLeft/controls/down";
+@import "@src/ui/structure/SidebarLeft/controls/up";
+@import "@src/ui/structure/SidebarLeft/actions";
+@import "@src/ui/structure/SidebarLeft/providers";
+
+@import "@src/ui/structure/SidebarRight";
+@import "@src/ui/structure/SidebarRight/controls/hidder";
+@import "@src/ui/structure/SidebarRight/controls/down";
+@import "@src/ui/structure/SidebarRight/controls/up";
+@import "@src/ui/structure/SidebarRight/variables";
+
+@import "@src/ui/structure/WModal/WModal";
+@import "@src/ui/structure/AutocompletePreview";
+
+@import "@src/ui/structure/Dialog/Dialog";
+@import "@src/ui/structure/Overlay/Overlay";
+@import "@src/ui/structure/CliConnectivityStatus";
+@import "@src/ui/structure/AppSettings/AppSettings";
+@import "@src/ui/structure/NodeSettings/NodeSettings";
+@import "@src/ui/structure/NodeSettings/components/ArrayOfWidgets";
+
+@import "@src/ui/functionality/SuperText";
+@import "@src/ui/functionality/RangeInput";
+@import "@src/ui/functionality/CodeEditor";
+@import "@src/ui/functionality/SuperSelect";
+@import "@src/ui/functionality/CheckboxInput";
+@import "@src/ui/functionality/DropdownInput";
+@import "@src/ui/functionality/PrivateTextInput";
+
+@import "@src/ui/visual/Heading";
+@import "@src/ui/visual/AnimatedArrow";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes animated-stroke-dash {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html,
+body,
+#application {
+  height: 100%;
+  overflow: hidden;
+}
+
+.badge {
+  cursor: default;
+}
+
+.application {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .application-header {
+    .menu {
+      .dropdown-menu.show {
+        top: calc(100% + 13px);
+        left: -18px;
+      }
+    }
+  }
+
+  .application-main {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+
+    .application-left-side {
+      z-index: 10;
+      position: absolute;
+      left: 0;
+      height: 100%;
+      background-color: var(--bs-body-bg);
+    }
+
+    .blueprint-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: $--dark-20;
+      cursor: default !important;
+
+      > .canvas {
+        cursor: default;
+      }
+    }
+
+    .application-right-side {
+      z-index: 10;
+      position: absolute;
+      right: 0;
+      height: 100%;
+      background-color: var(--bs-body-bg);
+    }
+  }
+
+  .application-footer {
+    //
+  }
+}
+
+.text-gradient-nebulant {
+  background: linear-gradient(90deg, $nebulant_gradient_start, $nebulant_gradient_stop);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,53 @@
+.intellisense {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  z-index: 10000;
+  position: absolute;
+
+  .container {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    max-width: 400px;
+    pointer-events: all;
+
+    .row {
+      max-height: 300px;
+      overflow: auto;
+
+      > div {
+        cursor: default;
+        user-select: none;
+
+        &:hover,
+        &.selected {
+          background-color: #eee;
+        }
+      }
+
+      .question {
+        svg {
+          overflow: visible;
+          max-width: 18px;
+          max-height: 18px;
+          border: 1px solid #808080;
+          border-radius: 100%;
+          padding: 4px;
+
+          fill: #808080;
+          stroke: #808080;
+          stroke-width: 10px;
+          cursor: pointer;
+
+          &:hover {
+            fill: #000 !important;
+            stroke: #000 !important;
+            border: 1px solid #000;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+name: nebulant
+
+services:
+  nginx:
+    container_name: nebulant_nginx
+    build:
+      context: docker/nginx
+    image: develatio/nebulant_nginx
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - nebulant-lan
+
+  builder:
+    container_name: nebulant_builder
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: develatio/nebulant_builder
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./.env:/code/.env/
+      - ./dist:/code/dist/
+      - ./packages:/code/packages/
+      - ./public:/code/public/
+      - ./src:/code/src/
+      - ./vitest.config.mjs:/code/vitest.config.mjs
+      - ./biome.json:/code/biome.json
+      - ./esbuild:/code/esbuild
+      - ./esbuild.mjs:/code/esbuild.mjs
+      - ./jsconfig.json:/code/jsconfig.json
+      - ./package.json:/code/package.json
+      - ./yarn.lock:/code/yarn.lock
+      - ./tools:/code/tools/
+    ports:
+      - 8080:8080
+    networks:
+      - nebulant-lan
+
+  #jointjs:
+  #  platform: linux/amd64
+  #  container_name: jointjs_dev_env
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile_jointjs
+  #  volumes:
+  #    - ./jointjs:/code/
+  #  ports:
+  #    - 8080:8080
+
+networks:
+  nebulant-lan:
+    name: nebulant-lan
+    external: true

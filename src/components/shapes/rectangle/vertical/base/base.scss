@@ -1,0 +1,100 @@
+.application .application-main {
+  // comments rendered on top of each node
+  &.hide-info {
+    // exclude sticky & group nodes
+    .joint-type-nebulant-rectangle:not(
+      .joint-type-nebulant-rectangle-group
+    ):not(
+      .joint-type-nebulant-rectangle-vertical-generic-stickynote
+    ),
+    .joint-type-nebulant-threepstar {
+      [joint-selector="info"] {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.show-info {
+    // exclude sticky & group nodes
+    .joint-type-nebulant-rectangle:not(
+      .joint-type-nebulant-rectangle-group
+    ):not(
+      .joint-type-nebulant-rectangle-vertical-generic-stickynote
+    ),
+    .joint-type-nebulant-threepstar {
+      [joint-selector="image"],
+      [joint-selector="label"],
+      [joint-selector="title"],
+      [joint-selector="titlebg"] {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.joint-type-nebulant-rectangle {
+  [magnet="true"]:hover {
+    cursor: crosshair;
+  }
+
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke-width: 2px;
+    }
+  }
+
+  &.highlighted-persistent {
+    .joint-highlight-stroke {
+      stroke-width: 4px;
+    }
+  }
+
+  &.highlighted-animated {
+    animation: animated-stroke-dash 1s linear infinite;
+  }
+
+  &.pulse-highlight {
+    rect[joint-selector="pshadow1"],
+    rect[joint-selector="pshadow2"],
+    rect[joint-selector="pshadow3"] {
+      fill: $red;
+      transform: scale(0.9);
+      transform-origin: center center;
+      animation: pulsebox 2s linear infinite;
+      transform-box: fill-box;
+    }
+
+    //rect[joint-selector="pshadow1"] {}
+    rect[joint-selector="pshadow2"] {
+      animation-delay: 0.5s;
+    }
+    rect[joint-selector="pshadow3"] {
+      animation-delay: 1.5s;
+    }
+  }
+}
+
+.selection-wrapper {
+  display: none;
+}
+
+.selection-box {
+  display: none !important;
+}
+
+@keyframes pulsebox {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  70% {
+    opacity: 0.09;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

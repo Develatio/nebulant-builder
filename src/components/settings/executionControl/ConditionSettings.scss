@@ -1,0 +1,56 @@
+@import "react-querybuilder/dist/query-builder.scss";
+
+.ruleGroup {
+  border: 1px solid rgba(171, 171, 171, 0.4);
+  border-radius: 4px;
+  background: rgba(171, 171, 171, 0.2);
+
+  .rule {
+    display: grid;
+    grid-template-columns: auto 3fr 1fr 3fr auto;
+
+    // The drag handle
+    // The first field
+    // The operator field
+    // The second field
+
+    .superselect {
+      background-color: transparent;
+      border: none;
+    }
+
+    .inputWrapper.has-selected-tags {
+      > input {
+        display: none;
+      }
+    }
+
+    // pixel perfect hacks
+    .rule-remove {
+      height: calc(100% - 2px);
+    }
+  }
+
+  .ruleGroup-remove {
+    height: 31px;
+    padding: 2px 8px;
+  }
+
+  .betweenRules {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 16px;
+
+    > :first-child {
+      flex: 0 0 15%;
+    }
+  }
+}
+
+.accordion-btn {
+  background-color: transparent !important;
+
+  &[aria-expanded="true"]{
+    color: initial;
+  }
+}

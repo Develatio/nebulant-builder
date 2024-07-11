@@ -1,0 +1,22 @@
+.joint-type-nebulant-threepstar {
+  [magnet="true"]:hover {
+    cursor: crosshair;
+  }
+
+  &.highlighted,
+  &.highlighted-persistent {
+    //
+  }
+
+  &.highlighted-animated {
+    animation: animated-stroke-dash 1s linear infinite;
+  }
+}
+
+.selection-wrapper {
+  display: none;
+}
+
+.selection-box {
+  display: none !important;
+}

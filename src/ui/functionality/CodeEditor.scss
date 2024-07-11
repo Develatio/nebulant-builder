@@ -1,0 +1,28 @@
+.editor-wrapper {
+  overflow: auto !important;
+  max-height: 400px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.editor {
+  counter-reset: line;
+}
+
+.editor #codeArea {
+  outline: none;
+  padding-left: 60px !important;
+}
+
+.editor pre {
+  padding-left: 60px !important;
+}
+
+.editor .editorLineNumber {
+  position: absolute;
+  left: 0px;
+  color: #cccccc;
+  text-align: right;
+  width: 40px;
+  font-weight: 100;
+}

@@ -1,0 +1,20 @@
+.group-settings {
+  .settings-title {
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    &:not(:empty) {
+      &::before {
+        margin-right: .5em;
+      }
+
+      &::after {
+        margin-left: .5em;
+      }
+    }
+  }
+}

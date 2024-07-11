@@ -1,0 +1,131 @@
+stages:
+  - tests
+  - deploy
+
+.before_script_template:
+  before_script:
+    - apt update && apt install -y ca-certificates libcap2-bin gpg wget lsb-release curl unzip
+    - >-
+      echo "hosts: files dns" > /etc/nsswitch.conf
+    - echo -e "-----BEGIN CERTIFICATE-----\nMIIEADCCAuigAwIBAgIID+rOSdTGfGcwDQYJKoZIhvcNAQELBQAwgYsxCzAJBgNV\nBAYTAlVTMRkwFwYDVQQKExBDbG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91\nZEZsYXJlIE9yaWdpbiBTU0wgQ2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQH\nEw1TYW4gRnJhbmNpc2NvMRMwEQYDVQQIEwpDYWxpZm9ybmlhMB4XDTE5MDgyMzIx\nMDgwMFoXDTI5MDgxNTE3MDAwMFowgYsxCzAJBgNVBAYTAlVTMRkwFwYDVQQKExBD\nbG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91ZEZsYXJlIE9yaWdpbiBTU0wg\nQ2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRMw\nEQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC\nAQEAwEiVZ/UoQpHmFsHvk5isBxRehukP8DG9JhFev3WZtG76WoTthvLJFRKFCHXm\nV6Z5/66Z4S09mgsUuFwvJzMnE6Ej6yIsYNCb9r9QORa8BdhrkNn6kdTly3mdnykb\nOomnwbUfLlExVgNdlP0XoRoeMwbQ4598foiHblO2B/LKuNfJzAMfS7oZe34b+vLB\nyrP/1bgCSLdc1AxQc1AC0EsQQhgcyTJNgnG4va1c7ogPlwKyhbDyZ4e59N5lbYPJ\nSmXI/cAe3jXj1FBLJZkwnoDKe0v13xeF+nF32smSH0qB7aJX2tBMW4TWtFPmzs5I\nlwrFSySWAdwYdgxw180yKU0dvwIDAQABo2YwZDAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBAjAdBgNVHQ4EFgQUJOhTV118NECHqeuU27rhFnj8KaQw\nHwYDVR0jBBgwFoAUJOhTV118NECHqeuU27rhFnj8KaQwDQYJKoZIhvcNAQELBQAD\nggEBAHwOf9Ur1l0Ar5vFE6PNrZWrDfQIMyEfdgSKofCdTckbqXNTiXdgbHs+TWoQ\nwAB0pfJDAHJDXOTCWRyTeXOseeOi5Btj5CnEuw3P0oXqdqevM1/+uWp0CM35zgZ8\nVD4aITxity0djzE6Qnx3Syzz+ZkoBgTnNum7d9A66/V636x4vTeqbZFBr9erJzgz\nhhurjcoacvRNhnjtDRM0dPeiCJ50CP3wEYuvUzDHUaowOsnLCjQIkWbR7Ni6KEIk\nMOz2U0OBSif3FTkhCgZWQKOOLo1P42jHC3ssUZAtVNXrCk3fw9/E15k8NPkBazZ6\n0iykLhH1trywrKRMVw67F44IE8Y=\n-----END CERTIFICATE-----" > /usr/local/share/ca-certificates/cloudflare.crt
+    - update-ca-certificates
+    - wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp-archive-keyring.gpg >/dev/null
+    - echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+    - echo $JOINT_PLUS | base64 -d > joint-plus.zip
+    - rm -rf packages/joint/plus/jointplus;\
+    - unzip -q joint-plus.zip -d packages/joint/plus;\
+    - mkdir -p packages/joint/plus/src/packages;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-clipboard packages/joint/plus/src/packages/;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-command-manager packages/joint/plus/src/packages/;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-format-raster packages/joint/plus/src/packages/;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-format-svg packages/joint/plus/src/packages/;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-free-transform packages/joint/plus/src/packages/;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-keyboard packages/joint/plus/src/packages/;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-navigator packages/joint/plus/src/packages/;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-paper-scroller packages/joint/plus/src/packages/;\
+    - mv packages/joint/plus/jointplus/src/packages/joint-selection packages/joint/plus/src/packages/;\
+    - rm -rf packages/joint/plus/jointplus;\
+
+e2e_tests:
+  image: mcr.microsoft.com/playwright:v1.28.0-focal
+  stage: tests
+  script:
+    - echo "0.0.0.0 nebulant_builder" >> /etc/hosts
+    - yarn install
+    - nohup npm run start &
+    - npx playwright install
+    - export NODE_ENV=development
+    - export TEST_LIVE=0
+    - npm run teste2e
+    - pkill -9 npm
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /skip[-_]tests/
+      when: never
+
+unit_tests:
+  image: zenika/alpine-chrome:with-node
+  stage: tests
+  script:
+    - export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+    - export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+    - yarn install
+    - npm run test
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /skip[-_]tests/
+      when: never
+
+deploy_develop:
+  extends: .before_script_template
+  image: node:22-slim
+  stage: deploy
+  tags:
+    - local
+  script:
+    - apt update && apt install -y jq vault
+    - setcap cap_ipc_lock= /usr/bin/vault
+
+    - corepack enable
+    - yarn set version berry
+    - yarn config set nodeLinker node-modules
+    - yarn install
+    - yarn run build_pre
+
+    - export VAULT_TOKEN=$(vault login -token-only -method=userpass username="$VAULT_USER_GITLAB" password="$VAULT_PASSWORD_GITLAB")
+
+    - export EMAIL=$(vault kv get -field=user "secret/Develatio/Sysadmin/DNS/Cloudflare/root account")
+    - export API_KEY=$(vault kv get -field=global "secret/Develatio/Dev/Cloudflare/API/key")
+    - export CLOUDFLARE_ACCOUNT_ID=$(vault kv get -field=id "secret/Develatio/Dev/Cloudflare/API/account")
+    - export CLOUDFLARE_API_TOKEN=$(vault kv get -field="CI/CD token" "secret/Develatio/Dev/Cloudflare/API/api-tokens")
+    - export ZONE_ID=$(vault kv get -field=zoneid "secret/Nebulant/Dev/Cloudflare/API/nebulant.dev")
+
+    - mv public/_headers dist/
+
+    - npm install -g wrangler@2.2.4
+    - npx wrangler pages publish dist --project-name=builder-nebulant-dev
+
+    - >
+      curl -f -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache"
+      -H "X-Auth-Email: $EMAIL"
+      -H "X-Auth-Key: $API_KEY"
+      -H "Content-Type: application/json"
+      --data '{"purge_everything":true}'
+  only:
+    - develop
+
+deploy_master:
+  extends: .before_script_template
+  image: node:22-slim
+  stage: deploy
+  tags:
+    - local
+  script:
+    - apt update && apt install -y jq vault
+    - setcap cap_ipc_lock= /usr/bin/vault
+
+    - corepack enable
+    - yarn set version berry
+    - yarn config set nodeLinker node-modules
+    - yarn install
+    - yarn run build_prod
+
+    - export VAULT_TOKEN=$(vault login -token-only -method=userpass username="$VAULT_USER_GITLAB" password="$VAULT_PASSWORD_GITLAB")
+
+    - export EMAIL=$(vault kv get -field=user "secret/Develatio/Sysadmin/DNS/Cloudflare/root account")
+    - export API_KEY=$(vault kv get -field=global "secret/Develatio/Dev/Cloudflare/API/key")
+    - export CLOUDFLARE_ACCOUNT_ID=$(vault kv get -field=id "secret/Develatio/Dev/Cloudflare/API/account")
+    - export CLOUDFLARE_API_TOKEN=$(vault kv get -field="CI/CD token" "secret/Develatio/Dev/Cloudflare/API/api-tokens")
+    - export ZONE_ID=$(vault kv get -field=zoneid "secret/Nebulant/Dev/Cloudflare/API/nebulant.app")
+
+    - mv public/_headers dist/
+
+    - npm install -g wrangler@2.2.4
+    - npx wrangler pages publish dist --project-name=builder-nebulant-app
+
+    - >
+      curl -f -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache"
+      -H "X-Auth-Email: $EMAIL"
+      -H "X-Auth-Key: $API_KEY"
+      -H "Content-Type: application/json"
+      --data '{"purge_everything":true}'
+  only:
+    - master

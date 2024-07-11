@@ -1,0 +1,57 @@
+.statusbar {
+  background-color: $--dark-10;
+  user-select: none;
+  height: 48px;
+  z-index: 20;
+  min-width: 0; // flex hack
+  font-size: 0.9rem;
+  user-select: none;
+  gap: 12px;
+
+  .nav-link {
+    padding: 0;
+    color: $menu;
+    font-size: 0.9rem;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .menu-sep {
+    border-left: 1px solid #FFFFFF33;
+    height: 100%;
+  }
+
+  .ncounters {
+    gap: 14px;
+
+    .ncounter {
+      padding: 8px 0 8px 0;
+      gap: 8px;
+      line-height: normal;
+
+      .warning {
+        width: 18px;
+      }
+
+      .error {
+        width: 18px;
+      }
+    }
+  }
+
+  .title-wrapper {
+    min-width: 0; // flex hack
+
+    > div {
+      min-width: 0; // flex hack
+
+      > span {
+        user-select: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

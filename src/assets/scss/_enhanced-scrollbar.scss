@@ -1,0 +1,55 @@
+@mixin enhanced-scrollbar {
+  overflow-x: hidden;
+  overflow-y: overlay !important;
+
+  /* total width */
+  &::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0);
+    width: 7px;
+    height: 7px;
+    z-index: 999999;
+  }
+
+  /* background of the scrollbar except button or resizer */
+  &::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  /* set button(top and bottom of the scrollbar) */
+  &::-webkit-scrollbar-button {
+    display:none;
+  }
+
+  /* scrollbar itself */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    border: 0px solid #fff;
+  }
+
+  /* scrollbar when element is hovered */
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 0px solid #fff;
+  }
+
+  /* scrollbar when scrollbar is hovered */
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 0px solid #fff;
+  }
+}
+
+@mixin invisible-scrollbar {
+  @include enhanced-scrollbar;
+
+  /* scrollbar when element is hovered */
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  /* scrollbar when scrollbar is hovered */
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}

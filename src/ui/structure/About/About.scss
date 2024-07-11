@@ -1,0 +1,53 @@
+.about {
+  user-select: none;
+
+  .logo {
+    flex-grow: 1;
+    background-image: url(@src/assets/img/about.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+
+    filter: drop-shadow(5px 5px 5px #222);
+    animation: float 4s ease-in-out infinite;
+    transform: translate(0px, 0px);
+  }
+
+  @keyframes float {
+    0% {
+      filter: drop-shadow(5px 5px 5px #222);
+      transform: translate(0px, 0px);
+    }
+
+    50% {
+        filter: drop-shadow(5px 15px 5px rgba(0, 0, 0, 0.2));
+        transform: translate(10px, -15px);
+    }
+    100% {
+        filter: drop-shadow(5px 5px 5px #222);
+        transform: translate(0px, 0px);
+    }
+  }
+
+  .contributors {
+    font-size: $--fs-14;
+    ul {
+      list-style: none;
+    }
+  }
+
+  .libs {
+    font-size: $--fs-12;
+    ul {
+      max-height: 200px;
+      overflow: auto;
+      @include enhanced-scrollbar;
+
+      li {
+        span {
+          color: $--white-secondary;
+        }
+      }
+    }
+  }
+}

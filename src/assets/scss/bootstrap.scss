@@ -1,0 +1,239 @@
+@import "bootstrap/scss/functions";
+
+@import "@src/assets/scss/vars";
+
+@import "@src/assets/scss/variables";
+@import "@src/assets/scss/variables-dark";
+
+// Floating labels
+$form-floating-height:            add(2.5rem, $input-height-border); // 3.5rem
+$form-floating-line-height:       1.0; // 1.25
+$form-floating-padding-x:         $input-padding-x;
+$form-floating-padding-y:         0.4rem;
+$form-floating-input-padding-t:   1.125rem; // 1.625rem
+$form-floating-input-padding-b:   .625rem;
+$form-floating-label-opacity:     1;
+$form-floating-label-transform:   scale(.75) translateY(-1.45rem) translateX(.35rem);
+$form-floating-transition:        opacity .1s ease-in-out, transform .1s ease-in-out;
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// Layout & components
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+//@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+//@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/placeholders";
+
+// Helpers
+@import "bootstrap/scss/helpers";
+
+// Utilities
+@import "bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
+
+a {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.form-group {
+  .form-control {
+    &.is-invalid {
+      border-radius: 0.25rem !important;
+
+      &.is-warning {
+        border-color: $warning;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23" + str-slice(inspect($warning), 2) + "' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23" + str-slice(inspect($warning), 2) + "' stroke='none'/%3e%3c/svg%3e");
+      }
+    }
+
+    // The left InputGroup.Text
+    @at-root .form-group span.input-group-text + .form-control.is-invalid {
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+    @at-root .form-group span.input-group-text:has(+ .form-control.is-invalid) {
+      border-color: $danger;
+    }
+    @at-root .form-group span.input-group-text:has(+ .form-control.is-invalid.is-warning) {
+      border-color: $warning;
+    }
+
+    // The right InputGroup.Text
+    @at-root .form-group .form-control.is-invalid + span.input-group-text {
+      border-color: $danger;
+    }
+    @at-root .form-group .form-control.is-invalid.is-warning + span.input-group-text {
+      border-color: $warning;
+    }
+    @at-root .form-group .form-control.is-invalid:has(+ span.input-group-text) {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+
+  .helpers {
+    .invalid-tooltip {
+      position: initial;
+      font-size: 0.75rem;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      line-break: anywhere;
+
+      &.warning {
+        color: $warning;
+        background-color: rgba($orange, 0.1);
+      }
+
+      &.error {
+        color: $danger;
+        background-color: rgba($red, 0.1);
+      }
+    }
+  }
+
+}
+
+.border-gray {
+  border: $thin_border_gray;
+}
+
+// Provides ".flex-gap-N"
+@each $space, $value in $spacers {
+  .flex-gap-#{$space} {
+    gap: $value;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .modal-dialog {
+    max-width: $modal-lg;
+
+    .container {
+      max-width: map-get($container-max-widths, "md") !important;
+    }
+  }
+}
+
+// Provides ".rounded-SIDE-0"
+@each $side, $positions in
+  ("top", ("top-left", "top-right")),
+  ("end", ("top-right", "bottom-right")),
+  ("bottom", ("bottom-left", "bottom-right")),
+  ("start", ("top-left", "bottom-left"))
+{
+  .rounded-#{$side}-0 {
+    @each $position in $positions {
+      border-#{$position}-radius: 0 !important;
+    }
+  }
+}
+
+// Provides ".scale-SIZE"
+@each $alias, $size in (
+  ("05", 0.5),
+  ("06", 0.6),
+  ("07", 0.7),
+  ("08", 0.8),
+  ("09", 0.9)
+) {
+  .scale-#{$alias} {
+    transform: scale($size);
+  }
+}
+
+.bg-almost-white {
+  background-color: #f9f9f9;
+}
+
+.bg-almost-dark {
+  background-color: $--dark-40;
+}
+
+.tiny-shadow {
+  box-shadow: 0px 0px 6px 0px #ccc;
+
+  &:hover {
+    box-shadow: 0px 0px 6px 0px #aaa;
+  }
+}
+
+.border-transparent {
+  border-color: transparent !important;
+}
+
+.tabs-rounded-bottom + .tab-content{
+  @include border-bottom-radius($border-radius);
+}
+
+// margin X negative 1px extra
+.row.mx-n1-extra {
+  margin-left: -13px;
+  margin-right: -13px;
+}
+
+.row.mb-n1-extra {
+  margin-bottom: -1px;
+}
+
+.width-fit-content {
+  width: fit-content;
+}
+
+// Close button
+button {
+  &.btn-close {
+    &.btn-red {
+      $btn-close-width: 0.5em;
+      $btn-close-color: $red;
+      $btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>");
+      background: transparent escape-svg($btn-close-bg) center / $btn-close-width auto no-repeat;
+    }
+  }
+}
+
+.text-smaller {
+  font-size: $font-size-xsm !important;
+  line-height: calc($font-size-xsm + 4px);
+}
+
+.text-smallest {
+  font-size: $font-size-xs !important;
+  line-height: calc($font-size-xs + 2px);
+}
+

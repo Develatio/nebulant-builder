@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path class="cstroke" d="M8.46354 4.92403L8.60315 5.04167H8.78571H9.42857H14.4643H15.2143H15.3969L15.5365 4.92403L16.0397 4.5H17.5V16.5H16.0397L15.5365 16.076L15.3969 15.9583H15.2143H8.78571H8.60315L8.46354 16.076L7.96029 16.5H6.5V4.5H7.96029L8.46354 4.92403Z" stroke="#E84560"/>
+<path class="cstroke" d="M10.3655 12L13.5 8.86548" stroke="#E84560"/>
+<path class="cstroke" d="M10.3655 8.86548L13.5 12" stroke="#E84560"/>
+<path class="cfill" d="M13 18.5C13 19.0523 12.5523 19.5 12 19.5C11.4477 19.5 11 19.0523 11 18.5C11 17.9477 11.4477 17.5 12 17.5C12.5523 17.5 13 17.9477 13 18.5Z" fill="#E84560"/>
+<path class="cstroke" d="M12 16L12 18" stroke="#E84560"/>
+<path class="cstroke" d="M6 18.5L18 18.5" stroke="#E84560" stroke-dasharray="1 1"/>
+</svg>

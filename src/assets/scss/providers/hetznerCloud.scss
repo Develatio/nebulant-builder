@@ -1,0 +1,126 @@
+// cells
+.joint-type-nebulant-threepstar-vertical-hetznercloud,
+.joint-type-nebulant-rectangle-vertical-hetznercloud {
+  [joint-selector="pathBody"] {
+    stroke: $cell_bg_color;
+    fill: $cell_bg_color;
+  }
+
+  [joint-selector="titlebg"] {
+    fill: $hetznerCloud_node_title_bg_color;
+  }
+
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke: rgba($hetznerCloud_main_color, 0.4);
+    }
+  }
+
+  &.highlighted-persistent {
+    .joint-highlight-stroke {
+      stroke: $hetznerCloud_main_color;
+    }
+  }
+}
+
+// elementTools
+.joint-tools {
+  .hetznerCloud {
+    [joint-selector="button"] {
+      stroke: $hetznerCloud_main_color;
+    }
+  }
+}
+
+.application-left-side {
+  .ddWidgets-wrapper {
+    .providers {
+      .provider {
+        &[data-name="hetznerCloud"] {
+          background-image: url(@src/assets/img/icons/providers/hetzner_cloud.png);
+        }
+      }
+    }
+
+    .actions {
+      @at-root #react-tiny-popover-container .action,
+      .action {
+        &.hetznerCloud {
+          border-left-color: $hetznerCloud_ddWidget_left_border_color;
+        }
+      }
+
+      .action,
+      .actionsGroup {
+        &.hetznerCloud {
+          svg.image {
+            .cstroke {
+              stroke: $hetznerCloud_ddWidget_color;
+            }
+
+            .cfill {
+              fill: $hetznerCloud_ddWidget_color;
+            }
+          }
+
+          &:hover {
+            svg.image {
+              .cstroke {
+                stroke: $hetznerCloud_ddWidget_color_hover;
+              }
+
+              .cfill {
+                fill: $hetznerCloud_ddWidget_color_hover;
+              }
+            }
+          }
+
+          &.open {
+            svg.image {
+              .cstroke {
+                stroke: $hetznerCloud_ddWidget_color_open;
+              }
+
+              .cfill {
+                fill: $hetznerCloud_ddWidget_color_open;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.application-right-side {
+  .variables {
+    .wrapper {
+      &.active {
+        &.hetznerCloud {
+          svg.border rect {
+            stroke: $hetznerCloud_variable_border_color;
+          }
+        }
+      }
+
+      .variable_badge {
+        &.hetznerCloud {
+          border: 1px solid $hetznerCloud_variable_badge_border_color !important;
+        }
+
+        &.fill {
+          &.hetznerCloud {
+            background-color: $hetznerCloud_variable_badge_bg_color !important;
+          }
+        }
+
+        &.border {
+          &.hetznerCloud {
+            color: black;
+            background-color: white !important;
+          }
+        }
+      }
+    }
+  }
+}

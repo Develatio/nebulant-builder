@@ -1,0 +1,59 @@
+import { object, string } from "yup";
+
+import { BaseDiagramValidator } from "@src/components/implementations/base/validators/BaseDiagramValidator";
+
+import { SnapshotRDSSettings } from "@src/components/settings/aws/SnapshotRDSSettings";
+
+import { BaseDiagramMigrator } from "@src/components/implementations/base/migrators/BaseDiagramMigrator";
+
+import SnapshotRDSIcon from "@src/assets/img/icons/aws/rds.svg";
+
+class Validator extends BaseDiagramValidator {
+  constructor() {
+    super();
+
+    this.schema = object({
+      info: string().default(""),
+      parameters: object({
+
+      }),
+      outputs: object({
+
+      })
+    });
+  }
+}
+
+class Migrator extends BaseDiagramMigrator {
+  migrations = new Map();
+}
+
+export const SnapshotRDSDD = {
+
+  shape: {
+    "vertical": "shapes.nebulant.rectangle.vertical.aws.SnapshotRDS",
+  },
+  label: "Snapshot RDS",
+  tags: ["aws"],
+  icon: SnapshotRDSIcon,
+};
+
+export const SnapshotRDSStatic = {
+  label: "Snapshot RDS",
+  icon: SnapshotRDSIcon,
+
+  data: {
+    id: "snapshot-rds",
+    version: [...(new Migrator()).migrations.keys()].pop() || "1.0.0",
+    provider: "aws",
+  },
+};
+
+export const SnapshotRDSFns = {
+  init() {
+    this.validator = new Validator();
+    this.migrator = new Migrator();
+    this.settingsTemplate = SnapshotRDSSettings;
+  }
+};
+

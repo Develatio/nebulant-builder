@@ -1,0 +1,53 @@
+.application-left-side {
+  .actions.down {
+    position: absolute;
+    left: calc(100% + 15px);
+    bottom: 10px;
+
+    .info,
+    .undo,
+    .redo {
+      background-color: $--dark-40;
+      height: 40px;
+      width: 40px;
+      border-radius: 8px;
+      text-align: center;
+      align-content: center;
+
+      &:not(.noUndo,.noRedo) {
+        cursor: pointer;
+
+        &:hover {
+          background-color: $--dark-50;
+        }
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        stroke: $--white-primary;
+      }
+
+      &.noUndo,
+      &.noRedo {
+        svg {
+          path {
+            stroke: $--white-secondary;
+          }
+        }
+      }
+    }
+
+    .infoControl {
+      position: absolute;
+      bottom: 44px;
+
+      svg {
+        path {
+          stroke: none !important;
+          fill: $--white-primary !important;
+        }
+      }
+    }
+  }
+}

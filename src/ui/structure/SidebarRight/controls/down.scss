@@ -1,0 +1,28 @@
+.application-right-side {
+  .zoomControls {
+    position: absolute;
+    right: calc(100% + 15px);
+    bottom: 10px;
+
+    .mag-minus,
+    .mag-plus {
+      cursor: pointer;
+      background-color: $--dark-40;
+      height: 40px;
+      width: 40px;
+      border-radius: 8px;
+      text-align: center;
+      align-content: center;
+
+      &:hover {
+        background-color: $--dark-50;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        stroke: $--white-primary;
+      }
+    }
+  }
+}

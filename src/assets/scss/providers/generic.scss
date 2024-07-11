@@ -1,0 +1,147 @@
+// cells
+.joint-type-nebulant-threepstar-vertical-generic,
+.joint-type-nebulant-rectangle-vertical-generic:not(
+  .joint-type-nebulant-rectangle-vertical-generic-stickynote
+) {
+  [joint-selector="pathBody"] {
+    stroke: $cell_bg_color;
+    fill: $cell_bg_color;
+  }
+
+  [joint-selector="titlebg"] {
+    fill: $generic_node_title_bg_color;
+  }
+
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke: rgba($generic_main_color, 0.4);
+    }
+  }
+
+  &.highlighted-persistent {
+    .joint-highlight-stroke {
+      stroke: $generic_main_color;
+    }
+  }
+}
+
+// elementTools
+.joint-tools {
+  .generic {
+    [joint-selector="button"] {
+      stroke: $generic_main_color;
+    }
+  }
+}
+
+.variable_badge {
+  &.generic {
+    border: 1px solid $generic_main_color !important;
+  }
+
+  &.fill {
+    &.generic {
+      background-color: $generic_main_color !important;
+    }
+  }
+
+  &.border {
+    &.generic {
+      color: black;
+      background-color: white !important;
+    }
+  }
+}
+
+.application-left-side {
+  .ddWidgets-wrapper {
+    .providers {
+      .provider {
+        &[data-name="generic"] {
+          background-image: url(@src/assets/img/icons/providers/generic.png);
+        }
+      }
+    }
+
+    .actions {
+      @at-root #react-tiny-popover-container .action,
+      .action {
+        &.generic {
+          border-left-color: $generic_ddWidget_left_border_color;
+        }
+      }
+
+      .action,
+      .actionsGroup {
+        &.generic {
+          svg.image {
+            .cstroke {
+              stroke: $generic_ddWidget_color;
+            }
+
+            .cfill {
+              fill: $generic_ddWidget_color;
+            }
+          }
+
+          &:hover {
+            svg.image {
+              .cstroke {
+                stroke: $generic_ddWidget_color_hover;
+              }
+
+              .cfill {
+                fill: $generic_ddWidget_color_hover;
+              }
+            }
+          }
+
+          &.open {
+            svg.image {
+              .cstroke {
+                stroke: $generic_ddWidget_color_open;
+              }
+
+              .cfill {
+                fill: $generic_ddWidget_color_open;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.application-right-side {
+  .variables {
+    .wrapper {
+      &.active {
+        &.generic {
+          svg.border rect {
+            stroke: $generic_variable_border_color;
+          }
+        }
+      }
+
+      .variable_badge {
+        &.generic {
+          border: 1px solid $generic_variable_badge_border_color !important;
+        }
+
+        &.fill {
+          &.generic {
+            background-color: $generic_variable_badge_bg_color !important;
+          }
+        }
+
+        &.border {
+          &.generic {
+            color: black;
+            background-color: white !important;
+          }
+        }
+      }
+    }
+  }
+}

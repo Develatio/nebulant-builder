@@ -1,0 +1,22 @@
+name: nebulant
+
+services:
+  test:
+    container_name: nebulant_test
+    build:
+      context: .
+      dockerfile: Dockerfile_test
+    image: develatio/nebulant_test
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - ./.env:/code/.env/
+      - ./packages:/code/packages/
+      - ./public:/code/public/
+      - ./src:/code/src/
+      - ./vitest.config.mjs:/code/vitest.config.mjs
+      - ./biome.json:/code/biome.json
+      - ./esbuild.mjs:/code/esbuild.mjs
+      - ./jsconfig.json:/code/jsconfig.json
+      - ./package.json:/code/package.json
+      - ./yarn.lock:/code/yarn.lock

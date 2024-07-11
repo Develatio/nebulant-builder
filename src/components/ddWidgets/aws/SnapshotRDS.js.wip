@@ -1,0 +1,10 @@
+import { util } from "@joint/core";
+
+import { AwsDDWidget } from "@src/components/ddWidgets/AwsDDWidget";
+import { SnapshotRDSDD } from "@src/components/implementations/aws/SnapshotRDS";
+
+export class SnapshotRDS extends AwsDDWidget {
+  defaults() {
+    return util.merge({}, super.defaults(), SnapshotRDSDD);
+  }
+}

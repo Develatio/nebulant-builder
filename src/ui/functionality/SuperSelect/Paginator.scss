@@ -1,0 +1,28 @@
+.superselect {
+  .optionsActions {
+    .pagination {
+      flex-grow: 1;
+      justify-content: end;
+
+      .page-item {
+        .page-link {
+          border: none;
+          color: $pagination-color;
+
+          @at-root .superselect .page-item.disabled .page-link {
+            @extend .text-muted;
+            background-color: $pagination-bg !important;
+          }
+
+          &:focus {
+            background-color: $pagination-bg;
+          }
+
+          &:hover {
+            background-color: $pagination-hover-bg;
+          }
+        }
+      }
+    }
+  }
+}

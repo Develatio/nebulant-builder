@@ -1,0 +1,23 @@
+FROM zenika/alpine-chrome:with-node
+
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+WORKDIR /code
+
+USER root
+RUN chown chrome:chrome /code
+USER chrome
+
+COPY --chown=chrome docker/entrypoint.sh /entrypoint.sh
+COPY --chown=chrome packages/ /code/packages
+COPY --chown=chrome src/ /code/src
+COPY --chown=chrome public/ /code/public
+COPY --chown=chrome .env .env.production .env.staging biome.json esbuild.mjs \
+     jsconfig.json package.json yarn.lock /code/
+
+RUN cd /code && yarn set version berry
+RUN yarn config set nodeLinker node-modules && yarn install
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["sleep 100"]

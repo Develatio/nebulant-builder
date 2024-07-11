@@ -1,0 +1,138 @@
+.superselect {
+  .optionsViewWrapper {
+    @include transition($input-transition);
+
+    position: relative;
+    left: 0;
+    border: $border-width solid $border-color;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+    overflow: hidden;
+    background-color: var(--#{$prefix}body-bg);
+    z-index: 100;
+    opacity: 0;
+    max-height: 0px;
+    display: flex;
+    flex-direction: row;
+
+    @at-root .superselect.open .optionsViewWrapper {
+      opacity: 1;
+      max-height: 400px;
+      border: 1px solid $input-focus-border-color;
+    }
+
+    @at-root .superselect.open.singleSelect .optionsViewWrapper {
+      margin-top: -1px;
+    }
+
+    @at-root .superselect:not(.hasSelections) .optionsViewWrapper {
+      margin-top: -1px;
+    }
+
+    @at-root .superselect.hasNotifications .optionsViewWrapper {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom: none;
+    }
+
+    .optionsWrapper {
+      display: flex;
+      flex-grow: 1;
+      min-width: 0;
+      flex-direction: column;
+      position: relative;
+
+      @at-root .superselect.loading .optionsWrapper .spinnerWrapper {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 25px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 37px;
+        background-color: rgba(0, 0, 0, .15);
+
+        .spinner {
+          width: 28px;
+          height: 28px;
+          background-image: url(@src/assets/img/icons/ui/spinner.svg);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          animation: spin 3s linear infinite;
+          filter: invert(100%);
+        }
+      }
+
+      .optionsFilter {
+        @extend .px-1;
+        @extend .py-1;
+
+        position: sticky;
+        top: 0;
+        border-bottom: $border-width solid $border-color;
+        background-color: $input-bg;
+      }
+
+      .options {
+        flex-grow: 1;
+        min-height: 60px;
+        @include enhanced-scrollbar;
+
+        .option {
+          @extend .py-1;
+          @extend .px-2;
+
+          width: 100%;
+          clear: both;
+          user-select: none;
+          cursor: default;
+          font-weight: $font-weight-normal;
+          color: $dropdown-color;
+          text-align: left;
+          text-decoration: none;
+          white-space: nowrap;
+          background-color: transparent;
+          border: 0;
+
+          &:hover:not(.empty),
+          &:focus:not(.empty) {
+            color: $dropdown-link-hover-color;
+            @include gradient-bg($dropdown-link-hover-bg);
+          }
+
+          .rcaret {
+            &:before {
+              content: '\2713';
+            }
+
+            @extend .me-2;
+            @extend .small;
+            color: transparent;
+          }
+
+          &.active {
+            .rcaret {
+              color: map-get($colors, "white");
+            }
+          }
+        }
+      }
+
+      .optionsActions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        line-height: 1rem;
+        justify-content: space-between;
+        border-top: $border-width solid $border-color;
+
+        &:empty {
+          display: none;
+        }
+      }
+    }
+  }
+}
