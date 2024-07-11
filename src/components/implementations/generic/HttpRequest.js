@@ -49,8 +49,10 @@ class Validator extends BaseDiagramValidator {
           value: string().default("").label("Form urlencoded value"),
         })).default([]),
         body_raw: string().default("").label("RAW body"),
-        body_binary: string().default("").label("BInary body"),
+        body_binary: string().default("").label("Binary body"),
         ignore_invalid_certs: boolean().default(false),
+        use_cookie_jar: boolean().default(false),
+        cookie_jar: string().default("").label("Cookie jar name"),
       }).concat(
         maxRetries
       ),
@@ -79,6 +81,17 @@ class Migrator extends BaseDiagramMigrator {
     // add "ignore_invalid_certs"
     ["1.0.2", (data) => {
       data.settings.parameters.ignore_invalid_certs = false;
+
+      return {
+        data,
+        success: true,
+      };
+    }],
+
+    // add cookie jar fields
+    ["1.0.3", (data) => {
+      data.settings.parameters.use_cookie_jar = false;
+      data.settings.parameters.cookie_jar = "";
 
       return {
         data,

@@ -23,6 +23,13 @@ export class HttpRequestGenerator extends BaseBlueprintGenerator {
         body_type: parameters.body_type,
         max_retries: parameters._maxRetries,
         ignore_invalid_certs: parameters.ignore_invalid_certs,
+        ...(
+          parameters.use_cookie_jar ? {
+            cookie_jar: parameters.cookie_jar,
+          } : {
+            cookie_jar: "",
+          }
+        ),
       },
 
       output: outputs.result.value,

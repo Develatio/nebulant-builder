@@ -333,16 +333,44 @@ export const HttpRequestSettings = (props) => {
         <AdvancedSettings>
           <MaxRetries className="mb-3" {...props} />
 
-          <Row className="bg-almost-dark px-2 py-3 border rounded mb-0">
+          <Row className="bg-almost-dark px-2 py-3 border rounded mb-3">
             <Col sm={12}>
               <CheckboxInput
                 form={props.form}
                 validations={props.validations}
                 path={`parameters.ignore_invalid_certs`}
                 label={"Ignore invalid certs"}
-                help_text={""}
+                help_text={"HTTP requests will be made even if https scheme is used and the certificate is invalid."}
               ></CheckboxInput>
             </Col>
+          </Row>
+
+          <Row className="bg-almost-dark px-2 py-3 border rounded mb-0">
+            <Col sm={6}>
+              <CheckboxInput
+                form={props.form}
+                validations={props.validations}
+                path={`parameters.use_cookie_jar`}
+                label={"Use a cookie jar"}
+                help_text={"Store all received cookies in a cookie jar and reuse them in consecutive requests or in other 'HTTP Request' actions."}
+              ></CheckboxInput>
+            </Col>
+
+            {
+              props.form.get("parameters.use_cookie_jar") ? (
+                <Col sm={6}>
+                  <TextInput
+                    node={props.node}
+                    form={props.form}
+                    validations={props.validations}
+                    path={"parameters.cookie_jar"}
+                    label={"Cookie jar name"}
+                    placeholder={""}
+                    help_text={"Type a name for the cookie jar."}
+                  ></TextInput>
+                </Col>
+              ) : ""
+            }
           </Row>
         </AdvancedSettings>
 
