@@ -2,10 +2,10 @@ name: nebulant
 
 services:
   nginx:
-    container_name: nebulant_nginx
+    container_name: nebulant_nginx_builder
     build:
       context: docker/nginx
-    image: develatio/nebulant_nginx
+    image: develatio/nebulant_nginx_builder
     ports:
       - 80:80
       - 443:443
