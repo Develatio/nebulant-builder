@@ -74,8 +74,8 @@ class Validator extends BaseDiagramValidator {
             varcapabilities: array().of(string()).default([]).label("Capabilities"),
 
             // When type is selectable-static
-            options: array().default([]).label("Options").when(["required", "ask_at_runtime"], ([required, ask_at_runtime], schema) => {
-              if(required && !ask_at_runtime) {
+            options: array().default([]).label("Options").when(["required", "ask_at_runtime", "type"], ([required, ask_at_runtime, type], schema) => {
+              if(required && !ask_at_runtime && type === "selectable-static") {
                 schema = schema.required().min(1);
               }
               return schema;
