@@ -331,9 +331,9 @@ export const HttpRequestSettings = (props) => {
         </Row>
 
         <AdvancedSettings>
-          <MaxRetries className="mb-3" {...props} />
+          <MaxRetries {...props} />
 
-          <Row className="bg-almost-dark px-2 py-3 border rounded mb-3">
+          <Row className="bg-almost-dark px-2 py-3 border rounded">
             <Col sm={12}>
               <CheckboxInput
                 form={props.form}
@@ -345,7 +345,7 @@ export const HttpRequestSettings = (props) => {
             </Col>
           </Row>
 
-          <Row className="bg-almost-dark px-2 py-3 border rounded mb-0">
+          <Row className="bg-almost-dark px-2 py-3 border rounded">
             <Col sm={6}>
               <CheckboxInput
                 form={props.form}

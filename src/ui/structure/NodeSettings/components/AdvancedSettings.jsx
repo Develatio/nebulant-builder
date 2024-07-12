@@ -31,7 +31,7 @@ export const AdvancedSettings = (props) => {
 
           {
             visibility && (
-              <Card.Body className="px-4 rounded">
+              <Card.Body className="px-4 rounded d-flex flex-column gap-3">
                 { props.children }
               </Card.Body>
             )

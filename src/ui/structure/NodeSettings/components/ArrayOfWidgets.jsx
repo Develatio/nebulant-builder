@@ -86,12 +86,12 @@ export const WidgetRow = (props) => {
   return (
     <Col
       sm={props.itemSize || 6}
-      className="px-4 py-1 d-flex"
+      className="px-4 d-flex"
       ref={ref}
       style={{ opacity: isDragging ? 0 : 1 }}
       data-handler-id={handlerId}
     >
-      <Row className="widget-row position-relative border rounded px-1 py-3 mb-3 flex-grow-1" ref={preview}>
+      <Row className="widget-row position-relative border rounded px-1 py-3 flex-grow-1" ref={preview}>
         <Col sm={12}>
           {props.children}
         </Col>
@@ -165,7 +165,7 @@ export const ArrayOfWidgets = (props) => {
             {
               props.children?.length ? (
                 <Card.Body className="border border-bottom-0 rounded-top bg-almost-dark">
-                  <Row>
+                  <Row className="gap-3">
                     {props.children}
                   </Row>
                 </Card.Body>

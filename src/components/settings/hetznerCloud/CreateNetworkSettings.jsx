@@ -104,7 +104,7 @@ export const CreateNetworkSettings = (props) => {
         </ArrayOfWidgets>
 
         <AdvancedSettings>
-          <MaxRetries className="mb-0" {...props} />
+          <MaxRetries {...props} />
         </AdvancedSettings>
 
         <HasOutput>

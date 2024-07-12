@@ -266,7 +266,7 @@ export const FindSecurityGroupSettings = (props) => {
               <Paging {...props} />
             ) : ""
           }
-          <MaxRetries className="mb-0" {...props} />
+          <MaxRetries {...props} />
         </AdvancedSettings>
 
         <HasOutput>

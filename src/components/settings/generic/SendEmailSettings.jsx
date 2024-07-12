@@ -249,7 +249,7 @@ export const SendEmailSettings = (props) => {
         <AdvancedSettings>
           <MaxRetries {...props} />
 
-          <Row className={`bg-almost-dark px-2 py-3 border rounded mb-3`}>
+          <Row className={`bg-almost-dark px-2 py-3 border rounded`}>
             <Col sm={6}>
               <MultiTextInput
                 node={props.node}
@@ -275,7 +275,7 @@ export const SendEmailSettings = (props) => {
             </Col>
           </Row>
 
-          <Row className={`bg-almost-dark px-2 py-3 border rounded mb-0`}>
+          <Row className={`bg-almost-dark px-2 py-3 border rounded`}>
             <Col sm={6}>
               <TextInput
                 node={props.node}

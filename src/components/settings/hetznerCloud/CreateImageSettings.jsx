@@ -92,7 +92,7 @@ export const CreateImageSettings = (props) => {
         <AdvancedSettings>
           <Waiters {...props} />
 
-          <MaxRetries className="mb-0" {...props} />
+          <MaxRetries {...props} />
         </AdvancedSettings>
 
         <HasOutput>

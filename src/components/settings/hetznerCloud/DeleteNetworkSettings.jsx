@@ -75,7 +75,7 @@ export const DeleteNetworkSettings = (props) => {
         </Row>
 
         <AdvancedSettings>
-          <MaxRetries className="mb-0" {...props} />
+          <MaxRetries {...props} />
         </AdvancedSettings>
 
         <HasOutput>

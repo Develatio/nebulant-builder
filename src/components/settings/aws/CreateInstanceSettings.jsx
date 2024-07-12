@@ -519,7 +519,7 @@ export const CreateInstanceSettings = (props) => {
             ]}
           />
 
-          <MaxRetries className="mb-0" {...props} />
+          <MaxRetries {...props} />
         </AdvancedSettings>
 
         <HasOutput>

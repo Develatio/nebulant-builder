@@ -6,7 +6,6 @@ export const Paging = (props) => {
   return (
     <Row className={`
       bg-almost-dark px-2 py-3 border rounded
-      ${props?.className?.match(/ ?mb-\d/) ? "" : "mb-3" }
       ${props.className || ""}
     `}>
       <Col sm={6}>

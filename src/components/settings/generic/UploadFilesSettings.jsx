@@ -180,7 +180,7 @@ export const UploadFilesSettings = (props) => {
         </Tab.Container>
 
         <AdvancedSettings>
-          <MaxRetries className="mb-0" {...props} />
+          <MaxRetries {...props} />
         </AdvancedSettings>
       </WBody>
 
