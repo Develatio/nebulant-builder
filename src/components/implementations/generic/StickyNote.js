@@ -126,7 +126,7 @@ export const StickyNoteFns = {
     // Remove fields that should not be serialized
     const saveOnly = [
       // sticky note fields
-      "angle",
+      //"angle",
       "size",
       // common fields
       "data",

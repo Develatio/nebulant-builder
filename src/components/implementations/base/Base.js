@@ -155,6 +155,9 @@ export class Base extends dia.Element {
       new FreeTransform({
         scale,
         cellView: elementView,
+        padding: 18,
+        usePaperScale: true,
+        allowRotation: false,
       }).render();
     }
   }
