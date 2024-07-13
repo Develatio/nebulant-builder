@@ -28,4 +28,12 @@
 .joint-paper-scroller {
   overflow: hidden !important;
   z-index: 0;
+
+  &[data-cursor=grab] {
+    cursor: grab;
+  }
+
+  &[data-cursor=grab].is-panning {
+    cursor: grabbing;
+  }
 }

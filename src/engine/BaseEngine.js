@@ -162,6 +162,7 @@ export class BaseEngine extends dia.Paper {
       },
       borderless: true,
       padding: 500,
+      cursor: "grab",
     });
   }
 

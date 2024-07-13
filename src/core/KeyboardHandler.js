@@ -64,7 +64,21 @@ export class KeyboardHandler {
       this.eventBus.publish("FocusSearch");
     });
 
+    this.keyboard.on("keyup:shift", (e) => {
+      // We don't want to filter the event here because the user might hit shift
+      // while the cursor is hovering the paper, but then release shift when the
+      // cursor is not hovering the paper
+      const engine = this.runtime.get("objects.engine");
+      engine.scroller.setCursor("grab");
+    });
+
     // Canvas-related
+    this.keyboard.on("shift", (e) => {
+      if(!(this.kb_shortcuts_filter & KB_SHORTCUTS.CANVAS_RELATED)) return;
+      const engine = this.runtime.get("objects.engine");
+      engine.scroller.setCursor("default");
+    });
+
     this.keyboard.on("ctrl+z meta+z", (e) => {
       if(!(this.kb_shortcuts_filter & KB_SHORTCUTS.CANVAS_RELATED)) return;
       e.preventDefault();
