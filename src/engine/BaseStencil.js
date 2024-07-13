@@ -116,7 +116,5 @@ export class BaseStencil {
 
     this.runtime.set("state.stencil.providers", providers);
     this.runtime.set("state.stencil.actions", actions);
-
-    //debugger;
   }
 }
