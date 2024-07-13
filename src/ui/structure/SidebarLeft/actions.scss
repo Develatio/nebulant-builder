@@ -43,6 +43,10 @@
           background-color: $--dark-70;
         }
 
+        &:active {
+          cursor: grabbing;
+        }
+
         .image {
           width: 32px;
           height: 32px;
