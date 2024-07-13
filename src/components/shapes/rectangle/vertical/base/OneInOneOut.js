@@ -60,11 +60,19 @@ export class OneInOneOut extends Base {
         items: [
           {
             group: "in",
-            attrs: {},
+            attrs: {
+              text: {
+                text: '',
+              },
+            },
           },
           {
             group: "out-ok",
-            attrs: {},
+            attrs: {
+              text: {
+                text: '',
+              },
+            },
           },
         ],
       },

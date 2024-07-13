@@ -118,15 +118,27 @@ export class OneInTwoOut extends Base {
         items: [
           {
             group: "in",
-            attrs: {},
+            attrs: {
+              text: {
+                text: '',
+              },
+            },
           },
           {
             group: "out-ko",
-            attrs: {},
+            attrs: {
+              text: {
+                text: '',
+              },
+            },
           },
           {
             group: "out-ok",
-            attrs: {},
+            attrs: {
+              text: {
+                text: '',
+              },
+            },
           },
         ],
       },
