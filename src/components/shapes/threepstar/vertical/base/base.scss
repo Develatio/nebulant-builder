@@ -1,11 +1,40 @@
+.application .application-main {
+  // comments rendered on top of each node
+  &.hide-info {
+    .joint-type-nebulant-threepstar {
+      [joint-selector="info"] {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.show-info {
+    .joint-type-nebulant-threepstar {
+      [joint-selector="image"],
+      [joint-selector="label"],
+      [joint-selector="title"],
+      [joint-selector="titlebg"] {
+        opacity: 0;
+      }
+    }
+  }
+}
+
 .joint-type-nebulant-threepstar {
   [magnet="true"]:hover {
     cursor: crosshair;
   }
 
-  &.highlighted,
+  &.highlighted {
+    .joint-highlight-stroke {
+      stroke-width: 2px;
+    }
+  }
+
   &.highlighted-persistent {
-    //
+    .joint-highlight-stroke {
+      stroke-width: 4px;
+    }
   }
 
   &.highlighted-animated {

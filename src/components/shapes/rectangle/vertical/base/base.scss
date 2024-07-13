@@ -6,8 +6,7 @@
       .joint-type-nebulant-rectangle-group
     ):not(
       .joint-type-nebulant-rectangle-vertical-generic-stickynote
-    ),
-    .joint-type-nebulant-threepstar {
+    ) {
       [joint-selector="info"] {
         opacity: 0;
       }
@@ -20,8 +19,7 @@
       .joint-type-nebulant-rectangle-group
     ):not(
       .joint-type-nebulant-rectangle-vertical-generic-stickynote
-    ),
-    .joint-type-nebulant-threepstar {
+    ) {
       [joint-selector="image"],
       [joint-selector="label"],
       [joint-selector="title"],
