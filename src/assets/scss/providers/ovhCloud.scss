@@ -12,13 +12,13 @@
 
   &.highlighted {
     .joint-highlight-stroke {
-      stroke: rgba($ovhCloud_main_color, 0.4);
+      stroke: $ovhCloud_highlighter_hover;
     }
   }
 
   &.highlighted-persistent {
     .joint-highlight-stroke {
-      stroke: $ovhCloud_main_color;
+      stroke: $ovhCloud_highlighter_persistent;
     }
   }
 }
@@ -86,6 +86,16 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .marketplace-wrapper {
+    .marketplaceFilters {
+      .marketplaceFilter {
+        &[data-name="ovhCloud"] {
+          background-image: url(@src/assets/img/icons/providers/ovh_cloud.png);
         }
       }
     }

@@ -87,28 +87,30 @@ $error: #D25959;
 $cell_bg_color: $--dark-60;
 
 // Execution control
-$executionControl_main_color: #437875;
-$executionControl_ddWidget_color: #437875;
-$executionControl_ddWidget_color_hover: tint-color(#437875, 20%);
-$executionControl_ddWidget_color_open: tint-color(#437875, 20%);
-$executionControl_ddWidget_left_border_color: #437875;
-$executionControl_variable_border_color: #437875;
-$executionControl_variable_badge_border_color: #437875;
-$executionControl_variable_badge_bg_color: #437875;
+$executionControl_main_color: #88ADA9;
+$executionControl_ddWidget_color: #88ADA9;
+$executionControl_ddWidget_color_hover: tint-color(#88ADA9, 20%);
+$executionControl_ddWidget_color_open: tint-color(#88ADA9, 20%);
+$executionControl_ddWidget_left_border_color: #88ADA9;
+$executionControl_variable_border_color: #88ADA9;
+$executionControl_variable_badge_border_color: #88ADA9;
+$executionControl_variable_badge_bg_color: #88ADA9;
 $executionControl_node_title_bg_color: #437875;
-$executionControl_highlighter_hover: #437875;
-$executionControl_highlighter_persistent: #437875;
+$executionControl_highlighter_hover: #88ADA9;
+$executionControl_highlighter_persistent: #88ADA9;
 
 // Generic
-$generic_main_color: #5B4CA4;
-$generic_ddWidget_color: #5B4CA4;
-$generic_ddWidget_color_hover: tint-color(#5B4CA4, 20%);
-$generic_ddWidget_color_open: tint-color(#5B4CA4, 20%);
-$generic_ddWidget_left_border_color: #5B4CA4;
-$generic_variable_border_color: #5B4CA4;
-$generic_variable_badge_border_color: #5B4CA4;
-$generic_variable_badge_bg_color: #5B4CA4;
+$generic_main_color: #A09ABE;
+$generic_ddWidget_color: #A09ABE;
+$generic_ddWidget_color_hover: tint-color(#A09ABE, 20%);
+$generic_ddWidget_color_open: tint-color(#A09ABE, 20%);
+$generic_ddWidget_left_border_color: #A09ABE;
+$generic_variable_border_color: #A09ABE;
+$generic_variable_badge_border_color: #A09ABE;
+$generic_variable_badge_bg_color: #A09ABE;
 $generic_node_title_bg_color: #5B4CA4;
+$generic_highlighter_hover: #A09ABE;
+$generic_highlighter_persistent: #A09ABE;
 
 // AWS
 $aws_main_color: #FF9900;
@@ -120,6 +122,8 @@ $aws_variable_border_color: #FF9900;
 $aws_variable_badge_border_color: #FF9900;
 $aws_variable_badge_bg_color: #FF9900;
 $aws_node_title_bg_color: #FF9900;
+$aws_highlighter_hover: #FF9900;
+$aws_highlighter_persistent: #FF9900;
 
 // Azure
 $azure_main_color: #0389d6;
@@ -131,6 +135,8 @@ $azure_variable_border_color: #0389d6;
 $azure_variable_badge_border_color: #0389d6;
 $azure_variable_badge_bg_color: #0389d6;
 $azure_node_title_bg_color: #0389d6;
+$azure_highlighter_hover: #0389d6;
+$azure_highlighter_persistent: #0389d6;
 
 // Google cloud
 $googleCloud_main_color: #34a853;
@@ -142,6 +148,8 @@ $googleCloud_variable_border_color: #34a853;
 $googleCloud_variable_badge_border_color: #34a853;
 $googleCloud_variable_badge_bg_color: #34a853;
 $googleCloud_node_title_bg_color: #34a853;
+$googleCloud_highlighter_hover: #34a853;
+$googleCloud_highlighter_persistent: #34a853;
 
 // OVH
 $ovhCloud_main_color: #13426b;
@@ -153,6 +161,8 @@ $ovhCloud_variable_border_color: #13426b;
 $ovhCloud_variable_badge_border_color: #13426b;
 $ovhCloud_variable_badge_bg_color: #13426b;
 $ovhCloud_node_title_bg_color: #13426b;
+$ovhCloud_highlighter_hover: #13426b;
+$ovhCloud_highlighter_persistent: #13426b;
 
 // Hetzner
 $hetznerCloud_main_color: #E84560;
@@ -164,6 +174,8 @@ $hetznerCloud_variable_border_color: #E84560;
 $hetznerCloud_variable_badge_border_color: #E84560;
 $hetznerCloud_variable_badge_bg_color: #E84560;
 $hetznerCloud_node_title_bg_color: #E84560;
+$hetznerCloud_highlighter_hover: #E84560;
+$hetznerCloud_highlighter_persistent: #E84560;
 
 // Cloudflare
 $cloudflare_main_color: #f68220;
@@ -175,3 +187,5 @@ $cloudflare_variable_border_color: #f68220;
 $cloudflare_variable_badge_border_color: #f68220;
 $cloudflare_variable_badge_bg_color: #f68220;
 $cloudflare_node_title_bg_color: #f68220;
+$cloudflare_highlighter_hover: #f68220;
+$cloudflare_highlighter_persistent: #f68220;

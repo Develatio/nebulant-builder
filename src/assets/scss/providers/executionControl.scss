@@ -90,6 +90,16 @@
       }
     }
   }
+
+  .marketplace-wrapper {
+    .marketplaceFilters {
+      .marketplaceFilter {
+        &[data-name="executionControl"] {
+          background-image: url(@src/assets/img/icons/providers/executionControl.png);
+        }
+      }
+    }
+  }
 }
 
 .application-right-side {

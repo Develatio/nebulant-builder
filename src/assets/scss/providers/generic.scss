@@ -14,13 +14,13 @@
 
   &.highlighted {
     .joint-highlight-stroke {
-      stroke: rgba($generic_main_color, 0.4);
+      stroke: $generic_highlighter_hover;
     }
   }
 
   &.highlighted-persistent {
     .joint-highlight-stroke {
-      stroke: $generic_main_color;
+      stroke: $generic_highlighter_persistent;
     }
   }
 }
@@ -30,25 +30,6 @@
   .generic {
     [joint-selector="button"] {
       stroke: $generic_main_color;
-    }
-  }
-}
-
-.variable_badge {
-  &.generic {
-    border: 1px solid $generic_main_color !important;
-  }
-
-  &.fill {
-    &.generic {
-      background-color: $generic_main_color !important;
-    }
-  }
-
-  &.border {
-    &.generic {
-      color: black;
-      background-color: white !important;
     }
   }
 }
@@ -107,6 +88,16 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .marketplace-wrapper {
+    .marketplaceFilters {
+      .marketplaceFilter {
+        &[data-name="generic"] {
+          background-image: url(@src/assets/img/icons/providers/generic.png);
         }
       }
     }

@@ -12,13 +12,13 @@
 
   &.highlighted {
     .joint-highlight-stroke {
-      stroke: rgba($cloudflare_main_color, 0.4);
+      stroke: $cloudflare_highlighter_hover;
     }
   }
 
   &.highlighted-persistent {
     .joint-highlight-stroke {
-      stroke: $cloudflare_main_color;
+      stroke: $cloudflare_highlighter_persistent;
     }
   }
 }
@@ -86,6 +86,16 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .marketplace-wrapper {
+    .marketplaceFilters {
+      .marketplaceFilter {
+        &[data-name="cloudflare"] {
+          background-image: url(@src/assets/img/icons/providers/cloudflare.png);
         }
       }
     }

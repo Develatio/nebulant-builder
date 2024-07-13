@@ -12,13 +12,13 @@
 
   &.highlighted {
     .joint-highlight-stroke {
-      stroke: rgba($googleCloud_main_color, 0.4);
+      stroke: $googleCloud_highlighter_hover;
     }
   }
 
   &.highlighted-persistent {
     .joint-highlight-stroke {
-      stroke: $googleCloud_main_color;
+      stroke: $googleCloud_highlighter_persistent;
     }
   }
 }
@@ -86,6 +86,16 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .marketplace-wrapper {
+    .marketplaceFilters {
+      .marketplaceFilter {
+        &[data-name="googleCloud"] {
+          background-image: url(@src/assets/img/icons/providers/google_cloud.png);
         }
       }
     }
