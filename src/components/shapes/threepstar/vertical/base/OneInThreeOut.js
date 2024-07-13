@@ -46,8 +46,8 @@ export class OneInThreeOut extends Base {
             attrs: {
               circle: {
                 magnet: true,
-                fill: "#37AF67",
-                "link-color": "#37AF67",
+                fill: "#8B6AFF",
+                "link-color": "#8B6AFF",
                 stroke: "transparent",
                 strokeWidth: "25px",
                 r: 4,
@@ -108,8 +108,8 @@ export class OneInThreeOut extends Base {
               //},
               circle: {
                 magnet: true,
-                fill: "#37AF67",
-                "link-color": "#37AF67",
+                fill: "#8B6AFF",
+                "link-color": "#8B6AFF",
                 stroke: "transparent",
                 strokeWidth: "25px",
                 r: 4,
