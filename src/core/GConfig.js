@@ -134,10 +134,10 @@ export class GConfig {
       backendConnector.saveMyself().catch(error => {
         this.eventBus.publish("Toast", { msg: error, lvl: "error" });
       });
-    } else {
-      // Save the prefs in local storage since the user isn't logged in
-      localStorage.setItem("builder_prefs", JSON.stringify(this._config));
     }
+
+    // Save the prefs in local storage
+    localStorage.setItem("builder_prefs", JSON.stringify(this._config));
 
     return this;
   }
