@@ -28,6 +28,11 @@
         background-color: rgba($color: #574A81, $alpha: 0.80);
         border: 2px solid $--purple-10;
       }
+
+      &:active {
+        background-color: rgba($color: #574A81, $alpha: 1);
+        border: 2px solid $--purple-10;
+      }
     }
   }
 }
