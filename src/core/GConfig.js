@@ -103,7 +103,7 @@ export class GConfig {
     value = clone(value);
     // Handle global assign (empty keyPath)
     if(keyPath == "") {
-      this._config = util.merge(DEFAULT_CONFIG, value);
+      this._config = util.merge(clone(DEFAULT_CONFIG), value);
     } else {
       lodashSet(this._config, keyPath, value);
     }
