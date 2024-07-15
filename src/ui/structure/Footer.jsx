@@ -183,7 +183,9 @@ export const Footer = () => {
               placement="left"
               label={<>Exprot the content of the log viewer to a file</>}
             >
-              <DownloadIcon className="download" />
+              <div>
+                <DownloadIcon className="download" />
+              </div>
             </Tooltip>
           </div>
 
@@ -194,7 +196,9 @@ export const Footer = () => {
               placement="left"
               label={<>Copy the content of the log viewer to the clipboard</>}
             >
-              <ClipboardIcon className="copy" />
+              <div>
+                <ClipboardIcon className="copy" />
+              </div>
             </Tooltip>
           </div>
 
@@ -203,7 +207,9 @@ export const Footer = () => {
               placement="left"
               label={<>Clear the log viewer (<kbd>ctrl + l</kbd>)</>}
             >
-              <TrashIcon className="trash" />
+              <div>
+                <TrashIcon className="trash" />
+              </div>
             </Tooltip>
           </div>
         </div>
