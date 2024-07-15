@@ -435,7 +435,16 @@ export const AppSettings = () => {
                   </Col>
 
                   <Col sm={{offset: 2, span: 4}}>
+                    <Button
+                      variant="outline-danger d-block w-100 mb-3"
+                      onClick={() => gconfig.set("", {})}
+                    >
+                      Reset user settings
+                    </Button>
 
+                    <Alert variant="danger" className="text-center py-1 small">
+                      Reset all user settings to their default values.
+                    </Alert>
                   </Col>
 
                 </Row>

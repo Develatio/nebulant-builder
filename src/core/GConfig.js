@@ -160,4 +160,22 @@ export class GConfig {
       this._listeners[keyPath].splice(idx, 1);
     }
   }
+
+  getLocalStorage() {
+    const builder_prefs = localStorage.getItem("builder_prefs");
+
+    if(builder_prefs) {
+      try {
+        JSON.parse(builder_prefs);
+      } catch (_) {
+        // We tried to parse the localStorage and we failed for some reason.
+        // Not a big deal...
+        this.logger.warn("Failed parsing the builder_pref object from localStorage. Cleaning...");
+        localStorage.removeItem("builder_prefs");
+      }
+      return builder_prefs
+    } else {
+      return clone(DEFAULT_CONFIG);
+    }
+  }
 }

@@ -82,17 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }).catch(_err => {
     // We just failed at logging in, but the app can still be used.
-    const builder_pref = localStorage.getItem("builder_prefs");
-    if(builder_pref) {
-      try {
-        gconfig.set("", JSON.parse(builder_pref));
-      } catch (_) {
-        // We tried to parse the localStorage and we failed for some reason.
-        // Not a big deal...
-        logger.warn("Failed parsing the builder_pref object from localStorage. Cleaning...");
-        localStorage.removeItem("builder_prefs");
-      }
-    }
+    gconfig.set(gconfig.getLocalStorage());
   }).finally(() => {
     runtime.set("objects.gconfig", gconfig);
 
