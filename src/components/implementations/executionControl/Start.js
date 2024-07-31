@@ -233,6 +233,11 @@ export const StartFns = {
     this.migrator = new Migrator();
     this.settingsTemplate = StartSettings;
 
+    this.applySettingsToParent();
+  },
+
+  // Helper method that lets us apply styling / texts to the parent
+  applySettingsToParent() {
     const label = this.prop("data/settings/parameters/name");
     this.renameParent(label);
 
