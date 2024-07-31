@@ -1,0 +1,79 @@
+.application-left-side {
+  .marketplace-wrapper {
+    .nodes-container {
+      flex-direction: column;
+      gap: 24px;
+      min-width: 0;
+
+      .search-wrapper {
+        padding: 12px 18px;
+        gap: 12px;
+
+        .search {
+          width: 20px;
+          fill: var(--bs-body-color);
+          stroke: var(--bs-body-color);
+        }
+
+        input {
+          background-color: transparent;
+        }
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-right: 10px; // this is required for the .bridge
+        @include enhanced-scrollbar;
+
+        .action {
+          padding: 8px 16px;
+          background-color: $--dark-40;
+          border-radius: 4px;
+          font-size: $--fs-14;
+          font-weight: $--fw-500;
+          cursor: grab;
+          user-select: none;
+          gap: 12px;
+
+          &:hover {
+            background-color: $--dark-70;
+          }
+
+          &:active {
+            cursor: grabbing;
+          }
+
+          .image {
+            width: 32px;
+            height: 32px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .info {
+            display: flex;
+            flex-direction: column;
+
+            .label {
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            .version {
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              font-size: $--fs-12;
+              font-weight: $--fw-500;
+              color: $--white-secondary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

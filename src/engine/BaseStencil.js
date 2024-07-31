@@ -4,6 +4,7 @@ import { clone } from "@src/utils/lang/clone";
 import { GConfig } from "@src/core/GConfig";
 import { Runtime } from "@src/core/Runtime";
 import { providers as allProviders } from "@src/components/ddWidgets";
+import { MarketplaceConnector } from "@src/core/MarketplaceConnector";
 
 export class BaseStencil {
   constructor(opts = {}) {
@@ -19,7 +20,40 @@ export class BaseStencil {
     this.providers = [];
     this.widgets = [];
 
+    this.mpConnector = new MarketplaceConnector();
+
+    this.loadProviders();
     this.loadWidgets();
+
+    this.loadMarketplaceProviders();
+    this.loadMarketplaceActions();
+  }
+
+  loadProviders() {
+    const enabledProviders = [
+      "generic",
+      "executionControl",
+      ...this.gconfig.get("ui.stencil.enabledProviders")
+    ];
+
+    const providers = clone(allProviders).filter(
+      p => enabledProviders.includes(p.name)
+    );
+
+    this.runtime.set("state.stencil.providers", providers);
+  }
+
+  loadMarketplaceProviders() {
+    const enabledProviders = [
+      // Do we want to add something here? "Top blueprints"? "Newest"?
+      ...this.gconfig.get("ui.stencil.enabledProviders")
+    ];
+
+    const providers = clone(allProviders).filter(
+      p => enabledProviders.includes(p.name)
+    );
+
+    this.runtime.set("state.stencil.marketplaceProviders", providers);
   }
 
   selectProvider(provider) {
@@ -27,9 +61,19 @@ export class BaseStencil {
     this.loadWidgets();
   }
 
+  marketplaceSelectProvider(provider) {
+    this.gconfig.set("ui.stencil.marketplaceSelectedProvider", provider);
+    this.loadMarketplaceActions();
+  }
+
   setFilter(filter) {
     this.runtime.set("state.stencil.actionsFilter", filter);
     this.loadWidgets();
+  }
+
+  marketplaceSetFilter(filter) {
+    this.runtime.set("state.stencil.marketplaceActionsFilter", filter);
+    this.loadMarketplaceActions();
   }
 
   matchesFilter(action) {
@@ -47,22 +91,13 @@ export class BaseStencil {
   }
 
   loadWidgets() {
-    const providers = [];
     const actions = [];
-
-    let _allProviders = clone(allProviders);
-
-    // Here is the place where we can remove the providers that are not enabled.
-    const enabledProviders = this.gconfig.get("ui.stencil.enabledProviders");
-    _allProviders = _allProviders.filter(p => enabledProviders.includes(p.name));
 
     // Maybe the user selected a providers? In this case we should show only the
     // actions from that provider
     const selectedProvider = this.gconfig.get("ui.stencil.selectedProvider");
 
-    _allProviders.forEach(provider => {
-      providers.push(provider);
-
+    this.runtime.get("state.stencil.providers").forEach(provider => {
       if(selectedProvider && provider.name != selectedProvider) {
         return;
       }
@@ -92,7 +127,7 @@ export class BaseStencil {
           //
           */
 
-          // Second option: fitler actions and flatten them, removing the groups
+          // Second option: filter actions and flatten them, removing the groups
           const ddWidgets = [];
           action.ddWidgets.forEach(action => {
             if(this.matchesFilter(action.ddWidget)) {
@@ -114,7 +149,21 @@ export class BaseStencil {
       });
     });
 
-    this.runtime.set("state.stencil.providers", providers);
     this.runtime.set("state.stencil.actions", actions);
+  }
+
+  loadMarketplaceActions() {
+    // Maybe the user selected a providers? In this case we should use it in the
+    // request to the marketplace
+    const provider = this.gconfig.get("ui.stencil.marketplaceSelectedProvider");
+
+    // Maybe the user is trying to filter?
+    const searchTerm = this.runtime.get("state.stencil.marketplaceActionsFilter");
+
+    this.mpConnector.getBlueprints({ searchTerm, provider }).then(data => {
+      this.runtime.set("state.stencil.marketplaceActions", data.results || []);
+    }).catch(() => {
+      this.runtime.set("state.stencil.marketplaceActions", []);
+    });
   }
 }

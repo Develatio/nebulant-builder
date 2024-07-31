@@ -3,6 +3,7 @@ import { Runtime } from "@src/core/Runtime";
 import { EventBus } from "@src/core/EventBus";
 import { clone } from "@src/utils/lang/clone";
 import { MIN_CLI_VERSION } from "@src/utils/constants";
+import { content_path_parser } from "@src/utils/content_path_parser";
 import {
   Migrator as DiagramMigrator,
 } from "@src/components/implementations/base/migrators/DiagramDataMigrator";
@@ -28,14 +29,19 @@ export const loadFile = async (file) => {
   });
 }
 
-export const loadContent = async ({
-  organization_slug,
-  collection_slug,
-  blueprint_slug,
-  version,
-}) => {
+export const loadContent = async (blueprint_uri) => {
   const runtime = new Runtime();
   const backendConnector = runtime.get("objects.backendConnector");
+
+  const {
+    isValid,
+    organization_slug,
+    collection_slug,
+    blueprint_slug,
+    version,
+  } = content_path_parser(blueprint_uri);
+
+  if(!isValid) return null;
 
   return await backendConnector.getContent({
     organization_slug,
@@ -102,6 +108,25 @@ export const createNewBlueprint = () => {
   return payload;
 }
 
+// Magic method that will call importAsGroup or importAsBlueprint depending on
+// the content of the passed "data" parameter.
+export const importWizard = (data, { x, y }) => {
+  const logger = new Logger();
+
+  // Check if this blueprint is actually importable as group. If it isn't, then
+  // just import it as a normal blueprint, overwriting the current one.
+  const startNode = data?.blueprint?.diagram?.cells?.find?.(
+    c => c.type.endsWith(".executionControl.Start") && !c.parent
+  );
+  if(startNode?.data?.settings?.parameters?.group_settings_enabled) {
+    logger.debug("This looks like a plain blueprint. Overwriting whatever is currently on the canvas...");
+    importAsGroup(data, { x, y });
+  } else {
+    logger.debug("This looks like a group blueprint. Importing it as a group...");
+    importAsBlueprint(data);
+  }
+}
+
 export const importAsBlueprint = (data, opts = {}) => {
   const logger = new Logger();
   const runtime = new Runtime();
@@ -143,7 +168,7 @@ export const importAsBlueprint = (data, opts = {}) => {
   }
 }
 
-export const importAsGroup = (data, { clientX, clientY }) => {
+export const importAsGroup = (data, p) => {
   const logger = new Logger();
   const runtime = new Runtime();
 
@@ -152,8 +177,6 @@ export const importAsGroup = (data, { clientX, clientY }) => {
   const engine = runtime.get("objects.engine");
   const shapes = runtime.get("objects.shapes");
   const model = runtime.get("objects.main_model");
-
-  let p = engine.clientToLocalPoint({ x: clientX, y: clientY });
 
   logger.debug(`\tGroups should be created at (${p.x}, ${p.y})`);
 
@@ -179,9 +202,14 @@ export const importAsGroup = (data, { clientX, clientY }) => {
   logger.debug(`\tSetting group's [Start] node`);
   const startNode = group.getStartNode();
   startNode.prop("data/settings/parameters/first_action", false);
-  startNode.prop("data/settings/parameters/group_settings_enabled", true);
-  startNode.prop("data/settings/info", "");
-  startNode.setInfo("");
+
+  // We DON'T want to run these lines. Whatever we're importing might already
+  // have these settings set to some value
+  //startNode.prop("data/settings/parameters/group_settings_enabled", true);
+  //startNode.prop("data/settings/info", "");
+  //startNode.setInfo("");
+
+  startNode.applySettingsToParent();
 
   const { x: sx, y: sy } = startNode.getBBox();
   const offset = {
@@ -225,6 +253,7 @@ export const importAsGroup = (data, { clientX, clientY }) => {
 
   // Deselect all selected elements in order to avoid the creation of a
   // group with unexpected elements inside it.
+  // TODO: Do we want to do this here?
   engine.selection.collection.reset([]);
 
   const view = group.findView(engine);

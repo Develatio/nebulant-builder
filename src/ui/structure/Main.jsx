@@ -32,7 +32,6 @@ import { NodeSettings } from "@src/ui/structure/NodeSettings/NodeSettings";
 import { AutocompletePreview } from "@src/ui/structure/AutocompletePreview";
 
 import { Intellisense } from "@src/intellisense/base/Intellisense";
-import { content_path_parser } from "@src/utils/content_path_parser";
 
 export class Main extends Component {
   constructor(props) {
@@ -101,23 +100,7 @@ export class Main extends Component {
         message: "Please wait...",
       });
 
-      const {
-        isValid,
-        organization_slug,
-        collection_slug,
-        blueprint_slug,
-        version,
-      } = content_path_parser(blueprint_uri);
-
-      let data;
-      if(isValid) {
-        data = await loadContent({
-          organization_slug,
-          collection_slug,
-          blueprint_slug,
-          version,
-        });
-      }
+      const data = await loadContent(blueprint_uri);
 
       this.eventBus.publish("CloseOverlay");
 

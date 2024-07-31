@@ -32,10 +32,16 @@ export class Runtime {
         },
 
         stencil: {
+          // actions
           actionsFilter: "",
           providers: [],
           actions: [],
           actionGroupIsOpen: false, // check if a (any) action group is open
+
+          // marketplace
+          marketplaceActionsFilter: "",
+          marketplaceProviders: [],
+          marketplaceActions: [],
         },
       },
     };

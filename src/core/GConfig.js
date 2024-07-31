@@ -17,12 +17,14 @@ const DEFAULT_CONFIG = {
     retry_ms: 10000,
     timeout_ms: 10000,
   },
+
   core: {
     backend_timeout_ms: 10000,
     logging: {
       logLevel: LOGLEVELS.INFO,
     },
   },
+
   ui: {
     shadows: false,
     minimap: false,
@@ -57,9 +59,8 @@ const DEFAULT_CONFIG = {
     },
 
     stencil: {
+      // common
       enabledProviders: [
-        "generic",
-        "executionControl",
         "aws",
         "hetznerCloud",
         "azure",
@@ -67,9 +68,15 @@ const DEFAULT_CONFIG = {
         "ovhCloud",
         "cloudflare",
       ],
+
+      // actions
       selectedProvider: "",
+
+      // marketplace
+      marketplaceSelectedProvider: "",
     },
   },
+
   advanced: {
     show_warnings: true,
     show_errors: true,

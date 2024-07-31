@@ -6,8 +6,10 @@ import { Up } from "@src/ui/structure/SidebarLeft/controls/up";
 import { Hidder } from "@src/ui/structure/SidebarLeft/controls/hidder";
 import { Down } from "@src/ui/structure/SidebarLeft/controls/down";
 
-import { Providers } from "@src/ui/structure/SidebarLeft/providers";
 import { Actions } from "@src/ui/structure/SidebarLeft/actions";
+import { Providers } from "@src/ui/structure/SidebarLeft/providers";
+import { Marketplace } from "@src/ui/structure/SidebarLeft/marketplace";
+import { MarketplaceFilters } from "@src/ui/structure/SidebarLeft/marketplaceFilters";
 
 export const SidebarLeft = () => {
   const gconfig = new GConfig();
@@ -55,7 +57,11 @@ export const SidebarLeft = () => {
             <Actions />
           </div>
         ) : (
-          <div className="marketplace-wrapper d-flex w-100"></div>
+          <div className="marketplace-wrapper d-flex w-100">
+            <MarketplaceFilters />
+
+            <Marketplace />
+          </div>
         )
       }
     </div>

@@ -1,18 +1,15 @@
 import { useDrop } from "react-dnd";
 import { NativeTypes } from "react-dnd-html5-backend";
 
-import {
-  importAsGroup,
-  importAsBlueprint,
-} from "@src/controllers/handlers/import";
 import { Logger } from "@src/core/Logger";
+import { Runtime } from "@src/core/Runtime";
 import { EventBus } from "@src/core/EventBus";
-import { loadFile } from "@src/controllers/handlers/import";
-
-const logger = new Logger();
-const eventBus = new EventBus();
+import { loadFile, importWizard } from "@src/controllers/handlers/import";
 
 const fhandler = async (files, { x, y }) => {
+  const logger = new Logger();
+  const eventBus = new EventBus();
+
   logger.debug(`Received ${files.length} file(s) from a D&D event`);
   Array.from(files).map(f => logger.debug(`\t-> ${f.name}`));
 
@@ -43,45 +40,17 @@ const fhandler = async (files, { x, y }) => {
         </div>
       ),
     });
-  } else {
-    // Check if this blueprint is actually importable as group. If it isn't,
-    // then just import it as a normal blueprint, overwriting the current
-    // one.
-    const startNode = data?.blueprint?.diagram?.cells?.find?.(
-      c => c.type.endsWith(".executionControl.Start") && !c.parent
-    );
-    if(!startNode?.data?.settings?.parameters?.group_settings_enabled) {
-      logger.debug("This looks like a plain blueprint. Importing it...");
-      importAsBlueprint(data);
-      return;
-    }
 
-    logger.debug("It looks like this blueprint can be imported either as a blueprint or as a group! Let's ask the user...");
-
-    // Ask the user if he/she wants to load this blueprint as a group into
-    // the current blueprint or as a new blueprint.
-    eventBus.publish("OpenDialog", {
-      title: "How do you want to import this file?",
-      enforceAnswer: true,
-      body: (
-        <div>
-          This file can be imported as a group or as a new blueprint, overriding
-          the current blueprint.
-          <br />
-          How do you want to import it?
-        </div>
-      ),
-      yeslabel: "As a blueprint",
-      yes: () => importAsBlueprint(data),
-      nolabel: "As a group",
-      no: () => importAsGroup(data, { x, y }),
-      close: () => {},
-    });
+    return;
   }
+
+  importWizard(data, { x, y });
 }
 
 export const FileDnD = (props) => {
   const { children } = props;
+
+  const runtime = new Runtime();
 
   const [{ _canDrop, isOver }, drop] = useDrop(
     () => ({
@@ -90,7 +59,9 @@ export const FileDnD = (props) => {
         if(!item) return;
 
         const { x, y } = monitor.getClientOffset();
-        fhandler(item.files, { clientX: x, clientY: y });
+        const engine = runtime.get("objects.engine");
+        const p = engine.clientToLocalPoint({ x, y });
+        fhandler(item.files, p);
       },
       collect: (monitor) => {
         //const item = monitor.getItem()
