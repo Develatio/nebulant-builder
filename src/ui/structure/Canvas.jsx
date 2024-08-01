@@ -13,7 +13,7 @@ const handleMarketplaceWidgetDrop = async ({ x, y, item }) => {
     organization_slug: item.organization_slug,
     collection_slug: item.collection_slug,
     blueprint_slug: item.slug,
-    version: item.latest_stable || item.latest || item.latest_beta,
+    version: item.latest,
   });
 
   eventBus.publish("OpenOverlay", {
