@@ -17,7 +17,7 @@ const DDAction = ({ action }) => {
       className={`action d-flex align-items-center`}
       ref={drag}
     >
-      <div className="image" style={{ backgroundImage: `url(${action.latest_stable_marketplace_icon || action.latest_marketplace_icon})` }}></div>
+      <div className="image" style={{ backgroundImage: `url(${action.latest_marketplace_icon || action.preview})` }}></div>
 
       <div className="info">
         <span className="label">{ action.name }</span>
