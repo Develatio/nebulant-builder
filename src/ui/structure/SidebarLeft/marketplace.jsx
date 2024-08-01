@@ -22,15 +22,7 @@ const DDAction = ({ action }) => {
       <div className="info">
         <span className="label">{ action.name }</span>
 
-        <span className="version">
-          {
-            action.latest_stable ? (
-              `Latest stable: ${action.latest_stable}`
-            ) : action.latest ? (
-              `Latest version: ${action.latest}`
-            ) : ""
-          }
-        </span>
+        <span className="version">Latest version: {action.latest}</span>
       </div>
     </div>
   );
