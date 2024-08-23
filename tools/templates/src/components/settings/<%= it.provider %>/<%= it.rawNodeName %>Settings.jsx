@@ -47,7 +47,17 @@ export const <%= it.rawNodeName %>Settings = (props) => {
         }
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            toggle_help_text="Don't wait for something to happen"
+            dropdown_help_text="The state(s) which the thing should reach before allowing the execution to continue"
+            options={[
+              {
+                type: "value",
+                label: "Wait for something",
+                value: "WaitForSomething",
+              },
+            ]}
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

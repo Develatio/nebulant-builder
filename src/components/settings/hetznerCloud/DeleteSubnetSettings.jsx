@@ -119,7 +119,10 @@ export const DeleteSubnetSettings = (props) => {
         </Row>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the subnet to get deleted"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

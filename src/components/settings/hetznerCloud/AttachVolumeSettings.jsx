@@ -131,7 +131,10 @@ export const AttachVolumeSettings = (props) => {
         </Row>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the volume to get attached"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

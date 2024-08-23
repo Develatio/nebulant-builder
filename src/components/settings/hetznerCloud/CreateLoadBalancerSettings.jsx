@@ -248,7 +248,10 @@ export const CreateLoadBalancerSettings = (props) => {
         </ArrayOfWidgets>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the load balancer to get created"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

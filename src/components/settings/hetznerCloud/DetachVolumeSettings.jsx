@@ -77,7 +77,10 @@ export const DetachVolumeSettings = (props) => {
         </Row>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the volume to get detached"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

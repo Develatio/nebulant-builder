@@ -186,7 +186,10 @@ export const RemoveTargetFromLoadBalancerSettings = (props) => {
         </Tab.Container>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the target to get removed from the load balancer"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

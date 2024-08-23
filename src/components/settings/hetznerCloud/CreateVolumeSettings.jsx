@@ -153,7 +153,10 @@ export const CreateVolumeSettings = (props) => {
         </ArrayOfWidgets>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the volume to get created"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

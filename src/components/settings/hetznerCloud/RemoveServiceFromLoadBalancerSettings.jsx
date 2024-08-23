@@ -90,7 +90,10 @@ export const RemoveServiceFromLoadBalancerSettings = (props) => {
         </Row>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the service to get removed from the load balancer"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

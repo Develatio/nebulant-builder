@@ -130,7 +130,10 @@ export const CreateFloatingIPSettings = (props) => {
         </ArrayOfWidgets>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the floating IP to get created"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

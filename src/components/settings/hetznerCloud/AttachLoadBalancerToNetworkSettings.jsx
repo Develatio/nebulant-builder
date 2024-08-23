@@ -301,7 +301,10 @@ export const AttachLoadBalancerToNetworkSettings = (props) => {
         </Tab.Container>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the load balancer to get attached to the network"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

@@ -77,7 +77,10 @@ export const UnassignFloatingIPSettings = (props) => {
         </Row>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the floating IP to get unassigned"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

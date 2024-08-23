@@ -77,7 +77,10 @@ export const StopServerSettings = (props) => {
         </Row>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the server to get stopped"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>

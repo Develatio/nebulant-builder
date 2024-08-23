@@ -192,7 +192,10 @@ export const ApplyFirewallToResourceSettings = (props) => {
         </Tab.Container>
 
         <AdvancedSettings>
-          <Waiters {...props} />
+          <Waiters
+            {...props}
+            toggle_help_text="Don't wait for the firewall to get applied to the resource"
+          />
 
           <MaxRetries {...props} />
         </AdvancedSettings>
