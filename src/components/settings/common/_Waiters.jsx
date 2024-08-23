@@ -8,7 +8,6 @@ import { StaticAutocompleter } from "@src/components/autocompleters/base/StaticA
 
 export const Waiters = (props) => {
   const async = props.form.get("outputs.result.async");
-  const options = props?.options || props.form.get("outputs.result.waiters") || [];
 
   return (
     <Row className={`
@@ -28,7 +27,7 @@ export const Waiters = (props) => {
 
       <Col sm={8}>
         {
-          (!options.length || async) ? "" : (
+          (!props.options?.length || async) ? "" : (
             <DropdownInput
               form={props.form}
               validations={props.validations}
@@ -42,7 +41,7 @@ export const Waiters = (props) => {
               options={[
                 ({ searchPattern, page, perPage, group, pagingDetails }) => {
                   return new StaticAutocompleter({
-                    data: options,
+                    data: props.options,
                     filters: { searchPattern, page, perPage, group, pagingDetails },
                   }).run();
                 },
