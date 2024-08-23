@@ -179,7 +179,7 @@ export class CliConnector {
     }).catch(_error => {
       this.logger.warn("No reply. CLI is probably not running in server mode.");
       this.logger.info("You can download the CLI from https://github.com/Develatio/nebulant-cli");
-      this.logger.info("Once downloaded, please run it in 'server mode' using the '-s' argument: ./nebulant -s");
+      this.logger.info("Once downloaded, please run it in 'server mode' using the '-s' argument: ./nebulant serve");
       this.logger.info(`Retrying to connect in ${retry_ms} ms...`);
       clearTimeout(this.timeout_connect);
       this.timeout_connect = setTimeout(() => this.connect(), retry_ms);
