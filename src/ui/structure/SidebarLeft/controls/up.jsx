@@ -132,6 +132,7 @@ export const Up = () => {
         ) ? (
           <div className="p-1 me-1 spinner d-flex bg-info">
             <div className="indicator"></div>
+            <div className="pt-05 px-2 text text-nowrap">
               {
                 sendingState ? (
                   "Processing..."
