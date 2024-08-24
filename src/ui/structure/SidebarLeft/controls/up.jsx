@@ -125,15 +125,17 @@ export const Up = () => {
         /* Busy indicator */
         (
           sendingState ||
+          connectivityState == CliConnectorStates.waiting ||
           connectivityState == CliConnectorStates.pausing ||
           connectivityState == CliConnectorStates.stopping ||
           connectivityState == CliConnectorStates.waiting_for_cli_state
         ) ? (
           <div className="p-1 me-1 spinner d-flex bg-info">
             <div className="indicator"></div>
-            <div className="px-2 text text-nowrap">
               {
                 sendingState ? (
+                  "Processing..."
+                ) : connectivityState == CliConnectorStates.waiting ? (
                   "Processing..."
                 ) : connectivityState == CliConnectorStates.pausing ? (
                   "Pausing..."

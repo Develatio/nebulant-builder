@@ -23,6 +23,7 @@ const CLI_STATE_MAP = {
 };
 
 // All these states are subtypes of the "connected" state
+CLI_STATE_MAP[CliConnectorStates.waiting] = CLI_STATE_MAP[CliConnectorStates.connected];
 CLI_STATE_MAP[CliConnectorStates.running] = CLI_STATE_MAP[CliConnectorStates.connected];
 CLI_STATE_MAP[CliConnectorStates.paused] = CLI_STATE_MAP[CliConnectorStates.connected];
 CLI_STATE_MAP[CliConnectorStates.pausing] = CLI_STATE_MAP[CliConnectorStates.connected];
