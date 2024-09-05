@@ -30,7 +30,7 @@
     "lodash-es": "^4.17.21",
     "material-colors": "^1.2.6",
     "prop-types": "^15.8.1",
-    "react": "*",
+    "react": "^18.3.1",
     "reactcss": "workspace:^",
     "tinycolor2": "^1.6.0"
   }

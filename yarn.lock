@@ -4845,7 +4845,7 @@ __metadata:
     lodash-es: "npm:^4.17.21"
     material-colors: "npm:^1.2.6"
     prop-types: "npm:^15.8.1"
-    react: "npm:*"
+    react: "npm:^18.3.1"
     reactcss: "workspace:^"
     tinycolor2: "npm:^1.6.0"
   languageName: unknown
@@ -5035,7 +5035,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:*, react@npm:^18.3.1":
+"react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:
