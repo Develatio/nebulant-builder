@@ -55,7 +55,7 @@
 		"react-error-boundary": "^4.0.13",
 		"react-form-state-manager": "workspace:^",
 		"react-querybuilder": "7.6.1",
-		"react-simple-code-editor": "^0.13.1",
+		"react-simple-code-editor": "^0.14.1",
 		"react-tiny-popover": "^8.0.4",
 		"react-toastify": "^10.0.5",
 		"react-window": "^1.8.10",
