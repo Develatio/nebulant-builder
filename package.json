@@ -70,9 +70,9 @@
 		"yup": "^1.4.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.7.3",
-		"@biomejs/js-api": "^0.6.0",
-		"@biomejs/wasm-nodejs": "^1.7.3",
+		"@biomejs/biome": "1.8.3",
+		"@biomejs/js-api": "^0.6.2",
+		"@biomejs/wasm-nodejs": "^1.8.3",
 		"@inquirer/prompts": "^5.0.3",
 		"@playwright/test": "1.46.1",
 		"@svgr/core": "^8.1.0",
