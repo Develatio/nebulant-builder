@@ -1590,21 +1590,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-querybuilder/dnd@npm:^7.3.0":
-  version: 7.3.0
-  resolution: "@react-querybuilder/dnd@npm:7.3.0"
+"@react-querybuilder/dnd@npm:^7.6.1":
+  version: 7.6.1
+  resolution: "@react-querybuilder/dnd@npm:7.6.1"
   peerDependencies:
     react: ">=18"
     react-dnd: ">=14.0.0"
     react-dnd-html5-backend: ">=14.0.0"
-    react-querybuilder: ^7.3.0
-  checksum: 10c0/4514368f613a06988d3fd39a9459b94004f959142a2afdb3d576f470398c2adeba98e60c952fa2cd708863ea9630689f357dd00b732915ba90bfe407c093145c
+    react-querybuilder: 7.6.1
+  checksum: 10c0/b85e62e5563c441a406cdf6bb0f75375a9483b9976d1631520c0973e34f884c1aca420ffb24ca63076132b03a1438ccd7dce09fac9ba3b7e2950bb8b09135ed8
   languageName: node
   linkType: hard
 
-"@reduxjs/toolkit@npm:^2.2.3":
-  version: 2.2.4
-  resolution: "@reduxjs/toolkit@npm:2.2.4"
+"@reduxjs/toolkit@npm:^2.2.7":
+  version: 2.2.7
+  resolution: "@reduxjs/toolkit@npm:2.2.7"
   dependencies:
     immer: "npm:^10.0.3"
     redux: "npm:^5.0.1"
@@ -1618,7 +1618,7 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: 10c0/fdbf510210a5aa4864432397e1a9469367e297cd1d9c09a82e68638df7555672c2f8511fe76f933b00efbbb233c534831591772a44e8c41233e34f3cd0f54569
+  checksum: 10c0/7761a91adac2b5e1d50a8163ba5441480bb86a3a80b7583037c27a88463394b132dd7592862fc2be03aa7ab98a6e1710549889986dc0d3f033c169a3ba2cb02e
   languageName: node
   linkType: hard
 
@@ -4022,7 +4022,7 @@ __metadata:
     "@joint/paper-scroller": "workspace:^"
     "@joint/selection": "workspace:^"
     "@playwright/test": "npm:1.46.1"
-    "@react-querybuilder/dnd": "npm:^7.3.0"
+    "@react-querybuilder/dnd": "npm:^7.6.1"
     "@svgr/core": "npm:^8.1.0"
     "@svgr/plugin-jsx": "npm:8.1.0"
     "@vitest/coverage-v8": "npm:^2.0.5"
@@ -4052,7 +4052,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     react-error-boundary: "npm:^4.0.13"
     react-form-state-manager: "workspace:^"
-    react-querybuilder: "npm:7.3.0"
+    react-querybuilder: "npm:7.6.1"
     react-simple-code-editor: "npm:^0.13.1"
     react-tiny-popover: "npm:^8.0.4"
     react-toastify: "npm:^10.0.5"
@@ -4940,18 +4940,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-querybuilder@npm:7.3.0":
-  version: 7.3.0
-  resolution: "react-querybuilder@npm:7.3.0"
+"react-querybuilder@npm:7.6.1":
+  version: 7.6.1
+  resolution: "react-querybuilder@npm:7.6.1"
   dependencies:
-    "@reduxjs/toolkit": "npm:^2.2.3"
+    "@reduxjs/toolkit": "npm:^2.2.7"
     clsx: "npm:^2.1.1"
     immer: "npm:^10.1.1"
     numeric-quantity: "npm:^2.0.1"
     react-redux: "npm:^9.1.2"
   peerDependencies:
     react: ">=18"
-  checksum: 10c0/9bd77ad49c90575882efd419a524804d0f5b5cd5daa380c2982c199254e7c6316791ad0a1f80bebdf85dfa9597440028b0a0750b12e45d86200c884a50c53c5c
+  checksum: 10c0/441f68978bc88c4f80b52cd083cd86f640cbdf6004f9581a222a24a7522dd56d790a4577824af50f069b492a0e80360d849430bfafa002925b3dc9a1fa0a938b
   languageName: node
   linkType: hard
 
