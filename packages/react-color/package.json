@@ -27,9 +27,9 @@
   ],
   "dependencies": {
     "@icons/material": "^0.2.4",
-    "lodash-es": "^4.17.15",
-    "material-colors": "^1.2.1",
-    "prop-types": "^15.5.10",
+    "lodash-es": "^4.17.21",
+    "material-colors": "^1.2.6",
+    "prop-types": "^15.8.1",
     "react": "*",
     "reactcss": "workspace:^",
     "tinycolor2": "^1.4.1"

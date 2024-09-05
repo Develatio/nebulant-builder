@@ -5,6 +5,6 @@
   "repository": "emolifeconnect/react-form-state-manager",
   "homepage": "https://github.com/emolifeconnect/react-form-state-manager",
   "dependencies": {
-    "lodash-es": "^4.17.15"
+    "lodash-es": "^4.17.21"
   }
 }
