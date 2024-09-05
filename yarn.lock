@@ -2771,16 +2771,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-sass-plugin@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "esbuild-sass-plugin@npm:3.2.0"
+"esbuild-sass-plugin@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "esbuild-sass-plugin@npm:3.3.1"
   dependencies:
     resolve: "npm:^1.22.8"
+    safe-identifier: "npm:^0.4.2"
     sass: "npm:^1.71.1"
   peerDependencies:
-    esbuild: ^0.20.1
+    esbuild: ">=0.20.1"
     sass-embedded: ^1.71.1
-  checksum: 10c0/18c9ee4d9a6bf33724ea65509e4a702fc105fc5b30ebcced023479c120bbc524dc743321b219a3cccf0bb66e7dd53a086735b8cb05fc5d642075f25838607ed2
+  checksum: 10c0/bbbef049ebe58c449caa8db0c893abbaf97c4b83ca349d8c541c11503092475afc4ed504218987cb745d61bfb1a26a19118688a450057a43e3943d2224ee2060
   languageName: node
   linkType: hard
 
@@ -4029,7 +4030,7 @@ __metadata:
     autoprefixer: "npm:^10.4.20"
     bootstrap: "npm:5.3.3"
     esbuild: "npm:^0.20.1"
-    esbuild-sass-plugin: "npm:^3.2.0"
+    esbuild-sass-plugin: "npm:^3.3.1"
     espree: "npm:^10.0.1"
     esquery: "npm:^1.5.0"
     eta: "npm:^3.4.0"
@@ -5208,6 +5209,13 @@ __metadata:
   dependencies:
     tslib: "npm:^2.1.0"
   checksum: 10c0/3c49c1ecd66170b175c9cacf5cef67f8914dcbc7cd0162855538d365c83fea631167cacb644b3ce533b2ea0e9a4d0b12175186985f89d75abe73dbd8f7f06f68
+  languageName: node
+  linkType: hard
+
+"safe-identifier@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "safe-identifier@npm:0.4.2"
+  checksum: 10c0/a6b0cdb5347e48c5ea4ddf4cdca5359b12529a11a7368225c39f882fcc0e679c81e82e3b13e36bd27ba7bdec9286f4cc062e3e527464d93ba61290b6e0bc6747
   languageName: node
   linkType: hard
 
