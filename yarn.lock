@@ -4857,7 +4857,7 @@ __metadata:
     prop-types: "npm:^15.8.1"
     react: "npm:*"
     reactcss: "workspace:^"
-    tinycolor2: "npm:^1.4.1"
+    tinycolor2: "npm:^1.6.0"
   languageName: unknown
   linkType: soft
 
@@ -5742,7 +5742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinycolor2@npm:^1.4.1":
+"tinycolor2@npm:^1.6.0":
   version: 1.6.0
   resolution: "tinycolor2@npm:1.6.0"
   checksum: 10c0/9aa79a36ba2c2a87cb221453465cabacd04b9e35f9694373e846fdc78b1c768110f81e581ea41440106c0f24d9a023891d0887e8075885e790ac40eb0e74a5c1

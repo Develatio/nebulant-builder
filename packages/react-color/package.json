@@ -32,6 +32,6 @@
     "prop-types": "^15.8.1",
     "react": "*",
     "reactcss": "workspace:^",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "^1.6.0"
   }
 }
