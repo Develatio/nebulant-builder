@@ -80,7 +80,13 @@
         <script type="module" defer="defer" src="<%= url %>"></script>
       <% }
     }) %>
-    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+    <script>
+      const script = document.createElement("script");
+      script.async = true;
+      script.defer = true;
+      script.src = "https://queue.nebulant.app/latest.js?spoofhost=" + window.location.hostname;
+      document.head.appendChild(script);
+    </script>
+    <noscript><img src="https://queue.nebulant.app/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
   </body>
 </html>
