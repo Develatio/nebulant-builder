@@ -17,12 +17,7 @@ export class DownloadFilesGenerator extends BaseBlueprintGenerator {
 
       parameters: {
         // Files
-        paths: parameters.paths.map(obj => {
-          if(obj.value._src_type == "file") {
-            delete obj.value.recursive;
-          }
-          return obj.value;
-        }),
+        paths: parameters.paths.map(obj => obj.value),
 
         // Target
         source: parameters.source?.[0], // "{{ ... }}" or IP addr

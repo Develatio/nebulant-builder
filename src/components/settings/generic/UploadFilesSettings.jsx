@@ -51,10 +51,8 @@ export const UploadFilesSettings = (props) => {
                     label: "New path pair",
                     name: "new-path-pair",
                     value: {
-                      _src_type: "file",
                       src: "",
                       dest: "",
-                      overwrite: false,
                       recursive: true,
                     },
                     multiple: true,
@@ -77,9 +75,6 @@ export const UploadFilesSettings = (props) => {
                             node={props.node}
                             form={props.form}
                             validations={props.validations}
-                            srctype={`parameters.paths[${index}].value._src_type`}
-                            overwrite={`parameters.paths[${index}].value.overwrite`}
-                            recursive={`parameters.paths[${index}].value.recursive`}
                             src={`parameters.paths[${index}].value.src`}
                             dest={`parameters.paths[${index}].value.dest`}
                           ></SSHSourceTarget>

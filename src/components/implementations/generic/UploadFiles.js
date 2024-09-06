@@ -20,11 +20,9 @@ class Validator extends BaseDiagramValidator {
           __uniq: number(),
           name: string(),
           value: object({
-            _src_type: string().oneOf(["file", "folder"]).default("file"),
             src: string().min(1).default("").label("Source path"),
             dest: string().min(1).default("").label("Target path"),
-            overwrite: boolean().default(false),
-            recursive: boolean().default(false),
+            recursive: boolean().default(true),
           }),
         })).default([]),
 
