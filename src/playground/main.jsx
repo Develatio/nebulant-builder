@@ -14,7 +14,7 @@ import { SuperTextTab } from "./SuperTextTab";
 
 export const Playground = () => {
   const runtime = new Runtime();
-  runtime.set("object.BaseDiagramModel", BaseDiagramModel);
+  runtime.set("objects.BaseDiagramModel", BaseDiagramModel);
 
   return (
     <div className="application">

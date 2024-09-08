@@ -37,7 +37,7 @@ export class BaseAutocompleter {
     this.filters = filters ?? {};
     this.data = data ?? [];
 
-    const BaseDiagramModel = this.runtime.get("object.BaseDiagramModel");
+    const BaseDiagramModel = this.runtime.get("objects.BaseDiagramModel");
     this.model = new BaseDiagramModel();
     this.model.set("autocomplete", true);
     // Debug network requests?

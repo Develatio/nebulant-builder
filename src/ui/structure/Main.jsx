@@ -44,13 +44,13 @@ export class Main extends Component {
 
     // create a new model
     this.model = new BaseDiagramModel();
-    this.runtime.set("object.BaseDiagramModel", BaseDiagramModel);
+    this.runtime.set("objects.BaseDiagramModel", BaseDiagramModel);
     this.runtime.set("objects.main_model", this.model);
     this.runtime.set("objects.commandManager", this.model.commandManager);
 
     // create an instance of the engine
     this.engine = new BaseEngine({ model: this.model });
-    this.runtime.set("object.BaseEngine", BaseEngine);
+    this.runtime.set("objects.BaseEngine", BaseEngine);
     this.runtime.set("objects.engine", this.engine);
 
     this.stencil = new BaseStencil();

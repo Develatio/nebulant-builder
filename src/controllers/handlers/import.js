@@ -67,10 +67,10 @@ export const createNewBlueprint = () => {
 
   const shapes = runtime.get("objects.shapes");
 
-  const BaseDiagramModel = runtime.get("object.BaseDiagramModel");
+  const BaseDiagramModel = runtime.get("objects.BaseDiagramModel");
   const model = new BaseDiagramModel();
 
-  const BaseEngine = runtime.get("object.BaseEngine");
+  const BaseEngine = runtime.get("objects.BaseEngine");
   const engine = new BaseEngine({ model });
 
   logger.debug("\tAdding new [Start] node...");
@@ -187,7 +187,7 @@ export const importAsGroup = (data, p) => {
   group.position(p.x - width / 2, p.y - height / 2);
 
   // Add the dragged blueprint to a new model
-  const BaseDiagramModel = runtime.get("object.BaseDiagramModel");
+  const BaseDiagramModel = runtime.get("objects.BaseDiagramModel");
   const tmpModel = new BaseDiagramModel();
   tmpModel.deserialize(data.blueprint);
 
