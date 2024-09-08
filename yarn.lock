@@ -1388,7 +1388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@joint/clipboard@workspace:^, @joint/clipboard@workspace:packages/joint/plus/src/packages/joint-clipboard":
+"@joint/clipboard@workspace:packages/joint/plus/src/packages/joint-clipboard":
   version: 0.0.0-use.local
   resolution: "@joint/clipboard@workspace:packages/joint/plus/src/packages/joint-clipboard"
   dependencies:
@@ -4022,7 +4022,6 @@ __metadata:
     "@biomejs/js-api": "npm:^0.6.2"
     "@biomejs/wasm-nodejs": "npm:^1.8.3"
     "@inquirer/prompts": "npm:^5.4.0"
-    "@joint/clipboard": "workspace:^"
     "@joint/command-manager": "workspace:^"
     "@joint/core": "workspace:^"
     "@joint/format-raster": "workspace:^"
