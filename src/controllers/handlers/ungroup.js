@@ -20,7 +20,7 @@ export const ungroup = () => {
   // one action instead of having to undo several actions.
   cm.initBatchCommand();
 
-  selection.forEach(group => {
+  selection.toArray().forEach(group => {
     const start = group.getStartNode();
     const end = group.getEndNode();
 
