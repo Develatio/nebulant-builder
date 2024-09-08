@@ -1388,14 +1388,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@joint/clipboard@workspace:packages/joint/plus/src/packages/joint-clipboard":
-  version: 0.0.0-use.local
-  resolution: "@joint/clipboard@workspace:packages/joint/plus/src/packages/joint-clipboard"
-  dependencies:
-    "@joint/core": "workspace:^"
-  languageName: unknown
-  linkType: soft
-
 "@joint/command-manager@workspace:^, @joint/command-manager@workspace:packages/joint/plus/src/packages/joint-command-manager":
   version: 0.0.0-use.local
   resolution: "@joint/command-manager@workspace:packages/joint/plus/src/packages/joint-command-manager"
