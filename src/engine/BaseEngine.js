@@ -160,7 +160,7 @@ export class BaseEngine extends dia.Paper {
       inertia: {
         friction: 0.95,
       },
-      borderless: false,
+      borderless: true,
       padding: 5000,
       cursor: "grab",
     });

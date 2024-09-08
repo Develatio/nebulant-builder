@@ -1,8 +1,8 @@
-import { Clipboard } from "@joint/clipboard";
 import { Keyboard } from "@joint/keyboard";
 import { Logger } from "@src/core/Logger";
 import { Runtime } from "@src/core/Runtime";
 import { EventBus } from "@src/core/EventBus";
+import { ClipboardHandler } from "@src/core/ClipboardHandler";
 
 export const KB_SHORTCUTS = {
   NONE: 0b00000000,
@@ -45,14 +45,7 @@ export class KeyboardHandler {
       return !keyboard.isConsumerElement(evt);
       },
     });
-    this.clipboard = new Clipboard({
-      useLocalStorage: true,
-      deep: true,
-      translate: {
-        dx: 120,
-        dy: 20,
-      },
-    });
+    this.clipboard = new ClipboardHandler();
 
     this.kb_shortcuts_filter = KB_SHORTCUTS.ALL;
 

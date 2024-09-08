@@ -28,7 +28,6 @@
 		"generate_dependencies_list": "yarn info --manifest --json | jq -c --arg exclusions $(cat src/ui/structure/About/dev.json | tr '\n' '|' | sed 's/|$//') '[inputs | select(.value | test($exclusions) | not) | { name: .value, version: .children.Version, license: .children.Manifest.License, website: .children.Manifest.Homepage }]' > src/ui/structure/About/deps.json"
 	},
 	"dependencies": {
-		"@joint/clipboard": "workspace:^",
 		"@joint/command-manager": "workspace:^",
 		"@joint/core": "workspace:^",
 		"@joint/format-raster": "workspace:^",

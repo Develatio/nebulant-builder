@@ -24,5 +24,5 @@ export const copy = () => {
 
   if(!collection.length) return;
 
-  keyboard.clipboard.copyElements(collection, engine.model);
+  keyboard.clipboard.copy(collection, engine.model);
 }

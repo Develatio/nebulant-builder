@@ -9,7 +9,7 @@ export const paste = () => {
 
   // Paste the content of the cliboard
   logger.debug("Pasteing clipboard contents...");
-  let elements = keyboard.clipboard.pasteCells(engine.model);
+  let elements = keyboard.clipboard.paste(engine.model);
 
   // Remove links that are linked to cells that weren't copied
   const nodes = elements.map(

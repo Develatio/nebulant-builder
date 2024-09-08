@@ -16,5 +16,5 @@ export const cut = () => {
     collection.filter(node => node.prop("removable"))
   );
 
-  keyboard.clipboard.cutElements(collection, engine.model);
+  keyboard.clipboard.cut(collection, engine.model);
 }
