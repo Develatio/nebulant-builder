@@ -72,7 +72,7 @@ export const CodeEditor = (props) => {
             }}
             highlight={code => props.highlight ? props.highlight(code) : noop()}
             padding={props.padding ?? 10}
-            textareaId="codeArea"
+            textareaId={`codeArea-${props.path}`}
             className="editor"
             preClassName={props.preClassName ?? "language-bash"}
             placeholder={props.placeholder ?? "#!/bin/bash"}
