@@ -145,9 +145,9 @@ export class BaseDiagramModel extends dia.Graph {
 
       try {
         if(opts.load_autosave) {
-          this.commandManager.fromJSON(clone(blueprint.autosave_cm));
+          this.commandManager.fromJSON(blueprint.autosave_cm);
         } else {
-          this.commandManager.fromJSON(clone(blueprint.cm));
+          this.commandManager.fromJSON(blueprint.cm);
         }
       } catch (_error) {
         this.commandManager.reset();
