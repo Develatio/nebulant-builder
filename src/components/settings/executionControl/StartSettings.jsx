@@ -13,7 +13,6 @@ import { GroupSettings } from "./StartSettings/_GroupSettings";
 
 export const StartSettings = (props) => {
   const { node, form } = props;
-  const runtime = new Runtime();
 
   const ssv = new SettingsStructureValidator({
     dont_randomize_output_name: true,
@@ -77,35 +76,21 @@ export const StartSettings = (props) => {
 
           // TODO: If we have a parent, update the layer name
 
+          const runtime = new Runtime();
+
+          const cm = runtime.get("objects.commandManager");
+          cm.initBatchCommand();
+
           await props.callbacks.save(force, false);
 
-          const commandManager = runtime.get("objects.commandManager");
-
-          let undoStackSize = commandManager.undoStack.length;
           node.renameParent(node.prop("data/settings/parameters/name"));
-          if(undoStackSize != commandManager.undoStack.length) {
-            commandManager.squashUndo(2);
-          }
-
-          undoStackSize = commandManager.undoStack.length;
           node.setParentImage(node.prop("data/settings/parameters/image"));
-          if(undoStackSize != commandManager.undoStack.length) {
-            commandManager.squashUndo(2);
-          }
 
-          undoStackSize = commandManager.undoStack.length;
           let color = node.prop("data/settings/parameters/color");
           node.colorizeParent(hexToHSL(color));
-          if(undoStackSize != commandManager.undoStack.length) {
-            commandManager.squashUndo(2);
-          }
 
-          undoStackSize = commandManager.undoStack.length;
           color = node.prop("data/settings/parameters/text_color");
           node.colorizeTextParent(hexToHSL(color));
-          if(undoStackSize != commandManager.undoStack.length) {
-            commandManager.squashUndo(2);
-          }
 
           // If this is the main "Start" node check if we should add an "End"
           // node.
@@ -132,6 +117,8 @@ export const StartSettings = (props) => {
               end.remove();
             }
           }
+
+          cm.storeBatchCommand();
         }}
         validations={props.validations}
       ></WFooter>

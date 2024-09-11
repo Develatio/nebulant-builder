@@ -65,30 +65,22 @@ export const StickyNoteSettings = (props) => {
       <WFooter
         close={() => props.callbacks.close()}
         save={async (force) => {
+          const runtime = new Runtime();
+
+          const cm = runtime.get("objects.commandManager");
+          cm.initBatchCommand();
+
           await props.callbacks.save(force);
 
-          const runtime = new Runtime();
-          const commandManager = runtime.get("objects.commandManager");
-
-          let undoStackSize = commandManager.undoStack.length;
           node.rename(node.prop("data/settings/parameters/content"));
-          if(undoStackSize != commandManager.undoStack.length) {
-            commandManager.squashUndo(2);
-          }
 
-          undoStackSize = commandManager.undoStack.length;
           let color = node.prop("data/settings/parameters/color");
           node.colorize(hexToHSL(color));
-          if(undoStackSize != commandManager.undoStack.length) {
-            commandManager.squashUndo(2);
-          }
 
-          undoStackSize = commandManager.undoStack.length;
           color = node.prop("data/settings/parameters/text_color");
           node.colorizeText(hexToHSL(color));
-          if(undoStackSize != commandManager.undoStack.length) {
-            commandManager.squashUndo(2);
-          }
+
+          cm.storeBatchCommand();
         }}
         validations={props.validations}
       ></WFooter>
