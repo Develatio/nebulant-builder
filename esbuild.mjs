@@ -123,6 +123,7 @@ export const buildParams = {
   minify: production,
   treeShaking: production,
   sourcemap: true,
+  sourcesContent: false,
   format: "esm",
   jsx: "automatic",
   bundle: true,
