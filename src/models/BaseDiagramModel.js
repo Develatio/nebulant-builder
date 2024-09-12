@@ -1,11 +1,9 @@
 import { dia } from "@joint/core";
-import { CommandManager } from "@joint/command-manager";
 
 import { GConfig } from "@src/core/GConfig";
 import { Runtime } from "@src/core/Runtime";
 import { EventBus } from "@src/core/EventBus";
-import { clone } from "@src/utils/lang/clone";
-import { cmdBeforeAdd } from "@src/models/base/cmdBeforeAdd";
+import { CommandManager } from "@src/core/CommandManager";
 import {
   Migrator as DiagramMigrator,
 } from "@src/components/implementations/base/migrators/DiagramDataMigrator";
@@ -28,20 +26,13 @@ export class BaseDiagramModel extends dia.Graph {
     this.logger = this.runtime.get("objects.logger");
 
     // create command manager
-    this.commandManager = new CommandManager({
-      graph: this,
-      stackLimit: 50,
+    this.commandManager = new CommandManager({ graph: this });
 
-      // This method allows us to filter the actions that we don't want to
-      // persist in the undo/redo store
-      cmdBeforeAdd: cmdBeforeAdd.bind(this),
-    });
-
-    this.commandManager.on("stack:push", (_commands, _opt) => {
+    this.commandManager.on("stack:push", () => {
       // If <this> is not the main_model, abort. There might be other models
       // (eg. the autocomplete model) that might be triggering commands, but we
       // don't care about them.
-      if(this.runtime.get("objects.main_model") != this) return;
+      if(this.runtime.get("objects.main_model") !== this) return;
 
       //console.log(commands);
       //const actions = commands.map(c => c.action);

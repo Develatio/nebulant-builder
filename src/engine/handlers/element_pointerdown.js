@@ -1,7 +1,30 @@
 import { util } from "@joint/core";
+import { Runtime } from "@src/core/Runtime";
 
-const bringAllToFront = util.debounce((selection) => {
-  selection.each(node => node.toFront());
+const bringAllToFrontIfNecessary = util.debounce((selection) => {
+  const runtime = new Runtime();
+  const engine = runtime.get("objects.engine");
+
+  selection.each(node => {
+    // Avoid "change:z" on nodes if nothing changed visually
+    let nodes = engine.findViewsInArea(node.getBBox()) || [];
+    nodes = nodes.filter(view => view.model.id !== node.id);
+
+    if(engine.hasEngineLayers()) {
+      const group = engine.getCurrentEngineLayer();
+      nodes = nodes.filter(view => view.model.getParentCell()?.id === group.id);
+    }
+
+    nodes = nodes.filter(view => view.model.prop("z") > node.prop("z"));
+
+    if(nodes.length === 0) {
+      // Modifying the z prop is not necessary, there is nothing on top of this
+      // node.
+      return;
+    }
+
+    node.toFront();
+  });
 }, 100);
 
 export const element_pointerdown = function(elementView, evt, x, y) {
@@ -50,5 +73,5 @@ export const element_pointerdown = function(elementView, evt, x, y) {
   // double-clicking on something) because calling ".toFront()" modifies the
   // DOM, which prevents JS from "remembering" which element was clicked.
   const selection = this.selection.collection.clone();
-  bringAllToFront.bind(this)(selection);
+  bringAllToFrontIfNecessary.bind(this)(selection);
 }

@@ -28,7 +28,6 @@
 		"generate_dependencies_list": "yarn info --manifest --json | jq -c --arg exclusions $(cat src/ui/structure/About/dev.json | tr '\n' '|' | sed 's/|$//') '[inputs | select(.value | test($exclusions) | not) | { name: .value, version: .children.Version, license: .children.Manifest.License, website: .children.Manifest.Homepage }]' > src/ui/structure/About/deps.json"
 	},
 	"dependencies": {
-		"@joint/command-manager": "workspace:^",
 		"@joint/core": "workspace:^",
 		"@joint/format-raster": "workspace:^",
 		"@joint/format-svg": "workspace:^",
@@ -41,6 +40,7 @@
 		"bootstrap": "5.3.3",
 		"fast-clean": "^1.3.2",
 		"highlight.js": "^11.10.0",
+		"jsondiffpatch": "^0.6.0",
 		"lodash-es": "^4.17.21",
 		"pako": "^2.1.0",
 		"pubsub-js": "^1.9.4",

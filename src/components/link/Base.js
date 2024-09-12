@@ -260,7 +260,7 @@ export class Base extends shapes.standard.Link {
     this.attr({
       line: { stroke: color },
       lineglow: { stroke: color },
-    });
+    }, { skip_undo_stack: true });
   }
 
   isGroup() {
