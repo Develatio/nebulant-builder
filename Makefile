@@ -8,7 +8,6 @@ jjplus:
 		rm -rf packages/joint/plus/jointplus;\
 		unzip -q joint-plus.zip -d packages/joint/plus;\
 		mkdir -p packages/joint/plus/src/packages;\
-		mv packages/joint/plus/jointplus/src/packages/joint-command-manager packages/joint/plus/src/packages/;\
 		mv packages/joint/plus/jointplus/src/packages/joint-format-raster packages/joint/plus/src/packages/;\
 		mv packages/joint/plus/jointplus/src/packages/joint-format-svg packages/joint/plus/src/packages/;\
 		mv packages/joint/plus/jointplus/src/packages/joint-free-transform packages/joint/plus/src/packages/;\
