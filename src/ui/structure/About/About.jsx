@@ -134,7 +134,7 @@ export const About = () => {
                       <li key={idx} className="d-flex gap-1">
                         {
                           dep.website ?
-                          <a href={dep.website}>{dep.name}</a> :
+                          <a target="_blank" rel="noreferrer" href={dep.website}>{dep.name}</a> :
                           <span>{ dep.name }</span>
                         }
                         <span>({dep.version}) - {dep.license}</span>
