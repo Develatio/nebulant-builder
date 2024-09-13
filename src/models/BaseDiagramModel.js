@@ -26,7 +26,10 @@ export class BaseDiagramModel extends dia.Graph {
     this.logger = this.runtime.get("objects.logger");
 
     // create command manager
-    this.commandManager = new CommandManager({ graph: this });
+    this.commandManager = new CommandManager({
+      graph: this,
+      stackLimit: 500,
+    });
 
     this.commandManager.on("stack:push", () => {
       // If <this> is not the main_model, abort. There might be other models

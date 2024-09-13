@@ -6,15 +6,14 @@ import * as jsondiffpatch from "jsondiffpatch";
 import { Logger } from "@src/core/Logger";
 import { Runtime } from "@src/core/Runtime";
 
-// Max number of commands in the undoStack
-const STACK_LIMIT = 500;
-
 export class CommandManager {
   constructor(options) {
     this.cm = new mvc.Model();
-    this.graph = options.graph;
     this.logger = new Logger();
     this.runtime = new Runtime();
+
+    this.graph = options.graph;
+    this.stackLimit = options.stackLimit;
 
     this.differ = jsondiffpatch.create({
       arrays: {
@@ -99,8 +98,8 @@ export class CommandManager {
 
   _push(stack, cmd) {
     stack.push(cmd);
-    if(stack.length > STACK_LIMIT) {
-      stack.splice(0, stack.length - STACK_LIMIT);
+    if(stack.length > this.stackLimit) {
+      stack.splice(0, stack.length - this.stackLimit);
     }
   }
 
