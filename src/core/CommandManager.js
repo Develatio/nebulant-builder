@@ -67,19 +67,25 @@ export class CommandManager {
   }
 
   _pushBatch(stack, cmd) {
+    // This might look ugly, but it's the only way to keep the batchCommand
+    // stack from growing WHILE we're pushing commands. This method will keep
+    // the stack size under control.
+
     if(!stack.length) {
       stack.push(cmd);
       return;
     }
 
+    const prevCmd = stack.find(c => c.data.id === cmd.data.id && c.action === cmd.action);
+
+    // If there is no previous command there is nothing we can squash against
+    if(prevCmd === undefined) {
+      stack.push(cmd);
+      return;
+    }
+
     // Squash "change:position" commands of the same node
-    const prevCmd = stack.find(c => c.data.id === cmd.data.id);
-    if(
-      prevCmd !== undefined &&
-      cmd.action === "change:position" &&
-      prevCmd.action === "change:position" &&
-      cmd.data.id === prevCmd.data.id
-    ) {
+    if(cmd.action === "change:position") {
       if("x" in cmd.data.diff.position) {
         prevCmd.data.diff.position.x ??= cmd.data.diff.position.x;
         prevCmd.data.diff.position.x[1] = cmd.data.diff.position.x[1];
@@ -88,6 +94,27 @@ export class CommandManager {
       if("y" in cmd.data.diff.position) {
         prevCmd.data.diff.position.y ??= cmd.data.diff.position.y;
         prevCmd.data.diff.position.y[1] = cmd.data.diff.position.y[1];
+      }
+
+      return;
+    }
+
+    // Squash "change:target" commands of the same link
+    if(cmd.action === "change:target") {
+      // Don't squash the command if the diff contains "magnet" and "port"
+      if("magnet" in cmd.data.diff.target && "port" in cmd.data.diff.target) {
+        stack.push(cmd);
+        return;
+      }
+
+      if("x" in cmd.data.diff.target) {
+        prevCmd.data.diff.target.x ??= cmd.data.diff.target.x;
+        prevCmd.data.diff.target.x[1] = cmd.data.diff.target.x[1];
+      }
+
+      if("y" in cmd.data.diff.target) {
+        prevCmd.data.diff.target.y ??= cmd.data.diff.target.y;
+        prevCmd.data.diff.target.y[1] = cmd.data.diff.target.y[1];
       }
 
       return;
@@ -117,7 +144,6 @@ export class CommandManager {
     if(["change:zoom", "change:x", "change:y"].includes(cmdName)) return;
 
     let command = undefined;
-    const isGraphCommand = (cell instanceof dia.Graph);
 
     if (this.batchCommand) {
       command = this.createCommand({ batch: true });
@@ -132,10 +158,20 @@ export class CommandManager {
 
       const attrs = cell.toJSON();
       const isStickyNote = attrs.type.includes("generic.StickyNote");
+      const isLink = cell.isLink();
+
       command.data.attributes = util.merge({}, {
         id: attrs.id,
-        position: attrs.position,
         z: attrs.z,
+
+        // Links don't have position
+        ...(!isLink && {position: attrs.position}),
+
+        // Links have "connector", "router", "source" and "target"
+        ...(isLink && {connector: attrs.connector}),
+        ...(isLink && {router: attrs.router}),
+        ...(isLink && {source: attrs.source}),
+        ...(isLink && {target: attrs.target}),
 
         // Persist size only for sticky notes
         ...(isStickyNote && {size: attrs.size}),
@@ -152,12 +188,8 @@ export class CommandManager {
 
     if (!command.batch || !command.action) {
       command.action = cmdName;
-      if (isGraphCommand) {
-        command.graphChange = true;
-      } else {
-        command.data.id = cell.id;
-        command.data.type = cell.attributes.type;
-      }
+      command.data.id = cell.id;
+      command.data.type = cell.attributes.type;
     }
 
     command.data.diff[changedAttribute] = this.differ.diff(
@@ -231,9 +263,10 @@ export class CommandManager {
     this.cm.stopListening();
 
     [].concat(command).reverse().forEach(cmd => {
+      const model = this.graph.getCell(cmd.data.id);
+
       if(cmd.action === "add") {
         this.logger.debug(`\tundoing [${cmd.action}] -> ${cmd.data.type}`);
-        const model = this.graph.getCell(cmd.data.id);
         if(model) {
           model.remove();
         }
@@ -243,7 +276,6 @@ export class CommandManager {
         this.graph.addCell(attrs);
       } else {
         this.logger.debug(`\tundoing [${cmd.action}] -> ${cmd.data.type}`);
-        const model = cmd.graphChange ? this.graph : this.graph.getCell(cmd.data.id);
         const [attribute, patch] = this._patchNodeAttrs(model, cmd, "backward");
         model.set(attribute, patch);
       }
@@ -257,7 +289,7 @@ export class CommandManager {
     this.cm.stopListening();
 
     [].concat(command).forEach(cmd => {
-      const model = cmd.graphChange ? this.graph : this.graph.getCell(cmd.data.id);
+      const model = this.graph.getCell(cmd.data.id);
 
       if(cmd.action === "add") {
         this.logger.debug(`\t[${cmd.action}] -> ${cmd.data.type}`);
