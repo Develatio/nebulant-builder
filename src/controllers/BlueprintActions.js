@@ -330,7 +330,7 @@ export class BlueprintActions {
 
   exposeSelection() {
     const { collection } = this.engine.selection;
-    collection.forEach((node, index) => {
+    collection.toArray().forEach((node, index) => {
       window[`$${1+index}`] = node;
       this.logger.debug(`Exposing ${node.id} to $${1+index}`);
       window[`$${1+index}v`] = node.findView(this.engine);
