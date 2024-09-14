@@ -45,7 +45,7 @@ export const validateConnection = function(
   // port-group attribute will be accessible only through the parent element
   const pg1 = magnetT.attributes["port-group"];
   const pg2 = magnetT.parentElement.attributes["port-group"];
-  if((pg1 || pg2).value != "in") return false;
+  if((pg1 || pg2)?.value != "in") return false;
 
   return true;
 }
