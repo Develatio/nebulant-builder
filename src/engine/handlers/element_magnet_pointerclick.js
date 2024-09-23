@@ -1,3 +1,4 @@
+import { util, g } from "@joint/core";
 import { Logger } from "@src/core/Logger";
 import { validateConnection } from "@src/engine/base/validateConnection";
 
@@ -5,7 +6,9 @@ import { validateConnection } from "@src/engine/base/validateConnection";
 // (instead of dragging) and then:
 //    * clicking on empty area to create a new vertex
 //    * clicking on a target port to finish creating the link
-export const element_magnet_pointerclick = function(elementView, _evt, magnet, x, y) {
+export const element_magnet_pointerclick = function(elementView, evt, magnet, x, y) {
+  const engine = this.runtime.get("objects.engine");
+
   const sourceId = elementView.model.id;
   const sourcePort = elementView.findAttribute('port', magnet);
   const cellViewS = elementView;
@@ -50,6 +53,7 @@ export const element_magnet_pointerclick = function(elementView, _evt, magnet, x
     document.removeEventListener("pointermove", onPointermove);
     document.removeEventListener("pointerup", onPointerup);
     document.removeEventListener("keydown", onEscape);
+    this.runtime.set("state.creating_link", false);
 
     if(!link) return;
 
@@ -96,8 +100,35 @@ export const element_magnet_pointerclick = function(elementView, _evt, magnet, x
   };
 
   const onPointermove = (evt) => {
-    const p = this.clientToLocalPoint({ x: evt.clientX, y: evt.clientY });
-    link.target(p);
+    const normalizedEvent = util.normalizeEvent(evt);
+    var lp = engine.clientToLocalPoint(evt.clientX, evt.clientY);
+
+    // Search for ports and maybe snap the pointer to a port instead of p
+
+    const dthreshold = engine.options.snapLinks.radius;
+    const r = new g.Rect({
+      x: lp.x - dthreshold,
+      y: lp.y - dthreshold,
+      width: dthreshold * 2,
+      height: dthreshold * 2,
+    });
+
+    // Find all cell views under near the pointer
+    const cellViews = engine.findViewsInArea(r).filter(
+      cv => cv.model.id !== sourceId
+    );
+
+    if(cellViews.length) {
+      const cells = cellViews.map(cv => ({
+        model: cv.model,
+        distance: lp.distance(cv.model.getBBox().center()),
+      })).sort((a, b) => a.distance - b.distance);
+      const cell = cells.at(0).model;
+      link.target(cell, { port: cell.getPortByGroup("in").id });
+    } else {
+      const p = this.snapToGrid(normalizedEvent.clientX, normalizedEvent.clientY);
+      link.target(p);
+    }
   };
 
   const onPointerup = (evt) => {
@@ -107,25 +138,27 @@ export const element_magnet_pointerclick = function(elementView, _evt, magnet, x
       return;
     }
 
-    const view = this.findView(evt.target);
-    if(!view) {
+    const cellT = link.getTargetCell();
+    const cellViewT = this.findViewByModel(cellT);
+
+    if(!cellViewT && !cellT) {
       const p = this.clientToLocalPoint({ x: evt.clientX, y: evt.clientY });
       link.vertices(link.vertices().concat(p.toJSON()));
       return;
     }
 
-    const cellViewT = view;
     const end = "target";
-    const magnetT = evt.target;
+    const targetPort = cellT.getPortByGroup("in");
+    const magnetT = cellViewT.findPortNode(targetPort.id);
+
     if(validateConnection(cellViewS, magnetS, cellViewT, magnetT, end, null)) {
-      const targetPort = view.findAttribute("port", evt.target);
       const currentVertices = link.vertices();
 
       link.remove();
 
       link = new linkClass();
       link.source({ id: sourceId, port: sourcePort });
-      link.target({ id: view.model.id, port: targetPort });
+      link.target({ id: cellT.id, port: targetPort });
       link.addTo(model).reparent();
       link.vertices(currentVertices);
 
@@ -141,7 +174,6 @@ export const element_magnet_pointerclick = function(elementView, _evt, magnet, x
 
   const onEscape = (evt) => {
     if(evt.key === "Escape") {
-      this.runtime.set("state.creating_link", false);
       link.remove();
       done();
     }
