@@ -123,7 +123,7 @@ export const buildParams = {
   minify: production,
   treeShaking: production,
   sourcemap: true,
-  sourcesContent: false,
+  sourcesContent: process.env.NODE_ENV === "development",
   format: "esm",
   jsx: "automatic",
   bundle: true,
