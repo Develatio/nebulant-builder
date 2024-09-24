@@ -223,11 +223,7 @@ export class Base extends shapes.standard.Link {
     }
   }
 
-  setColorFromSourcePort() {
-    const source = this.prop("source");
-    const source_id = source.id;
-    const source_port_id = source.port;
-
+  getConnectedCellInfo(direction = "source") {
     let model;
     // This happens when we're deserializing a diagram (when we're loading the
     // page)
@@ -239,7 +235,21 @@ export class Base extends shapes.standard.Link {
       model = runtime.get("objects.main_model");
     }
 
-    const element = model.getCell(source_id);
+    let cell;
+    if(direction === "source") {
+      cell = this.source();
+    } else {
+      cell = this.target(); // this might be a point instead of a cell port
+    }
+
+    return {
+      element: model.getCell(cell.id),
+      cellPortId: cell.port,
+    };
+  }
+
+  setColorFromSourcePort() {
+    const { element, cellPortId } = this.getConnectedCellInfo("source");
 
     // Note that in the previous "if/else", we assumed that the link belongs
     // to the main model. This isn't always the case. Several features in the
@@ -252,9 +262,9 @@ export class Base extends shapes.standard.Link {
       return;
     }
 
-    const ports = element.prop("ports");
-    const port = ports.items.find(port => port.id == source_port_id);
-    const group = ports.groups[port.group];
+    const port = element.getPortById(cellPortId);
+    const group = element.getGroupByName(port.group);
+
     const color = group.attrs.circle["link-color"] || "#ccc";
 
     this.attr({
