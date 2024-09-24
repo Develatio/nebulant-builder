@@ -158,7 +158,7 @@ export const element_magnet_pointerclick = function(elementView, evt, magnet, x,
 
       link = new linkClass();
       link.source({ id: sourceId, port: sourcePort });
-      link.target({ id: cellT.id, port: targetPort });
+      link.target({ id: cellT.id, port: targetPort.id });
       link.addTo(model).reparent();
       link.vertices(currentVertices);
 
