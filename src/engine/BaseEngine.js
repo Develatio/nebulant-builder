@@ -11,6 +11,7 @@ import { EventBus } from "@src/core/EventBus";
 import { shapes } from "@src/components/shapes";
 
 import { viewport } from "@src/engine/base/viewport";
+import { defaultRouter } from "@src/engine/base/defaultRouter";
 import { validateConnection } from "@src/engine/base/validateConnection";
 
 import { add } from "@src/engine/selection/add";
@@ -112,6 +113,26 @@ export class BaseEngine extends dia.Paper {
         const linkClass = this.getDefaultLinkClass();
         return new linkClass();
       },
+
+      defaultRouter: (vertices, opts, linkView) => {
+        return defaultRouter.bind(this)(vertices, opts, linkView);
+      },
+
+      defaultConnector: {
+        name: "jumpover",
+        args: {
+          jump: "gap",
+          radius: 10,
+        },
+      },
+
+      /*
+      connectionStrategy: (end, view, _magnet, coords) => {
+        end.anchor = {
+          name: view.model.getBBox().sideNearestToPoint(coords),
+        };
+      },
+      */
 
       // Offset distance between the ports and the links
       defaultConnectionPoint: {
