@@ -1,11 +1,28 @@
 import { util } from "@joint/core";
-import { Runtime } from "@src/core/Runtime";
+//import { Runtime } from "@src/core/Runtime";
 
 const bringAllToFrontIfNecessary = util.debounce((selection) => {
-  const runtime = new Runtime();
-  const engine = runtime.get("objects.engine");
+  //const runtime = new Runtime();
+  //const engine = runtime.get("objects.engine");
 
   selection.each(node => {
+    // We could avoid having to change the "z" prop of each selected node (using
+    // the commented code below), but there is a problem (as usual):
+    //
+    // if the user starts dragging the nodes, he'll eventually end up in a
+    // situation in which the dragged nodes will be rendered below (instead of
+    // above) other nodes on the canvas.
+    // We don't want that. And there are two ways of achieving this:
+    //
+    // a) constantly scan the visual area of each node while it's being dragged
+    // (using findViewsInArea()) and bring it to the front if required
+    // b) bring all nodes to the front
+    //
+    // "a" is "better", since it would allow us to not change the "z" prop
+    // unless required, but it would have a huge performance cost.
+    // "b" is "meh", since it modifies the "z" prop of all nodes, but it's fast.
+
+    /*
     // Avoid "change:z" on nodes if nothing changed visually
     let nodes = engine.findViewsInArea(node.getBBox()) || [];
     nodes = nodes.filter(view => view.model.id !== node.id);
@@ -16,6 +33,7 @@ const bringAllToFrontIfNecessary = util.debounce((selection) => {
       // node.
       return;
     }
+    */
 
     node.toFront();
   });
