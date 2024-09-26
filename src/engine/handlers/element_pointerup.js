@@ -105,6 +105,14 @@ export const element_pointerup = function(cellView, _evt, x, y) {
 
     // End the batch operation
     cm.storeBatchCommand();
+
+    // Make sure to remove all tools, highlight and deselect the selection.
+    // We don't want to user to accidentaly apply operations (with the kb
+    // shortcuts) on the cells that we just embedded in the group and that are
+    // NOT visible to the user...
+    this.selection.collection.reset([]);
+    engine.removeToolsFromAll(selection.models);
+    engine.unHighlightAll(selection.models);
   }
 
   // ...else it's a simple node, so we most probably need to create a new group.
