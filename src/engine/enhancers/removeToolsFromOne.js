@@ -1,3 +1,5 @@
+import { FreeTransform } from "@joint/free-transform";
+
 export const removeToolsFromOne = function(model) {
   const cellView = model.findView(this);
   // We might not get a cellView if the cell was visually removed from the
@@ -5,6 +7,9 @@ export const removeToolsFromOne = function(model) {
   // will be reset anyways.
   if(cellView) {
     cellView.removeTools();
+
+    // Clear FreeTransform
+    FreeTransform.clear(this);
 
     // After removing all the tools, we want to add back the warning / error
     // messages, but only if we're dealing with a node
