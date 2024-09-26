@@ -9,12 +9,6 @@ const bringAllToFrontIfNecessary = util.debounce((selection) => {
     // Avoid "change:z" on nodes if nothing changed visually
     let nodes = engine.findViewsInArea(node.getBBox()) || [];
     nodes = nodes.filter(view => view.model.id !== node.id);
-
-    if(engine.hasEngineLayers()) {
-      const group = engine.getCurrentEngineLayer();
-      nodes = nodes.filter(view => view.model.getParentCell()?.id === group.id);
-    }
-
     nodes = nodes.filter(view => view.model.prop("z") > node.prop("z"));
 
     if(nodes.length === 0) {

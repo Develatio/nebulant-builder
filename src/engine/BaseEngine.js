@@ -315,13 +315,7 @@ export class BaseEngine extends dia.Paper {
 
     // ... and after all this work, maybe there isn't anything visible, which is
     // a really bad UX. If this is the case, just focus on the main "Start" node
-    let nodes = this.findViewsInArea(this.scroller.getVisibleArea()) || [];
-
-    // Filter only nodes on the current layer
-    if(this.hasEngineLayers()) {
-      const group = this.getCurrentEngineLayer();
-      nodes = nodes.filter(model => model.getParentCell()?.id === group.id);
-    }
+    const nodes = this.findViewsInArea(this.scroller.getVisibleArea()) || [];
 
     if(nodes.length === 0) {
       const startNode = this.model.getStartNode();
