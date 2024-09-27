@@ -7,6 +7,11 @@
     <title>Nebulant builder</title>
     <meta name="description" content="Create and automate infrastructure tasks effortlessly with our drag-and-drop builder. Design blueprints and accelerate your automation workflow.">
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
       #application {
         height: 100%;
         overflow: hidden;
@@ -17,6 +22,7 @@
         width: 100%;
         height: 100%;
         z-index: 100;
+        color: white;
         background-color: #2D2A41;
         display: flex;
         flex-direction: column;
@@ -39,6 +45,7 @@
       }
 
       #application > .loading .btn {
+        cursor: pointer;
         font-size: 12px;
         color: #FFFFFF66;
         padding: 4px 8px;
