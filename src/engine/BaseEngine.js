@@ -228,25 +228,13 @@ export class BaseEngine extends dia.Paper {
   }
 
   pushLayer(group) {
-    const zoom = this.scroller.zoom();
-    const { x, y } = this.scroller.getVisibleArea().center();
-    const layer = {
-      x,
-      y,
-      zoom,
-      group_id: group.id,
-    };
+    const layer = { group_id: group.id };
 
     const canvasLayers = this.runtime.get("state.canvasLayers");
     this.runtime.set("state.canvasLayers", [...canvasLayers, layer]);
 
     this.eventBus.publish("BlueprintChange");
     this.checkViewport();
-
-    const startNode = group.getStartNode();
-    setTimeout(() => {
-      this.centerOnNode({ node_id: startNode.id, duration: 0 });
-    });
   }
 
   getEngineLayers() {
@@ -271,17 +259,24 @@ export class BaseEngine extends dia.Paper {
       return;
     }
 
-    const { x, y, zoom } = layers[idx];
+    const node = this.model.getCell(layers[idx].group_id);
+    const { x, y } = node.getBBox().center();
 
     this.runtime.set("state.canvasLayers", layers.slice(0, idx));
 
     this.eventBus.publish("BlueprintChange");
     this.checkViewport();
 
+    this.unHighlightAll();
+    this.highlightOne(node);
+
     setTimeout(() => {
       this.scroller.center(x, y);
-      this.scroller.zoom(zoom, { absolute: true });
     });
+
+    setTimeout(() => {
+      this.scroller.center(x, y);
+    }, 100);
   }
 
   getCenter() {
@@ -323,15 +318,52 @@ export class BaseEngine extends dia.Paper {
     }
   }
 
-  centerOnNode({ node_id, duration }) {
+  centerOnNode({ node_id }) {
     const node = this.model.getCell(node_id);
 
-    // Center the paper scroller so that the node will be on the center of the screen
-    this.scroller.scrollToElement(node);
+    if(!node) {
+      this.logger.warn(`Can't center on ${node_id}. Node wasn't found in the canvas.`);
+      return;
+    }
 
-    // Highlight the node
+    // Reset the engine layers
+    this.resetEngineLayers(0);
+
+    // Check if the node has a parent
+    const parent = node.getParentCell();
+    if(parent) {
+      // It does have a parent. We must do some extra steps...
+
+      // Get the chain of parent nodes that lead to the target node
+      const pchain = [parent];
+      while(true) {
+        const pg = pchain[0].getParentCell();
+        if(pg) {
+          pchain.unshift(pg);
+        } else {
+          break;
+        }
+      }
+
+      // Set the engine layers to that chain
+      pchain.forEach(group => this.pushLayer(group));
+    }
+
     this.unHighlightAll();
     this.highlightOne(node);
+
+    setTimeout(() => {
+      this.scroller.scrollToElement(node);
+    });
+
+    // There are certain edge case situations (I really don't know if it's
+    // because there is some bug / race condition somewhere in my code or in JJ)
+    // in which the node won't get fully centered. I have wasted *SO* much time
+    // trying to figure out exactly why, but to no avail.
+    // This is a rather simple workaround, but it makes me sad :(
+    setTimeout(() => {
+      this.scroller.scrollToElement(node);
+    }, 100);
   }
 
   centerOnNodes({ node_ids }) {

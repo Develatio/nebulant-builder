@@ -188,10 +188,6 @@ export const Variables = () => {
     return dql.query(qs) || [];
   }
 
-  const centerOnNode = (node_id) => {
-    eventBus.publish("CenterOnNode", { node_id });
-  }
-
   const outputVars = getOutputVars(varsFilter).map((variable, i) => {
     const varId = getIdFromOutputName(variable.__node_id, variable.__output_name);
 
@@ -239,7 +235,11 @@ export const Variables = () => {
 
             <div
               className="widget d-flex flex-column"
-              onClick={() => centerOnNode(variable.__node_id)}
+              onClick={() => {
+                eventBus.publish("CenterOnNode", {
+                  node_id: variable.__node_id,
+                });
+              }}
             >
               <div className="d-flex align-items-start flex-column">
                 {

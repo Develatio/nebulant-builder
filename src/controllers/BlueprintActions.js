@@ -221,11 +221,7 @@ export class BlueprintActions {
   }
 
   centerOnNode({ node_id }) {
-    if(this.engine.model.getElements().find(model => model.id == node_id)) {
-      this.engine.centerOnNode({ node_id });
-    } else {
-      this.logger.warn(`Can't center on ${node_id}. Node wasn't found in the canvas.`);
-    }
+    this.engine.centerOnNode({ node_id });
   }
 
   centerOnNodes({ node_ids }) {

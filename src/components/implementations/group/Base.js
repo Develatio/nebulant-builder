@@ -289,6 +289,11 @@ export class Base extends dia.Element {
   toggle() {
     const engine = this.runtime.get("objects.engine");
     engine.pushLayer(this);
+
+    const startNode = this.getStartNode();
+    setTimeout(() => {
+      engine.centerOnNode({ node_id: startNode.id });
+    });
   }
 
   // We want to override getEmbeddedCells and make it act like if there are no
