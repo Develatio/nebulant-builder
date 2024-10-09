@@ -221,7 +221,7 @@ export const Intellisense = () => {
       onClick={close}
     >
       <div
-        className="container position-absolute tiny-shadow"
+        className="container position-absolute tiny-shadow rounded"
         style={{ top: state.current.coords.top, left: state.current.coords.left }}
       >
         <Row>

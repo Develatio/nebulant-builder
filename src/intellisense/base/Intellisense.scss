@@ -8,8 +8,9 @@
   position: absolute;
 
   .container {
-    border: 1px solid #ccc;
-    background-color: #fff;
+    overflow: hidden;
+    border: $border-width solid $border-color-dark;
+    background-color: $--dark-40;
     max-width: 400px;
     pointer-events: all;
 
@@ -23,7 +24,7 @@
 
         &:hover,
         &.selected {
-          background-color: #eee;
+          background-color: $--dark-50;
         }
       }
 
