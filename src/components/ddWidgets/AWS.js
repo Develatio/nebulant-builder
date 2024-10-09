@@ -53,16 +53,6 @@ export const AWS = [
 
   {
     type: "ddGroup",
-    name: "ami",
-    label: "Image",
-    icon: "ami",
-    ddWidgets: [
-      { type: "ddWidget", ddWidget: FindImageDD },
-    ]
-  },
-
-  {
-    type: "ddGroup",
     name: "eip",
     label: "Elastic IP",
     icon: "eip",
@@ -77,15 +67,11 @@ export const AWS = [
 
   {
     type: "ddGroup",
-    name: "ebs",
-    label: "Volume",
-    icon: "ebs",
+    name: "ami",
+    label: "Image",
+    icon: "ami",
     ddWidgets: [
-      { type: "ddWidget", ddWidget: AttachVolumeDD },
-      { type: "ddWidget", ddWidget: CreateVolumeDD },
-      { type: "ddWidget", ddWidget: DeleteVolumeDD },
-      { type: "ddWidget", ddWidget: DetachVolumeDD },
-      { type: "ddWidget", ddWidget: FindVolumeDD },
+      { type: "ddWidget", ddWidget: FindImageDD },
     ]
   },
 
@@ -106,23 +92,33 @@ export const AWS = [
 
   {
     type: "ddGroup",
-    name: "security_group",
-    label: "Security group",
-    icon: "security_group",
-    ddWidgets: [
-      { type: "ddWidget", ddWidget: DeleteSecurityGroupDD },
-      { type: "ddWidget", ddWidget: FindSecurityGroupDD },
-    ]
-  },
-
-  {
-    type: "ddGroup",
     name: "key_pair",
     label: "Key pair",
     icon: "key_pair",
     ddWidgets: [
       { type: "ddWidget", ddWidget: DeleteKeyPairDD },
       { type: "ddWidget", ddWidget: FindKeyPairDD },
+    ]
+  },
+
+  {
+    type: "ddGroup",
+    name: "iface",
+    label: "Network interface",
+    icon: "iface",
+    ddWidgets: [
+      { type: "ddWidget", ddWidget: FindNetworkInterfaceDD },
+    ]
+  },
+
+  {
+    type: "ddGroup",
+    name: "security_group",
+    label: "Security group",
+    icon: "security_group",
+    ddWidgets: [
+      { type: "ddWidget", ddWidget: DeleteSecurityGroupDD },
+      { type: "ddWidget", ddWidget: FindSecurityGroupDD },
     ]
   },
 
@@ -138,21 +134,25 @@ export const AWS = [
 
   {
     type: "ddGroup",
-    name: "vpc",
-    label: "VPC",
-    icon: "vpc",
+    name: "ebs",
+    label: "Volume",
+    icon: "ebs",
     ddWidgets: [
-      { type: "ddWidget", ddWidget: FindVPCDD },
+      { type: "ddWidget", ddWidget: AttachVolumeDD },
+      { type: "ddWidget", ddWidget: CreateVolumeDD },
+      { type: "ddWidget", ddWidget: DeleteVolumeDD },
+      { type: "ddWidget", ddWidget: DetachVolumeDD },
+      { type: "ddWidget", ddWidget: FindVolumeDD },
     ]
   },
 
   {
     type: "ddGroup",
-    name: "iface",
-    label: "Network interface",
-    icon: "iface",
+    name: "vpc",
+    label: "VPC",
+    icon: "vpc",
     ddWidgets: [
-      { type: "ddWidget", ddWidget: FindNetworkInterfaceDD },
+      { type: "ddWidget", ddWidget: FindVPCDD },
     ]
   },
 ];

@@ -83,55 +83,6 @@ export const HetznerCloudIcons = {
 export const HetznerCloud = [
   {
     type: "ddGroup",
-    name: "network",
-    label: "Network",
-    icon: "network",
-    ddWidgets: [
-      { type: "ddWidget", ddWidget: AddRouteToNetworkDD },
-      { type: "ddWidget", ddWidget: CreateNetworkDD },
-      { type: "ddWidget", ddWidget: DeleteNetworkDD },
-      { type: "ddWidget", ddWidget: FindNetworkDD },
-      { type: "ddWidget", ddWidget: FindNetworksDD },
-      { type: "ddWidget", ddWidget: RemoveRouteFromNetworkDD },
-    ]
-  },
-
-  {
-    type: "ddGroup",
-    name: "volume",
-    label: "Volume",
-    icon: "volume",
-    ddWidgets: [
-      { type: "ddWidget", ddWidget: AttachVolumeDD },
-      { type: "ddWidget", ddWidget: CreateVolumeDD },
-      { type: "ddWidget", ddWidget: DeleteVolumeDD },
-      { type: "ddWidget", ddWidget: DetachVolumeDD },
-      { type: "ddWidget", ddWidget: FindVolumeDD },
-      { type: "ddWidget", ddWidget: FindVolumesDD },
-    ]
-  },
-
-  {
-    type: "ddGroup",
-    name: "load_balancer",
-    label: "Load balancer",
-    icon: "load_balancer",
-    ddWidgets: [
-      { type: "ddWidget", ddWidget: AddServiceToLoadBalancerDD },
-      { type: "ddWidget", ddWidget: AddTargetToLoadBalancerDD },
-      { type: "ddWidget", ddWidget: AttachLoadBalancerToNetworkDD },
-      { type: "ddWidget", ddWidget: CreateLoadBalancerDD },
-      { type: "ddWidget", ddWidget: DeleteLoadBalancerDD },
-      { type: "ddWidget", ddWidget: DetachLoadBalancerFromNetworkDD },
-      { type: "ddWidget", ddWidget: FindLoadBalancerDD },
-      { type: "ddWidget", ddWidget: FindLoadBalancersDD },
-      { type: "ddWidget", ddWidget: RemoveServiceFromLoadBalancerDD },
-      { type: "ddWidget", ddWidget: RemoveTargetFromLoadBalancerDD },
-    ]
-  },
-
-  {
-    type: "ddGroup",
     name: "firewall",
     label: "Firewall",
     icon: "firewall",
@@ -161,6 +112,53 @@ export const HetznerCloud = [
 
   {
     type: "ddGroup",
+    name: "image",
+    label: "Image",
+    icon: "image",
+    ddWidgets: [
+      { type: "ddWidget", ddWidget: CreateImageDD },
+      { type: "ddWidget", ddWidget: DeleteImageDD },
+      { type: "ddWidget", ddWidget: FindImageDD },
+      { type: "ddWidget", ddWidget: FindImagesDD },
+    ]
+  },
+
+  {
+    type: "ddGroup",
+    name: "load_balancer",
+    label: "Load balancer",
+    icon: "load_balancer",
+    ddWidgets: [
+      { type: "ddWidget", ddWidget: AddServiceToLoadBalancerDD },
+      { type: "ddWidget", ddWidget: AddTargetToLoadBalancerDD },
+      { type: "ddWidget", ddWidget: AttachLoadBalancerToNetworkDD },
+      { type: "ddWidget", ddWidget: CreateLoadBalancerDD },
+      { type: "ddWidget", ddWidget: DeleteLoadBalancerDD },
+      { type: "ddWidget", ddWidget: DetachLoadBalancerFromNetworkDD },
+      { type: "ddWidget", ddWidget: FindLoadBalancerDD },
+      { type: "ddWidget", ddWidget: FindLoadBalancersDD },
+      { type: "ddWidget", ddWidget: RemoveServiceFromLoadBalancerDD },
+      { type: "ddWidget", ddWidget: RemoveTargetFromLoadBalancerDD },
+    ]
+  },
+
+  {
+    type: "ddGroup",
+    name: "network",
+    label: "Network",
+    icon: "network",
+    ddWidgets: [
+      { type: "ddWidget", ddWidget: AddRouteToNetworkDD },
+      { type: "ddWidget", ddWidget: CreateNetworkDD },
+      { type: "ddWidget", ddWidget: DeleteNetworkDD },
+      { type: "ddWidget", ddWidget: FindNetworkDD },
+      { type: "ddWidget", ddWidget: FindNetworksDD },
+      { type: "ddWidget", ddWidget: RemoveRouteFromNetworkDD },
+    ]
+  },
+
+  {
+    type: "ddGroup",
     name: "primary_ip",
     label: "Primary IP",
     icon: "primary_ip",
@@ -171,19 +169,6 @@ export const HetznerCloud = [
       { type: "ddWidget", ddWidget: FindPrimaryIPDD },
       { type: "ddWidget", ddWidget: FindPrimaryIPsDD },
       { type: "ddWidget", ddWidget: UnassignPrimaryIPDD },
-    ]
-  },
-
-  {
-    type: "ddGroup",
-    name: "image",
-    label: "Image",
-    icon: "image",
-    ddWidgets: [
-      { type: "ddWidget", ddWidget: CreateImageDD },
-      { type: "ddWidget", ddWidget: DeleteImageDD },
-      { type: "ddWidget", ddWidget: FindImageDD },
-      { type: "ddWidget", ddWidget: FindImagesDD },
     ]
   },
 
@@ -225,6 +210,21 @@ export const HetznerCloud = [
     ddWidgets: [
       { type: "ddWidget", ddWidget: CreateSubnetDD },
       { type: "ddWidget", ddWidget: DeleteSubnetDD },
+    ]
+  },
+
+  {
+    type: "ddGroup",
+    name: "volume",
+    label: "Volume",
+    icon: "volume",
+    ddWidgets: [
+      { type: "ddWidget", ddWidget: AttachVolumeDD },
+      { type: "ddWidget", ddWidget: CreateVolumeDD },
+      { type: "ddWidget", ddWidget: DeleteVolumeDD },
+      { type: "ddWidget", ddWidget: DetachVolumeDD },
+      { type: "ddWidget", ddWidget: FindVolumeDD },
+      { type: "ddWidget", ddWidget: FindVolumesDD },
     ]
   },
 ];

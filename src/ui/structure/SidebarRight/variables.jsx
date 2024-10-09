@@ -188,7 +188,9 @@ export const Variables = () => {
     return dql.query(qs) || [];
   }
 
-  const outputVars = getOutputVars(varsFilter).map((variable, i) => {
+  const outputVars = getOutputVars(varsFilter).sort((a, b) => {
+    return a.value.localeCompare(b.value);
+  }).map((variable, i) => {
     const varId = getIdFromOutputName(variable.__node_id, variable.__output_name);
 
     variable.__tmp_index = i;
