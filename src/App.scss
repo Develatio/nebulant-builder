@@ -129,8 +129,18 @@ body,
   overflow: hidden;
 }
 
+.border {
+  &.border-transparent {
+    border-color: transparent !important;
+  }
+}
+
 .badge {
   cursor: default;
+
+  &.badge-transparent {
+    background-color: transparent !important;
+  }
 }
 
 .application {

@@ -11,10 +11,10 @@ export const VariablesTags = (props) => {
             {
               v.type ? (
                 <>
-                  <Badge className={`${v.type.split(":")[0]} fill variable_badge text-smallest rounded-end-0 user-select-none`}>
+                  <Badge className={`${v.type.split(":")[0]} fill border border-transparent variable_badge text-smallest rounded-end-0 user-select-none`}>
                     {v.type.split(":")[0]}
                   </Badge>
-                  <Badge className={`${v.type.split(":")[0]} border variable_badge text-smallest rounded-start-0 user-select-none`}>
+                  <Badge className={`${v.type.split(":")[0]} badge-transparent border variable_badge text-smallest rounded-start-0 user-select-none`}>
                     {v.type.split(":")[1]}
                   </Badge>
                 </>

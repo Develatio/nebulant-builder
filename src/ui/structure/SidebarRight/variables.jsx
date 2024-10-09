@@ -268,10 +268,10 @@ export const Variables = () => {
 
               <div className="d-flex flex-wrap flex-gap-1">
                 <div className="d-flex">
-                  <Badge className={`${variable.type.split(":")[0]} fill variable_badge rounded-end-0 user-select-none`}>
+                  <Badge className={`${variable.type.split(":")[0]} fill border border-transparent variable_badge rounded-end-0 user-select-none`}>
                     {variable.type.split(":")[0]}
                   </Badge>
-                  <Badge className={`${variable.type.split(":")[0]} border variable_badge rounded-start-0 user-select-none`}>
+                  <Badge className={`${variable.type.split(":")[0]} badge-transparent border variable_badge rounded-start-0 user-select-none`}>
                     {variable.type.split(":")[1]}
                   </Badge>
                 </div>

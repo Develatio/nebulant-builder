@@ -1,6 +1,7 @@
 .superselect {
   .groupsWrapper {
-    border-right: $border-width solid $border-color;
+    @extend .py-2;
+    border-right: $input-border-width solid $input-border-color;
     @include enhanced-scrollbar;
     overflow-x: hidden !important;
     max-width: calc(100% / 3);

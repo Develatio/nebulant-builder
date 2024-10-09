@@ -4,9 +4,9 @@
 
     position: relative;
     left: 0;
-    border: $border-width solid $border-color;
-    border-bottom-left-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    border: $border-width solid $input-border-color;
+    border-bottom-left-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
 
     overflow: hidden;
     background-color: var(--#{$prefix}body-bg);
@@ -72,11 +72,12 @@
 
         position: sticky;
         top: 0;
-        border-bottom: $border-width solid $border-color;
+        border-bottom: $input-border-width solid $input-border-color;
         background-color: $input-bg;
       }
 
       .options {
+        @extend .py-2;
         flex-grow: 1;
         min-height: 60px;
         @include enhanced-scrollbar;
@@ -127,7 +128,7 @@
         align-items: center;
         line-height: 1rem;
         justify-content: space-between;
-        border-top: $border-width solid $border-color;
+        border-top: $input-border-width solid $input-border-color;
 
         &:empty {
           display: none;
