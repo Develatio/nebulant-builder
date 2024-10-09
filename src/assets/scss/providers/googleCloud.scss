@@ -116,18 +116,17 @@
       .variable_badge {
         &.googleCloud {
           border: 1px solid $googleCloud_variable_badge_border_color !important;
-        }
 
-        &.fill {
-          &.googleCloud {
-            background-color: $googleCloud_variable_badge_bg_color !important;
+          &.badge-transparent {
+            color: white !important;
           }
-        }
 
-        &.border {
-          &.googleCloud {
-            color: black;
-            background-color: white !important;
+          &:not(.badge-transparent) {
+            color: $googleCloud_variable_badge_color !important;
+          }
+
+          &.fill {
+            background-color: $googleCloud_variable_badge_bg_color !important;
           }
         }
       }

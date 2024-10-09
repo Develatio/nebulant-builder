@@ -116,18 +116,17 @@
       .variable_badge {
         &.hetznerCloud {
           border: 1px solid $hetznerCloud_variable_badge_border_color !important;
-        }
 
-        &.fill {
-          &.hetznerCloud {
-            background-color: $hetznerCloud_variable_badge_bg_color !important;
+          &.badge-transparent {
+            color: white !important;
           }
-        }
 
-        &.border {
-          &.hetznerCloud {
-            color: black;
-            background-color: white !important;
+          &:not(.badge-transparent) {
+            color: $hetznerCloud_variable_badge_color !important;
+          }
+
+          &.fill {
+            background-color: $hetznerCloud_variable_badge_bg_color !important;
           }
         }
       }

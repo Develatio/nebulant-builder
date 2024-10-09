@@ -116,18 +116,17 @@
       .variable_badge {
         &.ovhCloud {
           border: 1px solid $ovhCloud_variable_badge_border_color !important;
-        }
 
-        &.fill {
-          &.ovhCloud {
-            background-color: $ovhCloud_variable_badge_bg_color !important;
+          &.badge-transparent {
+            color: white !important;
           }
-        }
 
-        &.border {
-          &.ovhCloud {
-            color: black;
-            background-color: white !important;
+          &:not(.badge-transparent) {
+            color: $ovhCloud_variable_badge_color !important;
+          }
+
+          &.fill {
+            background-color: $ovhCloud_variable_badge_bg_color !important;
           }
         }
       }

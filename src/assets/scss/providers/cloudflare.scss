@@ -116,18 +116,17 @@
       .variable_badge {
         &.cloudflare {
           border: 1px solid $cloudflare_variable_badge_border_color !important;
-        }
 
-        &.fill {
-          &.cloudflare {
-            background-color: $cloudflare_variable_badge_bg_color !important;
+          &.badge-transparent {
+            color: white !important;
           }
-        }
 
-        &.border {
-          &.cloudflare {
-            color: black;
-            background-color: white !important;
+          &:not(.badge-transparent) {
+            color: $cloudflare_variable_badge_color !important;
+          }
+
+          &.fill {
+            background-color: $cloudflare_variable_badge_bg_color !important;
           }
         }
       }

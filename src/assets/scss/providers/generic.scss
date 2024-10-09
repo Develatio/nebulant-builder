@@ -118,18 +118,17 @@
       .variable_badge {
         &.generic {
           border: 1px solid $generic_variable_badge_border_color !important;
-        }
 
-        &.fill {
-          &.generic {
-            background-color: $generic_variable_badge_bg_color !important;
+          &.badge-transparent {
+            color: white !important;
           }
-        }
 
-        &.border {
-          &.generic {
-            color: black;
-            background-color: white !important;
+          &:not(.badge-transparent) {
+            color: $generic_variable_badge_color !important;
+          }
+
+          &.fill {
+            background-color: $generic_variable_badge_bg_color !important;
           }
         }
       }
