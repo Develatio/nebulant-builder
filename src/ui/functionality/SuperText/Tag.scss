@@ -3,8 +3,8 @@
     @extend .ps-1;
     @extend .pe-1;
     display: inline-block;
-    border: $border-width solid $border-color;
-    border-radius: $border-radius;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
     height: fit-content;
 
     max-width: 45%; // 45% of the width of the selection preview
@@ -26,7 +26,7 @@
 
     .txtWrapper {
       @extend .pe-1;
-      border-right: $border-width solid $border-color;
+      border-right: $input-border-width solid $input-border-color;
       position: relative;
       min-width: 0;
 
@@ -46,11 +46,17 @@
         font-family: inherit;
         width: 100%;
         padding: inherit;
+        background-color: transparent;
       }
     }
 
     &.editable {
       cursor: text;
+      color: transparent;
+    }
+
+    &:not(.editable) {
+      cursor: default;
     }
 
     .btnDeleteWrapper {

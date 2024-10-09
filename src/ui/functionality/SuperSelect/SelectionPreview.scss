@@ -23,9 +23,9 @@
     }
 
     @at-root .superselect:not(.open) .selectionPreviewWrapper {
-      border: $border-width solid $border-color;
-      border-bottom-left-radius: $border-radius;
-      border-bottom-right-radius: $border-radius;
+      border: $input-border-width solid $input-border-color;
+      border-bottom-left-radius: $input-border-radius;
+      border-bottom-right-radius: $input-border-radius;
       z-index: 0;
     }
 
@@ -36,7 +36,8 @@
     }
 
     .selectionPreview {
-      @extend .my-2;
+      @extend .mt-2;
+      @extend .pb-2;
       @extend .mx-2;
       overflow: hidden;
       transition: $transition-base;
@@ -67,9 +68,9 @@
       top: 0;
       right: 0;
       opacity: 1;
-      border-left: $border-width solid $border-color;
-      border-bottom: $border-width solid $border-color;
-      border-bottom-left-radius: $border-radius;
+      border-left: $input-border-width solid $input-border-color;
+      border-bottom: $input-border-width solid $input-border-color;
+      border-bottom-left-radius: $input-border-radius;
       transition: $transition-base;
       transition-delay: 0.25s !important;
       font-size: $sub-sup-font-size;
@@ -92,7 +93,7 @@
 
       -webkit-mask-image: linear-gradient(0deg, rgba(0, 0, 0, 85%) 4px, transparent);
       mask-image: linear-gradient(0deg, rgba(0, 0, 0, 85%) 4px, transparent);
-      background-color: white;
+      background-color: var(--#{$prefix}body-bg);
 
       @at-root .superselect .selectionPreviewWrapper:is(:hover, :focus-within) .mask {
         background-color: transparent;
