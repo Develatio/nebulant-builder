@@ -9,8 +9,8 @@
           border: none;
           color: $pagination-color;
 
-          @at-root .superselect .page-item.disabled .page-link {
-            @extend .text-muted;
+          @at-root .superselect .optionsActions .pagination .page-item.disabled .page-link {
+            color: $pagination-disabled-color;
             background-color: $pagination-bg !important;
           }
 
