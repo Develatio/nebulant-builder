@@ -99,7 +99,7 @@ export class Base extends shapes.standard.Link {
         const engine = runtime.get("objects.engine");
         const view = model.findView(engine);
 
-        if(!view.path) {
+        if(!view?.path) {
           if(runs >= max_runs) {
             const logger = new Logger();
             logger.error("Reached max attempts to update the path of the link. Aborting...");
