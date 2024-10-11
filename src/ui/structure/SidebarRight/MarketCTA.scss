@@ -1,0 +1,54 @@
+.sidebarright_marketcta {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  margin-top: 50px;
+
+  .title {
+    font-size: $--fs-24;
+    font-weight: 300;
+    color: $--white-secondary;
+
+    .title_highlight {
+      color: $--white-primary;
+    }
+  }
+
+  .description {
+    font-size: $--fs-16;
+    font-weight: 300;
+    color: $--white-secondary;
+
+    .description_highlight {
+      color: $--purple-30;
+    }
+  }
+
+  .button {
+    padding: 14px 24px;
+    width: max-content;
+    font-weight: 300;
+    font-size: $--fs-14;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $--white-primary;
+    }
+
+    &:hover {
+      border: $border-width solid $--white-secondary !important;
+    }
+  }
+}

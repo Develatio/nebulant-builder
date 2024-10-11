@@ -11,6 +11,7 @@ import { DiagramQL } from "@src/data/DiagramQL";
 
 import { Icon } from "@src/ui/functionality/Icon";
 //import { Tooltip } from "@src/ui/functionality/Tooltip";
+import { MarketCTA } from "@src/ui/structure/SidebarRight/MarketCTA";
 
 import AsyncIcon from "@src/assets/img/icons/ui/async.svg?transform";
 //import DebugIcon from "@src/assets/img/icons/control/debug.svg?transform";
@@ -221,6 +222,10 @@ export const Variables = () => {
       </div>
 
       <div className="content">
+        {
+          outputVars.length === 0 ? <MarketCTA /> : ""
+        }
+
         {outputVars.map(variable => (
           <div
             className={`
