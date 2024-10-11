@@ -368,6 +368,10 @@ export const Header = () => {
                   <span className="me-5">Help / Support</span>
                 </Dropdown.Item>
 
+                <Dropdown.Item as="div" className="d-flex justify-content-between pointer" onClick={() => window.open(`${process.env.DOCS_ENDPOINT}/`, "_blank")}>
+                  <span className="me-5">Documentation</span>
+                </Dropdown.Item>
+
                 <Dropdown.Divider />
 
                 <Dropdown.Item as="div" className="d-flex justify-content-between pointer" onClick={() => {}}>
