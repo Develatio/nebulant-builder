@@ -1,3 +1,7 @@
 .app-settings {
   min-height: 80vh;
+
+  > .container {
+    flex-grow: 1;
+  }
 }

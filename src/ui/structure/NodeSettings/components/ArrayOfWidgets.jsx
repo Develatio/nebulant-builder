@@ -165,7 +165,7 @@ export const ArrayOfWidgets = (props) => {
             {
               props.children?.length ? (
                 <Card.Body className="border border-bottom-0 rounded-top bg-almost-dark">
-                  <Row className="gap-3">
+                  <Row className="row-gap-3">
                     {props.children}
                   </Row>
                 </Card.Body>
