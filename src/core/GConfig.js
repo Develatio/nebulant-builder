@@ -103,11 +103,21 @@ export class GConfig {
     this._config = clone(DEFAULT_CONFIG);
 
     this._listeners = {};
+
+    this.persist = util.debounce(this._persist, 1000 * 15, { // 15s
+      trailing: true,
+    });
+  }
+
+  _persist() {
+    const backendConnector = this.runtime.get("objects.backendConnector");
+
+    backendConnector.saveMyself().catch(error => {
+      this.eventBus.publish("Toast", { msg: error, lvl: "error" });
+    });
   }
 
   set(keyPath, value, opts = {}) {
-    const backendConnector = this.runtime.get("objects.backendConnector");
-
     value = clone(value);
     // Handle global assign (empty keyPath)
     if(keyPath == "") {
@@ -139,9 +149,7 @@ export class GConfig {
     }
 
     if(me && !opts.skip_save_myself) {
-      backendConnector.saveMyself().catch(error => {
-        this.eventBus.publish("Toast", { msg: error, lvl: "error" });
-      });
+      this.persist();
     }
 
     // Save the prefs in local storage
