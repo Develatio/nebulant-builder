@@ -1,1 +1,9 @@
-<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-14 -14)"><path d="m86 14h-72v72h72zm-4 68h-64v-64h64z" fill-rule="nonzero"/><path d="m13.962 22.377h37.748v29.567h-37.748z" fill="#fff" transform="matrix(1.69646 0 0 2.16461 -5.72381 -30.4369)"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g>
+        <g transform="matrix(0.199032,0,0,0.199032,2.04842,2.04842)">
+            <path d="M86,14L14,14L14,86L86,86L86,14ZM82,82L18,82L18,18L82,18L82,82Z" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:5.02px;"/>
+        </g>
+    </g>
+</svg>

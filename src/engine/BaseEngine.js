@@ -207,8 +207,8 @@ export class BaseEngine extends dia.Paper {
     // Initialize the minimap
     this.minimap = new Navigator({
       paperScroller: this.scroller,
-      width: 150,
-      height: 100,
+      width: 140,
+      height: 88,
       padding: 0,
       zoomOptions: {
         max: 2,

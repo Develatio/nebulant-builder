@@ -4,48 +4,143 @@
     left: calc(100% + 15px);
     bottom: 10px;
 
-    .info,
-    .undo,
-    .redo {
-      background-color: $--dark-40;
-      height: 40px;
-      width: 40px;
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    > div.spinner {
       border-radius: 8px;
       text-align: center;
-      align-content: center;
+      line-height: 20px;
+      background-color: $--purple-10;
+      white-space: pre;
+      align-items: center;
+      font-size: $--fs-14;
+      font-weight: 500;
 
-      &:not(.noUndo,.noRedo) {
-        cursor: pointer;
+      &:hover {
+        background-color: $--purple-20;
+      }
 
-        &:hover {
-          background-color: $--dark-50;
+      .indicator {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+
+        &:after {
+          content: " ";
+          display: block;
+          width: 22px;
+          height: 22px;
+          margin: 0px;
+          border-radius: 50%;
+          border: 2px solid #fff;
+          border-color: #fff transparent #fff transparent;
+          animation: rotate360 1.2s linear infinite;
         }
       }
 
-      svg {
-        width: 20px;
-        height: 20px;
-        stroke: $--white-primary;
-      }
-
-      &.noUndo,
-      &.noRedo {
-        svg {
-          path {
-            stroke: $--white-secondary;
-          }
+      @keyframes rotate360 {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
         }
       }
     }
 
-    .infoControl {
-      position: absolute;
-      bottom: 44px;
+    .connect {
+      border-radius: 8px;
+      text-align: center;
+      line-height: 20px;
+      background-color: $--purple-10;
+      white-space: pre;
+      align-items: center;
+      font-size: $--fs-14;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $--purple-20;
+      }
+    }
+
+    .run {
+      border-radius: 8px;
+      text-align: center;
+      line-height: 20px;
+      background-color: $--purple-10;
+      white-space: pre;
+      align-items: center;
+      font-size: $--fs-14;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $--purple-20;
+      }
+    }
+
+    .pause {
+      border-radius: 8px;
+      text-align: center;
+      line-height: 20px;
+      background-color: $warning;
+      white-space: pre;
+      align-items: center;
+      font-size: $--fs-14;
+      font-weight: 500;
+
+      &:hover {
+        background-color: shade-color($warning, 10%) !important;
+      }
 
       svg {
         path {
-          stroke: none !important;
-          fill: $--white-primary !important;
+          fill: white !important;
+          stroke: white !important;
+        }
+      }
+    }
+
+    .stop {
+      border-radius: 8px;
+      text-align: center;
+      line-height: 20px;
+      background-color: $danger;
+      white-space: pre;
+      align-items: center;
+      font-size: $--fs-14;
+      font-weight: 500;
+
+      &:hover {
+        background-color: shade-color($danger, 10%) !important;
+      }
+
+      svg {
+        path {
+          stroke: white !important;
+        }
+      }
+    }
+
+    .resume {
+      border-radius: 8px;
+      text-align: center;
+      line-height: 20px;
+      background-color: $success;
+      white-space: pre;
+      align-items: center;
+      font-size: $--fs-14;
+      font-weight: 500;
+
+      &:hover {
+        background-color: shade-color($success, 10%) !important;
+      }
+
+      svg {
+        path {
+          stroke: white !important;
         }
       }
     }

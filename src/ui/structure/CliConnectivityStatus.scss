@@ -3,15 +3,20 @@
   padding: 8px 12px;
 
   &.status-danger {
-    background-color: #D25959;
+    color: $danger;
   }
 
   &.status-warning {
-    background-color: yellow;
+    color: $yellow;
   }
 
   &.status-success {
-    background-color: green;
+    color: $--white-primary;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
   }
 
   span {

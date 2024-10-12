@@ -1,12 +1,11 @@
 .application-right-side {
-  .zoomControls {
+  .actions.down {
     position: absolute;
     right: calc(100% + 15px);
     bottom: 10px;
 
-    .mag-minus,
-    .mag-plus {
-      cursor: pointer;
+    .undo,
+    .redo {
       background-color: $--dark-40;
       height: 40px;
       width: 40px;
@@ -14,14 +13,27 @@
       text-align: center;
       align-content: center;
 
-      &:hover {
-        background-color: $--dark-50;
+      &:not(.noUndo,.noRedo) {
+        cursor: pointer;
+
+        &:hover {
+          background-color: $--dark-50;
+        }
       }
 
       svg {
         width: 20px;
         height: 20px;
         stroke: $--white-primary;
+      }
+
+      &.noUndo,
+      &.noRedo {
+        svg {
+          path {
+            stroke: $--white-secondary;
+          }
+        }
       }
     }
   }

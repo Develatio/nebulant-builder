@@ -43,8 +43,8 @@
 
     @keyframes blink-error {
       0% { background-color: white; }
-      30% { background-color: $error; }
-      70% { background-color: $error; }
+      30% { background-color: $danger; }
+      70% { background-color: $danger; }
       100% { background-color: white; }
     }
 

@@ -8,23 +8,16 @@ import { GConfig } from "@src/core/GConfig";
 import { Runtime } from "@src/core/Runtime";
 import { EventBus } from "@src/core/EventBus";
 import { DiagramQL } from "@src/data/DiagramQL";
-import { alphaDecToHex } from "@src/utils/colors";
-
-import { Icon } from "@src/ui/functionality/Icon";
 
 import Logo from "@src/assets/img/logo.svg?transform";
-import Close from "@src/assets/img/icons/control/close.svg?transform";
 
 export const Header = () => {
   const runtime = new Runtime();
   const eventBus = new EventBus();
   const gconfig = new GConfig();
 
-  const engine = runtime.get("objects.engine");
-
   const [me, setMe] = useState(runtime.get("state.myself"));
   const [debug, setDebug] = useState(gconfig.get("advanced.debug"));
-  const [layer, setLayer] = useState(null);
 
   const [menuItemsVisibility, setMenuItemVisibility] = useState({
     "blueprint": false,
@@ -36,21 +29,6 @@ export const Header = () => {
   useEffect(() => {
     runtime.notifyOnChanges("state.myself", setMe);
     gconfig.notifyOnChanges("advanced.debug", setDebug);
-    runtime.notifyOnChanges("state.canvasLayers", () => {
-      if(engine.hasEngineLayers()) {
-        const group = engine.getCurrentEngineLayer();
-        const startNode = group.getStartNode();
-        const { parameters } = startNode.prop("data/settings");
-        parameters.name
-        setLayer({
-          name: parameters.name,
-          color: parameters.color,
-          textColor: parameters.text_color,
-        });
-      } else {
-        setLayer(null);
-      }
-    });
 
     return () => {
       runtime.stopNotifying("state.myself", setMe);
@@ -399,31 +377,6 @@ export const Header = () => {
         </Navbar>
 
       </div>
-
-      {
-        layer && (
-          <div
-            className="application-engine-layer-notificator ps-2 py-0 d-flex rounded align-items-center"
-            style={{
-              border: `1px solid ${layer.color}${alphaDecToHex(100)}`,
-              backgroundColor: `${layer.color}${alphaDecToHex(50)}`,
-              color: layer.textColor,
-            }}
-          >
-            <small className="d-inline-block text-truncate">
-              {layer.name}
-            </small>
-
-            <div className="px-2 py-1 pointer d-flex align-items-center">
-              <Icon className="close" onClick={() => {
-                engine.resetEngineLayers(engine.getEngineLayers().length - 1);
-              }}>
-                <Close />
-              </Icon>
-            </div>
-          </div>
-        )
-      }
     </div>
   );
 }

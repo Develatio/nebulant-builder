@@ -31,12 +31,28 @@
       gap: 8px;
       line-height: normal;
 
-      .warning {
+      svg.warning {
         width: 18px;
+
+        path:first-of-type {
+          fill: $yellow !important;
+        }
+
+        path:not(:first-of-type) {
+          stroke: #1E1A28 !important;
+        }
       }
 
-      .error {
+      svg.error {
         width: 18px;
+
+        circle {
+          fill: $danger !important;
+        }
+
+        path {
+          stroke: #1E1A28 !important;
+        }
       }
     }
   }
