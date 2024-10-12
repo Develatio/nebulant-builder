@@ -18,6 +18,7 @@ export class Runtime {
         pristineBlueprint: {},
         warn_counter: 0,
         err_counter: 0,
+        canvasLayers: [],
 
         engine_options: {
           interactive: {

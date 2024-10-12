@@ -148,7 +148,7 @@ export const importAsBlueprint = (data, opts = {}) => {
   runtime.set("state.pristineBlueprint", clone(data.blueprint));
 
   logger.debug("\tResetting layers engine...");
-  engine.resetEngineLayers();
+  engine.setEngineLayersLevel();
 
   let loadRes = false;
   if(opts.load_autosave) {

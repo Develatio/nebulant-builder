@@ -251,18 +251,18 @@ export class BaseEngine extends dia.Paper {
     return this.getEngineLayers().length > 0;
   }
 
-  resetEngineLayers(idx = 0) {
+  setEngineLayersLevel(level = 0) {
     const layers = this.getEngineLayers();
 
-    if(layers.length === 0 && idx === 0) {
+    if(layers.length === 0 && level === 0) {
       this.runtime.set("state.canvasLayers", []);
       return;
     }
 
-    const node = this.model.getCell(layers[idx].group_id);
+    const node = this.model.getCell(layers[level].group_id);
     const { x, y } = node.getBBox().center();
 
-    this.runtime.set("state.canvasLayers", layers.slice(0, idx));
+    this.runtime.set("state.canvasLayers", layers.slice(0, level));
 
     this.eventBus.publish("BlueprintChange");
     this.checkViewport();
@@ -327,7 +327,7 @@ export class BaseEngine extends dia.Paper {
     }
 
     // Reset the engine layers
-    this.resetEngineLayers(0);
+    this.setEngineLayersLevel(0);
 
     // Check if the node has a parent
     const parent = node.getParentCell();
