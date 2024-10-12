@@ -30,6 +30,7 @@ const DEFAULT_CONFIG = {
     minimap: false,
     highlight_onhover: true,
     highlight_animations: true,
+    toasts: true,
     showInfo: false, // Show / hide the comments of each node
 
     links: {

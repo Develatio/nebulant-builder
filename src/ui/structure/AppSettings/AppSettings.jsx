@@ -117,7 +117,7 @@ export const AppSettings = () => {
                       validations={validations}
                       path="ui.links.type"
                       label="Links type"
-                      help_text="Set the links type"
+                      help_text="Set the links type (applies only to links created after changing this setting)"
                       options={[
                         { label: "Simple", value: "simple" },
                         { label: "Smart", value: "smart" },
@@ -157,6 +157,20 @@ export const AppSettings = () => {
                     <Alert variant="warning" className="py-1 small">
                       Minimap is CPU and GPU intensive. It requires 2x the resources
                       that would be otherwise used by the Nebulant Builder.
+                    </Alert>
+                  </Col>
+
+                  <Col sm={{offset: 1, span: 4}} className="mt-5">
+                    <CheckboxInput
+                      form={form}
+                      validations={validations}
+                      path="ui.toasts"
+                      label="Toast messages"
+                      help_text="Enable or disable the toast messages in the upper right corner"
+                    ></CheckboxInput>
+
+                    <Alert variant="info" className="py-1 small">
+                      If you disable this, alerts will be shown only in the console.
                     </Alert>
                   </Col>
 
@@ -219,7 +233,7 @@ export const AppSettings = () => {
                     </Alert>
                   </Col>
 
-                  <Col sm={{offset: 1, span: 4}}>
+                  <Col sm={{offset: 1, span: 4}} className="mt-5">
                     <CheckboxInput
                       form={form}
                       validations={validations}

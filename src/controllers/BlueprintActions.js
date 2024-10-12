@@ -117,7 +117,14 @@ export class BlueprintActions {
     this.eventBus.subscribe("ImportBlueprint", (_msg, _data) => this.importBlueprint());
     this.eventBus.subscribe("ExportBlueprint", (_msg, _data) => this.exportBlueprint());
 
-    this.eventBus.subscribe("Toast", (_msg, { msg, lvl }) => toast[lvl || "info"](msg));
+    this.eventBus.subscribe("Toast", (_msg, { msg, lvl }) => {
+      if(!this.gconfig.get("ui.toasts")) {
+        this.logger.info("Toasts have been disabled, skipping this one.");
+        return
+      }
+
+      toast[lvl || "info"](msg);
+    });
 
     this.eventBus.subscribe("SaveAsPNG", async (_msg, _data) => {
       const dataURI = await saveAsPNG();
