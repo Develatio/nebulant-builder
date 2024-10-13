@@ -33,6 +33,12 @@ const DEFAULT_CONFIG = {
     toasts: true,
     showInfo: false, // Show / hide the comments of each node
 
+    // Show the "Download CLI" popup the first time the user opens the builder
+    showDownloadCli_1: true,
+    // Show the "Download CLI" popup after N incorrect attempts to connect to
+    // the CLI
+    showDownloadCli_2: true,
+
     links: {
       type: "smart", // simple | smart
       // "static" is for internal use only

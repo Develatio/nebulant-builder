@@ -24,6 +24,7 @@ import { Canvas } from "@src/ui/structure/Canvas";
 import { Header } from "@src/ui/structure/Header";
 import { Footer } from "@src/ui/structure/Footer";
 import { About } from "@src/ui/structure/About/About";
+import { DownloadCli } from "@src/ui/structure/DownloadCli";
 import { SidebarLeft } from "@src/ui/structure/SidebarLeft";
 import { SidebarRight } from "@src/ui/structure/SidebarRight";
 import { NodeInfo } from "@src/ui/structure/NodeInfo/NodeInfo";
@@ -198,6 +199,7 @@ export class Main extends Component {
             stacked
           />
           <About />
+          <DownloadCli />
           <Intellisense />
           <AppSettings />
           <NodeInfo />

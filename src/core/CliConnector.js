@@ -96,6 +96,7 @@ export class CliConnector {
     this.state = CliConnectorStates.disconnected;
 
     this.current_host = ""; // We're using this for the status bar
+    this.connection_attempts = 0;
 
     if(this.gconfig.get("cli.auto_connect")) {
       this.logger.info("'Auto connect' is ON, starting CLI connection attemps...");
@@ -184,6 +185,11 @@ export class CliConnector {
       this.logger.info(`Retrying to connect in ${retry_ms} ms...`);
       clearTimeout(this.timeout_connect);
       this.timeout_connect = setTimeout(() => this.connect(), retry_ms);
+
+      this.connection_attempts += 1;
+      if(this.connection_attempts > 3 && this.gconfig.get("ui.showDownloadCli_2")) {
+        this.eventBus.publish("OpenDownloadCli");
+      }
     });
   }
 

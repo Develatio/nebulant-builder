@@ -1,0 +1,79 @@
+.downloadCli {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 100;
+  background-color: $--dark-10;
+  max-width: 350px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px -3px #1E1A28;
+  overflow: hidden;
+
+  .wrapper {
+    position: relative;
+
+    .close {
+      position: absolute;
+      right: 0px;
+      top: -10px;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .bg_wrapper {
+      position: absolute;
+      left: 110px;
+      top: -70px;
+
+      .bg {
+        width: 170px;
+        height: 170px;
+      }
+    }
+
+    .content {
+      .img_wrapper {
+        .img {
+          width: 95px;
+          height: 82px;
+        }
+      }
+
+      .title {
+        font-size: $--fs-16;
+        font-weight: 700;
+      }
+
+      .description {
+        font-size: $--fs-12;
+        font-weight: 300;
+      }
+
+      .cta {
+        background-color: $--purple-10;
+        width: 100%;
+        border-radius: 8px;
+        font-size: $--fs-14;
+        font-weight: 500;
+
+        &:hover {
+          background-color: $--purple-20;
+        }
+
+        .icon {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .hide {
+        font-size: $--fs-14;
+        font-weight: 500;
+      }
+    }
+  }
+
+}

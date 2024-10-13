@@ -451,7 +451,10 @@ export const AppSettings = () => {
                   <Col sm={{offset: 2, span: 4}}>
                     <Button
                       variant="outline-danger d-block w-100 mb-3"
-                      onClick={() => gconfig.set("", {})}
+                      onClick={() => {
+                        gconfig.set("", {});
+                        gconfig.persist.flush();
+                      }}
                     >
                       Reset user settings
                     </Button>
@@ -481,6 +484,7 @@ export const AppSettings = () => {
             onClick={() => {
               setSubmitted(true);
               gconfig.set("", clone(form.values));
+              gconfig.persist.flush();
               setVisibility(false);
             }}
           >Save</Button>

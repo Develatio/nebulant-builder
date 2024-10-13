@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 263 263" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1,0,0,1,-218.633,-148.634)">
-        <path d="M380.8,280L475.066,185.734C483.464,177.336 483.464,163.336 475.066,154.933C466.668,146.535 452.668,146.535 444.265,154.933L349.999,249.199L255.733,154.933C247.335,146.535 233.335,146.535 224.932,154.933C216.534,163.331 216.534,177.331 224.932,185.734L319.198,280L224.932,374.266C216.534,382.664 216.534,396.664 224.932,405.067C233.33,413.465 247.33,413.465 255.733,405.067L349.999,310.801L444.265,405.067C452.663,413.465 466.663,413.465 475.066,405.067C483.464,396.669 483.464,382.669 475.066,374.266L380.8,280Z" style="fill-rule:nonzero;"/>
-    </g>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3152_15656)">
+<path d="M6.34326 6.34375L17.657 17.6575" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M6.34326 17.6562L17.657 6.34254" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3152_15656">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
 </svg>

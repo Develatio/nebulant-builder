@@ -66,11 +66,9 @@ export const About = () => {
     const eventBus = new EventBus();
 
     eventBus.subscribe("OpenAbout", open);
-    eventBus.subscribe("CloseAbout", close);
 
     return () => {
       eventBus.unsubscribe("OpenAbout", open);
-      eventBus.unsubscribe("CloseAbout", close);
     };
   }, []);
 
