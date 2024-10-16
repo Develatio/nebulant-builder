@@ -1,6 +1,9 @@
 import { routers } from "@joint/core";
 
-const PADDING = 30;
+// Changing this value and the "step" value of the manhattan router might cause
+// bad looking links in certain situations.
+// Check https://github.com/clientIO/joint/issues/2763
+const PADDING = 20;
 
 export const defaultRouter = function(vertices, opts, linkView) {
   const engine = linkView.paper;
@@ -49,11 +52,7 @@ export const defaultRouter = function(vertices, opts, linkView) {
       vertices,
       {
         ...opts,
-
-        // This value will cause bad looking links in certain situations. Check
-        // https://github.com/clientIO/joint/issues/2763
         step: 10,
-
         maximumLoops: 10000,
         maxAllowedDirectionChange: 90,
         startDirections: ["bottom"],
