@@ -1,7 +1,7 @@
 Nebulant Builder
 ============
 
-![Nebulant Builder](https://pub-36f1cf3d34e442bd9d269aaf6d6425fb.r2.dev/nebulant-builder-github-banner.png "Nebulant Builder")
+![Nebulant Builder](https://pub-36f1cf3d34e442bd9d269aaf6d6425fb.r2.dev/nebulant-builder-github-banner.png?id=2 "Nebulant Builder")
 
 The Nebulant Builder forms part of the Nebulant project and it's a low-code /
 no-code web editor / visual work environment that can be used to automate cloud
