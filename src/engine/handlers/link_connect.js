@@ -1,4 +1,4 @@
-export const link_connect = function(linkView) {
+export const link_connect = (linkView) => {
   const { model } = linkView;
 
   // The link has been fully created, so we can promote it.

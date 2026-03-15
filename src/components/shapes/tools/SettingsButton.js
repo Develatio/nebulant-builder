@@ -36,7 +36,7 @@ export const SettingsButton = elementTools.Button.extend({
       },
     ],
 
-    action: function(_evt, elementView, _buttonView) {
+    action: (_evt, elementView, _buttonView) => {
       const runtime = new Runtime();
       const { model } = elementView;
       runtime.get("objects.blueprintAction").openNodeSettings(model.id);

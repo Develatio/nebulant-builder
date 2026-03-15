@@ -36,7 +36,7 @@ export const RemoveButton = elementTools.Button.extend({
       },
     ],
 
-    action: function(_evt) {
+    action: (_evt) => {
       const eventBus = new EventBus();
       eventBus.publish("DeleteSelectedElements");
     }

@@ -45,7 +45,7 @@ const rescale = (zoom) => {
   return step3;
 }
 
-export const addToolsToOne = function(elementView) {
+export const addToolsToOne = (elementView) => {
   // Convert zoom to scale. Zoom is a value that goes from 0.2 to 2.0, being "1"
   // the default value. The more the user zooms in, the bigger the zoom value
   // is. The bigger the zoom value is, the smaller the scale value should be.

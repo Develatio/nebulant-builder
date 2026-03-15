@@ -6,7 +6,7 @@ const esquery = require("esquery");
 function walkPathSync(currentDirPath, callback) {
   var fs = require('fs');
   var path = require('path');
-  fs.readdirSync(currentDirPath).forEach(function (name) {
+  fs.readdirSync(currentDirPath).forEach((name) => {
     var filePath = path.join(currentDirPath, name);
     var stat = fs.statSync(filePath);
     if(stat.isFile()) {

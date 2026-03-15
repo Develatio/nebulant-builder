@@ -1,13 +1,13 @@
 // This function is used in order to decide whether or not the link that is
 // currently being dragged can connect to the target port / magnet
-export const validateConnection = function(
+export const validateConnection = (
   cellViewS,
   magnetS,
   cellViewT,
   magnetT,
   end,
   _linkView
-) {
+) => {
   // Don't allow links to get connected to anything but magnets / ports
   if(!magnetS || !magnetT) return false;
 

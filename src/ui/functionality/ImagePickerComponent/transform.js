@@ -45,7 +45,7 @@ const canvasResize = (original, canvas) => {
   var yScale = h2 / h1;
 
   // We process 1 row at a time ( and then let the process rest for 0ms [async] )
-  const nextY = function(y1){
+  const nextY = (y1)=> {
     for (let x1 = 0; x1 < w1; x1++) {
 
       let

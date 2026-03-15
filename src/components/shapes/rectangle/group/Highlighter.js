@@ -8,7 +8,7 @@ export const Highlighter = BaseHighlighter.extend({
 }, {
   highlight(view, persistent = false) {
     Object.defineProperty(Highlighter.prototype, "attributes", {
-      get: function() {
+      get: () => {
 
         const model = view.model;
         const color = model.getStartNode().prop("data/settings/parameters/color");

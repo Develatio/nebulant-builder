@@ -5,7 +5,7 @@ import { routers } from "@joint/core";
 // Check https://github.com/clientIO/joint/issues/2763
 const PADDING = 20;
 
-export const defaultRouter = function(vertices, opts, linkView) {
+export const defaultRouter = (vertices, opts, linkView) => {
   const engine = linkView.paper;
   const link = linkView.model;
 
