@@ -22,10 +22,10 @@ const main = async () => {
   vars.provider = await select({
       message: "Provider",
       choices: [
-        { label: "executionControl", value: "executionControl" },
-        { label: "generic", value: "generic" },
-        { label: "aws", value: "aws" },
-        { label: "hetznerCloud", value: "hetznerCloud" },
+        { name: "executionControl", value: "executionControl" },
+        { name: "generic", value: "generic" },
+        { name: "aws", value: "aws" },
+        { name: "hetznerCloud", value: "hetznerCloud" },
       ],
     }),
 

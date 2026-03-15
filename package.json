@@ -72,7 +72,7 @@
 		"@biomejs/biome": "2.4.7",
 		"@biomejs/js-api": "^4.0.0",
 		"@biomejs/wasm-nodejs": "^2.4.7",
-		"@inquirer/prompts": "^5.4.0",
+		"@inquirer/prompts": "^8.3.2",
 		"@playwright/test": "1.46.1",
 		"@svgr/core": "^8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
