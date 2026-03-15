@@ -1,27 +1,12 @@
 import fs from "fs-extra";
-import { Biome, Distribution } from "@biomejs/js-api";
+import { Biome } from "@biomejs/js-api/nodejs";
 
 export function biomeLint() {
   return {
     name: "biomeLint",
     setup: async ({ onLoad, onEnd }) => {
-      const biome = await Biome.create({
-        distribution: Distribution.NODE,
-      });
-
-      //biome.registerProjectFolder("/code/src");
-      // This doesn't work because "¯\_(ツ)_/¯ fuck you on line 420".
-      // I can't deal with debugging biome's rust code compiled to wasm,
-      // embedded in ts, packaged inside a god-knows-what latest js-format that
-      // will be deprecated before it's even adopted by Node.
-      //
-      // sigh... I'm so fucking tired of every single library / framework / tool
-      // not working...
-      // workaround:
-      biome.workspace.registerProjectFolder({
-        path: "/code/src",
-        setAsCurrentWorkspace: true,
-      });
+      const biome = new Biome();
+      biome.openProject("/code/src");
       const filesToLint = [];
 
       const filter = /\.(?:jsx?|mjs)$/;
