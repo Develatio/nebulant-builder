@@ -13,6 +13,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.23"
   }
 }

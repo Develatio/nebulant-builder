@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "@icons/material": "^0.4.1",
-    "lodash-es": "^4.17.21",
+    "lodash-es": "^4.17.23",
     "material-colors": "^1.2.6",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
