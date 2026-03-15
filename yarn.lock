@@ -4143,7 +4143,7 @@ __metadata:
     postcss: "npm:^8.4.45"
     postcss-preset-env: "npm:^10.0.2"
     prettier: "npm:^3.3.3"
-    pubsub-js: "npm:^1.9.4"
+    pubsub-js: "npm:^1.9.5"
     react: "npm:^18.3.1"
     react-bootstrap: "npm:^2.10.4"
     react-color: "workspace:^"
@@ -4900,10 +4900,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pubsub-js@npm:^1.9.4":
-  version: 1.9.4
-  resolution: "pubsub-js@npm:1.9.4"
-  checksum: 10c0/165e724d3a1cc53fa4694b445f6512646ec49ec972eb910ac1b6cf713d982d6ed4a13dd8c511cc672d03fc5a9e8d595fd2fe721186705853ca8150f38e149e6a
+"pubsub-js@npm:^1.9.5":
+  version: 1.9.5
+  resolution: "pubsub-js@npm:1.9.5"
+  checksum: 10c0/b32ea1945a426635af47743052729d12fae1dd4e60314af9a205d5114a1e171e0a218539b54e668fa8704f6e78867c60c6963b547712dda3db69ca766d1d5c20
   languageName: node
   linkType: hard
 
