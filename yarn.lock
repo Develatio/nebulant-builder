@@ -3185,10 +3185,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eta@npm:^3.5.0":
-  version: 3.5.0
-  resolution: "eta@npm:3.5.0"
-  checksum: 10c0/28ffc23658e3d77c1ab2660d0158b979688457659fc190d0edca26c186ab34039bec9d6745d975e5f0543981e285cd757bff85b47ea2374ab11444e2b7271dd0
+"eta@npm:^4.5.1":
+  version: 4.5.1
+  resolution: "eta@npm:4.5.1"
+  checksum: 10c0/607ad56127bef8f192d3d29ae02df38d35ba371bdeac2a52b346feac0289bf67c78c00df0b14da6e6ace542c68ea745e53741fa6c09c32e61698ddde0ec0e413
   languageName: node
   linkType: hard
 
@@ -4241,7 +4241,7 @@ __metadata:
     esbuild-sass-plugin: "npm:^3.3.1"
     espree: "npm:^10.1.0"
     esquery: "npm:^1.6.0"
-    eta: "npm:^3.5.0"
+    eta: "npm:^4.5.1"
     fast-clean: "npm:^1.5.3"
     fs-extra: "npm:^11.3.4"
     highlight.js: "npm:^11.11.1"
