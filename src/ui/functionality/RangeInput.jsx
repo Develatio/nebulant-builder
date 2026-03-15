@@ -60,9 +60,9 @@ const RangeSlider = forwardRef(({
   const classes = `
     ${prefix}
     ${className}
-    ${size ? prefix + "--" + size : ""}
+    ${size ? `${prefix}--${size}` : ""}
     ${disabled ? "disabled" : ""}
-    ${variant ? prefix + "--" + variant : ""}
+    ${variant ? `${prefix}--${variant}` : ""}
   `;
 
   const { onMouseUp, onTouchEnd, ...restInputProps } = inputProps;

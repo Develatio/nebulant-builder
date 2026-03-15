@@ -35,8 +35,8 @@ export const IPCalculator = ({ addressmask }) => {
 
   const broadcast = ipBin.substring(0, prefix).padEnd(32, "1");
 
-  const lowEndRange = ipBin.substring(0, prefix).padEnd(24, "0") + "00000001";
-  const highEndRange = ipBin.substring(0, prefix).padEnd(24, "1") + "11111110";
+  const lowEndRange = `${ipBin.substring(0, prefix).padEnd(24, "0")}00000001`;
+  const highEndRange = `${ipBin.substring(0, prefix).padEnd(24, "1")}11111110`;
 
   const totalSubnets = 2 ** subnetBits;
 

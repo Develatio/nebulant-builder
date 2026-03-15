@@ -261,7 +261,7 @@
               if(!len) {
                   // Parameter is an empty array, so treat as
                   // an empty argument
-                  s += (s ? '&' : '') + e(i) + '=';
+                  s += `${(s ? '&' : '') + e(i)}=`;
                   continue;
               }
 
@@ -273,14 +273,14 @@
                   s += s ? '&' : '';
                   s += e(i) + (v === null
                       ? ''
-                      : '=' + e(v));
+                      : `=${e(v)}`);
               }
               continue;
           }
 
           // Plain value
           s += s ? '&' : '';
-          s += e(i) + (w === null ? '' : '=' + e(w));
+          s += e(i) + (w === null ? '' : `=${e(w)}`);
       }
 
       return s;
@@ -349,7 +349,7 @@
       var i = 0;
       var s;
 
-      if(paths?.length && paths + '' !== paths) {
+      if(paths?.length && `${paths}` !== paths) {
           if(this.isAbsolute()) {
               prefix = '/';
           }
@@ -408,15 +408,15 @@
    */
   Url.prototype.toString = function () {
       return (
-          (this.protocol && (this.protocol + '://')) +
+          (this.protocol && (`${this.protocol}://`)) +
           (this.user && (
-              encode(this.user) + (this.pass && (':' + encode(this.pass))
-          ) + '@')) +
+              `${encode(this.user) + (this.pass && (`:${encode(this.pass)}`)
+          )}@`)) +
           (this.host && this.host) +
-          (this.port && (':' + this.port)) +
+          (this.port && (`:${this.port}`)) +
           (this.path && this.path) +
-          (this.query.toString() && ('?' + this.query)) +
-          (this.hash && ('#' + encode(this.hash)))
+          (this.query.toString() && (`?${this.query}`)) +
+          (this.hash && (`#${encode(this.hash)}`))
       );
   };
 

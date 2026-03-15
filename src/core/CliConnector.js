@@ -157,7 +157,7 @@ export class CliConnector {
       this.logger.debug("TransparentProxy mode set to 'direct'");
     }
 
-    this.current_host = `${url.host}${url.port ? ":" + url.port : ""}`;
+    this.current_host = `${url.host}${url.port ? `:${url.port}` : ""}`;
 
     clearTimeout(this.timeout_connect);
     if(this.state === CliConnectorStates.connected) {

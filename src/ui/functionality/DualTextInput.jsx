@@ -44,7 +44,7 @@ export const DualTextInput = (props) => {
               onChange(props, [event.target.value, value[1]]);
 
               // Hack the props.form.set() to write in the first value of the array
-              triggerIntellisense({ ...props, path: props.path + ".0" });
+              triggerIntellisense({ ...props, path: `${props.path}.0` });
 
               parentOnChange?.([event.target.value, value[1]]);
             }}
@@ -93,7 +93,7 @@ export const DualTextInput = (props) => {
               onChange(props, [value[0], event.target.value]);
 
               // Hack the props.form.set() to write in the second value of the array
-              triggerIntellisense({ ...props, path: props.path + ".1" });
+              triggerIntellisense({ ...props, path: `${props.path}.1` });
 
               parentOnChange?.([value[0], event.target.value]);
             }}
