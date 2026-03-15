@@ -77,7 +77,7 @@ class Traverse {
     ps = castPath(ps, node);
     for (i = 0; i < ps.length; i ++) {
       const key = ps[i];
-      if (!node || !Object.hasOwnProperty.call(node, key)) {
+      if (!node || !Object.hasOwn(node, key)) {
         node = undefined;
         break;
       }
@@ -92,7 +92,7 @@ class Traverse {
     ps = castPath(ps, node);
     for (i = 0; i < ps.length; i ++) {
       const key = ps[i];
-      if (!node || !Object.hasOwnProperty.call(node, key)) {
+      if (!node || !Object.hasOwn(node, key)) {
         return false;
       }
       node = node[key];
@@ -106,7 +106,7 @@ class Traverse {
     ps = castPath(ps, node);
     for (i = 0; i < ps.length - 1; i ++) {
       const key = ps[i];
-      if (!Object.hasOwnProperty.call(node, key)) node[key] = {};
+      if (!Object.hasOwn(node, key)) node[key] = {};
       node = node[key];
     }
     node[ps[i]] = value;
@@ -119,7 +119,7 @@ class Traverse {
     ps = castPath(ps, node);
     for (i = 0; i < ps.length - 1; i ++) {
       const key = ps[i];
-      if (!node || !Object.hasOwnProperty.call(node, key)) {
+      if (!node || !Object.hasOwn(node, key)) {
         return false;
       }
       node = node[key];
@@ -134,7 +134,7 @@ class Traverse {
     ps = castPath(ps, node);
     for (i = 0; i < ps.length - 1; i ++) {
       const key = ps[i];
-      if (!node || !Object.hasOwnProperty.call(node, key)) {
+      if (!node || !Object.hasOwn(node, key)) {
         return false;
       }
       node = node[key];
@@ -200,7 +200,7 @@ class Traverse {
         parents.push(src);
         nodes.push(dst);
 
-        forEach(Object.keys(src), function (key) {
+        forEach(Object.keys(src), (key) => {
           dst[key] = clone(src[key]);
         });
 
@@ -236,18 +236,18 @@ function walk (root, cb, immutable) {
       isRoot : path.length === 0,
       level : path.length,
       circular : null,
-      update : function (x, stopHere) {
+      update : (x, stopHere) => {
         if (!state.isRoot) {
           state.parent.node[state.key] = x;
         }
         state.node = x;
         if (stopHere) keepGoing = false;
       },
-      'delete' : function (stopHere) {
+      'delete' : (stopHere) => {
         delete state.parent.node[state.key];
         if (stopHere) keepGoing = false;
       },
-      remove : function (stopHere) {
+      remove : (stopHere) => {
         if (Array.isArray(state.parent.node)) {
           state.parent.node.splice(state.key, 1);
         }
@@ -257,12 +257,12 @@ function walk (root, cb, immutable) {
         if (stopHere) keepGoing = false;
       },
       keys : null,
-      before : function (f) { modifiers.before = f },
-      after : function (f) { modifiers.after = f },
-      pre : function (f) { modifiers.pre = f },
-      post : function (f) { modifiers.post = f },
-      stop : function () { alive = false },
-      block : function () { keepGoing = false }
+      before : (f) => { modifiers.before = f },
+      after : (f) => { modifiers.after = f },
+      pre : (f) => { modifiers.pre = f },
+      post : (f) => { modifiers.post = f },
+      stop : () => { alive = false },
+      block : () => { keepGoing = false }
     };
 
     if (!alive) return state;
@@ -308,7 +308,7 @@ function walk (root, cb, immutable) {
 
       updateState();
 
-      forEach(state.keys, function (key, i) {
+      forEach(state.keys, (key, i) => {
         path.push(key);
 
         if (modifiers.pre) modifiers.pre.call(state, state.node[key], key);
@@ -316,7 +316,7 @@ function walk (root, cb, immutable) {
         if (immutable &&
           typeof state.node === 'object' &&
           state.node !== null &&
-          Object.hasOwnProperty.call(state.node, key)
+          Object.hasOwn(state.node, key)
         ) {
           state.node[key] = child.node;
         }
@@ -377,12 +377,12 @@ function copy (src) {
         || src.__proto__
         || {}
       ;
-      const T = function () {};
+      const T = () => {};
       T.prototype = proto;
       dst = new T;
     }
 
-    forEach(Object.keys(src), function (key) {
+    forEach(Object.keys(src), (key) => {
       dst[key] = src[key];
     });
     return dst;
@@ -390,7 +390,7 @@ function copy (src) {
   else return src;
 }
 
-var forEach = function (xs, fn) {
+var forEach = (xs, fn) => {
   if (xs.forEach) return xs.forEach(fn)
   else for (let i = 0; i < xs.length; i++) {
     fn(xs[i], i, xs);

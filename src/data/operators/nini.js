@@ -5,7 +5,7 @@ export const $nini = ({res, filter_key, value}) => {
   return res.filter(v => {
     const resolved_value = get(v, filter_key);
 
-    let arr = clone(value.map(v => v.toLowerCase()));
+    const arr = clone(value.map(v => v.toLowerCase()));
 
     let res;
     if(Array.isArray(resolved_value)) {

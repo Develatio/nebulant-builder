@@ -51,7 +51,7 @@ import { generateBlueprint } from "@src/components/blueprintGenerators/generateB
 
 export class BlueprintActions {
   constructor() {
-    if(!!BlueprintActions.instance) {
+    if(BlueprintActions.instance) {
       return BlueprintActions.instance;
     }
 
@@ -364,19 +364,20 @@ export class BlueprintActions {
   }
 
   traceSelectedNode() {
-    let selectedNodes = this.engine.selection.collection.filter(m => !m.isLink());
+    const selectedNodes = this.engine.selection.collection.filter(m => !m.isLink());
     switch (selectedNodes.length) {
       case 0:
         this.logger.info("Can't trace node because no node is selected.");
         break;
 
-      case 1:
+      case 1: {
         const [node] = selectedNodes;
         const nodes = this.engine.model.getPredecessors(node, {
           deep: true,
         });
         this.engine.selection.collection.reset([...nodes, node]);
         break;
+      }
 
       default:
         this.logger.error("Can't trace more than 1 node at a time.");

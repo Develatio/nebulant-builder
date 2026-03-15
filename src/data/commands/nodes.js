@@ -7,7 +7,7 @@ export const nodes = ({res, model, parameters}) => {
   // Currently there are two keys that might trigger said filtering:
   // "parentsOf" and "childrenOf".
   // The value of either of these keys must contain a node ID.
-  let allowed_ids = [];
+  const allowed_ids = [];
   const direction = parameters.parentsOf ? "parents" : "children";
 
   const node = model.getCell(parameters.childrenOf || parameters.parentsOf);

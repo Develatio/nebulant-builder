@@ -29,14 +29,14 @@ describe("Testing 'first' command in a normal diagram", () => {
   model.fromJSON(diagram1_cell);
 
   it("nodes, ec2_instance, first", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | find: {"subtype": {"$contains": "ec2_instance"}} | first
     `);
     assert.equal(res.value, "maquina");
   });
 
   it("nodes, ec2_ebs, first", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | find: {"subtype": {"$contains": "ec2_ebs"}} | first
     `);
     assert.equal(res.value, "disco");
@@ -51,14 +51,14 @@ describe("Testing 'first' command in an only Start box diagram", () => {
   model.fromJSON(diagram_empty_cell);
 
   it("nodes first", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | first
     `);
     assert.equal(res.prop('data').settings.parameters.name, "Group");
   });
 
   it("DQL undefined, first returning null", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes  | find: { "type": "non-existant" } | first
     `);
     assert.equal(res, null);

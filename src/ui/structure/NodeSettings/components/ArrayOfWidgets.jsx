@@ -144,8 +144,8 @@ export const ArrayOfWidgets = (props) => {
     choice => currentlySelected.indexOf(choice.name) === -1 || choice.multiple
   );
 
-  let { ...attrs } = props.validations;
-  let { warnings, errors } = getFormattedValidations(props);
+  const { ...attrs } = props.validations;
+  const { warnings, errors } = getFormattedValidations(props);
 
   return (
     <DndProvider backend={HTML5Backend}>

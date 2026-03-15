@@ -67,7 +67,7 @@ describe("Testing $n/regex/i operators", () => {
   });
 
   it("$nregex", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | find: {
         "subtype": {
           "$nregex": "^(.*)instance(.*)$"
@@ -78,7 +78,7 @@ describe("Testing $n/regex/i operators", () => {
   });
 
   it("$nregexi", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | find: {
         "subtype": {
           "$nregexi": "^(.*)Instance(.*)$"

@@ -94,7 +94,7 @@ import { Logger } from "@src/core/Logger";
 
 export class TransparentProxy {
   constructor() {
-    if(!!TransparentProxy.instance) {
+    if(TransparentProxy.instance) {
       return TransparentProxy.instance;
     }
 
@@ -212,7 +212,7 @@ export class TransparentProxy {
         }
         break;
 
-      case "onLoaded":
+      case "onLoaded": {
         // Resolve the promise
         const promise = this.msgqueue["load"];
         promise["resolve"]();
@@ -220,6 +220,7 @@ export class TransparentProxy {
 
         // TODO: find a way to focus the opener window...
         break;
+      }
 
       case "onUnload":
         this._onClose();

@@ -4,7 +4,7 @@ export const $contains = ({res, filter_key, value}) => {
   return res.filter(v => {
     const resolved_value = get(v, filter_key);
 
-    let s = String(value); // create a copy, avoid modifying the original value
+    const s = String(value); // create a copy, avoid modifying the original value
 
     let res;
     if(Array.isArray(resolved_value)) {

@@ -18,8 +18,8 @@ import { SuperSelect } from "./SuperSelect";
 export const DropdownInput = (props) => {
   const { onChange: parentOnChange } = props;
 
-  let { ...attrs } = props.validations;
-  let { warnings, errors } = getFormattedValidations(props);
+  const { ...attrs } = props.validations;
+  const { warnings, errors } = getFormattedValidations(props);
 
   const eventBus = new EventBus();
   const superSelectRef = useRef();
@@ -57,7 +57,7 @@ export const DropdownInput = (props) => {
           groupsDisallowUnselect={props.groupsDisallowUnselect}
           searchPattern={props.searchPattern}
           options={props.options}
-          placeholder={props.placeholder ? props.placeholder : !!props.editable ? "Select or type..." : "Select..."}
+          placeholder={props.placeholder ? props.placeholder : props.editable ? "Select or type..." : "Select..."}
           multi={!!props.multi}
           disabled={!!props.disabled}
           editable={!!props.editable}

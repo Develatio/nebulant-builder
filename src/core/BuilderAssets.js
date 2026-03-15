@@ -4,7 +4,7 @@ import { Runtime } from "@src/core/Runtime";
 
 export class BuilderAssets {
   constructor() {
-    if(!!BuilderAssets.instance) {
+    if(BuilderAssets.instance) {
       return BuilderAssets.instance;
     }
 

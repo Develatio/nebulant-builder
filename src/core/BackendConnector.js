@@ -6,7 +6,7 @@ import { EventBus } from "@src/core/EventBus";
 
 export class BackendConnector {
   constructor() {
-    if(!!BackendConnector.instance) {
+    if(BackendConnector.instance) {
       return BackendConnector.instance;
     }
 

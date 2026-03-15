@@ -94,7 +94,7 @@ const DEFAULT_CONFIG = {
 
 export class GConfig {
   constructor() {
-    if(!!GConfig.instance) {
+    if(GConfig.instance) {
       return GConfig.instance;
     }
 

@@ -16,7 +16,7 @@ export class AWSAutocompleter extends BaseAutocompleter {
 
   // A common method that is used to remove a filter from the node's settings.
   removeFilterByName({ node, name = "name" }) {
-    let settings = node.prop("data/settings");
+    const settings = node.prop("data/settings");
     settings.parameters.Filters = settings.parameters.Filters.filter(filter => filter.name !== name);
 
     node.prop("data/settings", settings, {
@@ -26,7 +26,7 @@ export class AWSAutocompleter extends BaseAutocompleter {
 
   // A common method that is used to remove a tag filter from the node's settings.
   removeFilterByTagName({ node, tagName = "name" }) {
-    let settings = node.prop("data/settings");
+    const settings = node.prop("data/settings");
     settings.parameters.Filters = settings.parameters.Filters.filter(filter => filter.value[0] !== tagName);
 
     node.prop("data/settings", settings, {

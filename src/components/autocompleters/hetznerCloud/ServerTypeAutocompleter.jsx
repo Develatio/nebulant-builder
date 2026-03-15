@@ -11,7 +11,7 @@ export class ServerTypeAutocompleter extends StaticAutocompleter {
           <span className="d-flex">
             <span className="fw-bold text-muted text-truncate">{server.description}</span>
           </span>
-          <span className="small text-muted text-truncate"><b>{server.architecture}</b> CPU with <b>{server.cores}</b> cores, <b>{server.memory} GB</b> RAM, <b>{server.disk} GB</b> disk, <b>{server.included_traffic / Math.pow(1024, 4)} GB</b> included traffic</span>
+          <span className="small text-muted text-truncate"><b>{server.architecture}</b> CPU with <b>{server.cores}</b> cores, <b>{server.memory} GB</b> RAM, <b>{server.disk} GB</b> disk, <b>{server.included_traffic / 1024 ** 4} GB</b> included traffic</span>
         </Col>
       </Row>
     );

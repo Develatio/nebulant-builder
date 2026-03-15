@@ -113,7 +113,7 @@ export class DiagramQL extends DQLCommonQueries {
 
       // check if we have params
       if(chunk.split(":").length > 1) {
-        let [op, params_exp] = chunk.split(/:(.+)/);
+        const [op, params_exp] = chunk.split(/:(.+)/);
         command = op;
         try {
           parameters = JSON.parse(params_exp);

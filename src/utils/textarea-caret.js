@@ -63,8 +63,8 @@ const isConnected = function isConnected(el) {
   }
   return false;
 }
-let isFirefox = (window.mozInnerScreenX != null);
-let isEdge = /Edge|EdgA/.test(navigator.userAgent);
+const isFirefox = (window.mozInnerScreenX != null);
+const isEdge = /Edge|EdgA/.test(navigator.userAgent);
 
 export function getCaretCoordinates(element, position, options) {
   if(!element) {
@@ -79,7 +79,7 @@ export function getCaretCoordinates(element, position, options) {
     }
   }
   if(~["CANVAS", "IFRAME"].indexOf(element.nodeName) || (options && options.checkTabIndex && element.getAttribute("tabindex") != null)) {
-    let rect = element.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
     // required as they act different
     return {
       top: rect.top,
@@ -89,9 +89,9 @@ export function getCaretCoordinates(element, position, options) {
     }
   }
   if(options && options.absolute) {
-    let optionsClone = clone(options);
+    const optionsClone = clone(options);
     optionsClone.absolute = false;
-    let relative = getCaretCoordinates(element, position, optionsClone),
+    const relative = getCaretCoordinates(element, position, optionsClone),
       erect = element.getBoundingClientRect();
     return {
       top: erect.top + relative.top,
@@ -101,7 +101,7 @@ export function getCaretCoordinates(element, position, options) {
     }
   }
   // try to get it automatically
-  let special = ~["INPUT", "TEXTAREA"].indexOf(element.nodeName);
+  const special = ~["INPUT", "TEXTAREA"].indexOf(element.nodeName);
   // force it ALWAYS on every element other by getSelection()
   if(position == null || !special) {
     if(special) {
@@ -122,7 +122,7 @@ export function getCaretCoordinates(element, position, options) {
     } else {
       if(window.getSelection().rangeCount) {
         // Don't play around with the user selection
-        let sel = window.getSelection(),
+        const sel = window.getSelection(),
           range = sel.getRangeAt(0).cloneRange();
         if(sel.getRangeAt(0).commonAncestorContainer === (sel.extentNode || sel.focusNode).parentNode) {
           // seems like ctrl+a, triple clicks or multiple node selection - not sure how to act, collapse it at the focusNode is the best option
@@ -139,7 +139,7 @@ export function getCaretCoordinates(element, position, options) {
         let height = parseInt(range.startContainer.nodeType === 1 ? getComputedStyle(range.startContainer).lineHeight : getComputedStyle(range.startContainer.parentNode).lineHeight);
         // empty div on contenteditable="true"
         let allzero = true;
-        for (let i in rect)
+        for (const i in rect)
           if(rect[i] !== 0 && !isNaN(rect[i]))
             allzero = false;
         let modified = false;
@@ -173,7 +173,7 @@ export function getCaretCoordinates(element, position, options) {
           if(range.startContainer.nodeType !== 1) {
             node = node.parentNode;
           }
-          let current = node.style.lineHeight;
+          const current = node.style.lineHeight;
           node.style.lineHeight = "1em";
           height = parseInt(getComputedStyle(node).lineHeight);
           node.style.lineHeight = current != null ? current : "";
@@ -181,7 +181,7 @@ export function getCaretCoordinates(element, position, options) {
             node.removeAttribute("style");
         }
 
-        let erect = //thihihi
+        const erect = //thihihi
           element.getBoundingClientRect(),
           coordinates = {
             top: rect.top - erect.top,
@@ -211,7 +211,7 @@ export function getCaretCoordinates(element, position, options) {
       }
     }
   }
-  let div = document.createElement("div"),
+  const div = document.createElement("div"),
     style = div.style,
     computed = getComputedStyle(element),
     isInput = element.nodeName === "INPUT";
@@ -229,7 +229,7 @@ export function getCaretCoordinates(element, position, options) {
     style.wordWrap = "break-word";
   }
 
-  properties.forEach(function(prop) {
+  properties.forEach((prop) => {
     if(isInput && prop === "lineHeight") {
       if(computed.boxSizing === "border-box") {
         const height = parseInt(computed.height);
@@ -268,15 +268,13 @@ export function getCaretCoordinates(element, position, options) {
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
     // maybe add a check for it...?
     // some use * some • - most browsers use •
-    val = val.split("").map(function(_v) {
-      return isEdge || isFirefox ? "●" : "•"
-    }).join("");
+    val = val.split("").map((_v) => isEdge || isFirefox ? "●" : "•").join("");
   }
   div.appendChild(document.createTextNode(val.substr(0, position)));
 
   style.overflowY = style.overflowX = style.overflow = "overlay";
 
-  let span = document.createElement("span");
+  const span = document.createElement("span");
 
   // avoid other stylesheets like span { margin: 0 2px; }
   span.style.all = "unset";
@@ -286,7 +284,7 @@ export function getCaretCoordinates(element, position, options) {
   span.appendChild(document.createTextNode(val.substr(position, 1024) || "."));
   if(span.textContent.length === 1)
     span.fontFamily = "monospace";
-  let coordinates = {
+  const coordinates = {
     top: span.offsetTop + parseInt(computed["borderTopWidth"]),
     left: span.offsetLeft + parseInt(computed["borderLeftWidth"]),
     height: parseInt(getComputedStyle(span).lineHeight),

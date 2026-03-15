@@ -29,14 +29,14 @@ describe("Testing 'last' command in a normal diagram", () => {
   model.fromJSON(diagram1_cell);
 
   it("nodes, ec2_instance, last", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | find: {"subtype": {"$contains": "ec2_instance"}} | last
     `);
     assert.equal(res.value, "maquina3");
   });
 
   it("nodes, ec2_ebs, last", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | find: {"subtype": {"$contains": "ec2_ebs"}} | last
     `);
     assert.equal(res.value, "disco2");
@@ -51,14 +51,14 @@ describe("Testing 'last' command in an only Start box diagram", () => {
   model.fromJSON(diagram_empty_cell);
 
   it("nodes last", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | last
     `);
     assert.equal(res.prop('data').settings.parameters.name, "Group");
   });
 
   it("DQL undefined, last returning null", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes  | find: { "type": "non-existant" } | last
     `);
     assert.equal(res, null);

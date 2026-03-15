@@ -70,7 +70,7 @@ export const generateBlueprint = (diagram) => {
   };
 
   // Generate the blueprint
-  for (let node of diagram.cells) {
+  for (const node of diagram.cells) {
     if(node.type.startsWith("nebulant.link")) continue;
 
     const { data } = node;

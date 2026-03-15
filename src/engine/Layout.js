@@ -90,7 +90,7 @@ export class Layout {
     while(i > 0) {
       let shouldApplyDelta = false;
 
-      for(let node of nodes) {
+      for(const node of nodes) {
         const bbox = node.getBBox();
         let models = node.graph.findModelsInArea(bbox);
 

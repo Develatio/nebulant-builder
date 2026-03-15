@@ -67,7 +67,7 @@ export class DQLCommonQueries {
   }
 
   bulkUpdateReference({ node_ids = [], old_varname = "", new_varname = "" }) {
-    let qs = `
+    const qs = `
       nodes | find : {
         "id": {
           "$in": ${this.escape(node_ids)}
@@ -87,7 +87,7 @@ export class DQLCommonQueries {
   }
 
   bulkDeleteReference({ node_ids = [], varname = "" }) {
-    let qs = `
+    const qs = `
       nodes | find : {
         "id": {
           "$in": ${this.escape(node_ids)}

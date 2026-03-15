@@ -80,7 +80,7 @@ export class BaseStencil {
     let keyword = this.runtime.get("state.stencil.actionsFilter");
     if(!keyword) return true;
 
-    let tags = action.tags;
+    const tags = action.tags;
     tags.push(action.label);
 
     keyword = keyword.toLowerCase();

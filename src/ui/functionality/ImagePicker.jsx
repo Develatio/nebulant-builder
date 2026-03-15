@@ -13,8 +13,8 @@ import { getFormattedValidations } from "@src/ui/functionality/common/getFormatt
 export const ImagePicker = (props) => {
   const { onChange: parentOnChange } = props;
 
-  let { ...attrs } = props.validations;
-  let { warnings, errors } = getFormattedValidations(props);
+  const { ...attrs } = props.validations;
+  const { warnings, errors } = getFormattedValidations(props);
 
   return (
     <FormGroup

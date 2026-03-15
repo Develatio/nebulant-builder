@@ -10,7 +10,7 @@ export const getXPath = (element) => {
     if(parentElement.childElementCount > 1) {
       const parentsChildren = [...parentElement.children];
 
-      let tag = [];
+      const tag = [];
       parentsChildren.forEach(child => {
         if(child.tagName.toLowerCase() === tagName) tag.push(child);
       })

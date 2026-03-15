@@ -9,8 +9,8 @@
  * @author Mykhailo Stadnyk <mikhus@gmail.com> and contributors
  * @see https://github.com/Mikhus/domurl/graphs/contributors
  */
-(function (ns) {
-  'use strict';
+(((ns) => {
+  
 
   var RX_PROTOCOL = /^[a-z]+:/;
   var RX_PORT = /[-a-z0-9]+(\.[-a-z0-9])*:\d+/i;
@@ -175,7 +175,7 @@
 
   function decode (s) {
       s = s.replace(RX_PLUS, ' ');
-      s = s.replace(RX_DECODE_1, function (code, hex1, hex2, hex3) {
+      s = s.replace(RX_DECODE_1, (code, hex1, hex2, hex3) => {
           var n1 = parseInt(hex1, 16) - 0xE0;
           var n2 = parseInt(hex2, 16) - 0x80;
 
@@ -192,7 +192,7 @@
 
           return String.fromCharCode(n);
       });
-      s = s.replace(RX_DECODE_2, function (code, hex1, hex2) {
+      s = s.replace(RX_DECODE_2, (code, hex1, hex2) => {
           var n1 = parseInt(hex1, 16) - 0xC0;
 
           if(n1 < 2) {
@@ -204,9 +204,7 @@
           return String.fromCharCode((n1 << 6) + n2);
       });
 
-      return s.replace(RX_DECODE_3, function (_code, hex) {
-          return String.fromCharCode(parseInt(hex, 16));
-      });
+      return s.replace(RX_DECODE_3, (_code, hex) => String.fromCharCode(parseInt(hex, 16)));
   }
 
   /**
@@ -423,4 +421,4 @@
   };
 
   ns[ns.exports ? 'exports' : 'Url'] = Url;
-}(typeof module !== 'undefined' && module.exports ? module : window));
+})(typeof module !== 'undefined' && module.exports ? module : window));

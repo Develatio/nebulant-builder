@@ -20,8 +20,8 @@ export const ColorPicker = (props) => {
 
   const { onChange: parentOnChange } = props;
 
-  let { ...attrs } = props.validations;
-  let { warnings, errors } = getFormattedValidations(props);
+  const { ...attrs } = props.validations;
+  const { warnings, errors } = getFormattedValidations(props);
 
   const handleClickOutside = useCallback((e) => {
     if(ref && !ref.current.contains(e.target)) {

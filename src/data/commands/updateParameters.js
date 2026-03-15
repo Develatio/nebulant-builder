@@ -25,7 +25,7 @@ export const updateParameters = ({res, parameters}) => {
             // TODO
             break;
 
-          case "$regex":
+          case "$regex": {
             const obj = clone(v.prop("data/settings/parameters"));
             const re = new RegExp(value[0], value[2] || "");
 
@@ -51,6 +51,7 @@ export const updateParameters = ({res, parameters}) => {
             });
 
             break;
+          }
 
           default:
             break;

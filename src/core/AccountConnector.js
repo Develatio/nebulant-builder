@@ -7,7 +7,7 @@ import { BackendConnector } from "@src/core/BackendConnector";
 
 export class AccountConnector {
   constructor() {
-    if(!!AccountConnector.instance) {
+    if(AccountConnector.instance) {
       return AccountConnector.instance;
     }
 

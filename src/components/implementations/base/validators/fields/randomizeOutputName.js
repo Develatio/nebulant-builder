@@ -1,7 +1,7 @@
 import { DiagramQL } from "@src/data/DiagramQL";
 
 export const randomizeOutputName = (value = "VAR") => {
-  let prefix = value;
+  const prefix = value;
   let count = 0;
   const dql = new DiagramQL();
 

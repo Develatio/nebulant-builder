@@ -74,7 +74,7 @@ export class BaseDiagramMigrator {
 
       let newData = data;
 
-      for(let migration of pendingMigrations) {
+      for(const migration of pendingMigrations) {
         this.logger.info(`Applying migration ${migration} for ${data.id} (${node_id})...`);
         const migrator = this.migrations.get(migration);
 

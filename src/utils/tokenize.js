@@ -9,7 +9,7 @@
 const regexps = [
   {
     type: "uuid",
-    regexp: new RegExp("[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}", "ig"),
+    regexp: /[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}/ig,
   },
   //{
   //  type: "url",
@@ -56,7 +56,7 @@ export const tokenize = (t) => {
   const final = [];
 
   while(res.length) {
-    let tmp = res.shift();
+    const tmp = res.shift();
 
     final.push(t.substring(pointer, tmp.from));
 

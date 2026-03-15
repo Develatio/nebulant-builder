@@ -89,9 +89,9 @@ const canvasResize = (original, canvas) => {
 
       }
 
-      let a = (data[offset + 3] / 255);
+      const a = (data[offset + 3] / 255);
 
-      let alphaOffset = targetOffset / 4;
+      const alphaOffset = targetOffset / 4;
 
       if(extraX) {
 

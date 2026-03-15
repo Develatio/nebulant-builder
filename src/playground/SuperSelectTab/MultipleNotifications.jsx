@@ -33,7 +33,7 @@ export const MultipleNotifications = (props) => {
 
       options={[
         ({ searchPattern, page, perPage, group, pagingDetails }) => {
-          let opts = [
+          const opts = [
             { type: "value", label: "Papa", value: "papa" },
             { type: "value", label: "Popo", value: "popo" },
             { type: "value", label: "Pupu", value: "pupu" },

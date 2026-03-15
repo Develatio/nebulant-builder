@@ -99,7 +99,7 @@ describe("Testing 'childrenOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(start.id)} } | count
     `);
     assert.equal(res, 8);
@@ -114,7 +114,7 @@ describe("Testing 'childrenOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(find_ec2.id)} } | count
     `);
     assert.equal(res, 3);
@@ -129,7 +129,7 @@ describe("Testing 'childrenOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(create_ec2.id)} } | count
     `);
     assert.equal(res, 3);
@@ -144,7 +144,7 @@ describe("Testing 'childrenOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(create_ebs.id)} } | count
     `);
     assert.equal(res, 2);
@@ -159,7 +159,7 @@ describe("Testing 'childrenOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(find_ebs.id)} } | count
     `);
     assert.equal(res, 2);
@@ -174,7 +174,7 @@ describe("Testing 'childrenOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(attach_ebs.id)} } | count
     `);
     assert.equal(res, 0);
@@ -189,7 +189,7 @@ describe("Testing 'childrenOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(join_threads.id)} } | count
     `);
     assert.equal(res, 0);
@@ -204,7 +204,7 @@ describe("Testing 'childrenOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(detach_volume.id)} } | count
     `);
     assert.equal(res, 0);
@@ -228,7 +228,7 @@ describe("Testing 'childrenOf' parameter in diagram with groups", () => {
         }
       } | first
     `);
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(start.id)} } | count
     `);
     assert.equal(res, 11);
@@ -242,7 +242,7 @@ describe("Testing 'childrenOf' parameter in diagram with groups", () => {
         }
       } | first
     `);
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(first_log.id)} } | count
     `);
     assert.equal(res, 10);
@@ -256,7 +256,7 @@ describe("Testing 'childrenOf' parameter in diagram with groups", () => {
         }
       }
     `)[1];
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(start_group.id)} } | count
     `);
     assert.equal(res, 6);
@@ -270,7 +270,7 @@ describe("Testing 'childrenOf' parameter in diagram with groups", () => {
         }
       }
     `)[1];
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(log_group.id)} } | count
     `);
     assert.equal(res, 5);
@@ -284,7 +284,7 @@ describe("Testing 'childrenOf' parameter in diagram with groups", () => {
         }
       }
     `)[0];
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "childrenOf": ${dql.escape(end_group.id)} } | count
     `);
     assert.equal(res, 2);
@@ -307,7 +307,7 @@ describe("Testing 'parentsOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(start.id)} } | count
     `);
     assert.equal(res, 0);
@@ -322,7 +322,7 @@ describe("Testing 'parentsOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(find_ec2.id)} } | count
     `);
     assert.equal(res, 1);
@@ -337,7 +337,7 @@ describe("Testing 'parentsOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(create_ec2.id)} } | count
     `);
     assert.equal(res, 1);
@@ -352,7 +352,7 @@ describe("Testing 'parentsOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(create_ebs.id)} } | count
     `);
     assert.equal(res, 3);
@@ -367,7 +367,7 @@ describe("Testing 'parentsOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(find_ebs.id)} } | count
     `);
     assert.equal(res, 2);
@@ -382,7 +382,7 @@ describe("Testing 'parentsOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(attach_ebs.id)} } | count
     `);
     assert.equal(res, 4);
@@ -397,7 +397,7 @@ describe("Testing 'parentsOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(join_threads.id)} } | count
     `);
     assert.equal(res, 6);
@@ -412,7 +412,7 @@ describe("Testing 'parentsOf' parameter", () => {
       } | first
     `);
 
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(detach_volume.id)} } | count
     `);
     assert.equal(res, 3);
@@ -436,7 +436,7 @@ describe("Testing 'parentsOf' parameter in diagram with groups", () => {
         }
       } | first
     `);
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(start.id)} } | count
     `);
     assert.equal(res, 0);
@@ -450,7 +450,7 @@ describe("Testing 'parentsOf' parameter in diagram with groups", () => {
         }
       } | first
     `);
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(first_log.id)} } | count
     `);
     assert.equal(res, 1);
@@ -464,7 +464,7 @@ describe("Testing 'parentsOf' parameter in diagram with groups", () => {
         }
       }
     `)[1];
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(start_group.id)} } | count
     `);
     assert.equal(res, 6);
@@ -478,7 +478,7 @@ describe("Testing 'parentsOf' parameter in diagram with groups", () => {
         }
       }
     `)[0];
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(download_files.id)} } | count
     `);
     assert.equal(res, 8);
@@ -492,7 +492,7 @@ describe("Testing 'parentsOf' parameter in diagram with groups", () => {
         }
       }
     `)[0];
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(end_box.id)} } | count
     `);
     assert.equal(res, 10);
@@ -506,7 +506,7 @@ describe("Testing 'parentsOf' parameter in diagram with groups", () => {
         }
       } | last
     `);
-    let res = dql.query(`
+    const res = dql.query(`
       nodes : { "parentsOf": ${dql.escape(last_log.id)} } | count
     `);
     assert.equal(res, 11);

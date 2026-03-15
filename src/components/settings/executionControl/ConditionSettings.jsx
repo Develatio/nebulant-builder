@@ -31,7 +31,7 @@ export const ConditionSettings = (props) => {
   // TODO: Do something with props.validations?
 
   const logQuery = (query) => {
-    let res = formatQuery(query, { format: "cel" });
+    const res = formatQuery(query, { format: "cel" });
     setResult(res);
     setQuery(query);
 

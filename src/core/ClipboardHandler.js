@@ -10,7 +10,7 @@ export class ClipboardHandler {
     }
 
     copy(selection, graph) {
-      let originalCells = [];
+      const originalCells = [];
       selection.toArray().forEach(cell => {
         originalCells.push(cell, ...cell.getEmbeddedCells({ deep: true }));
       });

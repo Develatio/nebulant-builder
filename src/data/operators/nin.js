@@ -5,7 +5,7 @@ export const $nin = ({res, filter_key, value}) => {
   return res.filter(v => {
     const resolved_value = get(v, filter_key);
 
-    let arr = clone(value);
+    const arr = clone(value);
 
     let res;
     if(Array.isArray(resolved_value)) {

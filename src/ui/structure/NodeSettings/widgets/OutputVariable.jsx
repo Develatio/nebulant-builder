@@ -9,8 +9,8 @@ import FormControl from "react-bootstrap/esm/FormControl";
 import { getFormattedValidations } from "@src/ui/functionality/common/getFormattedValidations";
 
 export const OutputVariable = (props) => {
-  let { ...attrs } = props.validations;
-  let { warnings, errors } = getFormattedValidations(props);
+  const { ...attrs } = props.validations;
+  const { warnings, errors } = getFormattedValidations(props);
 
   const onChange = (e) => {
     const value = (e.target.value || "").replace(/[^A-Za-z0-9_-]/g, "");

@@ -13,7 +13,7 @@ export const KB_SHORTCUTS = {
 
 export class KeyboardHandler {
   constructor() {
-    if(!!KeyboardHandler.instance) {
+    if(KeyboardHandler.instance) {
       return KeyboardHandler.instance;
     }
 

@@ -68,7 +68,7 @@ describe("Testing $n/eq/i operators", () => {
   });
 
   it("$neq", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | find: {
         "value": {
           "$neq": "maquina"
@@ -79,7 +79,7 @@ describe("Testing $n/eq/i operators", () => {
   });
 
   it("$neqi", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | find: {
         "value": {
           "$neqi": "MAQUINA"

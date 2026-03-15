@@ -10,8 +10,8 @@ import { onChange } from "@src/ui/functionality/common/onChangeHandler";
 import { getFormattedValidations } from "@src/ui/functionality/common/getFormattedValidations";
 
 export const SimpleDropdownInput = (props) => {
-  let { ...attrs } = props.validations;
-  let { warnings, errors } = getFormattedValidations(props);
+  const { ...attrs } = props.validations;
+  const { warnings, errors } = getFormattedValidations(props);
 
   return (
     <FormGroup className={`form-group ${props?.className?.match(/ ?mb-\d/) ? "" : "mb-4" } ${props.className || ""}`} as={Row}>

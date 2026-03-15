@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   runtime.set("objects.builderAssets", builderAssets);
 
   // Fetch my own data
-  let gconfig = new GConfig();
+  const gconfig = new GConfig();
   backendConnector.getMyself().then(me => {
     runtime.set("state.myself", me);
 

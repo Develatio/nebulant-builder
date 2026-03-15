@@ -5,7 +5,7 @@ import { Runtime } from "@src/core/Runtime";
 
 export class MarketplaceConnector {
   constructor() {
-    if(!!MarketplaceConnector.instance) {
+    if(MarketplaceConnector.instance) {
       return MarketplaceConnector.instance;
     }
 

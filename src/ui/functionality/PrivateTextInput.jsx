@@ -22,8 +22,8 @@ export const PrivateTextInput = (props) => {
 
   const { onChange: parentOnChange } = props;
 
-  let { ...attrs } = props.validations;
-  let { warnings, errors } = getFormattedValidations(props);
+  const { ...attrs } = props.validations;
+  const { warnings, errors } = getFormattedValidations(props);
 
   const value = props.value ?? props.form.get(props.path);
 

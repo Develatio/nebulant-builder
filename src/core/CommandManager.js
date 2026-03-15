@@ -143,7 +143,7 @@ export class CommandManager {
     // change:x||y - When the scroller is being moved by the user
     if(["change:zoom", "change:x", "change:y"].includes(cmdName)) return;
 
-    let command = undefined;
+    let command ;
 
     if (this.batchCommand) {
       command = this.createCommand({ batch: true });

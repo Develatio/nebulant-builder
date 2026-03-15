@@ -38,14 +38,14 @@ export const IPCalculator = ({ addressmask }) => {
   const lowEndRange = ipBin.substring(0, prefix).padEnd(24, "0") + "00000001";
   const highEndRange = ipBin.substring(0, prefix).padEnd(24, "1") + "11111110";
 
-  const totalSubnets = Math.pow(2, subnetBits);
+  const totalSubnets = 2 ** subnetBits;
 
   let networkBinary = "";
   for(let i=0; i < 32; i++){
     networkBinary += ipBin[i] === subnetBin[i] ? ipBin[i] : "0";
   }
 
-  const hostsPerSubnet = Math.pow(2, 32 - prefix) - 2;
+  const hostsPerSubnet = 2 ** (32 - prefix) - 2;
 
   return (
     <Alert variant="info" className="py-2 small">

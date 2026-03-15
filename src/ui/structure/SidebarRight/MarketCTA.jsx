@@ -8,7 +8,7 @@ export const MarketCTA = () => {
       <div className="button border rounded mt-3">
 
         <div className="icon"><MarketplaceIcon /></div>
-        <a href={process.env.MARKETPLACE_ENDPOINT} target="_blank">Go to Marketplace</a>
+        <a href={process.env.MARKETPLACE_ENDPOINT} target="_blank" rel="noopener">Go to Marketplace</a>
       </div>
     </div>
   );

@@ -13,8 +13,8 @@ import { getFormattedValidations } from "@src/ui/functionality/common/getFormatt
 export const DualTextInput = (props) => {
   const { onChange: parentOnChange } = props;
 
-  let { ...attrs } = props.validations;
-  let { warnings, errors } = getFormattedValidations(props);
+  const { ...attrs } = props.validations;
+  const { warnings, errors } = getFormattedValidations(props);
 
   const warnings1 = warnings?.filter(w => w?.params?.position === 0);
   const errors1 = errors?.filter(w => w?.params?.position === 0);

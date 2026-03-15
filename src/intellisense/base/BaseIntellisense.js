@@ -96,7 +96,7 @@ export class BaseIntellisense {
       const words_chain = s.split(".");
 
       // Check if the last element is an array accessor, and if so, abort
-      let [sw, _] = check_if_accessing_array(words_chain[words_chain.length - 1]);
+      const [sw, _] = check_if_accessing_array(words_chain[words_chain.length - 1]);
       if(sw) {
         logger.debug("Intellisense aborting, trying to access an array as object.");
         reject();

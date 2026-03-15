@@ -54,7 +54,7 @@ fs.readdirSync(BASEDIR).forEach(f => {
     if(!fpath.endsWith(".js") && !fpath.endsWith(".jsx")) return;
 
     const parser = new ASTParser();
-    let code = fs.readFileSync(fpath).toString();
+    const code = fs.readFileSync(fpath).toString();
     try {
       parser.parse(code);
     } catch (error) {

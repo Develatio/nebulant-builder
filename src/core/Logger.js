@@ -31,7 +31,7 @@ const LOGLEVELS_ascolor = {
 
 export class Logger {
   constructor() {
-    if(!!Logger.instance) {
+    if(Logger.instance) {
       return Logger.instance;
     }
 
@@ -84,7 +84,7 @@ export class Logger {
   }
 
   _commitMsg(msg) {
-    let msgs = msg.text.split("\n");
+    const msgs = msg.text.split("\n");
 
     // We must check if we're in raw mode. If we are it means that we're
     // receiving messages that might be the continuation of a previous message
@@ -169,9 +169,9 @@ export class Logger {
     }
 
     const gconfig = this.runtime.get("objects.gconfig");
-    let fmt = process.env.CONSOLE_COLORS;
-    let fmt_text = !fmt ? msg.text : `%c${msg.text}`;
-    let fmt_colors = `
+    const fmt = process.env.CONSOLE_COLORS;
+    const fmt_text = !fmt ? msg.text : `%c${msg.text}`;
+    const fmt_colors = `
       color: ${LOGLEVELS_ascolor[msg.level].color};
       background-color: ${LOGLEVELS_ascolor[msg.level].bg};
     `;

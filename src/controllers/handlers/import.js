@@ -74,10 +74,10 @@ export const createNewBlueprint = () => {
   const engine = new BaseEngine({ model });
 
   logger.debug("\tAdding new [Start] node...");
-  let start = new shapes.nebulant.rectangle.vertical.executionControl.Start();
+  const start = new shapes.nebulant.rectangle.vertical.executionControl.Start();
   // Add default settings
   start.enforceSettingsStructure();
-  let { width, height } = start.getBBox();
+  const { width, height } = start.getBBox();
   const [x, y] = engine.getCenter();
   start.position(x - (width / 2), y - (height / 2));
   start.addTo(model);

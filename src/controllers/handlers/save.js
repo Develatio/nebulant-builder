@@ -156,7 +156,7 @@ const _create = async ({ collections, payload, dataURI }) => {
     ok: async ({ form, _validations }) => {
       eventBus.publish("CloseDialog");
 
-      let [collection_slug] = form.get("collection_slug");
+      const [collection_slug] = form.get("collection_slug");
       const slug = form.get("slug");
 
       const model = runtime.get("objects.main_model");

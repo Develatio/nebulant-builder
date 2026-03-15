@@ -27,21 +27,21 @@ describe("Testing 'count' command", () => {
   model.fromJSON(diagram1_cell);
 
   it("nodes count", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | count
     `);
     assert.equal(res, 8);
   });
 
   it("parameterVars count", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | parameterVars | count
     `);
     assert.equal(res, 8);
   });
 
   it("outputVars count", () => {
-    let res = dql.query(`
+    const res = dql.query(`
       nodes | outputVars | count
     `);
     assert.equal(res, 7);

@@ -154,13 +154,13 @@ export class Base extends dia.Element {
 
     children = children.filter(child => !ids.includes(child.id));
 
-    const toBeEmbeddedNodes = children.map(child => {
+    const toBeEmbeddedNodes = children.flatMap(child => {
       if(child.isGroup()) {
         return [child, ...child.getEmbeddedCells({ deep: true })];
       } else {
         return child;
       }
-    }).flat();
+    });
     const toBeEmbeddedNodesIds = toBeEmbeddedNodes.map(node => node.id);
     const toBeEmbeddedLinks = [];
     toBeEmbeddedNodes.forEach(child => {

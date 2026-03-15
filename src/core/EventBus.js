@@ -5,7 +5,7 @@ import { Runtime } from "@src/core/Runtime";
 
 export class EventBus {
   constructor() {
-    if(!!EventBus.instance) {
+    if(EventBus.instance) {
       return EventBus.instance;
     }
 

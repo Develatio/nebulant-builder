@@ -5,7 +5,7 @@ import {
 
 export class Runtime {
   constructor() {
-    if(!!Runtime.instance) {
+    if(Runtime.instance) {
       return Runtime.instance;
     }
 

@@ -110,7 +110,7 @@ export class BaseDiagramModel extends dia.Graph {
 
       // Enforce data structure for each node
       const failed_migrations = [];
-      for(let node of this.getElements()) {
+      for(const node of this.getElements()) {
         // Migrate the settings
         res = node.migrateData();
         if(res.success) {
@@ -235,7 +235,7 @@ export class BaseDiagramModel extends dia.Graph {
       visited.add(startingPoint);
     }
 
-    let queue = nodes;
+    const queue = nodes;
     groups.forEach(group => visited.add(group));
 
     while(queue.length > 0) {

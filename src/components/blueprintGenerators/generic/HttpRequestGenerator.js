@@ -69,7 +69,7 @@ export class HttpRequestGenerator extends BaseBlueprintGenerator {
         blueprint.parameters.body = parameters.body_x_www_form_urlencoded;
         break;
 
-      case "raw":
+      case "raw": {
         const ct_map = {
           "text": "text/plain",
           "javascript": "application/javascript",
@@ -91,6 +91,7 @@ export class HttpRequestGenerator extends BaseBlueprintGenerator {
 
         blueprint.parameters.body = parameters.body_raw;
         break;
+      }
 
       case "binary":
         // NOTE: We can't set the content-type header. CLI must set it for us

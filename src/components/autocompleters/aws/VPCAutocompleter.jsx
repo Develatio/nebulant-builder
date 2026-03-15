@@ -48,7 +48,7 @@ export class VPCAutocompleter extends AWSAutocompleter {
     const dataset = vpcsData.Vpcs || [];
 
     const data = dataset.map(vpc => {
-      let name = vpc.Tags?.find(tag => tag.Key === "Name")?.Value || "";
+      const name = vpc.Tags?.find(tag => tag.Key === "Name")?.Value || "";
 
       return {
         type: "value",

@@ -57,7 +57,7 @@ const CLI_STATE_2_CONNECTIVITY_STATE = {
 
 export class CliConnector {
   constructor() {
-    if(!!CliConnector.instance) {
+    if(CliConnector.instance) {
       return CliConnector.instance;
     }
 
@@ -266,7 +266,7 @@ export class CliConnector {
     this.logger.debug(`CLI chunk\ttype_id: ${data.type_id}`);
 
     switch (data.type_id) {
-      case 0: // This is a log message
+      case 0: { // This is a log message
         // Stop right here if there is no actual message or if the message is an
         // empty string.
         if(!data.message) break;
@@ -289,6 +289,7 @@ export class CliConnector {
           this.logger.unsetRawMode();
         }
         break;
+      }
 
       case 1: // This is a control state event (CLI is reporting it's current execution state)
         this.logger.debug(`CLI chunk\tevent_id: ${data.event_id}`);
@@ -310,7 +311,7 @@ export class CliConnector {
         }
         break;
 
-      case 2: // This is a status event (CLI is reporting it's current status, eg, execution state + actions in progress)
+      case 2: { // This is a status event (CLI is reporting it's current status, eg, execution state + actions in progress)
         this.logger.debug(`CLI chunk\tlast_known_event_id: ${data.last_known_event_id}`);
         const engine = this.runtime.get("objects.engine");
         state = CLI_STATE_2_CONNECTIVITY_STATE[data.last_known_event_id];
@@ -379,6 +380,7 @@ export class CliConnector {
         // TODO: Should we try to center?
         //this.eventBus.publish("CenterOnNodes", { node_ids: data.extra.uuids_in_progress });
         break;
+      }
 
       default:
         break;
