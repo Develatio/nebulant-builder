@@ -136,7 +136,7 @@ export function getCaretCoordinates(element, position, options) {
 
         let rect = range.getBoundingClientRect();
         // check for textnodes
-        let height = parseInt(range.startContainer.nodeType === 1 ? getComputedStyle(range.startContainer).lineHeight : getComputedStyle(range.startContainer.parentNode).lineHeight);
+        let height = parseInt(range.startContainer.nodeType === 1 ? getComputedStyle(range.startContainer).lineHeight : getComputedStyle(range.startContainer.parentNode).lineHeight, 10);
         // empty div on contenteditable="true"
         let allzero = true;
         for (const i in rect)
@@ -154,18 +154,18 @@ export function getCaretCoordinates(element, position, options) {
             range.setEndAfter(range.startContainer);
           }
           rect = range.getBoundingClientRect();
-          height = parseInt(getComputedStyle(range.startContainer).lineHeight);
+          height = parseInt(getComputedStyle(range.startContainer).lineHeight, 10);
           // well contenteditable, pressing "backspace" removes the first inner div containing a <br>, this "breaks" the positiondetection
           if(range.startContainer.firstChild === null) {
             rect = range.startContainer.getBoundingClientRect();
-            height = parseInt(getComputedStyle(range.startContainer).lineHeight);
+            height = parseInt(getComputedStyle(range.startContainer).lineHeight, 10);
           }
         } else if(allzero) {
           // if clicked on an anonymous block, browsers act different, chrome selects the next sibling while Edge and Firefox select the last char before the anonymous block
           range.setStart(document.activeElement, 0);
           range.setEndAfter(document.activeElement);
           rect = document.activeElement.getBoundingClientRect();
-          height = parseInt(getComputedStyle(range.startContainer).lineHeight);
+          height = parseInt(getComputedStyle(range.startContainer).lineHeight, 10);
         }
         // chrome 'lineHeight = normal'
         if(isNaN(height)) {
@@ -175,7 +175,7 @@ export function getCaretCoordinates(element, position, options) {
           }
           const current = node.style.lineHeight;
           node.style.lineHeight = "1em";
-          height = parseInt(getComputedStyle(node).lineHeight);
+          height = parseInt(getComputedStyle(node).lineHeight, 10);
           node.style.lineHeight = current != null ? current : "";
           if(typeof node.getAttribute("style") === "string" && !node.getAttribute("style").length) // clean up if empty
             node.removeAttribute("style");
@@ -232,13 +232,13 @@ export function getCaretCoordinates(element, position, options) {
   properties.forEach((prop) => {
     if(isInput && prop === "lineHeight") {
       if(computed.boxSizing === "border-box") {
-        const height = parseInt(computed.height);
+        const height = parseInt(computed.height, 10);
         const outerHeight =
-          parseInt(computed.paddingTop) +
-          parseInt(computed.paddingBottom) +
-          parseInt(computed.borderTopWidth) +
-          parseInt(computed.borderBottomWidth);
-        const targetHeight = outerHeight + parseInt(computed.lineHeight);
+          parseInt(computed.paddingTop, 10) +
+          parseInt(computed.paddingBottom, 10) +
+          parseInt(computed.borderTopWidth, 10) +
+          parseInt(computed.borderBottomWidth, 10);
+        const targetHeight = outerHeight + parseInt(computed.lineHeight, 10);
         if(height > targetHeight) {
           style.lineHeight = height - outerHeight + "px";
         } else if(height === targetHeight) {
@@ -285,9 +285,9 @@ export function getCaretCoordinates(element, position, options) {
   if(span.textContent.length === 1)
     span.fontFamily = "monospace";
   const coordinates = {
-    top: span.offsetTop + parseInt(computed["borderTopWidth"]),
-    left: span.offsetLeft + parseInt(computed["borderLeftWidth"]),
-    height: parseInt(getComputedStyle(span).lineHeight),
+    top: span.offsetTop + parseInt(computed["borderTopWidth"], 10),
+    left: span.offsetLeft + parseInt(computed["borderLeftWidth"], 10),
+    height: parseInt(getComputedStyle(span).lineHeight, 10),
 
     node: element
   };

@@ -10,7 +10,7 @@ export const onChangeNumeric = (props, value) => {
   // might want to type an interpollable string in the field. If they do so, the
   // "parseInt" will fail, but the value will be valid.
   try {
-    const newValue = parseInt(value);
+    const newValue = parseInt(value, 10);
     if(!isNaN(newValue)) {
       value = newValue;
     }
