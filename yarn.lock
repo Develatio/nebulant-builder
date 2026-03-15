@@ -3964,12 +3964,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:4.0.4":
-  version: 4.0.4
-  resolution: "mime@npm:4.0.4"
+"mime@npm:4.1.0":
+  version: 4.1.0
+  resolution: "mime@npm:4.1.0"
   bin:
     mime: bin/cli.js
-  checksum: 10c0/3046e425ed616613af8c7f4b268ff33ab564baeb24a117ef00475cbb23fbae91369ff2d9918cc6408162b0016bde34ea8cc4041b830fc2c45a8ecaf5b7e3e26f
+  checksum: 10c0/3b8602e50dff1049aea8bb2d4c65afc55bf7f3eb5c17fd2bcb315b8c8ae225a7553297d424d3621757c24cdba99e930ecdc4108467009cdc7ed55614cd55031d
   languageName: node
   linkType: hard
 
@@ -4154,7 +4154,7 @@ __metadata:
     highlight.js: "npm:^11.10.0"
     jsondiffpatch: "npm:^0.6.0"
     lodash-es: "npm:^4.17.21"
-    mime: "npm:4.0.4"
+    mime: "npm:4.1.0"
     pako: "npm:^2.1.0"
     postcss: "npm:^8.4.45"
     postcss-preset-env: "npm:^10.0.2"
