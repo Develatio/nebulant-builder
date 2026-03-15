@@ -86,7 +86,7 @@
 		"fs-extra": "^11.3.4",
 		"mime": "4.1.0",
 		"postcss": "^8.5.8",
-		"postcss-preset-env": "^10.0.2",
+		"postcss-preset-env": "^11.2.0",
 		"prettier": "^3.8.1",
 		"sass-embedded": "^1.78.0",
 		"to-case": "2.0.0",
