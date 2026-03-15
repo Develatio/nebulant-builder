@@ -140,7 +140,7 @@ export function getCaretCoordinates(element, position, options) {
         // empty div on contenteditable="true"
         let allzero = true;
         for (const i in rect)
-          if(rect[i] !== 0 && !isNaN(rect[i]))
+          if(rect[i] !== 0 && !Number.isNaN(rect[i]))
             allzero = false;
         let modified = false;
         if(allzero && (range.commonAncestorContainer.nodeType === 1 && ~["true", "plaintext-only"].indexOf(range.commonAncestorContainer.getAttribute("contenteditable")) || (range.commonAncestorContainer.innerText?.length))) {
@@ -168,7 +168,7 @@ export function getCaretCoordinates(element, position, options) {
           height = parseInt(getComputedStyle(range.startContainer).lineHeight, 10);
         }
         // chrome 'lineHeight = normal'
-        if(isNaN(height)) {
+        if(Number.isNaN(height)) {
           let node = range.startContainer;
           if(range.startContainer.nodeType !== 1) {
             node = node.parentNode;

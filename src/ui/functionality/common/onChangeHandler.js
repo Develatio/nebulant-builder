@@ -11,7 +11,7 @@ export const onChangeNumeric = (props, value) => {
   // "parseInt" will fail, but the value will be valid.
   try {
     const newValue = parseInt(value, 10);
-    if(!isNaN(newValue)) {
+    if(!Number.isNaN(newValue)) {
       value = newValue;
     }
    } catch (_error) {

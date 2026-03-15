@@ -29,7 +29,7 @@ class Validator extends BaseDiagramValidator {
           Interval: string().test({
             test: Interval => {
               const i = parseInt(Interval, 10);
-              if(isNaN(i)) {
+              if(Number.isNaN(i)) {
                 return true;
               }
 
@@ -42,7 +42,7 @@ class Validator extends BaseDiagramValidator {
               test: Timeout => {
                 const t = parseInt(Timeout, 10);
                 const i = parseInt(Interval, 10);
-                if(isNaN(t) || isNaN(i)) {
+                if(Number.isNaN(t) || Number.isNaN(i)) {
                   return true;
                 }
 
@@ -54,7 +54,7 @@ class Validator extends BaseDiagramValidator {
           Retries: string().test({
             test: Retries => {
               const r = parseInt(Retries, 10);
-              if(isNaN(r)) {
+              if(Number.isNaN(r)) {
                 return true;
               }
 
