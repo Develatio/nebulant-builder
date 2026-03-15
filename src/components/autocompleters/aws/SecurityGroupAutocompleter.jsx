@@ -18,11 +18,11 @@ const PermissionsTable = (sg, permissions) => {
         {
           permissions?.map((perm, idx) => {
             let port = perm.FromPort ? `${perm.FromPort}` : "All ports";
-            if(perm.FromPort != perm.ToPort) {
+            if(perm.FromPort !== perm.ToPort) {
               port += `-${perm.ToPort}`;
             }
 
-            const proto = perm.IpProtocol == "-1" ? "All protocols" : perm.IpProtocol;
+            const proto = perm.IpProtocol === "-1" ? "All protocols" : perm.IpProtocol;
 
             return (
               <tr key={idx} className="border border-gray">
@@ -95,7 +95,7 @@ export class SecurityGroupAutocompleter extends AWSAutocompleter {
   }
 
   _createLabel(sg) {
-    let name = (sg.Tags || []).find(tag => tag.Key == "Name")?.Value || "";
+    let name = (sg.Tags || []).find(tag => tag.Key === "Name")?.Value || "";
     if(name) {
       name = `(${name})`;
     }

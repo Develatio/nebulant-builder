@@ -57,7 +57,7 @@ export const body_form_data = (props) => {
                       </div>
 
                       {
-                        props.form.get(`parameters.body_form_data[${idx}].type`) == "text" ? (
+                        props.form.get(`parameters.body_form_data[${idx}].type`) === "text" ? (
                           <div className="flex-grow-1">
                             <TextInput
                               node={props.node}

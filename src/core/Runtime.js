@@ -57,7 +57,7 @@ export class Runtime {
     lodashSet(this._runtime, keyPath, value);
 
     // Notify listeners
-    if(keyPath == "") {
+    if(keyPath === "") {
       Object.keys(this._listeners).forEach(keyPath => {
         this._listeners[keyPath].forEach(fn => {
           const value = lodashGet(this._runtime, keyPath);
@@ -68,7 +68,7 @@ export class Runtime {
       Object.entries(this._listeners).forEach(([listenerKeyPath, fns]) => {
         const new_value = this.get(listenerKeyPath);
 
-        if(keyPath.startsWith("state") || keyPath == listenerKeyPath) {
+        if(keyPath.startsWith("state") || keyPath === listenerKeyPath) {
           fns.forEach(fn => fn(new_value));
         }
       });

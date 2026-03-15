@@ -26,7 +26,7 @@ export const validateConnection = function(
     // if both have a parent, but the parent is not the same...
     // (eg: nodes in different groups)
     // NOTE for myself: how the fuck would that happen¿?
-    (parentS && parentT && parentS != parentT)
+    (parentS && parentT && parentS !== parentT)
     ||
     // if the source element doesn't have a parent, but the target does
     // (eg: node on the paper being connected to a node in a group)
@@ -45,7 +45,7 @@ export const validateConnection = function(
   // port-group attribute will be accessible only through the parent element
   const pg1 = magnetT.attributes["port-group"];
   const pg2 = magnetT.parentElement.attributes["port-group"];
-  if((pg1 || pg2)?.value != "in") return false;
+  if((pg1 || pg2)?.value !== "in") return false;
 
   return true;
 }

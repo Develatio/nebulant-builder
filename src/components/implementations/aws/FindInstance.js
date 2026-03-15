@@ -46,7 +46,7 @@ class Migrator extends BaseDiagramMigrator {
     // convert the "run_script" capability to "ssh"
     ["1.0.1", (data) => {
       data.settings.outputs.result.capabilities = data.settings.outputs.result.capabilities.map(capability => {
-        if(capability == "run_script") {
+        if(capability === "run_script") {
           return "ssh";
         } else {
           return capability;
@@ -62,7 +62,7 @@ class Migrator extends BaseDiagramMigrator {
 
     // remove the "ssh" capability
     ["1.0.2", (data) => {
-      data.settings.outputs.result.capabilities = data.settings.outputs.result.capabilities.filter(capability => capability != "ssh");
+      data.settings.outputs.result.capabilities = data.settings.outputs.result.capabilities.filter(capability => capability !== "ssh");
 
       return {
         data,

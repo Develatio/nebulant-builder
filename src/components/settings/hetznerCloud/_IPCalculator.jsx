@@ -42,7 +42,7 @@ export const IPCalculator = ({ addressmask }) => {
 
   let networkBinary = "";
   for(let i=0; i < 32; i++){
-    networkBinary += ipBin[i] == subnetBin[i] ? ipBin[i] : "0";
+    networkBinary += ipBin[i] === subnetBin[i] ? ipBin[i] : "0";
   }
 
   const hostsPerSubnet = Math.pow(2, 32 - prefix) - 2;

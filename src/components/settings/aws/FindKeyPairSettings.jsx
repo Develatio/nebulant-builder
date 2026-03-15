@@ -118,7 +118,7 @@ export const FindKeyPairSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "fingerprint" ? (
+                              value.name === "fingerprint" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -129,7 +129,7 @@ export const FindKeyPairSettings = (props) => {
                                   placeholder={"Type a key pair fingerprint"}
                                   help_text={"The fingerprint of the key pair."}
                                 ></TextInput>
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -141,7 +141,7 @@ export const FindKeyPairSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}

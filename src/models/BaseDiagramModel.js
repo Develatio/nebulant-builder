@@ -192,7 +192,7 @@ export class BaseDiagramModel extends dia.Graph {
     }
 
     groups.forEach(g => {
-      if(g.id == group?.id) {
+      if(g.id === group?.id) {
         let neighbors = this.getNeighbors(g, opt);
         if(opt.outbound) {
           // Filter the "Start" node
@@ -219,7 +219,7 @@ export class BaseDiagramModel extends dia.Graph {
   // Returns all nodes that are connected to the "node" node
   getConnectedElements(node = this.getStartNode(), direction = "children") {
     const startingPoint = node;
-    const opt = direction == "children" ? { outbound: true } : { inbound: true };
+    const opt = direction === "children" ? { outbound: true } : { inbound: true };
 
     // While the graph is being initialized there won't be a "Start" node. Just
     // return an empty array in order to avoid blocking other code paths while

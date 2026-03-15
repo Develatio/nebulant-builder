@@ -27,7 +27,7 @@ export class FindSshKeyGenerator extends HetznerCloudGenerator {
       output: outputs.result.value,
     };
 
-    if(parameters._activeTab == "filters") {
+    if(parameters._activeTab === "filters") {
       if(parameters.Name) {
         blueprint.parameters.Name = parameters.Name;
       }

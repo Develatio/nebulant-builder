@@ -51,7 +51,7 @@ export class InstanceAutocompleter extends AWSAutocompleter {
       const subdataset = reservation.Instances || [];
 
       return subdataset.map(instance => {
-        const instanceName = (instance.Tags || []).find(tag => tag.Key == "Name")?.Value || "";
+        const instanceName = (instance.Tags || []).find(tag => tag.Key === "Name")?.Value || "";
 
         return {
           type: "value",

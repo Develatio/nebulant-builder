@@ -26,11 +26,11 @@ const validateForm = ({ schema, data, validations, setValidations, submitted }) 
   }).catch(validationError => {
     const res = clone(VALIDATION_BODY);
     validationError.inner.forEach(error => {
-      const v = error.type == "warning" ? res.warnings : res.errors;
+      const v = error.type === "warning" ? res.warnings : res.errors;
       (v[error.path] = v[error.path] || []).push(error);
     });
 
-    res.isValid = Object.keys(res.errors).length == 0;
+    res.isValid = Object.keys(res.errors).length === 0;
 
     const newValidations = {
       submitted,
@@ -93,7 +93,7 @@ export const Dialog = () => {
 
   let plainbody = "";
   if(data.body) {
-    if(typeof data.body == "function") {
+    if(typeof data.body === "function") {
       plainbody = data.body({ form, validations });
     } else {
       plainbody = data.body;

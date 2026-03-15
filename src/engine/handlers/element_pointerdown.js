@@ -70,7 +70,7 @@ export const element_pointerdown = function(elementView, evt, x, y) {
   }
 
   // Right click
-  else if(evt.which == 3 || evt.button == 2) {
+  else if(evt.which === 3 || evt.button === 2) {
     this.runtime.get("objects.blueprintAction").openNodeSettings(model.id);
   }
 

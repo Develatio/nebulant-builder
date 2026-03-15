@@ -35,7 +35,7 @@ export class KeyboardHandler {
               keyboard.isModifierActive("meta", evt) ||
               keyboard.isModifierActive("ctrl", evt)
             ) &&
-            String.fromCharCode(evt.which).toUpperCase() == "F"
+            String.fromCharCode(evt.which).toUpperCase() === "F"
           )
         ) {
           return true;
@@ -128,7 +128,7 @@ export class KeyboardHandler {
       // If none or more tha one element is selected, do nothing
       this.engine = this.runtime.get("objects.engine");
       const { collection } = this.engine.selection;
-      if(collection.length == 1) {
+      if(collection.length === 1) {
         const node = collection.at(0);
         this.runtime.get("objects.blueprintAction").openNodeSettings(node.id);
       }

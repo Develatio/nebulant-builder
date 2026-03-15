@@ -9,7 +9,7 @@ export const highlightOne = function(model, opts = {}) {
     this.runtime.get("objects.cliConnector").state < CliConnectorStates.running ||
     (
       this.runtime.get("objects.cliConnector").state >= CliConnectorStates.running &&
-      opts.caller == "cli"
+      opts.caller === "cli"
     )
   ) {
     const cellView = model.findView(this);

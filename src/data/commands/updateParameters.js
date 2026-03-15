@@ -29,9 +29,9 @@ export const updateParameters = ({res, parameters}) => {
             const obj = clone(v.prop("data/settings/parameters"));
             const re = new RegExp(value[0], value[2] || "");
 
-            if(replace_key == "*") {
+            if(replace_key === "*") {
               traverse(obj).forEach(function(v) {
-                if(typeof v == "string") {
+                if(typeof v === "string") {
                   const res = v.replace(re, value[1]);
                   this.update(res);
                 }

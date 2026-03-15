@@ -23,7 +23,7 @@ export class FindImageGenerator extends BaseBlueprintGenerator {
       output: outputs.result.value,
     };
 
-    if(parameters._activeTab == "filters") {
+    if(parameters._activeTab === "filters") {
       const filters = formatFilters(parameters.Filters);
       if(parameters._ImageName) {
         filters.push({
@@ -39,12 +39,12 @@ export class FindImageGenerator extends BaseBlueprintGenerator {
         Owners: parameters._ImageOwners,
         // ExecutableUsers: parameters.ExecutableUsers,
       };
-    } else if(parameters._activeTab == "id") {
+    } else if(parameters._activeTab === "id") {
       blueprint.parameters = {
         ...blueprint.parameters,
         ImageIds: parameters.ImageIds[0],
       };
-    } else if(parameters._activeTab == "quickstart") {
+    } else if(parameters._activeTab === "quickstart") {
       blueprint.parameters = {
         ...blueprint.parameters,
         ImageIds: parameters.QuickImageIds[0],

@@ -234,7 +234,7 @@ export const FindImageSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "architecture" ? (
+                              value.name === "architecture" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -255,7 +255,7 @@ export const FindImageSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "description" ? (
+                              ) : value.name === "description" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -266,7 +266,7 @@ export const FindImageSettings = (props) => {
                                   placeholder={"Type the search term"}
                                   help_text={"The description of the image (provided during image creation)."}
                                 ></TextInput>
-                              ) : value.name == "ena-support" ? (
+                              ) : value.name === "ena-support" ? (
                                 <CheckboxInput
                                   form={props.form}
                                   validations={props.validations}
@@ -275,7 +275,7 @@ export const FindImageSettings = (props) => {
                                   label={"ENA support"}
                                   help_text={"A Boolean that indicates whether enhanced networking with ENA is enabled."}
                                 ></CheckboxInput>
-                              ) : value.name == "hypervisor" ? (
+                              ) : value.name === "hypervisor" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -296,7 +296,7 @@ export const FindImageSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "image-id" ? (
+                              ) : value.name === "image-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -307,7 +307,7 @@ export const FindImageSettings = (props) => {
                                   placeholder={"Type an image ID"}
                                   help_text={"The ID of the image."}
                                 ></TextInput>
-                              ) : value.name == "image-type" ? (
+                              ) : value.name === "image-type" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -328,7 +328,7 @@ export const FindImageSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "is-public" ? (
+                              ) : value.name === "is-public" ? (
                                 <CheckboxInput
                                   form={props.form}
                                   validations={props.validations}
@@ -337,7 +337,7 @@ export const FindImageSettings = (props) => {
                                   label={"Public"}
                                   help_text={"A Boolean that indicates whether the image is public."}
                                 ></CheckboxInput>
-                              ) : value.name == "kernel-id" ? (
+                              ) : value.name === "kernel-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -348,7 +348,7 @@ export const FindImageSettings = (props) => {
                                   placeholder={"Type a kernel ID"}
                                   help_text={"The ID of the kernel."}
                                 ></TextInput>
-                              ) : value.name == "owner-id" ? (
+                              ) : value.name === "owner-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -359,7 +359,7 @@ export const FindImageSettings = (props) => {
                                   placeholder={"Type an owner ID"}
                                   help_text={"The AWS account ID of the owner. We recommend that you use the related parameter instead of this filter."}
                                 ></TextInput>
-                              ) : value.name == "state" ? (
+                              ) : value.name === "state" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -380,7 +380,7 @@ export const FindImageSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -392,7 +392,7 @@ export const FindImageSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}
@@ -403,7 +403,7 @@ export const FindImageSettings = (props) => {
                                   placeholder={"Type a key of a tag assigned to the image"}
                                   help_text={"Use this filter to find all AMIs assigned a tag with a specific key, regardless of the tag value."}
                                 ></MultiTextInput>
-                              ) : value.name == "virtualization-type" ? (
+                              ) : value.name === "virtualization-type" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}

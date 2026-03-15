@@ -26,7 +26,7 @@ export class FindImageGenerator extends HetznerCloudGenerator {
       output: outputs.result.value,
     };
 
-    if(parameters._activeTab == "filters") {
+    if(parameters._activeTab === "filters") {
       blueprint.parameters = {
         ...blueprint.parameters,
         Name: parameters.Name,
@@ -34,9 +34,9 @@ export class FindImageGenerator extends HetznerCloudGenerator {
       }
       const filters = formatFilters(parameters.Filters);
       blueprint.parameters = util.merge({}, blueprint.parameters, filters);
-    } else if(parameters._activeTab == "id") {
+    } else if(parameters._activeTab === "id") {
       blueprint.parameters.id = parameters.ImageID[0];
-    } else if(parameters._activeTab == "hetzner_images") {
+    } else if(parameters._activeTab === "hetzner_images") {
       blueprint.parameters.id = parameters.HetznerImageID[0];
     }
 

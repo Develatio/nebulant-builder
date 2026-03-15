@@ -18,7 +18,7 @@ export class BaseDiagramMigrator {
   }
 
   isLatestVersion(versions, version) {
-    return versions.indexOf(version) == versions.length - 1;
+    return versions.indexOf(version) === versions.length - 1;
   }
 
   sortVersions(versions) {
@@ -43,7 +43,7 @@ export class BaseDiagramMigrator {
 
     let available_versions = this.getAvailableVersions();
 
-    if(available_versions.length == 0) {
+    if(available_versions.length === 0) {
       // There are no migrators
       this.logger.debug("No migrators found. Skipping...");
       return {

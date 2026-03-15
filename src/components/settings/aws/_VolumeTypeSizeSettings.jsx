@@ -58,8 +58,8 @@ export const VolumeTypeSizeSettings = (props) => {
           node={props.node}
           form={props.form}
           validations={props.validations}
-          min={sizeRules.find(r => r.rule == "min")?.value}
-          max={sizeRules.find(r => r.rule == "max")?.value}
+          min={sizeRules.find(r => r.rule === "min")?.value}
+          max={sizeRules.find(r => r.rule === "max")?.value}
           path={"parameters.Size"}
           label={"Size"}
           sliderSuffix={" GiBs"}
@@ -68,7 +68,7 @@ export const VolumeTypeSizeSettings = (props) => {
         ></RangeInput>
 
         {
-          props.form.get("parameters.VolumeType")[0] == "gp2" && (
+          props.form.get("parameters.VolumeType")[0] === "gp2" && (
             <ROField
               value={
                 <>
@@ -107,8 +107,8 @@ export const VolumeTypeSizeSettings = (props) => {
               node={props.node}
               form={props.form}
               validations={props.validations}
-              min={iopsRules.find(r => r.rule == "min")?.value}
-              max={iopsRules.find(r => r.rule == "max")?.value}
+              min={iopsRules.find(r => r.rule === "min")?.value}
+              max={iopsRules.find(r => r.rule === "max")?.value}
               path={"parameters.Iops"}
               label={"IOPS"}
               sliderSuffix={" IOPS"}
@@ -119,13 +119,13 @@ export const VolumeTypeSizeSettings = (props) => {
         }
 
         {
-          props.form.get("parameters.VolumeType")[0] == "gp3" && (
+          props.form.get("parameters.VolumeType")[0] === "gp3" && (
             <RangeInput
               node={props.node}
               form={props.form}
               validations={props.validations}
-              min={throughputRules.find(r => r.rule == "min")?.value}
-              max={throughputRules.find(r => r.rule == "max")?.value}
+              min={throughputRules.find(r => r.rule === "min")?.value}
+              max={throughputRules.find(r => r.rule === "max")?.value}
               path={"parameters.Throughput"}
               label={"Throughput"}
               sliderSuffix={" MiB/s"}
@@ -136,7 +136,7 @@ export const VolumeTypeSizeSettings = (props) => {
         }
 
         {
-          props.form.get("parameters.VolumeType")[0] == "sc1" && (
+          props.form.get("parameters.VolumeType")[0] === "sc1" && (
             <ROField
               value={
                 <>
@@ -158,7 +158,7 @@ export const VolumeTypeSizeSettings = (props) => {
         }
 
         {
-          props.form.get("parameters.VolumeType")[0] == "st1" && (
+          props.form.get("parameters.VolumeType")[0] === "st1" && (
             <ROField
               value={
                 <>
@@ -184,7 +184,7 @@ export const VolumeTypeSizeSettings = (props) => {
         <FormLabel>{"\u00A0"}</FormLabel>
         <Alert variant="info" className="py-1 small">
           {
-            props.form.get("parameters.VolumeType")[0] == "standard" && (
+            props.form.get("parameters.VolumeType")[0] === "standard" && (
               <>
                 <b>Standard</b> volumes are suitable for small-scale workloads where throughput isn't a
                 requiremet.
@@ -193,32 +193,32 @@ export const VolumeTypeSizeSettings = (props) => {
           }
 
           {
-            props.form.get("parameters.VolumeType")[0] == "gp2" && (
+            props.form.get("parameters.VolumeType")[0] === "gp2" && (
               <>
                 <b>GP2</b> volumes scale IOPS with the size of the volume.
-                You're given a base of <code>{iopsRules.find(r => r.rule == "min")?.value} IOPS</code> and
+                You're given a base of <code>{iopsRules.find(r => r.rule === "min")?.value} IOPS</code> and
                 an additional 3 IOPS per GiB after exceeding 33GiB, with a maximum of <code>
-                {iopsRules.find(r => r.rule == "max")?.value} IOPS</code>.
+                {iopsRules.find(r => r.rule === "max")?.value} IOPS</code>.
                 The throughput also scales up with the volume size.
               </>
             )
           }
 
           {
-            props.form.get("parameters.VolumeType")[0] == "gp3" && (
+            props.form.get("parameters.VolumeType")[0] === "gp3" && (
               <>
                 <b>GP3</b> volumes can be assigned any IOPS value between <code>
-                {iopsRules.find(r => r.rule == "min")?.value} IOPS</code> and <code>
-                {iopsRules.find(r => r.rule == "max")?.value} IOPS</code>.
+                {iopsRules.find(r => r.rule === "min")?.value} IOPS</code> and <code>
+                {iopsRules.find(r => r.rule === "max")?.value} IOPS</code>.
                 Similarly, the throughput can be assigned any MiB/s value between <code>
-                {throughputRules.find(r => r.rule == "min")?.value} MiB/s</code> and <code>
-                {throughputRules.find(r => r.rule == "max")?.value} MiB/s</code>.
+                {throughputRules.find(r => r.rule === "min")?.value} MiB/s</code> and <code>
+                {throughputRules.find(r => r.rule === "max")?.value} MiB/s</code>.
               </>
             )
           }
 
           {
-            props.form.get("parameters.VolumeType")[0] == "io1" && (
+            props.form.get("parameters.VolumeType")[0] === "io1" && (
               <>
                 <b>IO1</b> volumes offer higher IO and throughput performance and lower latency than
                 the general purpose volumes. IOPS vary depending on the size of the volume. You're
@@ -229,7 +229,7 @@ export const VolumeTypeSizeSettings = (props) => {
           }
 
           {
-            props.form.get("parameters.VolumeType")[0] == "io2" && (
+            props.form.get("parameters.VolumeType")[0] === "io2" && (
               <>
                 <b>IO2</b> volumes offer higher IO and throughput performance and lower latency than
                 the general purpose volumes. IOPS vary depending on the size of the volume. You're
@@ -275,7 +275,7 @@ export const VolumeTypeSizeSettings = (props) => {
           This is because <code>1000 * 256 KiB = 250 MiB</code>.
 
           {
-            props.form.get("parameters.VolumeType")[0] == "gp2" && (
+            props.form.get("parameters.VolumeType")[0] === "gp2" && (
               <>
                 <br />
                 <br />

@@ -108,7 +108,7 @@ export const generateBlueprint = (diagram) => {
     // doesn't (CLI's POV is that any non-specific actions are "generic").
     // That's why we "monkey-patch" this value at the very last moment, right
     // before actually creating the action object.
-    if(data.provider == "executionControl") {
+    if(data.provider === "executionControl") {
       data.provider = "generic";
     }
 

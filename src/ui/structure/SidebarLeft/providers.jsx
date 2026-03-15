@@ -32,7 +32,7 @@ export const Providers = () => {
     <div className="providers">
       {
         providers.map(provider => {
-          const selected = selectedProvider == provider.name;
+          const selected = selectedProvider === provider.name;
 
           return (
             <div

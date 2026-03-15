@@ -48,7 +48,7 @@ export class VolumeAutocompleter extends AWSAutocompleter {
     const dataset = volumesData.Volumes || [];
 
     const volumesNames = Object.fromEntries(dataset.map(volume => [
-      volume.VolumeId, volume.Tags?.find(tag => tag.Key == "Name")?.Value || ""
+      volume.VolumeId, volume.Tags?.find(tag => tag.Key === "Name")?.Value || ""
     ]));
 
     const data = dataset.map(volume => {

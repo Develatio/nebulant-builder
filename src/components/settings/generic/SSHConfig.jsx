@@ -93,7 +93,7 @@ export const SSHConfig = (props) => {
           </Col>
           <Col sm={8} className="mb-3">
             {
-              props.form.get(props.credentials) == "privkeyPath" ? (
+              props.form.get(props.credentials) === "privkeyPath" ? (
                 <>
                   <TextInput
                     node={props.node}
@@ -115,7 +115,7 @@ export const SSHConfig = (props) => {
                     help_text={"The passphrase to be used in combination with the private key (leave empty if the private key has no passphrase)."}
                   ></PrivateTextInput>
                 </>
-              ) : props.form.get(props.credentials) == "privkey" ? (
+              ) : props.form.get(props.credentials) === "privkey" ? (
                 <>
                   <PrivateTextInput
                     as={"textarea"}

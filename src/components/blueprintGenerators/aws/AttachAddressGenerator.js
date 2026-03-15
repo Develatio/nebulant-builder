@@ -24,7 +24,7 @@ export class AttachAddressGenerator extends BaseBlueprintGenerator {
       output: outputs.result.value,
     };
 
-    if(parameters._activeTab == "instance") {
+    if(parameters._activeTab === "instance") {
       blueprint.parameters.InstanceId = parameters.InstanceId?.[0];
     } else {
       blueprint.parameters.NetworkInterfaceId = parameters.NetworkInterfaceId?.[0];

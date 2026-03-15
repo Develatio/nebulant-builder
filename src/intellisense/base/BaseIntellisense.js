@@ -186,14 +186,14 @@ export class BaseIntellisense {
           [accessing_array, word] = check_if_accessing_array(word);
 
           if(predictions.map(p => p.key).includes(word)) {
-            const obj = predictions.find(p => p.key == word);
+            const obj = predictions.find(p => p.key === word);
             if(obj.type === "array") {
               predictions = accessing_array ? obj.children : [];
             } else {
               predictions = accessing_array ? [] : obj.children;
             }
           } else {
-            if(words_chain.length == 0) {
+            if(words_chain.length === 0) {
               // filter by <word>
               predictions = predictions.filter(p => p.key.includes(word));
             }

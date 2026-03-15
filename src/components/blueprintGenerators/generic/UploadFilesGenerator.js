@@ -24,13 +24,13 @@ export class UploadFilesGenerator extends BaseBlueprintGenerator {
         port: parameters.port,
         target: parameters.target?.[0], // "{{ ... }}" or IP addr
 
-        ...(parameters._credentials == "privkeyPath" && { privkeyPath: parameters.privkeyPath }),
-        ...(parameters._credentials == "privkeyPath" && { passphrase: parameters.passphrase }),
+        ...(parameters._credentials === "privkeyPath" && { privkeyPath: parameters.privkeyPath }),
+        ...(parameters._credentials === "privkeyPath" && { passphrase: parameters.passphrase }),
 
-        ...(parameters._credentials == "privkey" && { privkey: parameters.privkey }),
-        ...(parameters._credentials == "privkey" && { passphrase: parameters.passphrase }),
+        ...(parameters._credentials === "privkey" && { privkey: parameters.privkey }),
+        ...(parameters._credentials === "privkey" && { passphrase: parameters.passphrase }),
 
-        ...(parameters._credentials == "password" && { password: parameters.password }),
+        ...(parameters._credentials === "password" && { password: parameters.password }),
 
         // Proxies
         proxies: parameters.proxies.map(proxy => ({
@@ -38,13 +38,13 @@ export class UploadFilesGenerator extends BaseBlueprintGenerator {
           target: proxy.value.target?.[0],
           port: proxy.value.port,
 
-          ...(proxy.value._credentials == "privkeyPath" && { privkeyPath: proxy.value.privkeyPath }),
-          ...(proxy.value._credentials == "privkeyPath" && { passphrase: proxy.value.passphrase }),
+          ...(proxy.value._credentials === "privkeyPath" && { privkeyPath: proxy.value.privkeyPath }),
+          ...(proxy.value._credentials === "privkeyPath" && { passphrase: proxy.value.passphrase }),
 
-          ...(proxy.value._credentials == "privkey" && { privkey: proxy.value.privkey }),
-          ...(proxy.value._credentials == "privkey" && { passphrase: proxy.value.passphrase }),
+          ...(proxy.value._credentials === "privkey" && { privkey: proxy.value.privkey }),
+          ...(proxy.value._credentials === "privkey" && { passphrase: proxy.value.passphrase }),
 
-          ...(proxy.value._credentials == "password" && { password: proxy.value.password }),
+          ...(proxy.value._credentials === "password" && { password: proxy.value.password }),
         })),
 
         max_retries: parameters._maxRetries,

@@ -154,7 +154,7 @@ export class Main extends Component {
     window.onbeforeunload = e => {
       // ... make sure that there are no unsaved changes. If there are, the user
       // should be made aware of that.
-      if(this.runtime.get("state.ops_counter") != 0) {
+      if(this.runtime.get("state.ops_counter") !== 0) {
         e && (e.returnValue = "");
         return "";
       }

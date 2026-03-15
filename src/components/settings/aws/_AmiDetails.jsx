@@ -17,7 +17,7 @@ export const AmiDetails = (props) => {
     }
 
     return "";
-  } else if(ami != amiid) {
+  } else if(ami !== amiid) {
     if(!amiid.match(/^ami-\w*$/)) {
       if(amiDetails != null) {
         setAmiDetails(null);

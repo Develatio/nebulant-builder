@@ -28,7 +28,7 @@ export const convert_to_vars_struct = (arr) => {
         });
         return acc;
       }, []);
-    } else if(value.type == "selectable-dql-var-type") {
+    } else if(value.type === "selectable-dql-var-type") {
       obj.options = value.vars; // TODO <- rework this ¿?
     }
 

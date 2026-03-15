@@ -5,7 +5,7 @@ export const inferIPs = (arr) => {
   // wtf is this shit¿? this is 100% improvable
   arr?.forEach((r, _j) => {
     // AWS
-    if(r.type == "aws:instance") {
+    if(r.type === "aws:instance") {
       smartSuggestions.push({
         node: r,
         suggestion: `{{ ${r.value}.ipAddress }}`,
@@ -35,12 +35,12 @@ export const inferIPs = (arr) => {
           <small className="text-muted">Try to infer the IP from the first network interface</small>
         </span>
       });
-    } else if(r.type == "aws:network_interface") {
+    } else if(r.type === "aws:network_interface") {
       smartSuggestions.push({
         node: r,
         suggestion: `{{ ${r.value}.association.publicIp }}`,
       });
-    } else if(r.type == "aws:elastic_ip") {
+    } else if(r.type === "aws:elastic_ip") {
       smartSuggestions.push({
         node: r,
         suggestion: `{{ ${r.value}.publicIp }}`,
@@ -48,7 +48,7 @@ export const inferIPs = (arr) => {
     }
 
     // Hetzner
-    else if(r.type == "hetznerCloud:server") {
+    else if(r.type === "hetznerCloud:server") {
       smartSuggestions.push({
         node: r,
         suggestion: `{{ ${r.value}.server.private_net[0].ip }}`,

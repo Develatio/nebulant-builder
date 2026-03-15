@@ -27,7 +27,7 @@ export class RemoveTargetFromLoadBalancerGenerator extends HetznerCloudGenerator
       output: outputs.result.value,
     };
 
-    if(parameters._activeTab == "servers") {
+    if(parameters._activeTab === "servers") {
       blueprint.parameters.type = "server";
       blueprint.parameters.server = {
         ID: parameters.ServerIds[0],

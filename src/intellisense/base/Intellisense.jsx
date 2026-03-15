@@ -181,14 +181,14 @@ export const Intellisense = () => {
   }, []);
 
   const getPrediction = (prediction, idx) => {
-    const ref = idx == state.current.selectedIdx ? selectedEl : null;
+    const ref = idx === state.current.selectedIdx ? selectedEl : null;
 
     return (
       <Col
         sm={12}
         key={idx}
         ref={ref}
-        className={`${state.current.selectedIdx == idx ? "selected": ""} d-flex justify-content-between py-2`}
+        className={`${state.current.selectedIdx === idx ? "selected": ""} d-flex justify-content-between py-2`}
         onClick={(event) => {
           event.stopPropagation();
           select(idx);

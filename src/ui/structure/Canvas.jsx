@@ -86,9 +86,9 @@ const handleDrop = (item, monitor) => {
   ({ x, y } = engine.clientToLocalPoint({ x, y }));
 
   const type = monitor.getItemType();
-  if(type == "ddWidget") {
+  if(type === "ddWidget") {
     handleWidgetDrop({ x, y, item });
-  } else if(type == "ddMarketplaceWidget") {
+  } else if(type === "ddMarketplaceWidget") {
     handleMarketplaceWidgetDrop({ x, y, item });
   }
 }

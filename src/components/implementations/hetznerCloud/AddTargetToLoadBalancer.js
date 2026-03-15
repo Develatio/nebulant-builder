@@ -20,13 +20,13 @@ class Validator extends BaseDiagramValidator {
         _activeTab: string().oneOf(["servers", "labels"]).default("servers"),
         LoadBalancerIds: array().of(string()).required().min(1).max(1).default([]).label("Load balancer ID"),
         ServerIds: array().of(string()).when("_activeTab", ([_activeTab], schema) => {
-          if(_activeTab == "servers") {
+          if(_activeTab === "servers") {
             return schema.required().min(1);
           }
           return schema;
         }).max(1).default([]).label("Server IDs"),
         Label: string().when("_activeTab", ([_activeTab], schema) => {
-          if(_activeTab == "labels") {
+          if(_activeTab === "labels") {
             return schema.required().min(1);
           }
           return schema;

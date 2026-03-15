@@ -107,7 +107,7 @@ export class CliConnector {
   }
 
   _setConnectivityState(state) {
-    if(this.state == state || state == undefined) return;
+    if(this.state === state || state === undefined) return;
 
     this.state = state;
     this.eventBus.publish("ConnectivityStateChanged", {
@@ -141,12 +141,12 @@ export class CliConnector {
     if(
       (
         // the browser is Safari and the protocol is HTTP
-        isSafari() && url.protocol == "http"
+        isSafari() && url.protocol === "http"
       )
         ||
       (
         // the protocol is HTTP and the target is not localhost
-        url.protocol == "http" && !["127.0.0.1", "localhost"].includes(url.host)
+        url.protocol === "http" && !["127.0.0.1", "localhost"].includes(url.host)
       )
     ) {
       this.proxy.mode = "popup";
@@ -160,7 +160,7 @@ export class CliConnector {
     this.current_host = `${url.host}${url.port ? ":" + url.port : ""}`;
 
     clearTimeout(this.timeout_connect);
-    if(this.state == CliConnectorStates.connected) {
+    if(this.state === CliConnectorStates.connected) {
       this.logger.debug("Refusing attempt to connect to the CLI, already in 'connected' state.");
       return;
     }
@@ -210,7 +210,7 @@ export class CliConnector {
     this.proxy.closeWS();
 
     // Maybe try to reconnect?
-    if(this.state != CliConnectorStates.disconnected) {
+    if(this.state !== CliConnectorStates.disconnected) {
       const retry_ms = this.gconfig.get("cli.retry_ms");
 
       this._setConnectivityState(CliConnectorStates.connecting);
@@ -226,7 +226,7 @@ export class CliConnector {
     this.proxy.closeWS();
 
     // Maybe try to reconnect?
-    if(this.state != CliConnectorStates.disconnected) {
+    if(this.state !== CliConnectorStates.disconnected) {
       const retry_ms = this.gconfig.get("cli.retry_ms");
 
       this._setConnectivityState(CliConnectorStates.connecting);
@@ -299,10 +299,10 @@ export class CliConnector {
           this.logger.clearRawModePointers();
         }
 
-        if(data.event_id == CliEventStates.STARTED_PROCESSING_BP) {
+        if(data.event_id === CliEventStates.STARTED_PROCESSING_BP) {
           const engine = this.runtime.get("objects.engine");
           engine.unMarkAllAsFaulty();
-        } else if(data.event_id == CliEventStates.UNHANDLED_ACTION_ERROR && data?.extra?.action_id) {
+        } else if(data.event_id === CliEventStates.UNHANDLED_ACTION_ERROR && data?.extra?.action_id) {
           const engine = this.runtime.get("objects.engine");
 
           const node = engine.model.getCell(data.extra.action_id);
@@ -425,7 +425,7 @@ export class CliConnector {
           const { data } = err;
 
           try {
-            if(data?.Fail == true) {
+            if(data?.Fail === true) {
               data?.Errors.forEach(error => {
                 this.logger.error(`${error}`);
               });
@@ -465,7 +465,7 @@ export class CliConnector {
           try {
             const { data } = error.response;
 
-            if(data.Fail == true) {
+            if(data.Fail === true) {
               data.Errors.forEach(error => {
                 this.logger.error(`${error}`);
               });
@@ -524,7 +524,7 @@ export class CliConnector {
             });
           }
 
-          if(status == 401) {
+          if(status === 401) {
             this.eventBus.publish("Toast", {
               msg: `
                 Autocomplete request failed because of a problem with the provided credencials.
@@ -535,7 +535,7 @@ export class CliConnector {
           }
 
         } else {
-          if(err.error.name == "AbortError") {
+          if(err.error.name === "AbortError") {
             this.logger.info("Autocomplete request was either superseded by another request or timeout was reached");
           } else {
             this.logger.error("CLI didn't reply to autocomplete request");
@@ -579,7 +579,7 @@ export class CliConnector {
         if(err.response) {
           this.logger.error(`CLI returned a bad reply to asset request: ${err.data || ""}`);
         } else {
-          if(err.error.name == "AbortError") {
+          if(err.error.name === "AbortError") {
             this.logger.info(`Request for asset ${asset_id} was superseded by another request`);
           } else {
             this.logger.error("CLI didn't reply to asset request");

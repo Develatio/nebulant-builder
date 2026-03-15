@@ -102,7 +102,7 @@ export class Logger {
         time: this.getTimestamp(),
         level: msg.level,
         level_str: LOGLEVELS_asstring[msg.level],
-        partial: i != 0,
+        partial: i !== 0,
         text: t,
         html: null,
       };
@@ -111,7 +111,7 @@ export class Logger {
       const tokenized = tokenize(line.text);
       if(tokenized) {
         line.html = <div>{tokenized.map((chunk, idx) => {
-          if(typeof chunk == "string") return chunk;
+          if(typeof chunk === "string") return chunk;
 
           switch (chunk.type) {
             // case "url":

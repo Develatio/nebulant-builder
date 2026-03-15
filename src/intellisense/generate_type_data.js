@@ -65,7 +65,7 @@ fs.readdirSync(BASEDIR).forEach(f => {
     // "provider" and "type" keys can be located in the "outputs -> result" object of each validator
     let properties = parser.query(`[key.name=outputs] [key.name=result] [key.name=type] CallExpression`);
     if(properties) {
-      const node = properties.find(node => node.callee.property?.name == "default");
+      const node = properties.find(node => node.callee.property?.name === "default");
       const typev = node?.arguments?.[0]?.value;
       if(typev) {
         if(!data.types.find(o => o.value === typev)) {
@@ -83,7 +83,7 @@ fs.readdirSync(BASEDIR).forEach(f => {
 
     properties = parser.query(`[key.name=capabilities] CallExpression`);
     if(properties) {
-      const capv = properties.find(node => node.callee.property?.name == "default");
+      const capv = properties.find(node => node.callee.property?.name === "default");
       if(capv) {
         capv.arguments[0].elements.forEach(n => {
           if(!data.capabilities.find(o => o.value === n.value)) {

@@ -31,7 +31,7 @@ export class CreateVolumeGenerator extends BaseBlueprintGenerator {
         Encrypted: parameters.Encrypted,
         ...["io1", "io2", "gp3"].includes(parameters.VolumeType?.[0]) && { Iops: parameters.Iops },
         VolumeSize: parameters.Size,
-        ...parameters.VolumeType?.[0] == "gp3" && { Throughput: parameters.Throughput },
+        ...parameters.VolumeType?.[0] === "gp3" && { Throughput: parameters.Throughput },
         VolumeType: parameters.VolumeType?.[0],
         TagSpecifications: [
           ebsTags,

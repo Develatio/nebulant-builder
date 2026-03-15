@@ -37,19 +37,19 @@ export const uniqueOutputName = {
               "$eqi": ${dql.escape(value)}
             }
           } | count
-        `) == 0;
+        `) === 0;
       }
 
       // ...if the current value is equal to the initial value, search (the
       // parents) for any output variable with the same name.
-      if(originalValue.toLowerCase() == value.toLowerCase()) {
+      if(originalValue.toLowerCase() === value.toLowerCase()) {
         return dql.query(`
           nodes${filter} | outputVars | find : {
             "value": {
               "$eqi": ${dql.escape(value)}
             }
           } | count
-        `) == 0;
+        `) === 0;
       }
 
       // ... else, search (the parents) for any output variable that does NOT
@@ -62,7 +62,7 @@ export const uniqueOutputName = {
               "$eqi": ${dql.escape(value)}
             }
           } | count
-        `) == 0;
+        `) === 0;
       }
     }
 
@@ -75,7 +75,7 @@ export const uniqueOutputName = {
             "$eqi": ${dql.escape(value)}
           }
         } | count
-      `) == 0;
+      `) === 0;
     }
   }
 };

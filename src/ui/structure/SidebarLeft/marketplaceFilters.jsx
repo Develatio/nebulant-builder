@@ -32,7 +32,7 @@ export const MarketplaceFilters = () => {
     <div className="marketplaceFilters">
       {
         providers.map(provider => {
-          const selected = selectedProvider == provider.name;
+          const selected = selectedProvider === provider.name;
 
           return (
             <div

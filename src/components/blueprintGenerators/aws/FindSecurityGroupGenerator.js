@@ -23,7 +23,7 @@ export class FindSecurityGroupGenerator extends BaseBlueprintGenerator {
       output: outputs.result.value,
     };
 
-    if(parameters._activeTab == "filters") {
+    if(parameters._activeTab === "filters") {
       if(parameters._InstanceName) {
         filters.push({
           Name: "group-name",

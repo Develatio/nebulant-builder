@@ -150,7 +150,7 @@ export const FindImageSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "Architecture" ? (
+                              value.name === "Architecture" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -174,7 +174,7 @@ export const FindImageSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "LabelSelector" ? (
+                              ) : value.name === "LabelSelector" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -197,7 +197,7 @@ export const FindImageSettings = (props) => {
                                     </>
                                   }
                                 ></TextInput>
-                              ) : value.name == "Type" ? (
+                              ) : value.name === "Type" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -223,7 +223,7 @@ export const FindImageSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "Status" ? (
+                              ) : value.name === "Status" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}

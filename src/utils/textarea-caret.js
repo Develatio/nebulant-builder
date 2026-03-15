@@ -58,8 +58,8 @@ const isConnected = function isConnected(el) {
     return true;
   if(el.parentNode) {
     let parent = el.parentNode;
-    while (parent && parent != document.documentElement) parent = parent.parentNode;
-    return parent == document.documentElement;
+    while (parent && parent !== document.documentElement) parent = parent.parentNode;
+    return parent === document.documentElement;
   }
   return false;
 }
@@ -105,7 +105,7 @@ export function getCaretCoordinates(element, position, options) {
   // force it ALWAYS on every element other by getSelection()
   if(position == null || !special) {
     if(special) {
-      if(typeof element.selectionStart == "number") {
+      if(typeof element.selectionStart === "number") {
         // edge doesn't have it on textareas and on input fields its always forward... 'yay'
         let dir = element.selectionDirection;
         if(!dir) {
@@ -115,7 +115,7 @@ export function getCaretCoordinates(element, position, options) {
             dir = "forward";
           }
         }
-        return getCaretCoordinates(element, dir == "forward" ? element.selectionEnd : element.selectionStart, options);
+        return getCaretCoordinates(element, dir === "forward" ? element.selectionEnd : element.selectionStart, options);
       } else {
         return getCaretCoordinates(element, position || element.value.length, options);
       }
@@ -124,26 +124,26 @@ export function getCaretCoordinates(element, position, options) {
         // Don't play around with the user selection
         let sel = window.getSelection(),
           range = sel.getRangeAt(0).cloneRange();
-        if(sel.getRangeAt(0).commonAncestorContainer == (sel.extentNode || sel.focusNode).parentNode) {
+        if(sel.getRangeAt(0).commonAncestorContainer === (sel.extentNode || sel.focusNode).parentNode) {
           // seems like ctrl+a, triple clicks or multiple node selection - not sure how to act, collapse it at the focusNode is the best option
           range.setStart(sel.focusNode, sel.focusOffset);
           range.setEndAfter(range.startContainer);
         }
         range.collapse(
           range.startOffset === sel.focusOffset &&
-          range.startContainer == sel.focusNode
+          range.startContainer === sel.focusNode
         );
 
         let rect = range.getBoundingClientRect();
         // check for textnodes
-        let height = parseInt(range.startContainer.nodeType == 1 ? getComputedStyle(range.startContainer).lineHeight : getComputedStyle(range.startContainer.parentNode).lineHeight);
+        let height = parseInt(range.startContainer.nodeType === 1 ? getComputedStyle(range.startContainer).lineHeight : getComputedStyle(range.startContainer.parentNode).lineHeight);
         // empty div on contenteditable="true"
         let allzero = true;
         for (let i in rect)
-          if(rect[i] != 0 && !isNaN(rect[i]))
+          if(rect[i] !== 0 && !isNaN(rect[i]))
             allzero = false;
         let modified = false;
-        if(allzero && (range.commonAncestorContainer.nodeType == 1 && ~["true", "plaintext-only"].indexOf(range.commonAncestorContainer.getAttribute("contenteditable")) || (range.commonAncestorContainer.innerText != null && range.commonAncestorContainer.innerText.length))) {
+        if(allzero && (range.commonAncestorContainer.nodeType === 1 && ~["true", "plaintext-only"].indexOf(range.commonAncestorContainer.getAttribute("contenteditable")) || (range.commonAncestorContainer.innerText != null && range.commonAncestorContainer.innerText.length))) {
           if(~["true", "plaintext-only"].indexOf(range.commonAncestorContainer.getAttribute("contenteditable")) && document.activeElement.firstChild == null) {
             document.activeElement.innerHTML = "<br>";
             range.setStart(document.activeElement.firstChild, 0);
@@ -170,14 +170,14 @@ export function getCaretCoordinates(element, position, options) {
         // chrome 'lineHeight = normal'
         if(isNaN(height)) {
           let node = range.startContainer;
-          if(range.startContainer.nodeType != 1) {
+          if(range.startContainer.nodeType !== 1) {
             node = node.parentNode;
           }
           let current = node.style.lineHeight;
           node.style.lineHeight = "1em";
           height = parseInt(getComputedStyle(node).lineHeight);
           node.style.lineHeight = current != null ? current : "";
-          if(typeof node.getAttribute("style") == "string" && !node.getAttribute("style").length) // clean up if empty
+          if(typeof node.getAttribute("style") === "string" && !node.getAttribute("style").length) // clean up if empty
             node.removeAttribute("style");
         }
 
@@ -219,7 +219,7 @@ export function getCaretCoordinates(element, position, options) {
     element.parentNode.appendChild(div);
   else
     document.body.appendChild(div);
-  if(options && options.applyClass && (typeof options.applyClass == "string" || options.applyClass instanceof String))
+  if(options && options.applyClass && (typeof options.applyClass === "string" || options.applyClass instanceof String))
     div.className = options.applyClass;
   style.all = "initial";
   style.whiteSpace = "pre-wrap";
@@ -264,7 +264,7 @@ export function getCaretCoordinates(element, position, options) {
 
   let val = "";
   val = element.value;
-  if(isInput && element.getAttribute("type") == "password") {
+  if(isInput && element.getAttribute("type") === "password") {
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
     // maybe add a check for it...?
     // some use * some • - most browsers use •
@@ -284,7 +284,7 @@ export function getCaretCoordinates(element, position, options) {
 
   div.appendChild(span);
   span.appendChild(document.createTextNode(val.substr(position, 1024) || "."));
-  if(span.textContent.length == 1)
+  if(span.textContent.length === 1)
     span.fontFamily = "monospace";
   let coordinates = {
     top: span.offsetTop + parseInt(computed["borderTopWidth"]),

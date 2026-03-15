@@ -73,7 +73,7 @@ export const DownloadCli = () => {
             </div>
 
             {
-              gconfig.get("ui.showDownloadCli_1") == false ? (
+              gconfig.get("ui.showDownloadCli_1") === false ? (
                 <div
                   className="hide text-center ps-4 pointer"
                   onClick={() => {

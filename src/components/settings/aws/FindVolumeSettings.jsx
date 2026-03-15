@@ -180,7 +180,7 @@ export const FindVolumeSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "attachment.instance-id" ? (
+                              value.name === "attachment.instance-id" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -217,7 +217,7 @@ export const FindVolumeSettings = (props) => {
                                     </>
                                   }
                                 ></DropdownInput>
-                              ) : value.name == "attachment.status" ? (
+                              ) : value.name === "attachment.status" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -238,7 +238,7 @@ export const FindVolumeSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "availability-zone" ? (
+                              ) : value.name === "availability-zone" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -263,7 +263,7 @@ export const FindVolumeSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "encrypted" ? (
+                              ) : value.name === "encrypted" ? (
                                 <CheckboxInput
                                   form={props.form}
                                   validations={props.validations}
@@ -272,7 +272,7 @@ export const FindVolumeSettings = (props) => {
                                   label={"Encrypted"}
                                   help_text={"Indicates whether the volume is encrypted."}
                                 ></CheckboxInput>
-                              ) : value.name == "size" ? (
+                              ) : value.name === "size" ? (
                                 <RangeInput
                                   node={props.node}
                                   form={props.form}
@@ -286,7 +286,7 @@ export const FindVolumeSettings = (props) => {
                                   suffix="GiB"
                                   help_text={"The size of the volume, in GiB."}
                                 ></RangeInput>
-                              ) : value.name == "status" ? (
+                              ) : value.name === "status" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -307,7 +307,7 @@ export const FindVolumeSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -319,7 +319,7 @@ export const FindVolumeSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}
@@ -330,7 +330,7 @@ export const FindVolumeSettings = (props) => {
                                   placeholder={"Type a key of a tag assigned to the image"}
                                   help_text={"Use this filter to find all volumes assigned a tag with a specific key, regardless of the tag value."}
                                 ></MultiTextInput>
-                              ) : value.name == "volume-type" ? (
+                              ) : value.name === "volume-type" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}

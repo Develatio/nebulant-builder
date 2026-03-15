@@ -26,7 +26,7 @@ import { body_form_urlencoded } from "./HttpRequestSettings/_body_form_urlencode
 export const HttpRequestSettings = (props) => {
   const endpoint = props.form.get("parameters.endpoint");
   const url = new Url(endpoint);
-  const isValid = url.host != window.location.host;
+  const isValid = url.host !== window.location.host;
   const touched = props.form.getTouched("parameters.endpoint");
 
   // Check how we should render the endpoint / parameters
@@ -271,7 +271,7 @@ export const HttpRequestSettings = (props) => {
                   </Col>
 
                   {
-                    props.form.get("parameters.body_type") == "raw" && (
+                    props.form.get("parameters.body_type") === "raw" && (
                       <Col sm={4}>
                         <SimpleDropdownInput
                           form={props.form}
@@ -294,11 +294,11 @@ export const HttpRequestSettings = (props) => {
                 </Row>
 
                 {
-                  props.form.get("parameters.body_type") == "form-data" ? (
+                  props.form.get("parameters.body_type") === "form-data" ? (
                     body_form_data(props)
-                  ) : props.form.get("parameters.body_type") == "x-www-form-urlencoded" ? (
+                  ) : props.form.get("parameters.body_type") === "x-www-form-urlencoded" ? (
                     body_form_urlencoded(props)
-                  ) : props.form.get("parameters.body_type") == "raw" ? (
+                  ) : props.form.get("parameters.body_type") === "raw" ? (
                     <Row className="p-4 pb-2 pt-0">
                       <TextInput
                         as="textarea"
@@ -311,7 +311,7 @@ export const HttpRequestSettings = (props) => {
                         help_text={"The raw content of the body"}
                       ></TextInput>
                     </Row>
-                  ) : props.form.get("parameters.body_type") == "binary" ? (
+                  ) : props.form.get("parameters.body_type") === "binary" ? (
                     <Row className="p-4 pb-2 pt-0">
                       <TextInput
                         node={props.node}

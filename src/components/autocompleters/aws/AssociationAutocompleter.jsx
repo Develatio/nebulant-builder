@@ -24,7 +24,7 @@ export class AssociationAutocompleter extends AddressAutocompleter {
     dataset = dataset.filter(address => address.AssociationId);
 
     const data = dataset.map(address => {
-      const addressName = (address.Tags || []).find(tag => tag.Key == "Name")?.Value || "";
+      const addressName = (address.Tags || []).find(tag => tag.Key === "Name")?.Value || "";
 
       return {
         type: "value",

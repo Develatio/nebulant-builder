@@ -177,7 +177,7 @@ export class TransparentProxy {
 
     switch (command) {
       case "log":
-        if(status == "ko") {
+        if(status === "ko") {
           this.logger.error(`Msg from transparent proxy: ${data}`);
         } else {
           this.logger.debug(`Msg from transparent proxy: ${data}`);
@@ -203,7 +203,7 @@ export class TransparentProxy {
       case "command_reply":
         if(msgid in this.msgqueue) {
           const obj = this.msgqueue[msgid];
-          if(status == "ok") {
+          if(status === "ok") {
             obj.resolve(data);
           } else {
             obj.reject(data);
@@ -289,7 +289,7 @@ export class TransparentProxy {
   }
 
   get(target, opts = {}) {
-    if(this.mode == "popup") {
+    if(this.mode === "popup") {
       return new Promise((resolve, reject) => {
         this._open().then(() => {
           const msgid = uuidv4();
@@ -313,7 +313,7 @@ export class TransparentProxy {
   }
 
   post(target, data = {}, opts = {}) {
-    if(this.mode == "popup") {
+    if(this.mode === "popup") {
       return new Promise((resolve, reject) => {
         this._open().then(() => {
           const msgid = uuidv4();
@@ -337,7 +337,7 @@ export class TransparentProxy {
   }
 
   WebSocket(target) {
-    if(this.mode == "popup") {
+    if(this.mode === "popup") {
       this._send({ command: "openws", target });
     } else {
       this.ws_conn = new WebSocket(target);
@@ -361,7 +361,7 @@ export class TransparentProxy {
   }
 
   closeWS(status=1000) {
-    if(this.mode == "popup") {
+    if(this.mode === "popup") {
       this._send({ command: "closews", data: { status } });
     } else {
       if(this.ws_conn) {

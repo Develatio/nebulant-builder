@@ -70,13 +70,13 @@ export class SubnetAutocompleter extends AWSAutocompleter {
     const subnetsData = this.getResultOfNode(this.subnetsNode.id);
 
     const vpcNames = Object.fromEntries(vpcsData.Vpcs.map(vpc => [
-      vpc.VpcId, vpc.Tags?.find(tag => tag.Key == "Name")?.Value || ""
+      vpc.VpcId, vpc.Tags?.find(tag => tag.Key === "Name")?.Value || ""
     ]));
 
     const dataset = subnetsData.Subnets || [];
 
     const data = dataset.map(subnet => {
-      let subnetName = (subnet.Tags || []).find(tag => tag.Key == "Name")?.Value || "";
+      let subnetName = (subnet.Tags || []).find(tag => tag.Key === "Name")?.Value || "";
       let vpcName = vpcNames[subnet.VpcId] || "";
 
       return {

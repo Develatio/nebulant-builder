@@ -20,7 +20,7 @@ export const NoOpStatic = {
 export const NoOpFns = {
   init() {
     // We don't want the "SettingsButton" tool in this cell
-    this.prop("cellTools", this.prop("cellTools").filter(t => t != SettingsButton), {
+    this.prop("cellTools", this.prop("cellTools").filter(t => t !== SettingsButton), {
       rewrite: true, // don't merge, instead overwrite everything
       skip_undo_stack: true, // we don't want to cause undo/redo noise
     });

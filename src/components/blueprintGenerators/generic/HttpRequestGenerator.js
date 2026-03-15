@@ -38,7 +38,7 @@ export class HttpRequestGenerator extends BaseBlueprintGenerator {
     switch (parameters.body_type) {
       case "form-data":
         blueprint.parameters.headers = blueprint.parameters.headers.filter(header => {
-          return header.name.toLowerCase() != "content-type";
+          return header.name.toLowerCase() !== "content-type";
         });
 
         blueprint.parameters.headers.push({
@@ -52,13 +52,13 @@ export class HttpRequestGenerator extends BaseBlueprintGenerator {
           name: chunk.name,
           value: chunk.value,
           type: chunk.type,
-          content_type: chunk.type == "text" ? chunk.context_type || "text/plain" : "",
+          content_type: chunk.type === "text" ? chunk.context_type || "text/plain" : "",
         }));
         break;
 
       case "x-www-form-urlencoded":
         blueprint.parameters.headers = blueprint.parameters.headers.filter(header => {
-          return header.name.toLowerCase() != "content-type";
+          return header.name.toLowerCase() !== "content-type";
         });
 
         blueprint.parameters.headers.push({
@@ -80,7 +80,7 @@ export class HttpRequestGenerator extends BaseBlueprintGenerator {
 
         if(ct_map[parameters.body_content_type_header]) {
           blueprint.parameters.headers = blueprint.parameters.headers.filter(header => {
-            return header.name.toLowerCase() != "content-type";
+            return header.name.toLowerCase() !== "content-type";
           });
 
           blueprint.parameters.headers.push({

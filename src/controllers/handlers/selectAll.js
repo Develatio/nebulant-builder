@@ -11,7 +11,7 @@ export const selectAll = () => {
   const { collection } = engine.selection;
 
   const start = engine.model.getStartNode();
-  const elements = engine.model.getElements().filter(node => node.id != start.id);
+  const elements = engine.model.getElements().filter(node => node.id !== start.id);
 
   collection.reset(elements);
 }

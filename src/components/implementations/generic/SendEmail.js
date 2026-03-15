@@ -62,13 +62,13 @@ class Migrator extends BaseDiagramMigrator {
     // Migrate "to", "cc" and "bcc" to array of strings
     ["1.0.1", (data) => {
 
-      if(typeof data.settings.parameters.to == "string") {
+      if(typeof data.settings.parameters.to === "string") {
         data.settings.parameters.to = [data.settings.parameters.to];
       }
-      if(typeof data.settings.parameters.cc == "string") {
+      if(typeof data.settings.parameters.cc === "string") {
         data.settings.parameters.cc = [data.settings.parameters.cc];
       }
-      if(typeof data.settings.parameters.bcc == "string") {
+      if(typeof data.settings.parameters.bcc === "string") {
         data.settings.parameters.bcc = [data.settings.parameters.bcc];
       }
 

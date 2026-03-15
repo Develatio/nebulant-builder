@@ -35,7 +35,7 @@ export const formatFilters = (Filters) => {
     // it means that we have a "valid raw" AWS tag, which means that we want to
     // use the first value in the "value" array as the tag's name and the second
     // value as the tag's value.
-    if(name == "tag") {
+    if(name === "tag") {
       name = `tag:${filter.value[0]}`;
       values = [`${filter.value[1]}`];
     }

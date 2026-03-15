@@ -121,7 +121,7 @@ class Migrator extends BaseDiagramMigrator {
       delete data.settings.parameters.vars_target;
 
       // Remove the "none" value from "vars_targets"
-      data.settings.parameters.vars_targets = data.settings.parameters.vars_targets.filter(v => v != "none");
+      data.settings.parameters.vars_targets = data.settings.parameters.vars_targets.filter(v => v !== "none");
 
       // Add the "upload_to_remote_target" property
       data.settings.parameters.upload_to_remote_target = true;
@@ -134,7 +134,7 @@ class Migrator extends BaseDiagramMigrator {
     }],
 
     ["1.0.4", (data) => {
-      if(data.settings.parameters._type == "path") {
+      if(data.settings.parameters._type === "path") {
         data.settings.parameters._type = "command";
         data.settings.parameters.command = data.settings.parameters.scriptPath;
         delete data.settings.parameters.scriptPath;
@@ -220,7 +220,7 @@ class Migrator extends BaseDiagramMigrator {
 
     // Add _run_on_remote
     ["1.0.11", (data) => {
-      const local = data.settings.parameters.target[0] == "local";
+      const local = data.settings.parameters.target[0] === "local";
       data.settings.parameters._run_on_remote = !local;
       if(local) {
         data.settings.parameters.target = [];

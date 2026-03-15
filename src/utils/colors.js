@@ -75,7 +75,7 @@ export const hexToHSL = memoize((hex) => {
   l = (max + min) / 2;
 
   // Calculate the saturation
-  s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+  s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
 
   // Convert the saturation and lightness values to percentages (0-100)
   s = +(s * 100).toFixed(1);

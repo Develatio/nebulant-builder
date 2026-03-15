@@ -273,7 +273,7 @@ function walk (root, cb, immutable) {
           state.keys = Object.keys(state.node)
         }
 
-        state.isLeaf = state.keys.length == 0;
+        state.isLeaf = state.keys.length === 0;
 
         for (let i = 0; i < parents.length; i++) {
           if (parents[i].node_ === node_) {
@@ -301,7 +301,7 @@ function walk (root, cb, immutable) {
 
     if (!keepGoing) return state;
 
-    if (typeof state.node == 'object'
+    if (typeof state.node === 'object'
       && state.node !== null && !state.circular
     ) {
       parents.push(state);
@@ -321,8 +321,8 @@ function walk (root, cb, immutable) {
           state.node[key] = child.node;
         }
 
-        child.isLast = i == state.keys.length - 1;
-        child.isFirst = i == 0;
+        child.isLast = i === state.keys.length - 1;
+        child.isFirst = i === 0;
 
         if (modifiers.post) modifiers.post.call(state, child);
 

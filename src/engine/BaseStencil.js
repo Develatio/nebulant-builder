@@ -98,7 +98,7 @@ export class BaseStencil {
     const selectedProvider = this.gconfig.get("ui.stencil.selectedProvider");
 
     this.runtime.get("state.stencil.providers").forEach(provider => {
-      if(selectedProvider && provider.name != selectedProvider) {
+      if(selectedProvider && provider.name !== selectedProvider) {
         return;
       }
 

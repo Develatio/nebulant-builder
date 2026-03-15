@@ -24,7 +24,7 @@ export const Highlighter = dia.HighlighterView.extend({
       rx,
       ry,
       attrs: {
-        ...(stroke != undefined && { stroke }),
+        ...(stroke !== undefined && { stroke }),
       },
     });
 

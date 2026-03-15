@@ -96,7 +96,7 @@ export class BuilderAssets {
     return new Promise((resolve, _reject) => {
       const cliConnector = this.runtime.get("objects.cliConnector");
       cliConnector.asset({ asset_id, keyword, limit, offset, sort, region }).then(data => {
-        if(data.count == 0) {
+        if(data.count === 0) {
           resolve([]);
         } else {
           resolve(data.results);

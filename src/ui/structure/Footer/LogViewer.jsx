@@ -7,7 +7,7 @@ import { EventBus } from "@src/core/EventBus";
 
 const Line = ({ data, index, style }) => {
   const { time, level_str, text, html, partial } = data.filteredMsgs[index];
-  const hl = data.searchMatches[data.searchPosition-1] == index ? "hl" : "";
+  const hl = data.searchMatches[data.searchPosition-1] === index ? "hl" : "";
 
   return (
     <div className={`d-flex flex-row logline ${hl}`} style={style}>
@@ -58,11 +58,11 @@ export const LogViewer = ({ height }) => {
         _scrollToItem(logger.filteredMsgs.length - 1);
       });
     } else {
-      if(logFilter != "" && logSearchPosition > 0) {
+      if(logFilter !== "" && logSearchPosition > 0) {
         requestAnimationFrame(() => {
           _scrollToItem(logger.searchMatches[logSearchPosition - 1]);
         });
-      } else if(logFilter == "" && wasListAtBottom) {
+      } else if(logFilter === "" && wasListAtBottom) {
         requestAnimationFrame(() => {
           _scrollToItem(logger.filteredMsgs.length - 1);
         });

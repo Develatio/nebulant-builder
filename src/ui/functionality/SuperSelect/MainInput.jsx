@@ -42,7 +42,7 @@ export const MainInput = (props) => {
                 // compare the values. The user is typing in an input, which
                 // will convert anything to a string, but the underlying value
                 // could be an integer.
-                if(e.target.value != value) {
+                if(e.target.value !== value) {
                   updateValue({ idx: 0, value: e.target.value });
                 }
               } else if(values.length > 0) {

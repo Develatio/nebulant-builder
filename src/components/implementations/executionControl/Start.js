@@ -225,7 +225,7 @@ export const StartStatic = {
 export const StartFns = {
   init() {
     // We don't want the "RemoveButton" tool in this cell
-    this.prop("cellTools", this.prop("cellTools").filter(t => t != RemoveButton), {
+    this.prop("cellTools", this.prop("cellTools").filter(t => t !== RemoveButton), {
       rewrite: true, // don't merge, instead overwrite everything
       skip_undo_stack: true, // we don't want to cause undo/redo noise
     });

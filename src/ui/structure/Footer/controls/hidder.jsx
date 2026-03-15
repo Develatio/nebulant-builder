@@ -50,8 +50,8 @@ export const Hidder = () => {
     <div className={`
       hidder
       ${visible ? "expanded" : ""}
-      ${blink == BLINK_WARN ? "blink-warning" : "" }
-      ${blink == BLINK_ERR ? "blink-error" : "" }
+      ${blink === BLINK_WARN ? "blink-warning" : "" }
+      ${blink === BLINK_ERR ? "blink-error" : "" }
     `}>
       <div className="px-3 py-0" onClick={() => gconfig.set("ui.panels.footer.visible", !visible)}>
         { visible ?

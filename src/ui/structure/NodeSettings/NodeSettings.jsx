@@ -187,7 +187,7 @@ export const NodeSettings = () => {
       old: ovalue.value,
       new: form.values.outputs[oname]?.value,
     })).filter(
-      obj => obj.old != obj.new
+      obj => obj.old !== obj.new
     );
 
     // ...for each variable that changed, check if any nodes are using the
@@ -211,7 +211,7 @@ export const NodeSettings = () => {
     );
 
     // If there are none, save the settings and quit...
-    if(outputs.length == 0) {
+    if(outputs.length === 0) {
       node.saveSettings(form, validated.isValid);
 
       // Finish batch undo stack

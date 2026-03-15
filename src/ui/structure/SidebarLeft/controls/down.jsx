@@ -84,7 +84,7 @@ export const Down = () => {
   return (
 <div className="actions down d-flex flex-row cli-integration">
       {
-        connectivityState == CliConnectorStates.disconnected && (
+        connectivityState === CliConnectorStates.disconnected && (
           <div
             className="p-2 pe-3 d-flex connect pointer"
             onClick={() => cliConnector.connect()}
@@ -104,7 +104,7 @@ export const Down = () => {
       {
         /* Icon shown when the UI is ready to send the blueprint to the CLI */
         (
-          connectivityState == CliConnectorStates.connected &&
+          connectivityState === CliConnectorStates.connected &&
           !sendingState
         ) && (
           <div
@@ -127,10 +127,10 @@ export const Down = () => {
         /* Busy indicator */
         (
           sendingState ||
-          connectivityState == CliConnectorStates.waiting ||
-          connectivityState == CliConnectorStates.pausing ||
-          connectivityState == CliConnectorStates.stopping ||
-          connectivityState == CliConnectorStates.waiting_for_cli_state
+          connectivityState === CliConnectorStates.waiting ||
+          connectivityState === CliConnectorStates.pausing ||
+          connectivityState === CliConnectorStates.stopping ||
+          connectivityState === CliConnectorStates.waiting_for_cli_state
         ) ? (
           <div className="p-2 pe-3 d-flex spinner d-flex gap-2">
             <div className="indicator"></div>
@@ -138,13 +138,13 @@ export const Down = () => {
               {
                 sendingState ? (
                   "Processing..."
-                ) : connectivityState == CliConnectorStates.waiting ? (
+                ) : connectivityState === CliConnectorStates.waiting ? (
                   "Processing..."
-                ) : connectivityState == CliConnectorStates.pausing ? (
+                ) : connectivityState === CliConnectorStates.pausing ? (
                   "Pausing..."
-                ) : connectivityState == CliConnectorStates.stopping ? (
+                ) : connectivityState === CliConnectorStates.stopping ? (
                   "Stopping..."
-                ) : connectivityState == CliConnectorStates.waiting_for_cli_state ? (
+                ) : connectivityState === CliConnectorStates.waiting_for_cli_state ? (
                   "Retrieving CLI state..."
                 ) : "Please wait..."
               }
@@ -156,7 +156,7 @@ export const Down = () => {
       {
         /* Icon shown when the CLI is running something */
         (
-          connectivityState == CliConnectorStates.running &&
+          connectivityState === CliConnectorStates.running &&
           !sendingState
         ) ? (
           <div className="p-2 me-1 d-flex pause pointer bg-warning" onClick={() => {
@@ -180,7 +180,7 @@ export const Down = () => {
       {
         /* Icon shown when the CLI was running something, but is currently paused */
         (
-          connectivityState == CliConnectorStates.paused &&
+          connectivityState === CliConnectorStates.paused &&
           !sendingState
         ) ? (
           <div className="p-2 me-1 d-flex resume pointer bg-success" onClick={() => {
@@ -205,8 +205,8 @@ export const Down = () => {
         /* Icon shown when the CLI is running or paused */
         (
           (
-            connectivityState == CliConnectorStates.running ||
-            connectivityState == CliConnectorStates.paused
+            connectivityState === CliConnectorStates.running ||
+            connectivityState === CliConnectorStates.paused
           ) &&
           !sendingState
         ) ? (

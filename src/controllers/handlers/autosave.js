@@ -33,7 +33,7 @@ export const autosave = () => {
 
   // Check if there are any changes
   const ops_counter = runtime.get("state.ops_counter");
-  if(ops_counter == 0) return;
+  if(ops_counter === 0) return;
 
   logger.info("Autosaving blueprint...");
 

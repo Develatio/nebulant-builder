@@ -14,7 +14,7 @@ export const redo = () => {
     commandManager.redo();
 
     const ops_counter = runtime.get("state.ops_counter");
-    if(ops_counter != undefined) {
+    if(ops_counter !== undefined) {
       runtime.set("state.ops_counter", ops_counter + 1);
     }
 

@@ -33,7 +33,7 @@ export const element_pointerup = function(cellView, _evt, x, y) {
 
   // If the cursor is not above anything, it means that the user
   // dropped the cell onto the canvas itself.
-  if(cellModelsBelowCenter.length == 0) {
+  if(cellModelsBelowCenter.length === 0) {
     // Find if we're inside a layer and if so, embed the cell into the current
     // layer.
     if(engine.hasEngineLayers()) {

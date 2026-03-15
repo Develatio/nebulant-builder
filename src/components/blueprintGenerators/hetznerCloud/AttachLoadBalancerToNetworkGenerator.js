@@ -21,7 +21,7 @@ export class AttachLoadBalancerToNetworkGenerator extends HetznerCloudGenerator 
           ID: parameters.LoadBalancerIds[0],
         },
         opts: {
-          ip: parameters._activeTab == "auto" ? parameters.Subnet[0] : parameters.IP,
+          ip: parameters._activeTab === "auto" ? parameters.Subnet[0] : parameters.IP,
           network: {
             ID: parameters.NetworkIds[0],
           },

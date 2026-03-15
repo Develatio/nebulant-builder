@@ -106,7 +106,7 @@ export const StatusBar = () => {
       </div>
 
       {
-        unsavedChanges != 0 && (
+        unsavedChanges !== 0 && (
           <>
             <div className="menu-sep"></div>
             <div className="d-flex justify-content-left">

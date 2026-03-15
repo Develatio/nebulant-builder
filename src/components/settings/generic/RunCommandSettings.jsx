@@ -81,7 +81,7 @@ export const RunCommandSettings = (props) => {
                 </Col>
 
                 {
-                  props.form.get("parameters._type") == "script" &&
+                  props.form.get("parameters._type") === "script" &&
                   props.form.get("parameters._custom_entrypoint") ? (
                     <Col sm={4}>
                       <CheckboxInput
@@ -98,7 +98,7 @@ export const RunCommandSettings = (props) => {
                 }
 
                 {
-                  props.form.get("parameters._type") == "command" && (
+                  props.form.get("parameters._type") === "command" && (
                     <>
                       {
                         props.form.get("parameters._custom_entrypoint") && (
@@ -135,7 +135,7 @@ export const RunCommandSettings = (props) => {
                 }
 
                 {
-                  props.form.get("parameters._type") == "script" && (
+                  props.form.get("parameters._type") === "script" && (
                     <>
                       <Col sm={12}>
                         <CodeEditor
@@ -159,7 +159,7 @@ export const RunCommandSettings = (props) => {
                         {
                           (
                             !props.form.get("parameters.scriptName") &&
-                            matchedLanguage == "dos"
+                            matchedLanguage === "dos"
                           ) ? (
                             <Alert variant="info" className="mt-n3 py-1 small">
                               This looks like a <b>DOS</b> file. We suggest you to <Alert.Link onClick={() => {
@@ -168,7 +168,7 @@ export const RunCommandSettings = (props) => {
                             </Alert>
                           ) : (
                             !props.form.get("parameters.scriptName") &&
-                            matchedLanguage == "powershell"
+                            matchedLanguage === "powershell"
                           ) ? (
                             <Alert variant="info" className="mt-n3 py-1 small">
                               This looks like a <b>PowerShell</b> file. We suggest you to <Alert.Link onClick={() => {
@@ -479,7 +479,7 @@ export const RunCommandSettings = (props) => {
 
                 <Col sm={6}>
                   {
-                    props.form.get("parameters.target") != "local" ? (
+                    props.form.get("parameters.target") !== "local" ? (
                       <CheckboxInput
                         form={props.form}
                         validations={props.validations}

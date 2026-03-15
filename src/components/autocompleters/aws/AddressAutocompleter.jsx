@@ -48,7 +48,7 @@ export class AddressAutocompleter extends AWSAutocompleter {
     const dataset = addressesData.Addresses || [];
 
     const data = dataset.map(address => {
-      const addressName = (address.Tags || []).find(tag => tag.Key == "Name")?.Value || "";
+      const addressName = (address.Tags || []).find(tag => tag.Key === "Name")?.Value || "";
 
       return {
         type: "value",

@@ -39,13 +39,13 @@ export class RunCommandGenerator extends BaseBlueprintGenerator {
           username: parameters.username,
           port: parameters.port,
 
-          ...(parameters._credentials == "privkeyPath" && { privkeyPath: parameters.privkeyPath }),
-          ...(parameters._credentials == "privkeyPath" && { passphrase: parameters.passphrase }),
+          ...(parameters._credentials === "privkeyPath" && { privkeyPath: parameters.privkeyPath }),
+          ...(parameters._credentials === "privkeyPath" && { passphrase: parameters.passphrase }),
 
-          ...(parameters._credentials == "privkey" && { privkey: parameters.privkey }),
-          ...(parameters._credentials == "privkey" && { passphrase: parameters.passphrase }),
+          ...(parameters._credentials === "privkey" && { privkey: parameters.privkey }),
+          ...(parameters._credentials === "privkey" && { passphrase: parameters.passphrase }),
 
-          ...(parameters._credentials == "password" && { password: parameters.password }),
+          ...(parameters._credentials === "password" && { password: parameters.password }),
 
           upload_to_remote_target: parameters.upload_to_remote_target,
         }),
@@ -56,13 +56,13 @@ export class RunCommandGenerator extends BaseBlueprintGenerator {
           target: proxy.value.target?.[0],
           port: proxy.value.port,
 
-          ...(proxy.value._credentials == "privkeyPath" && { privkeyPath: proxy.value.privkeyPath }),
-          ...(proxy.value._credentials == "privkeyPath" && { passphrase: proxy.value.passphrase }),
+          ...(proxy.value._credentials === "privkeyPath" && { privkeyPath: proxy.value.privkeyPath }),
+          ...(proxy.value._credentials === "privkeyPath" && { passphrase: proxy.value.passphrase }),
 
-          ...(proxy.value._credentials == "privkey" && { privkey: proxy.value.privkey }),
-          ...(proxy.value._credentials == "privkey" && { passphrase: proxy.value.passphrase }),
+          ...(proxy.value._credentials === "privkey" && { privkey: proxy.value.privkey }),
+          ...(proxy.value._credentials === "privkey" && { passphrase: proxy.value.passphrase }),
 
-          ...(proxy.value._credentials == "password" && { password: proxy.value.password }),
+          ...(proxy.value._credentials === "password" && { password: proxy.value.password }),
         })),
 
         // Debug options

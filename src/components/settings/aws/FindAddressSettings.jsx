@@ -168,7 +168,7 @@ export const FindAddressSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "allocation-id" ? (
+                              value.name === "allocation-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -179,7 +179,7 @@ export const FindAddressSettings = (props) => {
                                   placeholder={"Type an allocation ID"}
                                   help_text={"The ID of the allocation of the EIP."}
                                 ></TextInput>
-                              ) : value.name == "association-id" ? (
+                              ) : value.name === "association-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -190,7 +190,7 @@ export const FindAddressSettings = (props) => {
                                   placeholder={"Type an association ID"}
                                   help_text={"The ID of the association of the EIP."}
                                 ></TextInput>
-                              ) : value.name == "instance-id" ? (
+                              ) : value.name === "instance-id" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -225,7 +225,7 @@ export const FindAddressSettings = (props) => {
                                     </>
                                   }
                                 ></DropdownInput>
-                              ) : value.name == "network-border-group" ? (
+                              ) : value.name === "network-border-group" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -254,7 +254,7 @@ export const FindAddressSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "network-interface-id" ? (
+                              ) : value.name === "network-interface-id" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -289,7 +289,7 @@ export const FindAddressSettings = (props) => {
                                     </>
                                   }
                                 ></DropdownInput>
-                              ) : value.name == "private-ip-address" ? (
+                              ) : value.name === "private-ip-address" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -300,7 +300,7 @@ export const FindAddressSettings = (props) => {
                                   placeholder={"Type a private IP address"}
                                   help_text={"The private IP address of the EIP."}
                                 ></TextInput>
-                              ) : value.name == "public-ip" ? (
+                              ) : value.name === "public-ip" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -311,7 +311,7 @@ export const FindAddressSettings = (props) => {
                                   placeholder={"Type a public IP"}
                                   help_text={"The public IP of the EIP."}
                                 ></TextInput>
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -323,7 +323,7 @@ export const FindAddressSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}

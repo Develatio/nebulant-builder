@@ -150,7 +150,7 @@ export const FindSecurityGroupSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "description" ? (
+                              value.name === "description" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -161,7 +161,7 @@ export const FindSecurityGroupSettings = (props) => {
                                   placeholder={"Type a description"}
                                   help_text={"The description of the security group."}
                                 ></TextInput>
-                              ) : value.name == "owner-id" ? (
+                              ) : value.name === "owner-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -172,7 +172,7 @@ export const FindSecurityGroupSettings = (props) => {
                                   placeholder={"Type an owner ID"}
                                   help_text={"The AWS account ID of the owner of the security group."}
                                 ></TextInput>
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -184,7 +184,7 @@ export const FindSecurityGroupSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}
@@ -195,7 +195,7 @@ export const FindSecurityGroupSettings = (props) => {
                                   placeholder={"Type a key of a tag assigned to the image"}
                                   help_text={"Use this filter to find all security groups assigned a tag with a specific key, regardless of the tag value."}
                                 ></MultiTextInput>
-                              ) : value.name == "vpc-id" ? (
+                              ) : value.name === "vpc-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}

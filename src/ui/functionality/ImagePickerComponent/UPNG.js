@@ -70,12 +70,12 @@ export class UPNG {
           ti = (y * tw + x) << 2;
         }
 
-        if(mode == 0) {
+        if(mode === 0) {
           tb[ti] = sb[si];
           tb[ti + 1] = sb[si + 1];
           tb[ti + 2] = sb[si + 2];
           tb[ti + 3] = sb[si + 3];
-        } else if(mode == 1) {
+        } else if(mode === 1) {
           const fa = sb[si + 3] * (1 / 255);
           const fr = sb[si] * fa;
           const fg = sb[si + 1] * fa;
@@ -87,12 +87,12 @@ export class UPNG {
 
           const ifa = 1 - fa;
           const oa = fa + ba * ifa;
-          const ioa = oa == 0 ? 0 : 1 / oa;
+          const ioa = oa === 0 ? 0 : 1 / oa;
           tb[ti + 3] = 255 * oa;
           tb[ti + 0] = (fr + br * ifa) * ioa;
           tb[ti + 1] = (fg + bg * ifa) * ioa;
           tb[ti + 2] = (fb + bb * ifa) * ioa;
-        } else if(mode == 2) {
+        } else if(mode === 2) {
           // copy only differences, otherwise zero
           const fa = sb[si + 3];
           const fr = sb[si];
@@ -102,7 +102,7 @@ export class UPNG {
           const br = tb[ti];
           const bg = tb[ti + 1];
           const bb = tb[ti + 2];
-          if(fa == ba && fr == br && fg == bg && fb == bb) {
+          if(fa === ba && fr === br && fg === bg && fb === bb) {
             tb[ti] = 0;
             tb[ti + 1] = 0;
             tb[ti + 2] = 0;
@@ -113,7 +113,7 @@ export class UPNG {
             tb[ti + 2] = fb;
             tb[ti + 3] = fa;
           }
-        } else if(mode == 3) {
+        } else if(mode === 3) {
           // check if can be blended
           const fa = sb[si + 3];
           const fr = sb[si];
@@ -123,7 +123,7 @@ export class UPNG {
           const br = tb[ti];
           const bg = tb[ti + 1];
           const bb = tb[ti + 2];
-          if(fa == ba && fr == br && fg == bg && fb == bb) continue;
+          if(fa === ba && fr === br && fg === bg && fb === bb) continue;
           // if(fa!=255 && ba!=0) return false;
           if(fa < 220 && ba > 20) return false;
         }
@@ -180,7 +180,7 @@ export class UPNG {
       let ne = 0xffffffff;
       for (let j = 0; j < pc; j++) {
         const ce = UPNG.D(nplt[i], nplt[j]);
-        if(j != i && ce < ne) {
+        if(j !== i && ce < ne) {
           ne = ce;
         }
       }
@@ -206,7 +206,7 @@ export class UPNG {
         const i = (y * w + x) * 4;
 
         let cc;
-        if(MTD != 2)
+        if(MTD !== 2)
           cc = [
             UPNG.N(sb[i] + err[i]),
             UPNG.N(sb[i + 1] + err[i + 1]),
@@ -236,13 +236,13 @@ export class UPNG {
         const nc = nplt[ni];
         const er = [cc[0] - nc[0], cc[1] - nc[1], cc[2] - nc[2], cc[3] - nc[3]];
 
-        if(MTD == 1) {
+        if(MTD === 1) {
           // addErr(er, err, i+4, 16);
-          if(x != w - 1) UPNG.addErr(er, err, i + 4, 7);
-          if(y != h - 1) {
-            if(x != 0) UPNG.addErr(er, err, i + 4 * w - 4, 3);
+          if(x !== w - 1) UPNG.addErr(er, err, i + 4, 7);
+          if(y !== h - 1) {
+            if(x !== 0) UPNG.addErr(er, err, i + 4 * w - 4, 3);
             UPNG.addErr(er, err, i + 4 * w, 5);
-            if(x != w - 1) UPNG.addErr(er, err, i + 4 * w + 4, 1);
+            if(x !== w - 1) UPNG.addErr(er, err, i + 4 * w + 4, 1);
           } //* /
         }
         oind[i >> 2] = ni;
@@ -334,17 +334,17 @@ export class UPNG {
       });
       leng += 8 + 11 + 2 + cicc.length + 4;
     }
-    if(nimg.ctype == 3) {
+    if(nimg.ctype === 3) {
       const dl = nimg.plte.length;
       for (let i = 0; i < dl; i++)
-        if(nimg.plte[i] >>> 24 != 255) pltAlpha = true;
+        if(nimg.plte[i] >>> 24 !== 255) pltAlpha = true;
       leng += 8 + dl * 3 + 4 + (pltAlpha ? 8 + dl * 1 + 4 : 0);
     }
     for (let j = 0; j < nimg.frames.length; j++) {
       const fr = nimg.frames[j];
       if(anim) leng += 38;
       leng += fr.cimg.length + 12;
-      if(j != 0) leng += 4;
+      if(j !== 0) leng += 4;
     }
     leng += 12;
 
@@ -426,7 +426,7 @@ export class UPNG {
       offset += 4; // crc
     }
 
-    if(nimg.ctype == 3) {
+    if(nimg.ctype === 3) {
       const dl = nimg.plte.length;
       writeUint(data, offset, dl * 3);
       offset += 4;
@@ -491,12 +491,12 @@ export class UPNG {
 
       const imgd = fr.cimg;
       const dl = imgd.length;
-      writeUint(data, offset, dl + (j == 0 ? 0 : 4));
+      writeUint(data, offset, dl + (j === 0 ? 0 : 4));
       offset += 4;
       const ioff = offset;
-      writeASCII(data, offset, j == 0 ? "IDAT" : "fdAT");
+      writeASCII(data, offset, j === 0 ? "IDAT" : "fdAT");
       offset += 4;
-      if(j != 0) {
+      if(j !== 0) {
         writeUint(data, offset, fi++);
         offset += 4;
       }
@@ -558,7 +558,7 @@ export class UPNG {
       const ilen = img.length;
       for (let i = 0; i < ilen; i += 4) alphaAnd &= img[i + 3];
     }
-    const gotAlpha = alphaAnd != 255;
+    const gotAlpha = alphaAnd !== 255;
 
     // console.log("alpha check", Date.now()-time);  time = Date.now();
 
@@ -570,7 +570,7 @@ export class UPNG {
     const plte = [];
     const inds = [];
 
-    if(ps != 0) {
+    if(ps !== 0) {
       const nbufs = [];
       for (let i = 0; i < frms.length; i++) nbufs.push(frms[i].img.buffer);
 
@@ -610,8 +610,8 @@ export class UPNG {
         inds.push(ind);
         for (let i = 0; i < ilen; i++) {
           const c = img32[i];
-          if(i != 0 && c == img32[i - 1]) ind[i] = ind[i - 1];
-          else if(i > nw && c == img32[i - nw]) ind[i] = ind[i - nw];
+          if(i !== 0 && c === img32[i - 1]) ind[i] = ind[i - 1];
+          else if(i > nw && c === img32[i - nw]) ind[i] = ind[i - nw];
           else {
             let cmc = cmap[c];
             if(cmc == null) {
@@ -627,7 +627,7 @@ export class UPNG {
     }
 
     const cc = plte.length; // console.log("colors:",cc);
-    if(cc <= 256 && forbidPlte == false) {
+    if(cc <= 256 && forbidPlte === false) {
       if(cc <= 2) depth = 1;
       else if(cc <= 4) depth = 2;
       else if(cc <= 16) depth = 4;
@@ -642,29 +642,29 @@ export class UPNG {
       let cimg = frm.img;
       let bpl = 4 * nw;
       let bpp = 4;
-      if(cc <= 256 && forbidPlte == false) {
+      if(cc <= 256 && forbidPlte === false) {
         bpl = Math.ceil((depth * nw) / 8);
         const nimg = new Uint8Array(bpl * nh);
         const inj = inds[j];
         for (let y = 0; y < nh; y++) {
           const i = y * bpl;
           const ii = y * nw;
-          if(depth == 8)
+          if(depth === 8)
             for (let x = 0; x < nw; x++) nimg[i + x] = inj[ii + x];
-          else if(depth == 4)
+          else if(depth === 4)
             for (let x = 0; x < nw; x++)
               nimg[i + (x >> 1)] |= inj[ii + x] << (4 - (x & 1) * 4);
-          else if(depth == 2)
+          else if(depth === 2)
             for (let x = 0; x < nw; x++)
               nimg[i + (x >> 2)] |= inj[ii + x] << (6 - (x & 3) * 2);
-          else if(depth == 1)
+          else if(depth === 1)
             for (let x = 0; x < nw; x++)
               nimg[i + (x >> 3)] |= inj[ii + x] << (7 - (x & 7) * 1);
         }
         cimg = nimg;
         ctype = 3;
         bpp = 1;
-      } else if(gotAlpha == false && frms.length == 1) {
+      } else if(gotAlpha === false && frms.length === 1) {
         // some next "reduced" frames may contain alpha for blending
         const nimg = new Uint8Array(nw * nh * 3);
         const area = nw * nh;
@@ -709,9 +709,9 @@ export class UPNG {
       let nw = w;
       let nh = h;
       let blend = alwaysBlend ? 1 : 0;
-      if(j != 0) {
+      if(j !== 0) {
         const tlim =
-          forbidPrev || alwaysBlend || j == 1 || frms[j - 2].dispose != 0
+          forbidPrev || alwaysBlend || j === 1 || frms[j - 2].dispose !== 0
             ? 1
             : 2;
         let tstp = 0;
@@ -725,17 +725,17 @@ export class UPNG {
           for (let y = 0; y < h; y++)
             for (let x = 0; x < w; x++) {
               const i = y * w + x;
-              if(cimg32[i] != p32[i]) {
+              if(cimg32[i] !== p32[i]) {
                 if(x < mix) mix = x;
                 if(x > max) max = x;
                 if(y < miy) miy = y;
                 if(y > may) may = y;
               }
             }
-          if(max == -1) mix = miy = max = may = 0;
+          if(max === -1) mix = miy = max = may = 0;
           if(evenCrd) {
-            if((mix & 1) == 1) mix--;
-            if((miy & 1) == 1) miy--;
+            if((mix & 1) === 1) mix--;
+            if((miy & 1) === 1) miy--;
           }
           const sarea = (max - mix + 1) * (may - miy + 1);
           if(sarea < tarea) {
@@ -750,13 +750,13 @@ export class UPNG {
 
         // alwaysBlend: pokud zjistím, že blendit nelze, nastavím předchozímu snímku dispose=1. Zajistím, aby obsahoval můj obdélník.
         const pimg = new Uint8Array(bufs[j - 1 - tstp]);
-        if(tstp == 1) frms[j - 1].dispose = 2;
+        if(tstp === 1) frms[j - 1].dispose = 2;
 
         nimg = new Uint8Array(nw * nh * 4);
         UPNG._copyTile(pimg, w, h, nimg, nw, nh, -nx, -ny, 0);
 
         blend = UPNG._copyTile(cimg, w, h, nimg, nw, nh, -nx, -ny, 3) ? 1 : 0;
-        if(blend == 1)
+        if(blend === 1)
           UPNG._prepareDiff(cimg, w, h, nimg, {
             x: nx,
             y: ny,
@@ -777,7 +777,7 @@ export class UPNG {
     if(alwaysBlend) {
       for (let j = 0; j < frms.length; j++) {
         const frm = frms[j];
-        if(frm.blend == 1) continue;
+        if(frm.blend === 1) continue;
         const r0 = frm.rect;
         const r1 = frms[j - 1].rect;
         const miX = Math.min(r0.x, r1.x);
@@ -787,7 +787,7 @@ export class UPNG {
         const r = { x: miX, y: miY, width: maX - miX, height: maY - miY };
 
         frms[j - 1].dispose = 1;
-        if(j - 1 != 0) UPNG._updateFrame(bufs, w, h, frms, j - 1, r, evenCrd);
+        if(j - 1 !== 0) UPNG._updateFrame(bufs, w, h, frms, j - 1, r, evenCrd);
         UPNG._updateFrame(bufs, w, h, frms, j, r, evenCrd);
       }
     }
@@ -815,10 +815,10 @@ export class UPNG {
         const cc = cimg32[j];
         // no need to draw transparency, or to dispose it. Or, if writing the same color and the next one does not need transparency.
         if(
-          cc == 0 ||
-          (frms[i - 1].dispose == 0 &&
-            pimg32[j] == cc &&
-            (nimg == null || nimg[j * 4 + 3] != 0)) /**/
+          cc === 0 ||
+          (frms[i - 1].dispose === 0 &&
+            pimg32[j] === cc &&
+            (nimg == null || nimg[j * 4 + 3] !== 0)) /**/
         ) {
           // noop
         } else {
@@ -828,10 +828,10 @@ export class UPNG {
           if(cy > may) may = cy;
         }
       }
-    if(max == -1) mix = miy = max = may = 0;
+    if(max === -1) mix = miy = max = may = 0;
     if(evenCrd) {
-      if((mix & 1) == 1) mix--;
-      if((miy & 1) == 1) miy--;
+      if((mix & 1) === 1) mix--;
+      if((miy & 1) === 1) miy--;
     }
     r = { x: mix, y: miy, width: max - mix + 1, height: may - miy + 1 };
 
@@ -839,7 +839,7 @@ export class UPNG {
     fr.rect = r;
     fr.blend = 1;
     fr.img = new Uint8Array(r.width * r.height * 4);
-    if(frms[i - 1].dispose == 0) {
+    if(frms[i - 1].dispose === 0) {
       UPNG._copyTile(pimg, w, h, fr.img, r.width, r.height, -r.x, -r.y, 0);
       UPNG._prepareDiff(cimg, w, h, fr.img, r);
     } else UPNG._copyTile(cimg, w, h, fr.img, r.width, r.height, -r.x, -r.y, 0);
@@ -852,8 +852,8 @@ export class UPNG {
   static _filterZero(img, h, bpp, bpl, data, filter, levelZero) {
     const fls = [];
     let ftry = [0, 1, 2, 3, 4];
-    if(filter != -1) ftry = [filter];
-    else if(h * bpl > 500000 || bpp == 1) ftry = [0];
+    if(filter !== -1) ftry = [filter];
+    else if(h * bpl > 500000 || bpp === 1) ftry = [0];
     let opts = {};
     if(levelZero) opts = { level: 0 };
 
@@ -879,30 +879,30 @@ export class UPNG {
     data[di] = type;
     di++;
 
-    if(type == 0) {
+    if(type === 0) {
       if(bpl < 500) for (let x = 0; x < bpl; x++) data[di + x] = img[i + x];
       else data.set(new Uint8Array(img.buffer, i, bpl), di);
-    } else if(type == 1) {
+    } else if(type === 1) {
       for (let x = 0; x < bpp; x++) data[di + x] = img[i + x];
       for (let x = bpp; x < bpl; x++)
         data[di + x] = (img[i + x] - img[i + x - bpp] + 256) & 255;
-    } else if(y == 0) {
+    } else if(y === 0) {
       for (let x = 0; x < bpp; x++) data[di + x] = img[i + x];
 
-      if(type == 2) for (let x = bpp; x < bpl; x++) data[di + x] = img[i + x];
-      if(type == 3)
+      if(type === 2) for (let x = bpp; x < bpl; x++) data[di + x] = img[i + x];
+      if(type === 3)
         for (let x = bpp; x < bpl; x++)
           data[di + x] = (img[i + x] - (img[i + x - bpp] >> 1) + 256) & 255;
-      if(type == 4)
+      if(type === 4)
         for (let x = bpp; x < bpl; x++)
           data[di + x] =
             (img[i + x] - UPNG.paeth(img[i + x - bpp], 0, 0) + 256) & 255;
     } else {
-      if(type == 2) {
+      if(type === 2) {
         for (let x = 0; x < bpl; x++)
           data[di + x] = (img[i + x] + 256 - img[i + x - bpl]) & 255;
       }
-      if(type == 3) {
+      if(type === 3) {
         for (let x = 0; x < bpp; x++)
           data[di + x] = (img[i + x] + 256 - (img[i + x - bpl] >> 1)) & 255;
         for (let x = bpp; x < bpl; x++)
@@ -910,7 +910,7 @@ export class UPNG {
             (img[i + x] + 256 - ((img[i + x - bpl] + img[i + x - bpp]) >> 1)) &
             255;
       }
-      if(type == 4) {
+      if(type === 4) {
         for (let x = 0; x < bpp; x++)
           data[di + x] =
             (img[i + x] + 256 - UPNG.paeth(0, img[i + x - bpl], 0)) & 255;
@@ -1153,7 +1153,7 @@ export class UPNG {
     const m1 = m[1];
     const m2 = m[2];
     const m3 = m[3];
-    const iN = N == 0 ? 0 : 1 / N;
+    const iN = N === 0 ? 0 : 1 / N;
     const Rj = [
       R[0] - m0 * m0 * iN,
       R[1] - m0 * m1 * iN,
@@ -1179,12 +1179,12 @@ export class UPNG {
     let mi = 0;
     let tmi = 0;
 
-    if(N != 0)
+    if(N !== 0)
       for (let i = 0; i < 16; i++) {
         b = M.multVec(A, b);
         tmi = Math.sqrt(M.dot(b, b));
         b = M.sml(1 / tmi, b);
-        if(i != 0 && Math.abs(tmi - mi) < 1e-9) break;
+        if(i !== 0 && Math.abs(tmi - mi) < 1e-9) break;
         mi = tmi;
       }
     // b = [0,0,1,0];  mi=N;

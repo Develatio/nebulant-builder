@@ -112,7 +112,7 @@ export const FindPrimaryIPSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "LabelSelector" ? (
+                              value.name === "LabelSelector" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}

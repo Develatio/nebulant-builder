@@ -72,8 +72,8 @@ export const CreateVolumeSettings = (props) => {
               node={props.node}
               form={props.form}
               validations={props.validations}
-              min={sizeRules.find(r => r.rule == "min")?.value}
-              max={sizeRules.find(r => r.rule == "max")?.value}
+              min={sizeRules.find(r => r.rule === "min")?.value}
+              max={sizeRules.find(r => r.rule === "max")?.value}
               path={"parameters.Size"}
               label={"Size"}
               sliderSuffix={" GBs"}
@@ -131,7 +131,7 @@ export const CreateVolumeSettings = (props) => {
                   path={"parameters.Labels"}
                 >
                   {
-                    value.name == "label" && (
+                    value.name === "label" && (
                       <DualTextInput
                         node={props.node}
                         form={props.form}

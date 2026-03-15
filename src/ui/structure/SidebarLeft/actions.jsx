@@ -83,7 +83,7 @@ const DDGroup = ({ group, widgets }) => {
           }}
           onMouseLeave={() => {
             // hide only if we showed the popover because of a hover event
-            if(visible == VISIBILITY.HOVER) {
+            if(visible === VISIBILITY.HOVER) {
               closerTimeout.current = setTimeout(() => {
                 setVisibility(VISIBILITY.HIDDEN);
               }, 0);
@@ -138,7 +138,7 @@ const DDGroup = ({ group, widgets }) => {
          }
         }}
         onMouseLeave={() => {
-          if(visible == VISIBILITY.HOVER) {
+          if(visible === VISIBILITY.HOVER) {
             closerTimeout.current = setTimeout(() => {
               setVisibility(VISIBILITY.HIDDEN);
             }, 0);
@@ -208,7 +208,7 @@ export const Actions = () => {
       <div className="h-100 actions w-100">
         {
           actions.map(action => {
-            if(action.type == 'ddWidget') {
+            if(action.type === 'ddWidget') {
               return <DDAction
                 key={`${action.provider}-${action.ddWidget.label}`}
                 action={action.ddWidget}

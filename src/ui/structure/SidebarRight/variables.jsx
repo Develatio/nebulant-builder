@@ -46,7 +46,7 @@ const Actions = ({ variable }) => {
     )?.map(obj => obj.__node_id) || [];
 
     node_ids = [...new Set(node_ids)];
-    if(node_ids.length == 0) return;
+    if(node_ids.length === 0) return;
 
     // Remove duplicates and then center the paper
     eventBus.publish("CenterOnNodes", { node_ids });

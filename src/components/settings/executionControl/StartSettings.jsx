@@ -94,7 +94,7 @@ export const StartSettings = (props) => {
 
           // If this is the main "Start" node check if we should add an "End"
           // node.
-          if(node.id == node.graph.getStartNode().id) {
+          if(node.id === node.graph.getStartNode().id) {
             const group_settings_enabled = node.prop("data/settings/parameters/group_settings_enabled");
             // If old_group_settings_enabled was disabled and now it's enabled
             // we should add the "End" node.

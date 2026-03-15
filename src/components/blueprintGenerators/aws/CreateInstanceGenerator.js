@@ -47,7 +47,7 @@ export class CreateInstanceGenerator extends BaseBlueprintGenerator {
 
             ...["io1", "io2", "gp3"].includes(parameters.VolumeType?.[0]) && { Iops: parameters.Iops },
             VolumeSize: parameters.Size,
-            ...parameters.VolumeType?.[0] == "gp3" && { Throughput: parameters.Throughput },
+            ...parameters.VolumeType?.[0] === "gp3" && { Throughput: parameters.Throughput },
             VolumeType: parameters.VolumeType?.[0],
           },
         }],
@@ -58,9 +58,9 @@ export class CreateInstanceGenerator extends BaseBlueprintGenerator {
       output: outputs.result.value,
     };
 
-    if(parameters._publicIp?.[0] != "default") {
+    if(parameters._publicIp?.[0] !== "default") {
       blueprint.parameters.NetworkInterfaces = [{
-        AssociatePublicIpAddress: parameters._publicIp?.[0] == "yes" ? true : false,
+        AssociatePublicIpAddress: parameters._publicIp?.[0] === "yes" ? true : false,
         DeviceIndex: 0,
         SubnetId: parameters.SubnetId?.[0],
         Groups: parameters.SecurityGroupIds,

@@ -27,7 +27,7 @@ export class ApplyFirewallToResourceGenerator extends HetznerCloudGenerator {
       output: outputs.result.value,
     };
 
-    if(parameters._activeTab == "servers") {
+    if(parameters._activeTab === "servers") {
       blueprint.parameters.resources = parameters.ServerIds.map(server => ({
         Type: "server",
         Server: { id: server, },

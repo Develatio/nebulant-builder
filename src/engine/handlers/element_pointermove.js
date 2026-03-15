@@ -13,7 +13,7 @@ export const element_pointermove = function (elementView, _evt, x, y) {
 
     this.freeze();
 
-    cells.filter(cmodel => cmodel.id != model.id).forEach(cmodel => {
+    cells.filter(cmodel => cmodel.id !== model.id).forEach(cmodel => {
       const position = cmodel.position();
       cmodel.position(position.x - offset.x, position.y - offset.y, {
         deep: true,

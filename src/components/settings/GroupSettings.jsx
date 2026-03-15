@@ -49,7 +49,7 @@ export const GroupSettings = (props) => {
 
                 <Col sm={9}>
                   {
-                    props.form.get(`parameters.input_parameters[${index}].value.type`) == "boolean" ? (
+                    props.form.get(`parameters.input_parameters[${index}].value.type`) === "boolean" ? (
                       <CheckboxInput
                         form={props.form}
                         validations={props.validations}
@@ -57,7 +57,7 @@ export const GroupSettings = (props) => {
                         label={""}
                         help_text={""}
                       ></CheckboxInput>
-                    ) : props.form.get(`parameters.input_parameters[${index}].value.type`) == "text" ? (
+                    ) : props.form.get(`parameters.input_parameters[${index}].value.type`) === "text" ? (
                       <TextInput
                         node={props.node}
                         form={props.form}
@@ -66,7 +66,7 @@ export const GroupSettings = (props) => {
                         placeholder={"Type a value for this input variable"}
                         help_text={"The value of the input variable."}
                       ></TextInput>
-                    ) : props.form.get(`parameters.input_parameters[${index}].value.type`) == "textarea" ? (
+                    ) : props.form.get(`parameters.input_parameters[${index}].value.type`) === "textarea" ? (
                       <CodeEditor
                         node={props.node}
                         form={props.form}
@@ -79,7 +79,7 @@ export const GroupSettings = (props) => {
                         )}
                         placeholder={"Type a value for this input variable"}
                       />
-                    ) : props.form.get(`parameters.input_parameters[${index}].value.type`) == "selectable-dql-var-type" ? (
+                    ) : props.form.get(`parameters.input_parameters[${index}].value.type`) === "selectable-dql-var-type" ? (
                       <DropdownInput
                         node={props.node}
                         form={props.form}
@@ -109,7 +109,7 @@ export const GroupSettings = (props) => {
                           } />
                         }
                       ></DropdownInput>
-                    ) : props.form.get(`parameters.input_parameters[${index}].value.type`) == "selectable-dql-var-capability" ? (
+                    ) : props.form.get(`parameters.input_parameters[${index}].value.type`) === "selectable-dql-var-capability" ? (
                       <DropdownInput
                         node={props.node}
                         form={props.form}

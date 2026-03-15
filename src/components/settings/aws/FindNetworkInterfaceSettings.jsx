@@ -183,7 +183,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                               // association.allocation-id
                               // association.ip-owner-id
 
-                              value.name == "association.public-ip" ? (
+                              value.name === "association.public-ip" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -194,7 +194,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                                   placeholder={"Type an IP address"}
                                   help_text={"The address of the elastic IP address (IPv4) bound to the network interface."}
                                 ></TextInput>
-                              ) : value.name == "association.public-dns-name" ? (
+                              ) : value.name === "association.public-dns-name" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -211,7 +211,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                               // attachment.delete-on-termination
                               // attachment.device-index
 
-                              ) : value.name == "attachment.instance-id" ? (
+                              ) : value.name === "attachment.instance-id" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -252,7 +252,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                               // attachment.instance-owner-id
                               // attachment.status
 
-                              ) : value.name == "availability-zone" ? (
+                              ) : value.name === "availability-zone" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -282,7 +282,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                               // group-id
                               // group-name
 
-                              ) : value.name == "ipv6-addresses.ipv6-address" ? (
+                              ) : value.name === "ipv6-addresses.ipv6-address" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -297,7 +297,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                               // mac-address
                               // network-interface-id
 
-                              ) : value.name == "owner-id" ? (
+                              ) : value.name === "owner-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -308,7 +308,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                                   placeholder={"Type an owner ID"}
                                   help_text={"The AWS account ID of the owner of the network interface."}
                                 ></TextInput>
-                              ) : value.name == "subnet-id" ? (
+                              ) : value.name === "subnet-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -319,7 +319,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                                   placeholder={"Type a Subnet ID"}
                                   help_text={"The ID of the subnet to which the network interface belongs to."}
                                 ></TextInput>
-                              ) : value.name == "private-ip-address" ? (
+                              ) : value.name === "private-ip-address" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -330,7 +330,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                                   placeholder={"Type an IPv4 address"}
                                   help_text={"The private IPv4 address or addresses of the network interface."}
                                 ></TextInput>
-                              ) : value.name == "private-dns-name" ? (
+                              ) : value.name === "private-dns-name" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -347,7 +347,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                               // source-dest-check
                               // status
 
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -359,7 +359,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}
@@ -370,7 +370,7 @@ export const FindNetworkInterfaceSettings = (props) => {
                                   placeholder={"Type a key of a tag assigned to the image"}
                                   help_text={"Use this filter to find all Network Interfaces assigned a tag with a specific key, regardless of the tag value."}
                                 ></MultiTextInput>
-                              ) : value.name == "vpc-id" ? (
+                              ) : value.name === "vpc-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}

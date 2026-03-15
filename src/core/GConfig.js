@@ -126,7 +126,7 @@ export class GConfig {
   set(keyPath, value, opts = {}) {
     value = clone(value);
     // Handle global assign (empty keyPath)
-    if(keyPath == "") {
+    if(keyPath === "") {
       this._config = util.merge(clone(DEFAULT_CONFIG), value);
     } else {
       lodashSet(this._config, keyPath, value);
@@ -140,7 +140,7 @@ export class GConfig {
     }
 
     // Notify listeners
-    if(keyPath == "") {
+    if(keyPath === "") {
       Object.keys(this._listeners).forEach(keyPath => {
         this._listeners[keyPath].forEach(fn => {
           const value = lodashGet(this._config, keyPath);
@@ -165,7 +165,7 @@ export class GConfig {
   }
 
   get(keyPath) {
-    if(keyPath == "") {
+    if(keyPath === "") {
       return this._config;
     }
     return lodashGet(this._config, keyPath);

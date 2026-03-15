@@ -221,7 +221,7 @@ export const FindInstanceSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "affinity" ? (
+                              value.name === "affinity" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -253,7 +253,7 @@ export const FindInstanceSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "architecture" ? (
+                              ) : value.name === "architecture" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -274,7 +274,7 @@ export const FindInstanceSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "availability-zone" ? (
+                              ) : value.name === "availability-zone" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -311,7 +311,7 @@ export const FindInstanceSettings = (props) => {
                                 // hibernation-options.configured
                                 // host-id
 
-                              ) : value.name == "hypervisor" ? (
+                              ) : value.name === "hypervisor" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -336,7 +336,7 @@ export const FindInstanceSettings = (props) => {
                                 // iam-instance-profile.arn
                                 // image-id
 
-                              ) : value.name == "instance-lifecycle" ? (
+                              ) : value.name === "instance-lifecycle" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -371,7 +371,7 @@ export const FindInstanceSettings = (props) => {
 
                                 // instance-state-code
 
-                              ) : value.name == "instance-state-name" ? (
+                              ) : value.name === "instance-state-name" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -393,7 +393,7 @@ export const FindInstanceSettings = (props) => {
                                   ]}
                                 ></DropdownInput>
 
-                              ) : value.name == "instance-type" ? (
+                              ) : value.name === "instance-type" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -432,7 +432,7 @@ export const FindInstanceSettings = (props) => {
                                 // instance.group-name
                                 // ip-address
 
-                              ) : value.name == "kernel-id" ? (
+                              ) : value.name === "kernel-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -473,7 +473,7 @@ export const FindInstanceSettings = (props) => {
                                 // network-interface.ipv6-addresses.ipv6-address
                                 // network-interface.mac-address
 
-                              ) : value.name == "network-interface.network-interface-id" ? (
+                              ) : value.name === "network-interface.network-interface-id" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -539,7 +539,7 @@ export const FindInstanceSettings = (props) => {
                                 // state-reason-code
                                 // state-reason-message
 
-                              ) : value.name == "subnet-id" ? (
+                              ) : value.name === "subnet-id" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -576,7 +576,7 @@ export const FindInstanceSettings = (props) => {
                                     </>
                                   }
                                 ></DropdownInput>
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -588,7 +588,7 @@ export const FindInstanceSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}
@@ -599,7 +599,7 @@ export const FindInstanceSettings = (props) => {
                                   placeholder={"Type a key of a tag assigned to the image"}
                                   help_text={"Use this filter to find all instances assigned a tag with a specific key, regardless of the tag value."}
                                 ></MultiTextInput>
-                              ) : value.name == "tenancy" ? (
+                              ) : value.name === "tenancy" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -636,7 +636,7 @@ export const FindInstanceSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "virtualization-type" ? (
+                              ) : value.name === "virtualization-type" ? (
                                   <DropdownInput
                                     node={props.node}
                                     form={props.form}

@@ -122,7 +122,7 @@
       /* jshint ignore:start */
       self.port = (
           // loosely compare because port can be a string
-          defaultPorts[self.protocol] == self.port || self.port == 0
+          defaultPorts[self.protocol] === self.port || self.port === 0
       ) ? '' : self.port; // IE fix, Android browser fix
       /* jshint ignore:end */
 

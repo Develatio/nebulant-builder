@@ -203,7 +203,7 @@ export class BlueprintActions {
 
     this.gconfig.notifyOnChanges("ui.grid.size", (v) => {
       v = parseInt(v, 10); // make sure we have an int
-      if(v == 0) {
+      if(v === 0) {
         v = 1;
         this.gconfig.set("ui.grid.size", v);
       }
@@ -236,7 +236,7 @@ export class BlueprintActions {
   }
 
   openNodeSettings(node_id) {
-    const node = this.engine.model.getElements().find(n => n.id == node_id);
+    const node = this.engine.model.getElements().find(n => n.id === node_id);
 
     if(!node.hasInfo()) {
       this.eventBus.publish("OpenNodeSettings", { node_id });
@@ -386,7 +386,7 @@ export class BlueprintActions {
 
   highlightParentsOfSelectedNode() {
     const { collection } = this.engine.selection;
-    if(collection.length != 1) return;
+    if(collection.length !== 1) return;
 
     const [node] = collection.models;
     collection.reset([]);
@@ -397,7 +397,7 @@ export class BlueprintActions {
 
   highlightChildrenOfSelectedNode() {
     const { collection } = this.engine.selection;
-    if(collection.length != 1) return;
+    if(collection.length !== 1) return;
 
     const [node] = collection.models;
     collection.reset([]);
@@ -408,7 +408,7 @@ export class BlueprintActions {
 
   highlightOutboundNeighborsOfSelectedNode() {
     const { collection } = this.engine.selection;
-    if(collection.length != 1) return;
+    if(collection.length !== 1) return;
 
     const [node] = collection.models;
 
@@ -425,7 +425,7 @@ export class BlueprintActions {
 
   highlightInboundNeighborsOfSelectedNode() {
     const { collection } = this.engine.selection;
-    if(collection.length != 1) return;
+    if(collection.length !== 1) return;
 
     const [node] = collection.models;
 
@@ -442,7 +442,7 @@ export class BlueprintActions {
 
   highlightConnectedElements(direction) {
     const { collection } = this.engine.selection;
-    if(collection.length != 1) return;
+    if(collection.length !== 1) return;
 
     const [node] = collection.models;
     const nodes = this.engine.model.getConnectedElements(node, direction);

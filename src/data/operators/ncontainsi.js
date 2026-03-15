@@ -8,7 +8,7 @@ export const $ncontainsi = ({res, filter_key, value}) => {
 
     let res;
     if(Array.isArray(resolved_value)) {
-      res = resolved_value.some(el => String(el).toLowerCase() == s);
+      res = resolved_value.some(el => String(el).toLowerCase() === s);
     } else { // This is a string
       res = resolved_value.toLowerCase().indexOf(s) > -1;
     }

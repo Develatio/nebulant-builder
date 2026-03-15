@@ -45,7 +45,7 @@ export class BackendConnector {
           // that falls out of the range of 2xx
 
           let e;
-          if(err.status == 403) {
+          if(err.status === 403) {
             e = "Not logged in";
             this.logger.info(e);
           } else {
@@ -236,7 +236,7 @@ export class BackendConnector {
 
     this.logger.info(`Received content path "${path}", let's check where we should fetch it from...`);
 
-    if(me && organization_slug && organization_slug == me.current_organization.slug) {
+    if(me && organization_slug && organization_slug === me.current_organization.slug) {
       this.logger.info("\tThe slug of the organization of the current logged in user matches the organization slug in the path.");
 
       if(version) {

@@ -238,7 +238,7 @@ export class Base extends dia.Element {
   }
 
   getPortById(id) {
-    return this.prop("ports").items.find(port => port.id == id);
+    return this.prop("ports").items.find(port => port.id === id);
   }
 
   getGroupByName(group) {
@@ -247,7 +247,7 @@ export class Base extends dia.Element {
 
   // Give it the name of the group and it will give you the port of that group
   getPortByGroup(group) {
-    return this.getPorts().find(port => port.group == group);
+    return this.getPorts().find(port => port.group === group);
   }
 
   rename(text) {

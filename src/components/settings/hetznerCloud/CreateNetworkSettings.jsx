@@ -82,7 +82,7 @@ export const CreateNetworkSettings = (props) => {
                   path={"parameters.Labels"}
                 >
                   {
-                    value.name == "label" && (
+                    value.name === "label" && (
                       <DualTextInput
                         node={props.node}
                         form={props.form}

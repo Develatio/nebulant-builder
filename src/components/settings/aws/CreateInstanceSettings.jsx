@@ -332,7 +332,7 @@ export const CreateInstanceSettings = (props) => {
                             path={"parameters.TagSpecifications"}
                           >
                             {
-                              value.name == "tag" ? (
+                              value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}

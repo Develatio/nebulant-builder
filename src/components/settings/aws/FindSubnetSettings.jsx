@@ -181,7 +181,7 @@ export const FindSubnetSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "availability-zone" ? (
+                              value.name === "availability-zone" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -206,7 +206,7 @@ export const FindSubnetSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "cidr-block" ? (
+                              ) : value.name === "cidr-block" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -217,7 +217,7 @@ export const FindSubnetSettings = (props) => {
                                   placeholder={"Type a CIDR"}
                                   help_text={"The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet."}
                                 ></TextInput>
-                              ) : value.name == "default-for-az" ? (
+                              ) : value.name === "default-for-az" ? (
                                 <CheckboxInput
                                   form={props.form}
                                   validations={props.validations}
@@ -226,7 +226,7 @@ export const FindSubnetSettings = (props) => {
                                   label={"Default for AZ"}
                                   help_text={"Indicates whether this is the default subnet for the Availability Zone."}
                                 ></CheckboxInput>
-                              ) : value.name == "ipv6-cidr-block-association.ipv6-cidr-block" ? (
+                              ) : value.name === "ipv6-cidr-block-association.ipv6-cidr-block" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -237,7 +237,7 @@ export const FindSubnetSettings = (props) => {
                                   placeholder={"Type a CIDR"}
                                   help_text={"An IPv6 CIDR block associated with the subnet."}
                                 ></TextInput>
-                              ) : value.name == "ipv6-cidr-block-association.state" ? (
+                              ) : value.name === "ipv6-cidr-block-association.state" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -258,7 +258,7 @@ export const FindSubnetSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "owner-id" ? (
+                              ) : value.name === "owner-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -269,7 +269,7 @@ export const FindSubnetSettings = (props) => {
                                   placeholder={"Type an owner ID"}
                                   help_text={"The AWS account ID of the owner of the subnet."}
                                 ></TextInput>
-                              ) : value.name == "state" ? (
+                              ) : value.name === "state" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -290,7 +290,7 @@ export const FindSubnetSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "subnet-arn" ? (
+                              ) : value.name === "subnet-arn" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -301,7 +301,7 @@ export const FindSubnetSettings = (props) => {
                                   placeholder={"Type an ARN"}
                                   help_text={"The Amazon Resource Name (ARN) of the Subnet."}
                                 ></TextInput>
-                              ) : value.name == "subnet-id" ? (
+                              ) : value.name === "subnet-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -312,7 +312,7 @@ export const FindSubnetSettings = (props) => {
                                   placeholder={"Type a Subnet ID"}
                                   help_text={"The ID of the Subnet."}
                                 ></TextInput>
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -324,7 +324,7 @@ export const FindSubnetSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}
@@ -335,7 +335,7 @@ export const FindSubnetSettings = (props) => {
                                   placeholder={"Type a key of a tag assigned to the image"}
                                   help_text={"Use this filter to find all Subnets assigned a tag with a specific key, regardless of the tag value."}
                                 ></MultiTextInput>
-                              ) : value.name == "vpc-id" ? (
+                              ) : value.name === "vpc-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}

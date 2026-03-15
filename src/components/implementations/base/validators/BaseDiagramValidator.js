@@ -94,7 +94,7 @@ export class BaseDiagramValidator extends BaseValidator {
           break;
 
         case "min":
-          test = described.tests.find(test => test.name == fieldRule);
+          test = described.tests.find(test => test.name === fieldRule);
           if(test !== undefined) {
             res.value = test.params.min;
           } else {
@@ -103,7 +103,7 @@ export class BaseDiagramValidator extends BaseValidator {
           break;
 
         case "max":
-          test = described.tests.find(test => test.name == fieldRule);
+          test = described.tests.find(test => test.name === fieldRule);
           if(test !== undefined) {
             res.value = test.params.max;
           } else {
@@ -112,7 +112,7 @@ export class BaseDiagramValidator extends BaseValidator {
           break;
 
         case "required":
-          test = described.tests.find(test => test.name == fieldRule);
+          test = described.tests.find(test => test.name === fieldRule);
           res.value = !!test;
           break;
 
@@ -145,11 +145,11 @@ export class BaseDiagramValidator extends BaseValidator {
       // failed and we're wrongly capturing the backtrace
       if(validationError instanceof ValidationError) {
         validationError.inner.forEach(error => {
-          const v = error.type == "warning" ? res.warnings : res.errors;
+          const v = error.type === "warning" ? res.warnings : res.errors;
           (v[error.path] = v[error.path] || []).push(error);
         });
 
-        res.isValid = Object.keys(res.errors).length == 0;
+        res.isValid = Object.keys(res.errors).length === 0;
       } else {
         // Something really bad happened.
         this.logger.error("Unhandled exception while validating data.");

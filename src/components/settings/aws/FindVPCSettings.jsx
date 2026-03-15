@@ -169,7 +169,7 @@ export const FindVPCSettings = (props) => {
                             path={"parameters.Filters"}
                           >
                             {
-                              value.name == "cidr" ? (
+                              value.name === "cidr" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -180,7 +180,7 @@ export const FindVPCSettings = (props) => {
                                   placeholder={"Type a CIDR"}
                                   help_text={"The CIDR block you specify must exactly match the VPC's CIDR block. Must contain the slash followed by one or two digits (for example, /28)."}
                                 ></TextInput>
-                              ) : value.name == "cidr-block-association.cidr-block" ? (
+                              ) : value.name === "cidr-block-association.cidr-block" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -191,7 +191,7 @@ export const FindVPCSettings = (props) => {
                                   placeholder={"Type a CIDR"}
                                   help_text={"An IPv4 CIDR block associated with the VPC."}
                                 ></TextInput>
-                              ) : value.name == "cidr-block-association.state" ? (
+                              ) : value.name === "cidr-block-association.state" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -212,7 +212,7 @@ export const FindVPCSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "ipv6-cidr-block-association.ipv6-cidr-block" ? (
+                              ) : value.name === "ipv6-cidr-block-association.ipv6-cidr-block" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -223,7 +223,7 @@ export const FindVPCSettings = (props) => {
                                   placeholder={"Type a CIDR"}
                                   help_text={"An IPv6 CIDR block associated with the VPC."}
                                 ></TextInput>
-                              ) : value.name == "ipv6-cidr-block-association.state" ? (
+                              ) : value.name === "ipv6-cidr-block-association.state" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -244,7 +244,7 @@ export const FindVPCSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "isDefault" ? (
+                              ) : value.name === "isDefault" ? (
                                 <CheckboxInput
                                   form={props.form}
                                   validations={props.validations}
@@ -253,7 +253,7 @@ export const FindVPCSettings = (props) => {
                                   label={"Default"}
                                   help_text={"Indicates whether the VPC is the default VPC."}
                                 ></CheckboxInput>
-                              ) : value.name == "owner-id" ? (
+                              ) : value.name === "owner-id" ? (
                                 <TextInput
                                   node={props.node}
                                   form={props.form}
@@ -264,7 +264,7 @@ export const FindVPCSettings = (props) => {
                                   placeholder={"Type an owner ID"}
                                   help_text={"The AWS account ID of the owner of the VPC."}
                                 ></TextInput>
-                              ) : value.name == "state" ? (
+                              ) : value.name === "state" ? (
                                 <DropdownInput
                                   node={props.node}
                                   form={props.form}
@@ -285,7 +285,7 @@ export const FindVPCSettings = (props) => {
                                     },
                                   ]}
                                 ></DropdownInput>
-                              ) : value.name == "tag" ? (
+                              ) : value.name === "tag" ? (
                                 <DualTextInput
                                   node={props.node}
                                   form={props.form}
@@ -297,7 +297,7 @@ export const FindVPCSettings = (props) => {
                                   placeholder2={"Type a tag value"}
                                   help_text1={"Use the tag key as the filter name and the tag value as the filter value."}
                                 ></DualTextInput>
-                              ) : value.name == "tag-key" ? (
+                              ) : value.name === "tag-key" ? (
                                 <MultiTextInput
                                   node={props.node}
                                   form={props.form}

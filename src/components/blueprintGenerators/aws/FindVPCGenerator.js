@@ -23,7 +23,7 @@ export class FindVPCGenerator extends BaseBlueprintGenerator {
       output: outputs.result.value,
     };
 
-    if(parameters._activeTab == "filters") {
+    if(parameters._activeTab === "filters") {
       const filters = formatFilters(parameters.Filters);
       if(parameters._VPCName) {
         filters.push({

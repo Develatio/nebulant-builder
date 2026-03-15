@@ -141,7 +141,7 @@ export const ArrayOfWidgets = (props) => {
 
   const currentlySelected = props.form.get(props.path).map(v => v.name);
   const choices = props.choices.filter(
-    choice => currentlySelected.indexOf(choice.name) == -1 || choice.multiple
+    choice => currentlySelected.indexOf(choice.name) === -1 || choice.multiple
   );
 
   let { ...attrs } = props.validations;
@@ -177,9 +177,9 @@ export const ArrayOfWidgets = (props) => {
             }
 
             {
-              choices.length == 0 ? (
+              choices.length === 0 ? (
                 ""
-              ) : choices.length == 1 && props.choices.length == 1 ? (
+              ) : choices.length === 1 && props.choices.length === 1 ? (
                 <Button
                   className="rounded-top-0"
                   variant="outline-primary"

@@ -55,7 +55,7 @@ class Migrator extends BaseDiagramMigrator {
     // convert the "run_script" capability to "ssh"
     ["1.0.1", (data) => {
       data.settings.outputs.result.capabilities = data.settings.outputs.result.capabilities.map(capability => {
-        if(capability == "run_script") {
+        if(capability === "run_script") {
           return "ssh";
         } else {
           return capability;
@@ -70,7 +70,7 @@ class Migrator extends BaseDiagramMigrator {
 
     // remove the "ssh" capability
     ["1.0.2", (data) => {
-      data.settings.outputs.result.capabilities = data.settings.outputs.result.capabilities.filter(capability => capability != "ssh");
+      data.settings.outputs.result.capabilities = data.settings.outputs.result.capabilities.filter(capability => capability !== "ssh");
 
       return {
         data,
@@ -93,7 +93,7 @@ class Migrator extends BaseDiagramMigrator {
     // add more ebs opts
     ["1.0.4", (data) => {
       if(!data.settings.parameters._EbsIops) {
-        if(data.settings.parameters._EbsType == "gp3") {
+        if(data.settings.parameters._EbsType === "gp3") {
           data.settings.parameters._EbsIops = 3000;
         } else {
           data.settings.parameters._EbsIops = 100;

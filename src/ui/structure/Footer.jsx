@@ -107,7 +107,7 @@ export const Footer = () => {
                 ].map((_logLevel, idx) => (
                   <div
                     key={idx}
-                    className={`level ${logLevel == _logLevel ? "current" : ""}`}
+                    className={`level ${logLevel === _logLevel ? "current" : ""}`}
                     onClick={() => {
                       gconfig.set("core.logging.logLevel", _logLevel);
                       logger.updateLogView();
@@ -146,7 +146,7 @@ export const Footer = () => {
               logFilter ? (
                 <div className="left-icon" onClick={() => {
                   const p = runtime.get("state.logging.logSearchPosition");
-                  runtime.set("state.logging.logSearchPosition", p - 1 == 0 ? logger.searchMatches.length : p - 1)
+                  runtime.set("state.logging.logSearchPosition", p - 1 === 0 ? logger.searchMatches.length : p - 1)
                 }}>
                   <CaretLeft />
                 </div>
@@ -157,7 +157,7 @@ export const Footer = () => {
               logFilter ? (
                 <div className="right-icon" onClick={() => {
                   const p = runtime.get("state.logging.logSearchPosition");
-                  runtime.set("state.logging.logSearchPosition", p == logger.searchMatches.length ? 1 : p + 1)
+                  runtime.set("state.logging.logSearchPosition", p === logger.searchMatches.length ? 1 : p + 1)
                 }}>
                   <CaretRight />
                 </div>

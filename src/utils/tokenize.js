@@ -42,13 +42,13 @@ export const tokenize = (t) => {
   res = res.filter(match => {
     return !res.some(m => {
       // skip if this is the same match
-      if(match.from == m.from && match.to == m.to) return false;
+      if(match.from === m.from && match.to === m.to) return false;
 
       return match.from >= m.from && match.to <= m.to;
     });
   });
 
-  if(res.length == 0) return null;
+  if(res.length === 0) return null;
 
   res = res.sort((a, b) => a.from - b.from);
 

@@ -8,7 +8,7 @@ export const $contains = ({res, filter_key, value}) => {
 
     let res;
     if(Array.isArray(resolved_value)) {
-      res = resolved_value.some(el => el == s);
+      res = resolved_value.some(el => el === s);
     } else { // This is a string
       res = resolved_value.indexOf(s) > -1;
     }

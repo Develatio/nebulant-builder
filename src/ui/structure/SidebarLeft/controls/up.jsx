@@ -79,7 +79,7 @@ export const Up = () => {
                   className={`
                     breadcrumb
                     user-select-none
-                    ${idx == arr.length - 1 ? "text-muted" : "pointer actionable"}
+                    ${idx === arr.length - 1 ? "text-muted" : "pointer actionable"}
                   `}
                   onClick={() => engine.setEngineLayersLevel(piece.level)}
                 >

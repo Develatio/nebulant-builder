@@ -15,11 +15,11 @@ export const viewport = function(view) {
       // We want to hide the links that connect the group itself with the
       // "Start" node...
       const source = element.source();
-      if(source.id == group.id) return false;
+      if(source.id === group.id) return false;
 
       // ... or the "End" node.
       const target = element.target();
-      if(target.id == group.id) return false;
+      if(target.id === group.id) return false;
 
       // This is a link that doesn't have a target cell, which means that
       // the user is currently creating it. We should always render it.

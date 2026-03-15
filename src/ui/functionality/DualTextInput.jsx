@@ -16,11 +16,11 @@ export const DualTextInput = (props) => {
   let { ...attrs } = props.validations;
   let { warnings, errors } = getFormattedValidations(props);
 
-  const warnings1 = warnings?.filter(w => w?.params?.position == 0);
-  const errors1 = errors?.filter(w => w?.params?.position == 0);
+  const warnings1 = warnings?.filter(w => w?.params?.position === 0);
+  const errors1 = errors?.filter(w => w?.params?.position === 0);
 
-  const warnings2 = warnings?.filter(w => w?.params?.position == 1);
-  const errors2 = errors?.filter(w => w?.params?.position == 1);
+  const warnings2 = warnings?.filter(w => w?.params?.position === 1);
+  const errors2 = errors?.filter(w => w?.params?.position === 1);
 
   const value = props.form.get(props.path);
 
