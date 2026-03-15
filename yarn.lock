@@ -3204,14 +3204,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.2.0":
-  version: 11.2.0
-  resolution: "fs-extra@npm:11.2.0"
+"fs-extra@npm:^11.3.4":
+  version: 11.3.4
+  resolution: "fs-extra@npm:11.3.4"
   dependencies:
     graceful-fs: "npm:^4.2.0"
     jsonfile: "npm:^6.0.1"
     universalify: "npm:^2.0.0"
-  checksum: 10c0/d77a9a9efe60532d2e790e938c81a02c1b24904ef7a3efb3990b835514465ba720e99a6ea56fd5e2db53b4695319b644d76d5a0e9988a2beef80aa7b1da63398
+  checksum: 10c0/e08276f767a62496ae97d711aaa692c6a478177f24a85979b6a2881c9db9c68b8c2ad5da0bcf92c0b2a474cea6e935ec245656441527958fd8372cb647087df0
   languageName: node
   linkType: hard
 
@@ -4150,7 +4150,7 @@ __metadata:
     esquery: "npm:^1.6.0"
     eta: "npm:^3.5.0"
     fast-clean: "npm:^1.3.2"
-    fs-extra: "npm:^11.2.0"
+    fs-extra: "npm:^11.3.4"
     highlight.js: "npm:^11.10.0"
     jsondiffpatch: "npm:^0.6.0"
     lodash-es: "npm:^4.17.21"
