@@ -10,15 +10,15 @@ import { EventBus } from "@src/core/EventBus";
 import { DiagramQL } from "@src/data/DiagramQL";
 
 import { Icon } from "@src/ui/functionality/Icon";
-//import { Tooltip } from "@src/ui/functionality/Tooltip";
+import { Tooltip } from "@src/ui/functionality/Tooltip";
 import { MarketCTA } from "@src/ui/structure/SidebarRight/MarketCTA";
 
 import AsyncIcon from "@src/assets/img/icons/ui/async.svg?transform";
-//import DebugIcon from "@src/assets/img/icons/control/debug.svg?transform";
-//import WrenchIcon from "@src/assets/img/icons/control/wrench.svg?transform";
+import DebugIcon from "@src/assets/img/icons/control/debug.svg?transform";
+import WrenchIcon from "@src/assets/img/icons/control/wrench.svg?transform";
 import SearchIcon from "@src/assets/img/icons/control/search.svg?transform";
-//import LocalizeIcon from "@src/assets/img/icons/control/localize.svg?transform";
-//import DependantIcon from "@src/assets/img/icons/control/dependant.svg?transform";
+import LocalizeIcon from "@src/assets/img/icons/control/localize.svg?transform";
+import DependantIcon from "@src/assets/img/icons/control/dependant.svg?transform";
 
 const Actions = ({ variable }) => {
   const gconfig = new GConfig();

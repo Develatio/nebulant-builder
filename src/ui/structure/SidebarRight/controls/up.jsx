@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { Runtime } from "@src/core/Runtime";
 import { GConfig } from "@src/core/GConfig";
+import { EventBus } from "@src/core/EventBus";
 
 import { Tooltip } from "@src/ui/functionality/Tooltip";
 
@@ -11,6 +12,7 @@ import MagMinusIcon from "@src/assets/img/icons/control/mag-minus.svg?transform"
 export const Up = () => {
   const runtime = new Runtime();
   const gconfig = new GConfig();
+  const eventBus = new EventBus();
 
   const engine = runtime.get("objects.engine");
 
