@@ -87,7 +87,7 @@
 		"mime": "4.1.0",
 		"postcss": "^8.4.45",
 		"postcss-preset-env": "^10.0.2",
-		"prettier": "^3.3.3",
+		"prettier": "^3.8.1",
 		"sass-embedded": "^1.78.0",
 		"to-case": "2.0.0",
 		"util": "^0.12.5",
