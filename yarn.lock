@@ -3123,10 +3123,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-clean@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "fast-clean@npm:1.3.2"
-  checksum: 10c0/fc1939ab23d710bb22f3ac1451f0d92a7415129152bfc0f67c0ddb0b7514bccb4dc909f44097d2ba71e77a274b4a27017b64a1090fc4ecfb7c3edb2f2b832beb
+"fast-clean@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "fast-clean@npm:1.5.3"
+  checksum: 10c0/ad966b3b3705aaaa5c930918fbde239582c933d006023c53f026503003ee817e8094ed289391457ca9e2f0226b802764412db6a555ae84eaa0559c493fdf97f8
   languageName: node
   linkType: hard
 
@@ -4149,7 +4149,7 @@ __metadata:
     espree: "npm:^10.1.0"
     esquery: "npm:^1.6.0"
     eta: "npm:^3.5.0"
-    fast-clean: "npm:^1.3.2"
+    fast-clean: "npm:^1.5.3"
     fs-extra: "npm:^11.3.4"
     highlight.js: "npm:^11.10.0"
     jsondiffpatch: "npm:^0.6.0"

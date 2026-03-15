@@ -38,7 +38,7 @@
 		"@joint/selection": "workspace:^",
 		"@react-querybuilder/dnd": "^7.6.1",
 		"bootstrap": "5.3.3",
-		"fast-clean": "^1.3.2",
+		"fast-clean": "^1.5.3",
 		"highlight.js": "^11.10.0",
 		"jsondiffpatch": "^0.6.0",
 		"lodash-es": "^4.17.21",
