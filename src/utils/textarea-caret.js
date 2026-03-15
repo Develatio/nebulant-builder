@@ -78,7 +78,7 @@ export function getCaretCoordinates(element, position, options) {
       node: element
     }
   }
-  if(~["CANVAS", "IFRAME"].indexOf(element.nodeName) || (options && options.checkTabIndex && element.getAttribute("tabindex") != null)) {
+  if(~["CANVAS", "IFRAME"].indexOf(element.nodeName) || (options?.checkTabIndex && element.getAttribute("tabindex") != null)) {
     const rect = element.getBoundingClientRect();
     // required as they act different
     return {
@@ -88,7 +88,7 @@ export function getCaretCoordinates(element, position, options) {
       node: element
     }
   }
-  if(options && options.absolute) {
+  if(options?.absolute) {
     const optionsClone = clone(options);
     optionsClone.absolute = false;
     const relative = getCaretCoordinates(element, position, optionsClone),
@@ -143,7 +143,7 @@ export function getCaretCoordinates(element, position, options) {
           if(rect[i] !== 0 && !isNaN(rect[i]))
             allzero = false;
         let modified = false;
-        if(allzero && (range.commonAncestorContainer.nodeType === 1 && ~["true", "plaintext-only"].indexOf(range.commonAncestorContainer.getAttribute("contenteditable")) || (range.commonAncestorContainer.innerText != null && range.commonAncestorContainer.innerText.length))) {
+        if(allzero && (range.commonAncestorContainer.nodeType === 1 && ~["true", "plaintext-only"].indexOf(range.commonAncestorContainer.getAttribute("contenteditable")) || (range.commonAncestorContainer.innerText?.length))) {
           if(~["true", "plaintext-only"].indexOf(range.commonAncestorContainer.getAttribute("contenteditable")) && document.activeElement.firstChild == null) {
             document.activeElement.innerHTML = "<br>";
             range.setStart(document.activeElement.firstChild, 0);
@@ -189,7 +189,7 @@ export function getCaretCoordinates(element, position, options) {
             height: height,
             node: range.startContainer
           };
-        if(options && options.withScrolls) {
+        if(options?.withScrolls) {
           if(element.scrollLeft)
             coordinates.left = coordinates.left + element.scrollLeft;
           if(element.scrollHeight)
@@ -215,11 +215,11 @@ export function getCaretCoordinates(element, position, options) {
     style = div.style,
     computed = getComputedStyle(element),
     isInput = element.nodeName === "INPUT";
-  if(options && options.nextToParent)
+  if(options?.nextToParent)
     element.parentNode.appendChild(div);
   else
     document.body.appendChild(div);
-  if(options && options.applyClass && (typeof options.applyClass === "string" || options.applyClass instanceof String))
+  if(options?.applyClass && (typeof options.applyClass === "string" || options.applyClass instanceof String))
     div.className = options.applyClass;
   style.all = "initial";
   style.whiteSpace = "pre-wrap";

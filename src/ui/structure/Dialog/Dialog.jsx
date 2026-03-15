@@ -105,7 +105,7 @@ export const Dialog = () => {
       size={data.size || "lg"}
       visible={visible}
       close={() => {
-        data.close && data.close();
+        data.close?.();
         close();
       }}
     >

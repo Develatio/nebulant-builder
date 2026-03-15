@@ -349,7 +349,7 @@
       var i = 0;
       var s;
 
-      if(paths && paths.length && paths + '' !== paths) {
+      if(paths?.length && paths + '' !== paths) {
           if(this.isAbsolute()) {
               prefix = '/';
           }

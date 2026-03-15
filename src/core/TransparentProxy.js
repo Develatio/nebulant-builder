@@ -270,11 +270,11 @@ export class TransparentProxy {
   // closed (or if the user managed to somehow change the href of the popup)
   _onClose() {
     this.popup = null;
-    this.onClose && this.onClose();
+    this.onClose?.();
   }
 
   _send(data) {
-    this.popup && this.popup.postMessage({
+    this.popup?.postMessage({
       ...data,
       nebulant: true,
     }, this.popup_url);
@@ -344,19 +344,19 @@ export class TransparentProxy {
       this.ws_conn = new WebSocket(target);
 
       this.ws_conn.onopen = (evt) => {
-        this.onWebSocketOpen && this.onWebSocketOpen(evt);
+        this.onWebSocketOpen?.(evt);
       }
 
       this.ws_conn.onclose = (evt) => {
-        this.onWebSocketClose && this.onWebSocketClose(evt);
+        this.onWebSocketClose?.(evt);
       }
 
       this.ws_conn.onerror = (err) => {
-        this.onWebSocketError && this.onWebSocketError(err);
+        this.onWebSocketError?.(err);
       }
 
       this.ws_conn.onmessage = (evt) => {
-        this.onWebSocketMessage && this.onWebSocketMessage(evt);
+        this.onWebSocketMessage?.(evt);
       }
     }
   }

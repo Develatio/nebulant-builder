@@ -373,7 +373,7 @@ function copy (src) {
     }
     else {
       const proto =
-        (src.constructor && src.constructor.prototype)
+        (src.constructor?.prototype)
         || src.__proto__
         || {}
       ;
