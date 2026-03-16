@@ -59,7 +59,7 @@
 		"react-toastify": "^10.0.5",
 		"react-window": "^1.8.10",
 		"semver": "^7.7.4",
-		"uuid": "^10.0.0",
+		"uuid": "^13.0.0",
 		"workbox-cacheable-response": "^7.4.0",
 		"workbox-core": "^7.4.0",
 		"workbox-expiration": "^7.4.0",
