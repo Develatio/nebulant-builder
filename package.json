@@ -37,7 +37,7 @@
 		"@joint/paper-scroller": "workspace:^",
 		"@joint/selection": "workspace:^",
 		"@react-querybuilder/dnd": "^7.6.1",
-		"bootstrap": "5.3.3",
+		"bootstrap": "5.3.8",
 		"fast-clean": "^1.5.3",
 		"highlight.js": "^11.11.1",
 		"jsondiffpatch": "^0.7.3",
