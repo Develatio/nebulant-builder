@@ -1,13 +1,15 @@
-import { useEffect, useState, createRef } from "react";
-import { FixedSizeList } from "react-window";
+import { useEffect, useState, useRef } from "react";
+import { List } from "react-window";
 
 import { Logger } from "@src/core/Logger";
 import { Runtime } from "@src/core/Runtime";
 import { EventBus } from "@src/core/EventBus";
 
-const Line = ({ data, index, style }) => {
-  const { time, level_str, text, html, partial } = data.filteredMsgs[index];
-  const hl = data.searchMatches[data.searchPosition-1] === index ? "hl" : "";
+const ROW_HEIGHT = 16;
+
+const Line = ({ filteredMsgs, searchPosition, searchMatches, index, style }) => {
+  const { time, level_str, text, html, partial } = filteredMsgs[index];
+  const hl = searchMatches[searchPosition-1] === index ? "hl" : "";
 
   return (
     <div className={`d-flex flex-row logline ${hl}`} style={style}>
@@ -28,8 +30,7 @@ export const LogViewer = ({ height }) => {
   const runtime = new Runtime();
   const eventBus = new EventBus();
 
-  const listBodyRef = createRef();
-  const listRef = createRef();
+  const listRef = useRef(null);
   const [wasListAtBottom, setWasListAtBottom] = useState(true);
 
   const [logFilter, setLogFilter] = useState("");
@@ -79,13 +80,13 @@ export const LogViewer = ({ height }) => {
 
   const _scrollToItem = (pos) => {
     if(pos !== undefined && pos >= 0) {
-      listRef.current?.scrollToItem(pos);
+      listRef.current?.scrollToRow({ index: pos });
     }
   }
 
   const isAtBottom = () => {
     const SCROLL_BOTTOM_MARGIN = 5;
-    const listWindow = listBodyRef.current?.parentElement;
+    const listWindow = listRef.current?.element;
     if(!listWindow) {
       // This means element hasn't been rendered yet, so we are effectively at the bottom
       return true;
@@ -97,15 +98,7 @@ export const LogViewer = ({ height }) => {
     }
   }
 
-  const followTail = (e) => {
-    const { scrollDirection, scrollOffset, scrollUpdateWasRequested } = e;
-    // Discard fake user event sent by react-window when this component is mounted
-    if(
-      scrollDirection === "forward" &&
-      scrollOffset === 0 &&
-      scrollUpdateWasRequested === false
-    ) return;
-
+  const followTail = () => {
     requestAnimationFrame(() => { // Measure async, once the scroll has actually happened
       setWasListAtBottom(isAtBottom());
     });
@@ -113,23 +106,19 @@ export const LogViewer = ({ height }) => {
 
   return (
     <div className="messages p-1">
-      <FixedSizeList
-        height={height - 10}
-        width="100%"
-        itemCount={logger.filteredMsgs.length}
-        itemData={{
+      <List
+        style={{ height: height - 10 }}
+        rowCount={logger.filteredMsgs.length}
+        rowProps={{
           filteredMsgs: logger.filteredMsgs,
           searchPosition: logSearchPosition,
           searchMatches: logger.searchMatches,
         }}
-        itemKey={i => logger.filteredMsgs[i].id}
-        itemSize={16}
+        rowHeight={ROW_HEIGHT}
+        rowComponent={Line}
         onScroll={followTail}
-        innerRef={listBodyRef}
-        ref={listRef}
-      >
-        {Line}
-      </FixedSizeList>
+        listRef={listRef}
+      />
     </div>
   );
 }
