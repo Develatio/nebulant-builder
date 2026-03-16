@@ -1,7 +1,6 @@
 import { get } from "lodash-es";
 import { dia, mvc, util } from '@joint/core';
-import DiffMatchPatch from "diff-match-patch";
-import * as jsondiffpatch from "jsondiffpatch";
+import * as jsondiffpatch from "jsondiffpatch/with-text-diffs";
 
 import { Logger } from "@src/core/Logger";
 import { Runtime } from "@src/core/Runtime";
@@ -21,7 +20,6 @@ export class CommandManager {
         includeValueOnMove: false,
       },
       textDiff: {
-        diffMatchPatch: DiffMatchPatch,
         minLength: 100,
       },
       cloneDiffValues: true,
