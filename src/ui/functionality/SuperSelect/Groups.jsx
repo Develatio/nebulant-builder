@@ -16,7 +16,7 @@ export const Groups = (props) => {
           return (
             <div
               key={_group.value}
-              ref={ref => refs[_group.value] = ref}
+              ref={ref => { refs[_group.value] = ref; }}
               className={`group ${_group.value === group?.value ? "active" : ""}`}
               onClick={() => selectGroup(_group)}
             >

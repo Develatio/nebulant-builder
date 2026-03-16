@@ -1,15 +1,11 @@
-import { forwardRef } from "react";
-
-export const Icon = forwardRef((props, ref) => {
-  const { className, ...extra } = props;
-
+export const Icon = ({ ref, className, children, ...extra }) => {
   return (
     <div
       ref={ref}
       className={`Icon ${className || ""}`}
       {...extra}
     >
-      { props.children }
+      { children }
     </div>
   );
-});
+};

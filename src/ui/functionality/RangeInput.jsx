@@ -1,4 +1,4 @@
-import { useCallback, useState, memo, forwardRef } from "react";
+import { useCallback, useState, memo } from "react";
 
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
@@ -38,7 +38,8 @@ const Input = ({
 
 const InputMemo = memo(Input);
 
-const RangeSlider = forwardRef(({
+const RangeSlider = ({
+  ref,
   size,
   disabled = false,
   value,
@@ -52,7 +53,7 @@ const RangeSlider = forwardRef(({
   variant = "primary",
   inputProps = {},
   className,
-}, ref) => {
+}) => {
 
   const [ prevValue, setPrevValue ] = useState();
   const prefix = "range-slider";
@@ -94,7 +95,7 @@ const RangeSlider = forwardRef(({
       <FormText className="text-muted ps-2 mt-0 text-nowrap">{sliderPrefix}{max}{sliderSuffix}</FormText>
     </div>
   );
-});
+};
 
 export const RangeInput = (props) => {
   const { onChange: parentOnChange } = props;

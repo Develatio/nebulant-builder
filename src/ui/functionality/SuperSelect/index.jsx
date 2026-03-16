@@ -1,6 +1,6 @@
 // I didn't like any of the available Dropdown libraries out there ¯\_(ツ)_/¯
 
-import { useRef, useState, useCallback, useEffect, useImperativeHandle, forwardRef } from "react";
+import { useRef, useState, useCallback, useEffect, useImperativeHandle } from "react";
 import { util } from "@joint/core";
 
 import { MainInput } from "./MainInput";
@@ -11,7 +11,7 @@ import { SelectionPreview } from "./SelectionPreview";
 import { useClickAnywhere } from "@src/utils/react/useClickAnywhere";
 import { useNoInitialTriggerEffect } from "@src/utils/react/useNoInitialTriggerEffect";
 
-export const SuperSelect = forwardRef((props, ref) => {
+export const SuperSelect = ({ ref, ...props }) => {
   const {
     multi,
     values,
@@ -259,4 +259,4 @@ export const SuperSelect = forwardRef((props, ref) => {
       </div>
     </div>
   )
-});
+};
