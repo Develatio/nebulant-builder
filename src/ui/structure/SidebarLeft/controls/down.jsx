@@ -93,9 +93,9 @@ export const Down = () => {
               placement="right"
               label={<>You must connect to the CLI in order to be able to execute this blueprint</>}
             >
-              <>
+              <span>
                 <RunIcon className="icon" /> Connect to CLI
-              </>
+              </span>
             </Tooltip>
           </div>
         )
@@ -115,9 +115,9 @@ export const Down = () => {
               placement="right"
               label={<>Send the current blueprint to the CLI and execute it</>}
             >
-              <>
+              <span>
                 <RunIcon className="icon" /> Run blueprint
-              </>
+              </span>
             </Tooltip>
           </div>
         )
@@ -169,9 +169,9 @@ export const Down = () => {
               placement="right"
               label={<>Pause the current execution</>}
             >
-              <>
+              <span>
                 <PauseIcon className="icon" />
-              </>
+              </span>
             </Tooltip>
           </div>
         ) : ""
@@ -193,9 +193,9 @@ export const Down = () => {
               placement="right"
               label={<>Resume the execution</>}
             >
-              <>
+              <span>
                 <ResumeIcon className="icon" />
-              </>
+              </span>
             </Tooltip>
           </div>
         ) : ""
@@ -220,9 +220,9 @@ export const Down = () => {
               placement="right"
               label={<>Stop the current execution</>}
             >
-              <>
+              <span>
                 <StopIcon className="icon" />
-              </>
+              </span>
             </Tooltip>
           </div>
         ) : ""
