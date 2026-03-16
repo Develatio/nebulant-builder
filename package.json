@@ -76,7 +76,7 @@
 		"@playwright/test": "1.46.1",
 		"@svgr/core": "^8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
-		"@vitest/coverage-v8": "^2.0.5",
+		"@vitest/coverage-v8": "^4.1.0",
 		"autoprefixer": "^10.4.27",
 		"esbuild": "^0.27.4",
 		"esbuild-sass-plugin": "^3.3.1",
@@ -91,7 +91,7 @@
 		"sass-embedded": "^1.98.0",
 		"to-case": "2.0.0",
 		"util": "^0.12.5",
-		"vitest": "^2.0.5"
+		"vitest": "^4.1.0"
 	},
 	"packageManager": "yarn@4.2.2"
 }
