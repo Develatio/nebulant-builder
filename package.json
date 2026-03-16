@@ -55,7 +55,7 @@
 		"react-form-state-manager": "workspace:^",
 		"react-querybuilder": "8.14.0",
 		"react-simple-code-editor": "^0.14.1",
-		"react-tiny-popover": "^8.0.4",
+		"react-tiny-popover": "^8.1.6",
 		"react-toastify": "^11.0.5",
 		"react-window": "^2.2.7",
 		"semver": "^7.7.4",
