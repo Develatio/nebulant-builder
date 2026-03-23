@@ -43,7 +43,7 @@
     }
 
     .actions {
-      @at-root #react-tiny-popover-container .action,
+      @at-root .react-tiny-popover-container .action,
       .action {
         &.executionControl {
           border-left-color: $executionControl_ddWidget_left_border_color;
